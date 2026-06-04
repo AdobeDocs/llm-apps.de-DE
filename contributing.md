@@ -38,7 +38,7 @@ Du bist gut zu gehen!
 ## Code-Überprüfungen
 
 Alle Einreichungen sollten in Form von Pull-Anfragen erfolgen und müssen überprüft werden
-durch Projektverantwortliche. Lesen [ Dokumentation zu Pull Requests von GitHub](https://help.github.com/articles/about-pull-requests/)
+durch Projektverantwortliche. Lesen [&#x200B; Dokumentation zu Pull Requests von GitHub](https://help.github.com/articles/about-pull-requests/)
 Weitere Informationen zum Senden von Pull-Anforderungen finden Sie unter.
 
 <!--
