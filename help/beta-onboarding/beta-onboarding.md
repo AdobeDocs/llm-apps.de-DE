@@ -81,7 +81,7 @@ git push -u origin main
 
 ## Schritt 2: Erstellen einer LLM-App
 
-Navigieren Sie zu [experience.adobe.com/llm-apps/ ](https://experience.adobe.com/llm-apps/) klicken Sie auf **[!UICONTROL LLM-App erstellen]**.
+Navigieren Sie zu [experience.adobe.com/llm-apps/ &#x200B;](https://experience.adobe.com/llm-apps/) klicken Sie auf **[!UICONTROL LLM-App erstellen]**.
 
 ![Apps-Seite - noch keine Apps erstellt](/help/assets/guide-create-app/first-load.png)
 
@@ -165,7 +165,7 @@ curl -X POST "https://admin.hlx.page/code/<your-github-org>/<your-eds-repo>/main
 
 ## Schritt 4: Aktionen hinzufügen
 
-Öffnen Sie in der [LLM Apps](https://experience.adobe.com/llm-apps/)Benutzeroberfläche Ihre App und navigieren Sie in der linken ]**zu**[!UICONTROL  Aktionen. Klicken Sie auf **+**, um eine neue Aktion zu erstellen. Wiederholen Sie den Vorgang für jede Aktion, die in Ihrer App-Konfigurationsreferenz beschrieben wird (siehe **Aktion 1**, **Aktion**, **Aktion 3** Abschnitte).
+Öffnen Sie in der [LLM Apps](https://experience.adobe.com/llm-apps/)Benutzeroberfläche Ihre App und navigieren Sie in der linken **zu** Aktionen. Klicken Sie auf **+**, um eine neue Aktion zu erstellen. Wiederholen Sie den Vorgang für jede Aktion, die in Ihrer App-Konfigurationsreferenz beschrieben wird (siehe **Aktion 1**, **Aktion**, **Aktion 3** Abschnitte).
 
 ![Seite „Aktionen“ - noch keine Aktionen](/help/assets/guide-create-action/actions-empty.png)
 

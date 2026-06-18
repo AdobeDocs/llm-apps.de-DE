@@ -60,7 +60,7 @@ Das Dialogfeld enthält zwei Registerkarten: **Aktion** und **[!UICONTROL Widget
   | **Open world hint** | Die Aktion interagiert mit externen Systemen |
   | **Schreibgeschützter Hinweis** | Die Aktion liest nur Daten, schreibt nie |
 
-  Weitere [ finden Sie unter „Referenz](/help/reference/reference-docs.md) Metadatenfelder“.
+  Weitere [&#x200B; finden Sie unter „Referenz](/help/reference/reference-docs.md) Metadatenfelder“.
 
 ### OpenAI-Metadaten
 
