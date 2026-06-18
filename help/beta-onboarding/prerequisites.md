@@ -1,17 +1,23 @@
 ---
 title: Voraussetzungen für Adobe LLM-Apps
 description: Was Sie vor der Onboarding-Sitzung für Adobe LLM Apps Beta einrichten müssen.
-source-git-commit: 98d5590c927bf8ffad54061ee027664452c129c1
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '539'
-ht-degree: 2%
+source-wordcount: '571'
+ht-degree: 1%
 
 ---
 
 
 # Voraussetzungen für Adobe LLM-Apps {#prerequisites-for-adobe-llm-apps}
 
-Vergewissern Sie sich vor Ihrer Onboarding-Sitzung mit Adobe, dass Sie Folgendes eingerichtet haben. Führen Sie nach Möglichkeit die folgenden Verifizierungsschritte aus. Die Ergebnisse sagen Ihnen, wer im Raum sein muss, und nicht, ob Sie fortfahren können.
+>[!IMPORTANT]
+>
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+
+Stellen Sie vor der [!DNL Adobe LLM Apps] Onboarding-Sitzung mit Adobe sicher, dass Folgendes eingerichtet ist. Führen Sie nach Möglichkeit die folgenden Verifizierungsschritte aus. Die Ergebnisse sagen Ihnen, wer im Raum sein muss, und nicht, ob Sie fortfahren können.
 
 ## Adobe-Entwicklerkonsole
 

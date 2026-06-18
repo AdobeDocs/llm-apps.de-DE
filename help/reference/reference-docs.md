@@ -1,21 +1,23 @@
 ---
 title: Referenzdokumentation für Adobe LLM-Apps
 description: Referenz auf Feldebene für die Aktionskonfiguration in der Adobe LLM Apps-Benutzeroberfläche.
-source-git-commit: 98d5590c927bf8ffad54061ee027664452c129c1
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '494'
+source-wordcount: '500'
 ht-degree: 6%
 
 ---
 
 
-# Referenz {#reference}
+# Referenzmaterial {#reference-material}
 
 >[!IMPORTANT]
 >
->**Haftungsausschluss:** Dies ist eine Beta-Version von [!DNL LLM Apps]. Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status der Anwendung oder des Produkts dar.
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Dieser Abschnitt enthält Informationen auf Feldebene zur Konfiguration von Aktionen in der [!DNL LLM Apps]-Benutzeroberfläche.
+Dieser Abschnitt enthält Informationen auf Feldebene zur Konfiguration von Aktionen in der [!DNL Adobe LLM Apps]-Benutzeroberfläche.
 
 ## Aktionsparameter
 

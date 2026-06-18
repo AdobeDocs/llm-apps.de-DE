@@ -1,9 +1,9 @@
 ---
 title: Fehlerbehebung für Adobe LLM-Apps
 description: Lösungen für häufige Probleme beim Erstellen, Bereitstellen und Testen von Adobe LLM-Apps.
-source-git-commit: 98d5590c927bf8ffad54061ee027664452c129c1
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '439'
+source-wordcount: '451'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,11 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->**Haftungsausschluss:** Dies ist eine Beta-Version von [!DNL LLM Apps]. Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status der Anwendung oder des Produkts dar.
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+
+Hier finden Sie Informationen zur Fehlerbehebung bei der Arbeit mit [!DNL Adobe LLM Apps].
 
 ## Häufige Probleme
 

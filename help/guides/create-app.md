@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer App
 description: Erfahren Sie, wie Sie Ihre erste LLM-App erstellen und mit Ihrem GitHub-Repository verknüpfen.
-source-git-commit: 914b8a659e690ff47257c2c112f76816f4b0232c
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '735'
+source-wordcount: '745'
 ht-degree: 1%
 
 ---
@@ -11,19 +11,21 @@ ht-degree: 1%
 
 # Erstellen einer App
 
+>[!IMPORTANT]
+>
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+
 >[!NOTE]
 >
 >Wenn Sie **Beta-Programmteilnehmer** sind, verwenden Sie stattdessen das [Beta-Onboarding-Handbuch](/help/beta-onboarding/beta-onboarding.md) - es behandelt die vollständige Einrichtung von Anfang bis Ende für Ihre spezifische Mobile App.
-
->[!IMPORTANT]
->
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta. Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar.
 
 >[!NOTE]
 >
 >Bevor Sie beginnen, stellen Sie sicher, dass [Voraussetzungen](/help/overview/overview.md#prerequisites) erfüllt sind.
 
-Dieses Handbuch führt Sie durch die Erstellung Ihrer ersten LLM-App - vom leeren Status bis hin zu einem vollständig konfigurierten Projekt, das mit Ihrem [!DNL GitHub]-Repository verknüpft ist.
+Dieses Handbuch führt Sie durch die Erstellung Ihrer ersten [!DNL Adobe LLM Apps] - vom leeren Status bis hin zu einem vollständig konfigurierten Projekt, das mit Ihrem [!DNL GitHub]-Repository verknüpft ist.
 
 ## Öffnen Sie [!DNL LLM Apps].
 
