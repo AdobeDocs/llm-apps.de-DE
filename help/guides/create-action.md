@@ -1,15 +1,21 @@
 ---
 title: Erstellen einer Aktion
 description: Erfahren Sie, wie Sie eine Aktion in der Benutzeroberfläche von LLM Apps definieren, einschließlich Metadaten, Eingabeparametern und Widget-Konfiguration.
-source-git-commit: 483a71f5f1de5caf1bd89b26f4d67d2d5a0aa15a
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '868'
+source-wordcount: '900'
 ht-degree: 1%
 
 ---
 
 
 # Erstellen einer Aktion
+
+>[!IMPORTANT]
+>
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
 Dieses Handbuch führt Sie durch die Definition einer Aktion in der [!DNL LLM Apps]-Benutzeroberfläche. Hintergrundinformationen dazu, was Aktionen sind und wie sie funktionieren, finden Sie unter [Grundlegende Konzepte](/help/overview/overview.md#actions).
 

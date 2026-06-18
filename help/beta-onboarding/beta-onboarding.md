@@ -1,9 +1,9 @@
 ---
 title: Beta-Onboarding für Adobe LLM-Apps
 description: Erste Schritte mit Adobe LLM Apps as a Beta Program Participant.
-source-git-commit: 98d5590c927bf8ffad54061ee027664452c129c1
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '1551'
+source-wordcount: '1557'
 ht-degree: 0%
 
 ---
@@ -13,13 +13,15 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->**Haftungsausschluss:** Dies ist eine Beta-Version von [!DNL LLM Apps]. Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status der Anwendung oder des Produkts dar.
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
 >[!NOTE]
 >
 >Bevor Sie beginnen, stellen Sie sicher, dass [Voraussetzungen](/help/beta-onboarding/prerequisites.md) erfüllt sind.
 
-Als Beta-Programmteilnehmer erhalten Sie eine E-Mail mit zwei ZIP-Archiven und einer App-Konfigurationsreferenz. Gehen Sie wie folgt vor, um Ihre App live zu schalten.
+Als Beta-Programmteilnehmer für [!DNL Adobe LLM Apps] erhalten Sie eine E-Mail mit zwei ZIP-Archiven und einer App-Konfigurationsreferenz. Gehen Sie wie folgt vor, um Ihre App live zu schalten.
 
 ## Bevor Sie beginnen
 

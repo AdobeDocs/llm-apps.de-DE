@@ -1,9 +1,9 @@
 ---
 title: Entwicklung für Adobe LLM-Apps
 description: Projektstruktur, lokaler Entwicklungs-Workflow und Testeinrichtung für den Adobe LLM Apps Handler-Code.
-source-git-commit: 51ffb31eec82f9639bd7ade9052d61028c262d0e
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '318'
+source-wordcount: '324'
 ht-degree: 4%
 
 ---
@@ -13,9 +13,11 @@ ht-degree: 4%
 
 >[!IMPORTANT]
 >
->**Haftungsausschluss:** Dies ist eine Beta-Version von [!DNL LLM Apps]. Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status der Anwendung oder des Produkts dar.
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-In diesem Abschnitt werden die Handler-Projektstruktur, der lokale Entwicklungs-Workflow und das Testsetup behandelt. Den Handler-Vertrag und den Beispiel-Code finden Sie unter [Action Handler schreiben](/help/guides/write-action-handler.md).
+In diesem Abschnitt werden die Handler-Projektstruktur, der lokale Entwicklungs-Workflow und das Testsetup für [!DNL Adobe LLM Apps] behandelt. Den Handler-Vertrag und den Beispiel-Code finden Sie unter [Action Handler schreiben](/help/guides/write-action-handler.md).
 
 ## Projektstruktur
 

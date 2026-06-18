@@ -1,9 +1,9 @@
 ---
 title: Einrichten des Widgets (EDS)
 description: Erfahren Sie, wie Sie ein Edge Delivery Services-Widget-Projekt einrichten und den Blockvertrag für das Rendern visueller Antworten innerhalb von LLM-Plattformen implementieren.
-source-git-commit: 483a71f5f1de5caf1bd89b26f4d67d2d5a0aa15a
+source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
 workflow-type: tm+mt
-source-wordcount: '1214'
+source-wordcount: '1226'
 ht-degree: 1%
 
 ---
@@ -13,7 +13,9 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta. Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar.
+>[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
+>
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
 In diesem Handbuch wird vollständig erklärt, wie Sie ein EDS-Widget erstellen: von der Konfiguration Ihrer Aktion in der [!DNL LLM Apps]-Benutzeroberfläche über die Einrichtung Ihres EDS-Projekts bis hin zum Schreiben des Block-Codes, der Ihre Daten in der LLM-Plattform rendert. Einen umfassenden Überblick finden Sie unter [Grundlegende Konzepte](/help/overview/overview.md#widgets-eds).
 
