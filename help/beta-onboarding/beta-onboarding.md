@@ -1,13 +1,15 @@
 ---
-title: Beta-Onboarding
+title: Beta-Onboarding für Adobe LLM-Apps
 description: Erste Schritte mit Adobe LLM Apps as a Beta Program Participant.
-source-git-commit: f144ccfc0ede6c556ccf4d99173f91d372add6f7
+source-git-commit: 98d5590c927bf8ffad54061ee027664452c129c1
 workflow-type: tm+mt
-source-wordcount: '1545'
+source-wordcount: '1551'
 ht-degree: 0%
 
 ---
 
+
+# Beta-Onboarding {#beta-onboarding}
 
 >[!IMPORTANT]
 >
@@ -77,7 +79,7 @@ git push -u origin main
 
 ## Schritt 2: Erstellen einer LLM-App
 
-Navigieren Sie zu [experience.adobe.com/llm-apps/ &#x200B;](https://experience.adobe.com/llm-apps/) klicken Sie auf **[!UICONTROL LLM-App erstellen]**.
+Navigieren Sie zu [experience.adobe.com/llm-apps/ ](https://experience.adobe.com/llm-apps/) klicken Sie auf **[!UICONTROL LLM-App erstellen]**.
 
 ![Apps-Seite - noch keine Apps erstellt](/help/assets/guide-create-app/first-load.png)
 
@@ -161,7 +163,7 @@ curl -X POST "https://admin.hlx.page/code/<your-github-org>/<your-eds-repo>/main
 
 ## Schritt 4: Aktionen hinzufügen
 
-Öffnen Sie in der [LLM Apps](https://experience.adobe.com/llm-apps/)Benutzeroberfläche Ihre App und navigieren Sie in der linken **zu** Aktionen. Klicken Sie auf **+**, um eine neue Aktion zu erstellen. Wiederholen Sie den Vorgang für jede Aktion, die in Ihrer App-Konfigurationsreferenz beschrieben wird (siehe **Aktion 1**, **Aktion**, **Aktion 3** Abschnitte).
+Öffnen Sie in der [LLM Apps](https://experience.adobe.com/llm-apps/)Benutzeroberfläche Ihre App und navigieren Sie in der linken ]**zu**[!UICONTROL  Aktionen. Klicken Sie auf **+**, um eine neue Aktion zu erstellen. Wiederholen Sie den Vorgang für jede Aktion, die in Ihrer App-Konfigurationsreferenz beschrieben wird (siehe **Aktion 1**, **Aktion**, **Aktion 3** Abschnitte).
 
 ![Seite „Aktionen“ - noch keine Aktionen](/help/assets/guide-create-action/actions-empty.png)
 
