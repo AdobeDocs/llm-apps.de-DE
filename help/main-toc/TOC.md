@@ -2,10 +2,10 @@
 user-guide-title: Handbuch zu LLM Apps
 breadcrumb-title: LLM-Apps
 user-guide-description: Erstellen, Bereitstellen und Messen interaktiver Markenerlebnisse innerhalb von KI-Assistenten wie LLM-Plattformen (ChatGPT, Claude) mithilfe von Adobe LLM-Apps.
-source-git-commit: f144ccfc0ede6c556ccf4d99173f91d372add6f7
+source-git-commit: 344c5457eb79a19b1dae823732a1cd9866dcd9dc
 workflow-type: tm+mt
-source-wordcount: '59'
-ht-degree: 15%
+source-wordcount: '54'
+ht-degree: 11%
 
 ---
 
@@ -13,9 +13,6 @@ ht-degree: 15%
 # Handbuch zu [!DNL LLM Apps] {#using}
 
 + [Überblick](/help/overview/overview.md)
-+ Beta-Programm {#beta}
-   + [Voraussetzungen](/help/beta-onboarding/prerequisites.md)
-   + [Beta-Onboarding](/help/beta-onboarding/beta-onboarding.md)
 + Anleitungen {#guides}
    + [Erstellen einer App](/help/guides/create-app.md)
    + [Erstellen einer Aktion](/help/guides/create-action.md)
