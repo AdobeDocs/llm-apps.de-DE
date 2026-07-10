@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer App
 description: Erfahren Sie, wie Sie Ihre erste LLM-App erstellen und mit Ihrem GitHub-Repository verknüpfen.
-source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
+source-git-commit: 344c5457eb79a19b1dae823732a1cd9866dcd9dc
 workflow-type: tm+mt
-source-wordcount: '745'
+source-wordcount: '720'
 ht-degree: 1%
 
 ---
@@ -16,10 +16,6 @@ ht-degree: 1%
 >[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
-
->[!NOTE]
->
->Wenn Sie **Beta-Programmteilnehmer** sind, verwenden Sie stattdessen das [Beta-Onboarding-Handbuch](/help/beta-onboarding/beta-onboarding.md) - es behandelt die vollständige Einrichtung von Anfang bis Ende für Ihre spezifische Mobile App.
 
 >[!NOTE]
 >
