@@ -1,7 +1,7 @@
 ---
 title: Erstellen einer Aktion
 description: Erfahren Sie, wie Sie eine Aktion in der Benutzeroberfläche von LLM Apps definieren, einschließlich Metadaten, Eingabeparametern und Widget-Konfiguration.
-source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
+source-git-commit: ae2748319b5401555c3a616971f5697c17e74ac3
 workflow-type: tm+mt
 source-wordcount: '900'
 ht-degree: 1%
@@ -154,4 +154,3 @@ Die Aktionsmetadaten werden gespeichert, es wurde jedoch noch kein Code bereitge
 ## Nächste Schritte
 
 - [Anleitung: Einrichten des Widgets (EDS)](/help/guides/widgets.md)
-
