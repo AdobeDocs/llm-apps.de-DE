@@ -103,7 +103,7 @@ Die Dateinamen von Source müssen nicht mit den endgültigen Dateinamen überein
 ### `chatgpt-plugin-connect.png`
 
 - Status: Bestätigung nach der Erstellung des Plug-ins.
-- Einschließen: **Hinzufügen <plugin> zu ChatGPT **und** Connect **.
+- Einschließen: **Hinzufügen <plugin> zu ChatGPT &#x200B;** und **&#x200B; Connect &#x200B;**.
 - Maske: Browser-URL und Connector-IDs.
 - Alt-Text: `ChatGPT — connect the new plugin`
 

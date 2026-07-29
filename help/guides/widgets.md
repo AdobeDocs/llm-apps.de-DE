@@ -70,7 +70,7 @@ SDK wird nicht in den Baustein importiert. Die verbundene `bridge` wird automati
 - Rufen Sie eine weitere Aktion mit `bridge.callTool()` auf.
 - Lassen Sie die Größe mit der `bridge.autoResize()` synchronisiert.
 
-In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie ](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem [`@adobe/llmapps-sdk`-Paket .
+In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie [&#128279;](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem `@adobe/llmapps-sdk`-Paket .
 
 ## Grundlagen zum Datenvertrag
 
@@ -196,4 +196,4 @@ Stellen Sie dann die App für das Staging bereit und testen Sie sie mit Live `st
 
 ## Andere EDS-Setups
 
-Wenn Sie den Onboarding-Agenten nicht verwendet haben oder eine vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
+Wenn Sie den Onboarding-Agenten nicht verwendet haben oder eine vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).

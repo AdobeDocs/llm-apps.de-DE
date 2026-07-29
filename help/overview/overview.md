@@ -103,7 +103,7 @@ Führen Sie alle folgenden Anforderungen aus, bevor Sie eine App erstellen.
 
 Ihre Adobe IMS-Organisation muss Zugriff auf [[!DNL App Builder]](https://developer.adobe.com/app-builder/docs/intro_and_overview/) haben. Sie benötigen die Rolle **Entwickler** oder **Systemadministrator**.
 
-Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu ](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
+Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu &#x200B;](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
 
 ![Adobe Developer Console - Schnellstartbildschirm, der den Entwicklerzugriff bestätigt](/help/assets/overview/dev-console-access-granted.png)
 
