@@ -1,9 +1,9 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und was Sie benötigen, um loszulegen.
-source-git-commit: 8b4027d0fd73b8134a7478a5044f992e6cf03024
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '972'
+source-wordcount: '970'
 ht-degree: 1%
 
 ---
@@ -34,17 +34,13 @@ ht-degree: 1%
 
 ## Warum [!DNL LLM Apps] wichtig sind
 
-LLM-Interaktionen unterscheiden sich grundlegend von der herkömmlichen Suche. Die durchschnittliche [!DNL ChatGPT] dauert viermal länger als eine herkömmliche Suchsitzung. Mehr als 40 % der Verbraucher verlassen sich bei komplexen Kaufentscheidungen auf KI-Tools. Ohne [!DNL LLM Apps] könnten Sie die Erwähnung gewinnen, aber den Kunden verlieren. [!DNL LLM Apps] stellt sicher, dass Ihre Marke nicht nur sichtbar, sondern genau in dem Moment umsetzbar ist, in dem ein Benutzer bereit ist, eine Entscheidung zu treffen.
+LLM-Interaktionen unterscheiden sich grundlegend von der herkömmlichen Suche. Die durchschnittliche Dauer einer LLM-Sitzung ist viermal so lang wie bei einer herkömmlichen Suchsitzung. Mehr als 40 % der Verbraucher verlassen sich bei komplexen Kaufentscheidungen auf KI-Tools. Ohne [!DNL LLM Apps] könnten Sie die Erwähnung gewinnen, aber den Kunden verlieren. [!DNL LLM Apps] stellt sicher, dass Ihre Marke nicht nur sichtbar, sondern genau in dem Moment umsetzbar ist, in dem ein Benutzer bereit ist, eine Entscheidung zu treffen.
 
 ## Wichtige Konzepte {#key-concepts}
 
 ### LLM-App
 
 Ihr gebrandeter Assistent, mit dem Benutzer innerhalb von [!DNL ChatGPT] oder anderen LLM-Plattformen interagieren. Es fasst alle Aktionen zusammen und wird als eine Einheit bereitgestellt.
-
-### Onboarding-Agent
-
-Der geführte Workflow zum Erstellen von Apps wurde von &quot;**[!UICONTROL App automatisch erstellen“]**. Es analysiert Ihre Website, schlägt Aktionen vor und generiert für jede Aktion einen Handler und ein Widget.
 
 ### Aktion {#actions}
 
@@ -103,7 +99,7 @@ Führen Sie alle folgenden Anforderungen aus, bevor Sie eine App erstellen.
 
 Ihre Adobe IMS-Organisation muss Zugriff auf [[!DNL App Builder]](https://developer.adobe.com/app-builder/docs/intro_and_overview/) haben. Sie benötigen die Rolle **Entwickler** oder **Systemadministrator**.
 
-Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu &#x200B;](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
+Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu ](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
 
 ![Adobe Developer Console - Schnellstartbildschirm, der den Entwicklerzugriff bestätigt](/help/assets/overview/dev-console-access-granted.png)
 
@@ -133,23 +129,23 @@ Um den Zugriff zu überprüfen, öffnen Sie das [EDS User Admin Tool](https://to
 
 ### Website
 
-Sie benötigen eine öffentliche HTTPS-Website, die die Produkte, Services oder Aufgaben darstellt, die die App unterstützen soll. Der Onboarding-Agent analysiert diese Website, um Maßnahmen vorzuschlagen und repräsentative Beispieldaten zu erstellen.
+Sie benötigen eine öffentliche HTTPS-Website, die die Produkte, Services oder Aufgaben darstellt, die die App unterstützen soll. Die Plattform analysiert diese Website, um Aktionen vorzuschlagen und repräsentative Beispieldaten zu erstellen.
 
 Verwenden Sie keine Website, die vertrauliche oder zugriffskontrollierte Informationen zur Verfügung stellt.
 
-### [!DNL ChatGPT]
+### [!DNL ChatGPT] oder [!DNL Claude] zum Testen
 
-Um das Tutorial Erste Schritte abzuschließen, verwenden Sie einen unterstützten [!DNL ChatGPT] und aktivieren Sie den Entwicklermodus. Workspace-Administratoren können den Zugriff einschränken. Siehe [Testen in ChatGPT](/help/guides/test-in-chatgpt.md#plan-requirements).
+Um das Tutorial Erste Schritte abzuschließen, verwenden Sie einen unterstützten [!DNL ChatGPT] mit aktiviertem Entwicklermodus oder einen unterstützten [!DNL Claude] mit aktivierten benutzerdefinierten Connectoren. Workspace- oder Organisationsadministratoren können den Zugriff einschränken. Siehe [Test in ChatGPT](/help/guides/test-in-chatgpt.md#plan-requirements) oder [Test in Claude](/help/guides/test-in-claude.md#plan-requirements).
 
 ## Journey auswählen {#choose-your-journey}
 
 ### &#x200B;1. Erstellen und Starten Ihrer ersten App
 
-Beginnen Sie mit [Erstellen und starten Sie Ihre erste App](/help/guides/create-app.md). Diese Journey beginnt mit zwei leeren Repositorys und endet mit einer als [!DNL ChatGPT] getesteten produktionsbereiten App.
+Beginnen Sie mit [Erstellen und starten Sie Ihre erste App](/help/guides/create-app.md). Diese Journey beginnt mit zwei leeren Repositorys und endet mit einer produktionsbereiten App, die als Plug-in in einer unterstützten LLM-Plattform wie [!DNL ChatGPT] getestet wird.
 
 ### &#x200B;2. Anpassen der generierten App
 
-Wählen Sie diese Journey aus, wenn der Onboarding-Agent die App erstellt hat und Sie das Beispielverhalten ersetzen möchten:
+Wählen Sie diese Journey aus, wenn die Plattform die App automatisch erstellt hat und Sie das Beispielverhalten ersetzen möchten:
 
 1. [Passen Sie die generierten Handler an](/help/guides/customize-handler.md) um Ihre APIs zu verbinden und die von den einzelnen Aktionen zurückgegebenen Daten zu definieren.
 2. [Passen Sie die generierten Widgets an](/help/guides/widgets.md) um diese Daten zu verwenden und Ihre Interaktionen und Ihr Design anzuwenden.
@@ -160,7 +156,7 @@ Wählen Sie [Neue Aktion von Grund auf hinzufügen](/help/guides/create-action.m
 
 ### &#x200B;4. Verbinden eines vorhandenen EDS-Projekts
 
-Wählen Sie [Vorhandenes EDS-Projekt verbinden](/help/guides/bring-your-own-eds.md) aus, wenn Sie bereits eine EDS-Website haben oder den Onboarding-Agenten nicht verwendet haben.
+Wählen Sie [Vorhandenes EDS-Projekt verbinden](/help/guides/bring-your-own-eds.md) aus, wenn Sie bereits eine EDS-Website haben oder die App nicht automatisch erstellt haben.
 
-Jede Journey verwendet die freigegebenen [Bereitstellung](/help/guides/deploy-your-app.md) und [ChatGPT-Plug-in-](/help/guides/test-in-chatgpt.md).
+Jede Journey verwendet den freigegebenen [Bereitstellungs](/help/guides/deploy-your-app.md)-Schritt, dann [ChatGPT-Plug-in-](/help/guides/test-in-chatgpt.md) oder [Claude-Connector-](/help/guides/test-in-claude.md).
 

@@ -1,9 +1,9 @@
 ---
 title: Bereitstellen der App
 description: Erfahren Sie, wie Sie Ihre Adobe-LLM-App über die Benutzeroberfläche für LLM-Apps für die Staging- und Produktionsumgebung bereitstellen.
-source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '309'
+source-wordcount: '322'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 Nachdem Sie Ihren Handler-Code geschrieben und an Ihr verknüpftes Repository gesendet haben, können Sie die App über die [!DNL LLM Apps]-Benutzeroberfläche bereitstellen.
 
-Dies ist ein freigegebener Schritt für jede Journey. Fahren Sie nach der Bereitstellung mit [Testen des ChatGPT-Plug-ins](/help/guides/test-in-chatgpt.md) fort.
+Dies ist ein freigegebener Schritt für jede Journey. Fahren Sie nach der Bereitstellung mit [Testen des ChatGPT](/help/guides/test-in-chatgpt.md)Plug-ins oder [Testen des Claude-Connectors](/help/guides/test-in-claude.md) fort.
 
 ## Starten der Bereitstellung
 
@@ -58,10 +58,11 @@ Im Abschnitt **Bereitstellungsverlauf** werden die letzten 10 Bereitstellungen a
 
 ![Bereitstellungsverlauf](/help/assets/guide-deploy/deployment-history.png)
 
-Jede Zeile zeigt die Zielumgebung **&#x200B;**&#x200B;(Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
+Jede Zeile zeigt die Zielumgebung **** (Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
 Die letzte Bereitstellung war erfolgreich.
 
 ## Nächster Schritt
 
-[Testen Sie die bereitgestellte App als ChatGPT-Plug-in](/help/guides/test-in-chatgpt.md).
+- [Testen Sie die bereitgestellte App als ChatGPT-Plug-in](/help/guides/test-in-chatgpt.md).
+- [Testen Sie die bereitgestellte App als einen Claude-Connector](/help/guides/test-in-claude.md).
 

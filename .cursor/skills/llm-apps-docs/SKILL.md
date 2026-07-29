@@ -1,9 +1,9 @@
 ---
 name: llm-apps-docs
 description: Erstellen, aktualisieren, überprüfen und validieren Sie die öffentliche Dokumentation und Screenshots zu Adobe LLM Apps. Verwenden Sie beim Bearbeiten von lm-apps.en-Artikeln, des Experience League-Inhaltsverzeichnisses, der Anleitung für Onboarding-Agenten, der EDS-Widget-Dokumente, der Anleitung für die Produktionsbereitschaft oder von Dokumentations-Screenshots.
-source-git-commit: ca0d8f49a295e6465f2e9b20809e69436bfa93d5
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '716'
+source-wordcount: '813'
 ht-degree: 0%
 
 ---
@@ -34,10 +34,11 @@ Wenn die Produktion mit der Quelle oder den Plänen in Konflikt steht, dokumenti
 
 ## Authoring-Regeln
 
-- Führen Sie Erstbenutzende durch den Onboarding-Agent.
+- Führen Sie Erstbenutzende durch die automatische App-Erstellung (der **[!UICONTROL Meine App automatisch erstellen]**).
 - Organisieren Sie die Navigation um Journey und Ergebnisse der Benutzenden, nicht um Implementierungsthemen.
 - Geben Sie die Journey-Sequenz am Anfang jedes Handbuchs an und stellen Sie den nächsten freigegebenen Schritt bereit.
-- Verwenden Sie **Onboarding-Agent** für die Produktfunktion und eine exakte Kopie der Benutzeroberfläche wie **[!UICONTROL Programm automatisch erstellen]** für Steuerelemente.
+- Verwenden Sie keine internen Codenamen (z. B. „Onboarding-Agent„) in kundenorientierten Dokumenten. Diese Funktion wird nie in der Produkt-Benutzeroberfläche verfügbar gemacht. Beschreiben Sie sie generisch (z. B. „die Plattform„) und verwenden Sie eine exakte Kopie der Benutzeroberfläche wie **[!UICONTROL Programm automatisch erstellen]** für Steuerelemente.
+- [!DNL Adobe LLM Apps] ist plattformunabhängig - der MCP-Server funktioniert mit jeder unterstützten LLM-Plattform, nicht nur mit [!DNL ChatGPT]. Formulieren Sie keine allgemeinen oder illustrativen Behauptungen, als ob [!DNL ChatGPT] das einzige Ziel wären (ziehen Sie z. B. „eine unterstützte LLM-Plattform wie [!DNL ChatGPT]&quot; gegenüber „ChatGPT“ allein vor). Nur Name [!DNL ChatGPT] explizit in Inhalten, die wirklich und derzeit [!DNL ChatGPT] sind: der dedizierte [Test im ChatGPT-](/help/guides/test-in-chatgpt.md), seine direkten Querlinks/Verfahrensschritte und [!DNL ChatGPT] Referenz- oder Fehlerbehebungsinhalte.
 - Erklären Sie ein technisches Konzept, wenn Sie dem Benutzer zum ersten Mal begegnen. Verweisen Sie auf ein tieferes Konzept oder Referenzmaterial.
 - Halten Sie Tutorials linear, Anleitungen für aufgabenorientierte Aufgaben und Referenzseiten mit Fakten.
 - Es sollten nur Informationen enthalten sein, die der Leser für die aktuelle Aufgabe benötigt; kurze, direkte Sätze sollten bevorzugt werden.
@@ -45,7 +46,7 @@ Wenn die Produktion mit der Quelle oder den Plänen in Konflikt steht, dokumenti
 - Unterscheiden Sie generierte Strukturvorlagen von produktionsfertigen Integrationen.
 - Vermeiden Sie interne Worker-Namen, Datenbankfelder, Implementierungstickets und instabile Pipeline-Details.
 - Feldtabellen nicht über Handbücher hinweg duplizieren; Link zu Referenz.
-- Bewahren Sie die Schriftarten und Anweisungen von Experience League auf: `[!DNL]`, &grave;&grave;, `[!IMPORTANT]`, `[!NOTE]` und `[!TIP]`.
+- Bewahren Sie die Schriftarten und Anweisungen von Experience League auf: `[!DNL]`, ``, `[!IMPORTANT]`, `[!NOTE]` und `[!TIP]`.
 - Verwenden Sie stammbezogene interne Links: `/help/...`.
 - Verwenden Sie das Satzbeispiel für Titel und Überschriften, sofern die Produktkennzeichnung nichts anderes erfordert.
 - Verwenden Sie einen beschreibenden Bild-Alternativtext, der den Bildschirm und den Status erklärt.

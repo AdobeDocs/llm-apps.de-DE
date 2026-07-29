@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer neuen Aktion
 description: Definieren Sie Aktionsmetadaten, implementieren Sie den Handler, verbinden Sie ein EDS-Widget, testen Sie es und stellen Sie es mit Adobe LLM-Apps bereit.
-source-git-commit: 4c259a4587c0a84bb634a9a56c043dfe1cfc31fb
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '1141'
+source-wordcount: '1137'
 ht-degree: 1%
 
 ---
@@ -21,11 +21,11 @@ ht-degree: 1%
 >
 >In diesem Handbuch wird von einer grundlegenden Vertrautheit mit Adobe Edge Delivery Services (EDS) ausgegangen. Wenn Sie neu bei EDS sind, lesen Sie zunächst das [EDS-Entwickler-Tutorial](https://www.aem.live/developer/tutorial) und [Erkunden von Blöcken](https://www.aem.live/docs/exploring-blocks) um die Grundlagen - Blöcke, die `decorate` und die EDS-Projektstruktur - zu lernen, bevor Sie ein Widget verbinden.
 
-Verwenden Sie dieses Handbuch, um eine Funktion hinzuzufügen, die der Onboarding-Agent nicht erstellt hat. Sie definieren die Aktion in [!DNL LLM Apps], schreiben den Handler in das verknüpfte Repository, fügen bei Bedarf ein Widget hinzu, testen sie und stellen sie bereit.
+Verwenden Sie dieses Handbuch, um eine Funktion hinzuzufügen, die von der Plattform nicht erstellt wurde. Sie definieren die Aktion in [!DNL LLM Apps], schreiben den Handler in das verknüpfte Repository, fügen bei Bedarf ein Widget hinzu, testen sie und stellen sie bereit.
 
 **Journey:** Planen Sie die Aktion, → die Metadaten zu erstellen → den Handler zu schreiben → das Widget zu verbinden → lokal zu testen → das Plug-in bereitzustellen und zu testen.
 
-Beginnen Sie Ihre erste Mobile App mit [Erstellen Sie Ihre erste Mobile App mit dem Onboarding-Agenten](/help/guides/create-app.md).
+Beginnen Sie Ihre erste App mit [Erste App automatisch erstellen](/help/guides/create-app.md).
 
 ## Bevor Sie beginnen
 
@@ -185,7 +185,7 @@ Gewähren Sie nur erforderliche Browser-Berechtigungen und CSP-Domains.
 
 ![Aktion erstellen - Berechtigungen und CSP](/help/assets/guide-create-action/widget-permissions-csp.png)
 
-Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
+Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
 
 ## Speichern der Aktion
 
@@ -383,7 +383,7 @@ Wenn die Aktion über ein Widget verfügt:
 4. Zeigen Sie die EDS-Seite lokal in der Vorschau an.
 5. Überprüfen Sie CSP-, CORS- und Widget-URLs.
 
-Siehe [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
+Siehe [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
 
 ## Bereitstellen und Testen
 

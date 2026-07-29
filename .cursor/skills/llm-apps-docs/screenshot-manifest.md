@@ -1,5 +1,5 @@
 ---
-source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
 source-wordcount: '398'
 ht-degree: 0%
@@ -39,7 +39,7 @@ Die Dateinamen von Source müssen nicht mit den endgültigen Dateinamen überein
 
 - Status: Seite „Aktionen“, während das Onboarding aktiv ist.
 - Einschließen: Schritte zum Versand der Fortschrittsmeldung und Generierung.
-- Alt-Text: `Actions — Onboarding Agent generating recommendations`
+- Alt-Text: `Actions — generating recommendations`
 
 ### `actions-ready-for-review.png`
 
@@ -103,7 +103,7 @@ Die Dateinamen von Source müssen nicht mit den endgültigen Dateinamen überein
 ### `chatgpt-plugin-connect.png`
 
 - Status: Bestätigung nach der Erstellung des Plug-ins.
-- Einschließen: **Hinzufügen <plugin> zu ChatGPT &#x200B;** und **&#x200B; Connect &#x200B;**.
+- Einschließen: **Hinzufügen <plugin> zu ChatGPT **und** Connect **.
 - Maske: Browser-URL und Connector-IDs.
 - Alt-Text: `ChatGPT — connect the new plugin`
 

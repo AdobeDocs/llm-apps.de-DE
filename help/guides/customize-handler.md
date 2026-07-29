@@ -1,9 +1,9 @@
 ---
 title: Anpassen eines generierten Aktionshandlers
 description: Machen Sie sich mit dem Adobe-LLM-Apps-Handler-Vertrag vertraut, ersetzen Sie generierte Beispieldaten und halten Sie die Handler-Ausgabe an sein Widget ausgerichtet.
-source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '542'
+source-wordcount: '541'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Der Onboarding-Agent erstellt für jede generierte Aktion einen funktionierenden Handler. Der Handler gibt zunächst Beispieldaten zurück, damit Sie das gesamte Erlebnis testen können.
+Die Plattform erstellt für jede generierte Aktion einen funktionierenden Handler. Der Handler gibt zunächst Beispieldaten zurück, damit Sie das gesamte Erlebnis testen können.
 
 Verwenden Sie dieses Handbuch, um den Handler-Vertrag zu verstehen und die Beispieldaten durch Ihre APIs oder Datenquellen zu ersetzen.
 

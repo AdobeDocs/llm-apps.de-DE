@@ -1,7 +1,7 @@
 ---
-source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '695'
+source-wordcount: '696'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,7 @@ Der Benutzer sollte die relevanten Status aus dem Manifest erfassen, einschließ
 1. App erstellen, bevor GitHub verbunden ist.
 2. Repository-Zugriff für die GitHub-App.
 3. **Meine App automatisch erstellen** aktiviert, wobei beide Repositorys ausgewählt sind.
-4. App-Erstellung oder Onboarding-Agent-Start.
+4. App-Erstellung oder automatischer App-Build-Start.
 5. Aktionen werden generiert.
 6. Erzeugte Aktionen, die zur Überprüfung bereit sind.
 7. Metadaten, Handler und Widget einer repräsentativen Aktion.

@@ -1,9 +1,9 @@
 ---
 title: Anpassen eines generierten EDS-Widgets
-description: Machen Sie sich mit dem Edge Delivery Services-Widget vertraut, das vom Adobe LLM Apps Onboarding Agent erstellt wurde, und passen Sie es an.
-source-git-commit: 4c259a4587c0a84bb634a9a56c043dfe1cfc31fb
+description: Das automatisch von Adobe LLM-Apps erstellte Edge Delivery Services-Widget verstehen und anpassen.
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '650'
+source-wordcount: '646'
 ht-degree: 0%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 0%
 >
 >In diesem Handbuch wird von einer grundlegenden Vertrautheit mit Adobe Edge Delivery Services (EDS) ausgegangen. Wenn Sie neu bei EDS sind, lesen Sie zunächst das [EDS-Entwickler-](https://www.aem.live/developer/tutorial) und [Erkunden von Blöcken](https://www.aem.live/docs/exploring-blocks) um die Grundlagen - Blöcke, die `decorate` und die EDS-Projektstruktur - zu lernen, bevor Sie ein Widget anpassen.
 
-Der Onboarding-Agent erstellt für jede generierte Aktion ein EDS-Widget. Das Widget empfängt bereits das Aktionsergebnis, rendert Beispieldaten, wendet Host-Stile an und ist mit der Aktion in [!DNL LLM Apps] verknüpft.
+Die Plattform erstellt für jede generierte Aktion ein EDS-Widget. Das Widget empfängt bereits das Aktionsergebnis, rendert Beispieldaten, wendet Host-Stile an und ist mit der Aktion in [!DNL LLM Apps] verknüpft.
 
 Testen Sie zunächst das generierte Widget. Passen Sie dann den Datenvertrag, die Interaktion und das visuelle Design an.
 
@@ -42,7 +42,7 @@ blocks/
 - Die CSS-Datei steuert das Layout, das responsive Verhalten und das visuelle Design.
 - Die generierte Pull-Anfrage zeigt die genauen Dateien an, die für die Aktion erstellt wurden.
 
-Der Onboarding-Agent konfiguriert auch die Widget-URLs und unterstützende SDK-Dateien. Sie müssen kein zweites EDS-Projekt erstellen oder diese Werte erneut eingeben, um ein generiertes Widget anzupassen.
+Auf der Plattform werden auch die Widget-URLs und unterstützende SDK-Dateien konfiguriert. Sie müssen kein zweites EDS-Projekt erstellen oder diese Werte erneut eingeben, um ein generiertes Widget anzupassen.
 
 ## Verbinden des LLM Apps SDK mit dem Widget
 
@@ -70,7 +70,7 @@ SDK wird nicht in den Baustein importiert. Die verbundene `bridge` wird automati
 - Rufen Sie eine weitere Aktion mit `bridge.callTool()` auf.
 - Lassen Sie die Größe mit der `bridge.autoResize()` synchronisiert.
 
-In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie [&#128279;](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem `@adobe/llmapps-sdk`-Paket .
+In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie ](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem [`@adobe/llmapps-sdk`-Paket .
 
 ## Grundlagen zum Datenvertrag
 
@@ -196,4 +196,4 @@ Stellen Sie dann die App für das Staging bereit und testen Sie sie mit Live `st
 
 ## Andere EDS-Setups
 
-Wenn Sie den Onboarding-Agenten nicht verwendet haben oder eine vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
+Wenn Sie die App nicht automatisch erstellt haben oder eine vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).

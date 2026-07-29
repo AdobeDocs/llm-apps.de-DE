@@ -1,10 +1,10 @@
 ---
 user-guide-title: Handbuch zu LLM Apps
 breadcrumb-title: LLM-Apps
-user-guide-description: Erstellen, Anpassen, Bereitstellen und Testen interaktiver Erlebnisse in ChatGPT mit Adobe LLM-Apps.
-source-git-commit: 6bd504024ea25470440ce7c9b36ee5b4a4d936f9
+user-guide-description: Erstellen, Anpassen, Bereitstellen und Testen interaktiver Erlebnisse in unterstützten LLM-Plattformen wie ChatGPT mit Adobe LLM-Apps.
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '90'
+source-wordcount: '100'
 ht-degree: 4%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 4%
 
 + [Überblick](/help/overview/overview.md)
 + Erstellen und Starten Ihrer ersten App {#build-first-app}
-  + [Erstellen Ihrer ersten App mit dem Onboarding-Agenten](/help/guides/create-app.md)
+  + [Erste App automatisch erstellen](/help/guides/create-app.md)
 + Anpassen der generierten App {#customize-generated-app}
   + [Anpassen eines generierten Handlers](/help/guides/customize-handler.md)
   + [Anpassen eines generierten Widgets](/help/guides/widgets.md)
@@ -25,6 +25,7 @@ ht-degree: 4%
 + Bereitstellen und Testen {#deploy-and-test}
   + [Bereitstellen der App](/help/guides/deploy-your-app.md)
   + [Testen der LLM-App als ChatGPT-Plug-in](/help/guides/test-in-chatgpt.md)
+  + [Testen der LLM-App als Claude-Connector](/help/guides/test-in-claude.md)
 + Referenz {#reference}
   + [Lokale Handler-Entwicklung und -Tests](/help/reference/development.md)
   + [Aktionen- und Widget-Felder](/help/reference/reference-docs.md)
