@@ -1,10 +1,10 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und was Sie benötigen, um loszulegen.
-source-git-commit: 344c5457eb79a19b1dae823732a1cd9866dcd9dc
+source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
 workflow-type: tm+mt
-source-wordcount: '831'
-ht-degree: 2%
+source-wordcount: '970'
+ht-degree: 1%
 
 ---
 
@@ -19,9 +19,9 @@ ht-degree: 2%
 
 ## Was ist [!DNL Adobe LLM Apps]?
 
-[!DNL Adobe LLM Apps] ermöglicht es Ihrer Marke, wichtige Aktionen - wie Produkterkennung, Verfügbarkeitsprüfungen oder Service-Buchungen - direkt in KI-Assistenten wie [!DNL ChatGPT] oder Claude anzuzeigen. Statt in KI-generierten Antworten passiv erwähnt zu werden, kann Ihre Marke Kunden durch echte Geschäftsabläufe führen, ohne dass sie das Gespräch verlassen.
+[!DNL Adobe LLM Apps] ermöglicht es Ihrer Marke, innerhalb von KI-Assistenten wie [!DNL ChatGPT] nützliche Aktionen anzubieten, z. B. Produkterkennung, Verfügbarkeitsprüfungen oder Service-Buchungen.
 
-[!DNL LLM Apps] ist verfügbar unter [experience.adobe.com/llm-apps](https://experience.adobe.com/llm-apps).
+[!DNL LLM Apps] ist verfügbar unter [experience.adobe.com](https://experience.adobe.com/#/@llmapps/llm-apps/).
 
 ## Was man mit [!DNL LLM Apps] machen kann
 
@@ -34,17 +34,29 @@ ht-degree: 2%
 
 ## Warum [!DNL LLM Apps] wichtig sind
 
-LLM-Interaktionen unterscheiden sich grundlegend von der herkömmlichen Suche. Die durchschnittliche [!DNL ChatGPT] dauert viermal länger als eine herkömmliche Suchsitzung. Mehr als 40 % der Verbraucher verlassen sich bei komplexen Kaufentscheidungen auf KI-Tools. Ohne [!DNL LLM Apps] könnten Sie die Erwähnung gewinnen, aber den Kunden verlieren. [!DNL LLM Apps] stellt sicher, dass Ihre Marke nicht nur sichtbar, sondern genau in dem Moment umsetzbar ist, in dem ein Benutzer bereit ist, eine Entscheidung zu treffen.
+LLM-Interaktionen unterscheiden sich grundlegend von der herkömmlichen Suche. Die durchschnittliche Dauer einer LLM-Sitzung ist viermal so lang wie bei einer herkömmlichen Suchsitzung. Mehr als 40 % der Verbraucher verlassen sich bei komplexen Kaufentscheidungen auf KI-Tools. Ohne [!DNL LLM Apps] könnten Sie die Erwähnung gewinnen, aber den Kunden verlieren. [!DNL LLM Apps] stellt sicher, dass Ihre Marke nicht nur sichtbar, sondern genau in dem Moment umsetzbar ist, in dem ein Benutzer bereit ist, eine Entscheidung zu treffen.
 
-## Wichtige Konzepte
+## Wichtige Konzepte {#key-concepts}
 
-**LLM App** - Ihr gebrandeter Assistent, mit dem Benutzer in [!DNL ChatGPT] oder anderen LLM-Plattformen interagieren. Es fasst alle Aktionen zusammen und wird als eine Einheit bereitgestellt.
+### LLM-App
 
-**Action** - eine Funktion, die Ihre App bietet. Zum Beispiel „Distributor suchen“ oder „Produkte durchsuchen“. Jede Aktion wird vom LLM aufgerufen, wenn der Benutzer eine relevante Frage stellt. Jede Aktion besteht aus zwei Teilen: Metadaten (Name, Beschreibung, Parameter), die in der [!DNL LLM Apps]-Benutzeroberfläche verwaltet werden, und einem Handler (Ihr Code) in [!DNL GitHub].
+Ihr gebrandeter Assistent, mit dem Benutzer innerhalb von [!DNL ChatGPT] oder anderen LLM-Plattformen interagieren. Es fasst alle Aktionen zusammen und wird als eine Einheit bereitgestellt.
 
-**Action Handler** - Der Code, der ausgeführt wird, wenn eine Aktion aufgerufen wird. Es kann Ihre APIs aufrufen, Live-Daten abrufen oder statische Daten zurückgeben. Handler sind in Ihrem [!DNL GitHub]-Repository unter `actions/<name>/index.js` verfügbar.
+### Aktion {#actions}
 
-**Widget** - die visuelle Antwort, die dem Benutzer angezeigt wird - eine Karte, ein Karussell, eine Tabelle oder eine beliebige benutzerdefinierte Benutzeroberfläche, die zusammen mit der Textantwort des LLM gerendert wird. Widgets sind HTML-Seiten, die auf einer [!DNL Edge Delivery Services] (EDS)-Website gehostet werden.
+Eine Funktion, die Ihre App bietet, z *B. „Händler suchen* oder *Produkte durchsuchen*. Die LLM-Plattform ruft eine Aktion auf, wenn eine Anfrage mit ihrer Beschreibung übereinstimmt. Aktionsmetadaten werden in [!DNL LLM Apps] verwaltet, während ihr Handler Code in Ihrem [!DNL GitHub]-Repository ist.
+
+### Aktions-Handler
+
+Die Server-seitige Funktion, die ausgeführt wird, wenn eine Aktion aufgerufen wird. Er kann Eingaben validieren, APIs aufrufen und Text sowie strukturierte Daten zurückgeben.
+
+### Widget {#widgets-eds}
+
+Die visuelle Antwort, die mit der Antwort des LLM angezeigt wird, z. B. eine Karte, ein Karussell oder eine Tabelle. Generierte Widgets sind Blöcke in einem [!DNL Edge Delivery Services]-Repository (EDS) in Ihrem Besitz.
+
+### MCP-Server
+
+Der Endpunkt, der nach der Bereitstellung verfügbar gemacht wird. Eine unterstützte LLM-Plattform stellt eine Verbindung zu diesem Endpunkt her, um Ihre Aktionen zu ermitteln und aufzurufen.
 
 ## Funktionsweise
 
@@ -79,43 +91,72 @@ Das folgende Diagramm zeigt, wie die einzelnen Elemente zusammenpassen - von der
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## Voraussetzungen
+## Voraussetzungen {#requirements}
+
+Führen Sie alle folgenden Anforderungen aus, bevor Sie eine App erstellen.
 
 ### Adobe-Entwicklerkonsole
 
-Sie benötigen Zugriff auf [Adobe Developer Console](https://developer.adobe.com/console) mit der Rolle **Entwickler** (oder **Systemadministrator** in Ihrer Adobe IMS-Organisation. Stellen Sie sicher, dass Ihr Unternehmen Zugriff auf [[!DNL App Builder]](https://developer.adobe.com/app-builder/docs/intro_and_overview/) hat.
+Ihre Adobe IMS-Organisation muss Zugriff auf [[!DNL App Builder]](https://developer.adobe.com/app-builder/docs/intro_and_overview/) haben. Sie benötigen die Rolle **Entwickler** oder **Systemadministrator**.
 
-Zur Bestätigung navigieren Sie zu [developer.adobe.com/console](https://developer.adobe.com/console). Wenn der Schnellstartbildschirm angezeigt wird, sind Ihre Berechtigungen korrekt eingerichtet.
+Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu &#x200B;](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
 
 ![Adobe Developer Console - Schnellstartbildschirm, der den Entwicklerzugriff bestätigt](/help/assets/overview/dev-console-access-granted.png)
 
-Wenn stattdessen die Meldung **Eingeschränkter Zugriff** angezeigt wird, verfügen Sie nicht über die Rolle Entwickler . Wenden Sie sich an den Administrator Ihrer IMS-Organisation, um Zugriff zu erhalten.
+Wenn Sie **Eingeschränkter Zugriff** sehen, wenden Sie sich an den Administrator Ihrer IMS-Organisation und fordern Sie die Rolle Entwickler an.
 
 ![Adobe Developer Console - Nachricht zu eingeschränktem Zugriff](/help/assets/overview/dev-console-access-denied.png)
 
 ### [!DNL GitHub]
 
-Sie benötigen in Ihrer Organisation ein [!DNL GitHub]-Konto mit den folgenden Berechtigungen:
+Sie benötigen ein [!DNL GitHub]-Konto mit folgenden Funktionen:
 
-- **Erstellen von Repositorys** - Sie müssen zwei Repositorys in Ihrer Organisation erstellen: eines für den Anwendungs-Code und eines für das EDS-Projekt. Zur Bestätigung navigieren Sie zu [github.com/new](https://github.com/new) - wenn Sie Ihre Organisation im Dropdown-Menü **Inhaber** auswählen können, verfügen Sie über die Berechtigung.
+- Erstellen Sie zwei Repositorys in dem Konto oder der Organisation, dem bzw. der die App gehören wird.
+- Installieren oder fordern Sie die Installation der Adobe LLM Apps [!DNL GitHub] App an.
+- Installieren oder fordern Sie die Installation von AEM Code Sync für das EDS-Repository an.
 
-  ![Dropdown-Liste „Besitzer des neuen GitHub-Repositorys“ mit Auswahl der Organisation](/help/assets/overview/github-repo-owner-dropdown.png)
+Um den Zugriff auf die Repository-Erstellung zu überprüfen, öffnen Sie [github.com/new](https://github.com/new) und vergewissern Sie sich, dass das gewünschte Konto oder die gewünschte Organisation unter &quot;**&quot;**.
 
-- **Installieren von [!DNL GitHub] Apps** - Sie benötigen die entsprechenden Berechtigungen, um eine [!DNL GitHub] App in Ihrem Unternehmen zu installieren. Siehe [Voraussetzungen für die Installation einer GitHub-App](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party#requirements-to-install-a-github-app).
+![GitHub - Repository-Besitzer auswählen](/help/assets/overview/github-repo-owner-dropdown.png)
 
-### AEM Sites mit [!DNL Edge Delivery Services]
+Bei Repositorys im Besitz eines Unternehmens muss ein Organisationsadministrator möglicherweise die [!DNL GitHub] Apps genehmigen. Gewähren Sie jeder App nur Zugriff auf die von der LLM-App verwendeten Repositorys.
 
-Aktions-Widgets werden auf **Adobe Experience Manager [!DNL Edge Delivery Services] (EDS) gehostet**. Ihr Unternehmen benötigt eine AEM Sites-Lizenz mit [!DNL Edge Delivery Services]. Sie müssen in Ihrer EDS **Organisation über die** Admin“ verfügen.
+### AEM Sites mit Edge Delivery Services
 
-Um dies zu überprüfen, gehen Sie zum [EDS User Admin Tool](https://tools.aem.live/tools/user-admin/index.html), geben Sie Ihren Organisationsnamen ein, lassen Sie **Site** leer und klicken Sie auf **Benutzer abrufen**. Suchen Sie Ihr Konto in der Liste und bestätigen Sie, dass es das **admin**-Badge aufweist.
+Ihr Unternehmen benötigt eine Adobe Experience Manager Sites-Lizenz, die Edge Delivery Services (EDS) enthält. Sie benötigen außerdem Administratorzugriff auf die aus dem Widget-Repository erstellte EDS-Site.
 
-![EDS-Benutzeradministrator-Tool, das einen Benutzer mit der Administratorrolle anzeigt](/help/assets/overview/eds-user-admin.png)
+Um den Zugriff zu überprüfen, öffnen Sie das [EDS User Admin Tool](https://tools.aem.live/tools/user-admin/index.html), geben Sie den Organisationsnamen ein und rufen Sie die Benutzer ab. Vergewissern Sie sich, dass Ihr Konto über das Abzeichen **admin** verfügt.
 
-### LLM-Plattform (zum Testen)
+### Website
 
-Zum Testen der bereitgestellten App benötigen Sie eine unterstützte Abonnementebene, die benutzerdefinierte MCP-Apps und die Aktivierung **Entwicklermodus** ermöglicht. [!DNL ChatGPT] erfordert beispielsweise ein Abonnement **Pro**, **Business** oder **Enterprise/Edu**.
+Sie benötigen eine öffentliche HTTPS-Website, die die Produkte, Services oder Aufgaben darstellt, die die App unterstützen soll. Die Plattform analysiert diese Website, um Aktionen vorzuschlagen und repräsentative Beispieldaten zu erstellen.
 
-## Erste Schritte
+Verwenden Sie keine Website, die vertrauliche oder zugriffskontrollierte Informationen zur Verfügung stellt.
 
-Mit Blick auf einen Anwendungsfall sollten Sie [eine App erstellen](/help/guides/create-app.md) um mit der Erstellung und Bereitstellung Ihres [!DNL LLM Apps] Erlebnisses zu beginnen.
+### [!DNL ChatGPT] oder [!DNL Claude] zum Testen
+
+Um das Tutorial Erste Schritte abzuschließen, verwenden Sie einen unterstützten [!DNL ChatGPT] mit aktiviertem Entwicklermodus oder einen unterstützten [!DNL Claude] mit aktivierten benutzerdefinierten Connectoren. Workspace- oder Organisationsadministratoren können den Zugriff einschränken. Siehe [Test in ChatGPT](/help/guides/test-in-chatgpt.md#plan-requirements) oder [Test in Claude](/help/guides/test-in-claude.md#plan-requirements).
+
+## Journey auswählen {#choose-your-journey}
+
+### &#x200B;1. Erstellen und Starten Ihrer ersten App
+
+Beginnen Sie mit [Erstellen und starten Sie Ihre erste App](/help/guides/create-app.md). Diese Journey beginnt mit zwei leeren Repositorys und endet mit einer produktionsbereiten App, die als Plug-in in einer unterstützten LLM-Plattform wie [!DNL ChatGPT] getestet wird.
+
+### &#x200B;2. Anpassen der generierten App
+
+Wählen Sie diese Journey aus, wenn die Plattform die App automatisch erstellt hat und Sie das Beispielverhalten ersetzen möchten:
+
+1. [Passen Sie die generierten Handler an](/help/guides/customize-handler.md) um Ihre APIs zu verbinden und die von den einzelnen Aktionen zurückgegebenen Daten zu definieren.
+2. [Passen Sie die generierten Widgets an](/help/guides/widgets.md) um diese Daten zu verwenden und Ihre Interaktionen und Ihr Design anzuwenden.
+
+### &#x200B;3. Neue Aktion von Grund auf hinzufügen
+
+Wählen Sie [Neue Aktion von Grund auf hinzufügen](/help/guides/create-action.md), um neue Metadaten zu definieren, den Handler zu schreiben, ein Widget zu verbinden, zu testen und die Aktion bereitzustellen.
+
+### &#x200B;4. Verbinden eines vorhandenen EDS-Projekts
+
+Wählen Sie [Vorhandenes EDS-Projekt verbinden](/help/guides/bring-your-own-eds.md) aus, wenn Sie bereits eine EDS-Website haben oder die App nicht automatisch erstellt haben.
+
+Jede Journey verwendet den freigegebenen [Bereitstellungs](/help/guides/deploy-your-app.md)-Schritt, dann [ChatGPT-Plug-in-](/help/guides/test-in-chatgpt.md) oder [Claude-Connector-](/help/guides/test-in-claude.md).
 
