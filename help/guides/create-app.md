@@ -1,15 +1,15 @@
 ---
-title: Erstellen einer App
-description: Erfahren Sie, wie Sie Ihre erste LLM-App erstellen und mit Ihrem GitHub-Repository verknüpfen.
-source-git-commit: 344c5457eb79a19b1dae823732a1cd9866dcd9dc
+title: Erstellen Ihrer ersten LLM-App mit dem Onboarding-Agenten
+description: Erstellen Sie eine Adobe-LLM-App von Ihrer Website, überprüfen Sie die generierten Aktionen, stellen Sie sie bereit und testen Sie sie in ChatGPT.
+source-git-commit: b9242903f930aa1770a999a2665e1e80d64d56b6
 workflow-type: tm+mt
-source-wordcount: '720'
-ht-degree: 1%
+source-wordcount: '1219'
+ht-degree: 0%
 
 ---
 
 
-# Erstellen einer App
+# Erstellen Ihrer ersten App mit dem Onboarding-Agenten {#create-first-app}
 
 >[!IMPORTANT]
 >
@@ -17,119 +17,193 @@ ht-degree: 1%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
->[!NOTE]
+Der Onboarding-Agent verwandelt Ihre Website in eine funktionierende App-Strukturvorlage. Es schlägt Aktionen vor, schreibt Handler-Code und Tests, erstellt EDS-Widgets und sendet die generierten Dateien an zwei [!DNL GitHub]-Repositorys, die Sie besitzen.
+
+Die Generierung dauert ca. 15 Minuten. Am Ende dieses Tutorials verfügen Sie über eine bereitgestellte App, die Sie in [!DNL ChatGPT] testen können.
+
+**Journey:** Bestätigen Sie die Anforderungen, → zwei Repositorys → erstellen Sie die App → überprüfen Sie die generierten Aktionen, → Sie sie für das Staging bereitstellen → das Plug-in testen, → Produktionssysteme anzuschließen.
+
+## Bevor Sie beginnen
+
+Schließen Sie alle [LLM Apps-Anforderungen](/help/overview/overview.md#requirements) ab, bevor Sie mit diesem Tutorial beginnen.
+
+In diesem Tutorial wird eine LLM-App für [Frescopa Coffee](https://frescopa.coffee/) erstellt.
+
+## Zwei leere Repositorys erstellen
+
+Der Onboarding-Agent benötigt zwei leere Repositorys. Erstellen Sie beide unter demselben [!DNL GitHub]-Konto oder derselben Organisation:
+
+- **Handler-Repository** - speichert Aktions-Handler und Tests. Beispiel: `my-brand-llm-app`.
+- **EDS-Repository** - speichert generierte Widget-Blöcke und -Stile. Beispiel: `my-brand-llm-app-eds`.
+
+Navigieren Sie zu [github.com/new](https://github.com/new) für jedes Repository.
+
+Initialisieren Sie keines der Repositorys mit einer README-, `.gitignore`- oder Lizenzdatei. Der Onboarding-Agent bereitet die erforderliche Projektstruktur vor.
+
+>[!TIP]
 >
->Bevor Sie beginnen, stellen Sie sicher, dass [Voraussetzungen](/help/overview/overview.md#prerequisites) erfüllt sind.
+>Verwenden Sie Repository-Namen, die die App und den Zweck jedes Repositorys identifizieren. Dadurch sind sie im Dialogfeld zur App-Erstellung leichter zu erkennen.
 
-Dieses Handbuch führt Sie durch die Erstellung Ihrer ersten [!DNL Adobe LLM Apps] - vom leeren Status bis hin zu einem vollständig konfigurierten Projekt, das mit Ihrem [!DNL GitHub]-Repository verknüpft ist.
+## App starten
 
-## Öffnen Sie [!DNL LLM Apps].
+1. Öffnen Sie [Adobe LLM-](https://experience.adobe.com/#/@llmapps/llm-apps/) und wählen Sie **[!UICONTROL App erstellen]** aus.
+2. Geben Sie den **[!UICONTROL LLM-App-]** und eine optionale Beschreibung ein.
+3. Wählen Sie die **[!UICONTROL Analytics-Region]** aus.
 
-Navigieren Sie zu [experience.adobe.com/llm-apps](https://experience.adobe.com/llm-apps). Wenn noch keine App erstellt wurde, wird die Seite mit dem ersten Laden angezeigt, auf der Sie aufgefordert werden, Ihre erste App zu erstellen.
+   >[!IMPORTANT]
+   >
+   >Die Analytics-Region kann nach der Erstellung der App nicht mehr geändert werden.
 
-![Apps-Seite - noch keine Apps erstellt](/help/assets/guide-create-app/first-load.png)
+4. Wählen **[!UICONTROL unter „Meine App]**&quot; die Option **[!UICONTROL Meine App automatisch erstellen]** aus.
+5. Geben **[!UICONTROL in „Ihre]**&quot; Ihre Website-URL einschließlich des `https://` ein. Der Onboarding-Agent analysiert diese Website, um nützliche Aktionen und repräsentative Beispielergebnisse zu ermitteln.
 
-In der linken Seitenleiste können Sie zwischen **[!UICONTROL Apps]** und **[!UICONTROL Actions]** navigieren. Klicken Sie **[!UICONTROL Create App]**, um zu beginnen.
+![LLM-App erstellen — App-Details und „Meine App erstellen“ aktiviert](/help/assets/guide-onboarding-agent/app-details-onboarding.png)
 
-## App-Details ausfüllen
+## [!DNL LLM Apps] Zugriff auf die Repositorys gewähren
 
-Das Dialogfeld „App erstellen“ wird im Vollbildmodus geöffnet.
-
-![Dialogfeld „App erstellen“](/help/assets/guide-create-app/app-details-1.png)
-
-Geben Sie Folgendes ein:
-
-- **[!UICONTROL LLM App Name]** (erforderlich) - der Anzeigename für Ihre App. Nur Buchstaben, Zahlen und Leerzeichen sind zulässig.
-- **[!UICONTROL LLM-App-Beschreibung]** - eine kurze Beschreibung der Funktionen Ihrer App. Beispielsweise „Hilft *Benutzern, Produkte zu finden und Services über eine LLM-Plattform zu buchen*.
-- **[!UICONTROL Ihre Website]** (erforderlich) - die URL Ihrer Markenwebsite. [!DNL LLM Apps] erstellt damit automatisch vorkonfigurierte Aktionen.
-
-## Analytics-Datenregion auswählen
-
-Wählen Sie die Region aus, in der Analytics-Daten für diese App gespeichert werden.
-
->[!IMPORTANT]
->
->Die Analytics-Datenregion kann nach der Erstellung der App nicht mehr geändert werden.
-
-![Dropdown-Liste „Analytics-Datenregion“](/help/assets/guide-create-app/app-details-analytics-dropdown.png)
-
-Die Dropdown **Liste „Analytics-Region** ist standardmäßig **Vereinigte Staaten (USA)**. Die verfügbaren Optionen sind **Vereinigte Staaten (USA)** und **Europa (EU)**. Wählen Sie die Region aus, die Ihren Datenresidenzanforderungen am besten entspricht, bevor Sie fortfahren.
-
-## Verknüpfen eines [!DNL GitHub] Repositorys
-
-Unter den App-Details können Sie ein [!DNL GitHub]-Repository verknüpfen. In diesem Repository befindet sich der Code Ihres Aktions-Handlers - JavaScript funktioniert unter einem `actions/` Ordner, der auf [!DNL Adobe I/O Runtime] ausgeführt wird, wenn die LLM-Plattform Ihre App aufruft.
-
-Wenn Sie dies zum ersten Mal tun, werden keine Repositorys in der Liste angezeigt. Sie müssen die **[!DNL Adobe LLM Apps Link]** [!DNL GitHub] App in Ihrem Unternehmen installieren:
-
-1. Klicken Sie **unteren Rand des Dialogfelds auf** Repos auf GitHub verwalten“.
-2. Dadurch wird die Seite &quot;[!DNL Adobe LLM Apps Link] [!DNL GitHub] App“ in einer neuen Registerkarte geöffnet.
-
-   ![Link zu Adobe LLM-Apps — GitHub-App-Installationsseite](/help/assets/guide-create-app/github-app-install.png)
-
-3. Klicken Sie **[!UICONTROL Installieren]** und wählen Sie Ihre [!DNL GitHub] Organisation aus.
-4. Wählen Sie **[!UICONTROL Repository-]**) die Option **Nur Repositorys auswählen** und wählen Sie das Repository aus, in dem der App-Code gehostet werden soll.
-
-   ![Adobe LLM Apps Link — Repository-Zugriff](/help/assets/guide-create-app/github-repo-access.png)
-
-5. Klicken Sie auf **[!UICONTROL Speichern]**. Kehren Sie zum Dialogfeld „App erstellen“ zurück - Ihr Repository wird jetzt in der Dropdown-Liste **Repository auswählen** angezeigt.
-6. Wählen Sie das Repository aus, das Sie verwenden möchten.
-
-![Dialogfeld „App erstellen“ - Repository-verknüpft](/help/assets/guide-create-app/app-details-repo-linked.png)
+Die Adobe LLM Apps [!DNL GitHub] App bietet [!DNL LLM Apps] Zugriff auf die von Ihnen ausgewählten Repositorys.
 
 >[!NOTE]
 >
->Sie können die Verknüpfung eines Repositorys während der App-Erstellung überspringen und sie später in den App-Einstellungen vornehmen. Sie können jedoch erst dann bereitstellen, wenn ein Repository verknüpft ist.
+>Die Verbindung einer [!DNL GitHub] ist ein einmaliges Setup. Wenn die Organisation bereits im Dialogfeld angezeigt wird, verwenden Sie **[!UICONTROL Repos auf GitHub verwalten]** anstatt sie erneut zu verbinden.
 
-## Erstellen der App
+### Verbundene Organisation
 
-Klicken Sie **[!UICONTROL Create App]**. Ein Ladebildschirm wird angezeigt, während das Projekt in Developer Console erstellt wird.
+Wenn die Adobe LLM Apps [!DNL GitHub] App bereits vor der Erstellung der Repositorys installiert war:
 
-![App erstellen — Ladebildschirm](/help/assets/guide-create-app/app-loading.png)
+1. Die verbundene Organisation auswählen.
+2. Wählen Sie **[!UICONTROL Repositorys auf GitHub verwalten]** aus.
+3. Fügen Sie die beiden Repositorys zur vorhandenen [!DNL GitHub] App-Installation hinzu.
+4. Kehren Sie zu [!DNL LLM Apps] zurück und aktualisieren Sie die Repository-Listen.
 
-Nach Abschluss des Vorgangs werden Sie zur Seite **App-Details** weitergeleitet.
+### Nur erstmalige Verbindung
 
-## Die App-Detailseite
+Wenn die Organisation nicht im Dialogfeld angezeigt wird:
 
-Die Seite mit den App-Details ist der zentrale Hub für die Verwaltung Ihrer App.
+1. Wählen Sie **[!UICONTROL GitHub-Organisation verbinden]** aus.
+2. Installieren Sie die Adobe LLM Apps [!DNL GitHub] App.
+3. Wählen Sie **[!UICONTROL Nur Repositorys]** und wählen Sie die beiden Repositorys aus.
+4. Kehren Sie zum Dialogfeld LLM-App erstellen zurück.
 
-![App-Detailseite - obere Abschnitte](/help/assets/guide-create-app/app-detail-top.png)
+Wenn Sie die [!DNL GitHub] App nicht installieren oder aktualisieren können, wenden Sie sich an einen Organisationsadministrator.
 
-### App-Banner
+## Repositorys auswählen
 
-![App-Banner](/help/assets/guide-create-app/app-banner.png)
+1. Wählen **[!UICONTROL unter „Textbausteinrepository]** die Organisation und das leere Handler-Repository aus.
+2. Wählen Sie **[!UICONTROL EDS-Repository]** die Organisation und das leere EDS-Repository aus.
 
-Das farbige Banner oben zeigt die aktuell ausgewählte App an - einschließlich App-Avatar, Name, Beschreibung und einem Dropdown-Menü zum Wechseln zwischen Apps. Das Banner bleibt beim Scrollen oben fixiert.
+   ![Meine App erstellen — Wählen Sie die GitHub-Organisation, das Textbausteinrepository und das EDS-Repository aus](/help/assets/guide-onboarding-agent/repos-selected.png)
 
-### Seitentitel und Aktionen
+3. Aktivieren **[!UICONTROL unter &quot;]**&quot; die Option **[!UICONTROL Ich akzeptiere die Adobe Developer-]**.
+4. Wählen Sie **[!UICONTROL App erstellen]** aus.
 
-![App-Banner](/help/assets/guide-create-app/page-title.png)
+## EDS-Einrichtung abschließen
 
-Unter dem Banner wird der App-Name als Überschrift mit den folgenden Aktionsschaltflächen angezeigt:
+Wenn das ausgewählte EDS-Repository leer ist, wird es von [!DNL LLM Apps] mit dem AEM-Textbaustein initialisiert. Im Dialogfeld werden Sie dann aufgefordert, AEM Code Sync zu installieren, bevor Sie versuchen, die App erneut zu erstellen.
 
-- **…** (weitere Aktionen) — Neue App erstellen oder die aktuelle löschen.
-- **[!UICONTROL Einstellungen]** - Konfigurieren des verknüpften Repositorys und anderer Optionen.
-- **[!UICONTROL Bereitstellen]** - Bereitstellen der App für [!DNL Adobe I/O Runtime] (deaktiviert, bis ein Repository verknüpft ist).
+1. Wählen Sie in der Meldung unter dem EDS-Repository die Option **[!UICONTROL AEM Code Sync installieren]** aus.
+2. Installieren Sie auf [!DNL GitHub] AEM Code Sync und gewähren Sie ihm Zugriff auf das EDS-Repository.
+3. Kehren Sie zum Dialogfeld LLM-App erstellen zurück.
 
-### App-Informationskarte
+![LLM-App erstellen — Leeres EDS-Repository initialisiert und AEM-Code-Synchronisierung erforderlich](/help/assets/guide-onboarding-agent/install-aem-code-sync.png)
 
-![App-Informationskarte](/help/assets/guide-create-app/app-info-card.png)
+Sie müssen Administrator für die EDS-Site sein. Wenn im Dialogfeld gemeldet wird, dass Sie kein Administrator sind:
 
-Diese Karte fasst die wichtigsten Metadaten Ihrer App zusammen: Name, Beschreibung, Status-Badge (**Nicht bereitgestellt** oder **bereitgestellt**), App-ID und Erstellungsdatum. Außerdem werden die beiden verknüpften Repositorys angezeigt:
+![LLM-App erstellen — EDS-Administratorzugriff erforderlich](/help/assets/guide-onboarding-agent/eds-admin-required.png)
 
-- **Handler-Repository** - Hier befindet sich der Aktionshandler-Code (JavaScript funktioniert auf [!DNL Adobe I/O Runtime]).
-- **EDS repo** - Hier lebt die Widget-Benutzeroberfläche (von [!DNL Edge Delivery Services] bereitgestellte Blöcke und Stile).
+1. Wählen Sie **[!UICONTROL AEM Live Admin öffnen]**.
+2. Fügen Sie sich als Administrator für die EDS-Website hinzu, indem Sie auf die Schaltfläche **[!UICONTROL + Benutzer hinzufügen]**.
 
-### Aktionen, Testen der App und Bereitstellungsverlauf
+   ![LLM-App erstellen — Als EDS-Admin hinzufügen](/help/assets/guide-onboarding-agent/add-eds-admin.png)
 
-![App-Detailseite - untere Abschnitte](/help/assets/guide-create-app/app-detail-bottom.png)
+3. Kehren Sie zu [!DNL LLM Apps] zurück, aktualisieren Sie das EDS-Repository und wählen Sie erneut **[!UICONTROL App erstellen]** aus.
 
-Unterhalb der Informationskarte befinden sich drei Bereiche:
+Nachdem die Repository- und Administrator-Prüfungen erfolgreich abgeschlossen wurden, erstellt [!DNL LLM Apps] die App und startet den Onboarding-Agenten.
 
-- **[!UICONTROL Aktionen]** - Listet die für Ihre App definierten Aktions-Handler auf. Klicken Sie **Wechseln zu Aktionen**, um zur Seite „Aktionen“ zu navigieren.
-- **[!UICONTROL Programm testen]** zeigt nach der Bereitstellung die MCP-Server-URLs für Staging- und Produktionsumgebungen an.
-- **Bereitstellungsverlauf** - verfolgt jede Bereitstellung über Umgebungen hinweg mit Status und Datum.
+## Auf die Erstellung von Aktionen warten
 
-## Nächste Schritte
+Gehen Sie **[!UICONTROL Seite]** Aktionen“ von links. Die Seite Aktionen zeigt &quot;**für Ihr Gesprächserlebnis“ an** während der Agent die Website analysiert und die App generiert. Die Generierung dauert in der Regel etwa 15 Minuten. Sie können diese Seite verlassen und später zurückkehren.
 
-- [Anleitung: Erstellen einer Aktion](/help/guides/create-action.md) - Definieren einer Aktion mit Metadaten- und Widget-Einstellungen.
+![Aktionen - Onboarding-Agent generiert Empfehlungen](/help/assets/guide-onboarding-agent/actions-generating.png)
+
+Während der Generierung [!DNL LLM Apps]:
+
+1. Analysiert die Website und identifiziert nützliche Kundenabsichten.
+2. Erstellt Aktionsmetadaten, einschließlich Beschreibungen und Eingabeparametern.
+3. Generiert einen Handler und testet für jede Aktion im Handler-Repository.
+4. Erzeugt ein EDS-Widget für jede Aktion im EDS-Repository.
+5. Bereitet die Aktionen zur Überprüfung vor.
+
+Die generierten Handler verwenden zunächst Beispieldaten, die von der Website abgeleitet wurden. Sie demonstrieren das gesamte Erlebnis, stellen jedoch keine Verbindung zu Ihren Produktionssystemen her.
+
+## Überprüfen der generierten Aktionen
+
+Nach Abschluss der Generierung zeigt die Seite Aktionen die generierten Aktionen und Widget-Vorschauen an. Jede Aktion hat eine **[!UICONTROL KI-generierte Aktion, muss überprüft]**.
+
+![Aktionen - generierte Aktionen, die zur Überprüfung bereit sind](/help/assets/guide-onboarding-agent/actions-ready-for-review.png)
+
+Für jede Aktion:
+
+1. Wählen Sie **[!UICONTROL Überprüfen]** aus.
+2. Überprüfen Sie den Namen, die Beschreibung, die Parameter, die Anmerkungen, den generierten Handler und das Widget.
+3. Wählen Sie **[!UICONTROL Als geprüft markieren]** aus. Dadurch werden die generierten Pull-Anforderungen zusammengeführt.
+4. Kehren Sie zur Seite Aktionen zurück und wiederholen Sie den Vorgang für die verbleibenden Aktionen.
+
+![Erzeugte Aktion - bereit, als geprüft zu markieren](/help/assets/guide-onboarding-agent/generated-action-review.png)
+
+Wenn alle Aktionen überprüft wurden, wählen Sie **[!UICONTROL Zur App-Seite wechseln]** aus.
+
+![Aktionen - alle generierten Aktionen überprüft](/help/assets/guide-onboarding-agent/actions-reviewed.png)
+
+>[!NOTE]
+>
+>Generierter Code ist ein Ausgangspunkt, dessen Besitzer Sie sind. Sie können Aktionsmetadaten, Handler, Tests, Widget-JavaScript und Widget-Stile nach der Überprüfung ändern.
+
+## Bereitstellen der App
+
+1. Kehren Sie zur App-Detailseite zurück.
+2. Wählen Sie **[!UICONTROL Bereitstellen]** aus.
+3. Wählen Sie **[!UICONTROL Staging]** als Zielumgebung aus.
+4. Wählen Sie **[!UICONTROL Bereitstellen]** aus.
+
+![Bereitstellen - Wählen Sie die Staging-Umgebung aus](/help/assets/guide-onboarding-agent/deploy-stage.png)
+
+Warten Sie, während [!DNL LLM Apps] die App vorbereitet, erstellt und veröffentlicht.
+
+![Bereitstellen - Bereitstellungs-Pipeline wird ausgeführt](/help/assets/guide-onboarding-agent/deploy-running.png)
+
+![Bereitstellen - erfolgreiche Staging-Bereitstellung](/help/assets/guide-onboarding-agent/deploy-successful.png)
+
+Nach der Bereitstellung wird **[!UICONTROL Abschnitt „App testen]** die Staging-MCP-Server-URL angezeigt. Wählen Sie **[!UICONTROL URL kopieren]** aus.
+
+![Anwendungsdetails - Kopieren Sie die Staging-MCP-Server-URL](/help/assets/guide-onboarding-agent/app-mcp-url.png)
+
+## Test in [!DNL ChatGPT]
+
+Folgen Sie [Testen in ChatGPT](/help/guides/test-in-chatgpt.md), um ein Plug-in mithilfe der Staging-MCP-Server-URL zu erstellen.
+
+Stellen Sie eine Frage, die einer der generierten Aktionen entspricht. Überprüfen Sie, ob:
+
+- [!DNL ChatGPT] wählt die erwartete Aktion aus.
+- Das Widget wird gerendert und enthält die erwarteten Beispieldaten.
+- Widget-Steuerelemente erzeugen das erwartete Folgeverhalten.
+- Die Textantwort fasst das Ergebnis genau zusammen.
+
+![ChatGPT — generierte Antwort des LLM-App-Plug-ins](/help/assets/guide-onboarding-agent/chatgpt-generated-app.png)
+
+Sie verfügen jetzt über eine funktionierende End-to-End-Strukturvorlage.
+
+## Produktionsbereit machen
+
+Die generierte App verwendet Beispieldaten. Vor der Verwendung mit Kunden:
+
+1. **Systeme verbinden** - [jeden generierten Handler anpassen](/help/guides/customize-handler.md) um Beispieldaten durch Aufrufe an Ihre APIs oder Datenquellen zu ersetzen.
+2. **Anmeldeinformationen schützen** - API-URLs und Anmeldeinformationen werden in der verwalteten Laufzeitkonfiguration gespeichert, nie im Quell-Code oder Widget-JavaScript.
+3. **Daten validieren** - Validieren von Aktionsargumenten und API-Antworten, Hinzufügen von Anfrage-Timeouts und Rückgeben sicherer Fehlermeldungen.
+4. **Widgets aktualisieren** - Halten Sie jedes Widget an den `structuredContent` seines Handlers ausgerichtet und wenden Sie dann Ihre Branding- und Barrierefreiheitsanforderungen an. Siehe [Anpassen eines generierten Widgets](/help/guides/widgets.md).
+5. **Handler testen** - umfasst gültige Eingaben, ungültige Eingaben, leere Ergebnisse, API-Fehler und die vom Widget erwartete Datenform.
+6. **In Staging überprüfen** - Stellen Sie jede Aktion über das Plug-in [!DNL ChatGPT] erneut bereit und testen Sie sie.
+7. **In Produktion bereitstellen** - Nach erfolgreichem Staging-Test können Sie das Plug-in in der Produktion bereitstellen und mit der Produktions-MCP-Server-URL erstellen oder aktualisieren.
+
+Informationen zum Hinzufügen einer Funktion, die der Onboarding-Agent nicht erstellt hat, finden Sie unter [Erstellen einer neuen Aktion](/help/guides/create-action.md).
 

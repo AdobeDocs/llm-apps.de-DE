@@ -1,15 +1,15 @@
 ---
-title: Entwicklung für Adobe LLM-Apps
-description: Projektstruktur, lokaler Entwicklungs-Workflow und Testeinrichtung für den Adobe LLM Apps Handler-Code.
-source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
+title: Lokale Handler-Entwicklung und -Tests
+description: Handler-Projektstruktur, lokale Serverbefehle, MCP-Tests und Komponententests für Adobe LLM-Apps.
+source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
 workflow-type: tm+mt
-source-wordcount: '324'
-ht-degree: 4%
+source-wordcount: '280'
+ht-degree: 2%
 
 ---
 
 
-# Entwicklung {#development}
+# Lokale Handler-Entwicklung und -Tests {#development}
 
 >[!IMPORTANT]
 >
@@ -17,7 +17,13 @@ ht-degree: 4%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-In diesem Abschnitt werden die Handler-Projektstruktur, der lokale Entwicklungs-Workflow und das Testsetup für [!DNL Adobe LLM Apps] behandelt. Den Handler-Vertrag und den Beispiel-Code finden Sie unter [Action Handler schreiben](/help/guides/write-action-handler.md).
+Verwenden Sie diese Referenz, während Sie Handler lokal entwickeln. Den Handler-Ergebnisvertrag finden Sie unter [Anpassen eines generierten Handlers](/help/guides/customize-handler.md).
+
+## Voraussetzungen
+
+- Node.js 24 oder höher.
+- npm.
+- Ein lokaler Klon des verknüpften Handler-Repositorys
 
 ## Projektstruktur
 
@@ -27,15 +33,11 @@ Das verknüpfte Repository folgt diesem Layout:
 your-llm-app/
 ├── entry.js                   # Webpack entry — do not modify
 ├── actions/                   # One folder per action
-│   ├── search-products/
-│   │   └── index.js           # Handler (async function)
-│   ├── get-product-details/
-│   │   └── index.js
 │   └── echo/
-│       └── index.js
+│       └── index.js           # Example handler
 ├── test/
 │   ├── actions/
-│   │   └── search-products.test.js
+│   │   └── echo.test.js
 │   ├── fixtures/
 │   │   └── actions.json
 │   ├── html-transform.js
@@ -43,7 +45,7 @@ your-llm-app/
 │   └── server.test.js
 ├── server/
 │   └── local.js               # Local dev server (port 9080)
-├── actions.json               # Gitignored — local copy of UI metadata
+├── actions.json               # Gitignored — optional local metadata
 ├── app.config.yaml            # Adobe I/O Runtime config
 ├── webpack.config.js
 └── package.json
@@ -52,7 +54,7 @@ your-llm-app/
 Wichtigste Punkte:
 
 - **`entry.js`** ist der Einstiegspunkt für das Webpack. Bei der Erstellung wird jede `actions/*/index.js`-Datei erkannt und zu einem einzigen `dist/index.js` gebündelt. Nicht ändern.
-- **`actions.json`** wird ignoriert. Herunterladen von der Seite Aktionen in der Benutzeroberfläche für die lokale Entwicklung. Bei Bereitstellungen schreibt die Pipeline sie automatisch aus der API.
+- **`actions.json`** wird ignoriert. Die Bereitstellungs-Pipeline schreibt sie automatisch aus den Aktionsmetadaten in [!DNL LLM Apps].
 - **Tests** live unter `test/actions/`, **nicht** innerhalb `actions/`. Webpack bündelt alles unter `actions/` in dem bereitgestellten Artefakt - gemeinsame Ortungstests würden sie an [!DNL Adobe I/O Runtime] senden.
 
 ## Lokale Entwicklung
@@ -66,11 +68,11 @@ npm run dev:local
 
 Dadurch wird das Projekt mit Webpack erstellt und ein einfacher Node.js-HTTP-Server auf `http://localhost:9080` gestartet. Der Server erkennt Ihre Handler-Dateien automatisch unter `actions/` und registriert sie als MCP-Tools.
 
-### `actions.json` herunterladen
+### Verhalten lokaler Metadaten
 
-Damit der lokale Server von Ihren Aktionsmetadaten (Name, Beschreibung, Eingabeschema) weiß, laden Sie `actions.json` von der Seite Aktionen in der [!DNL LLM Apps]-Benutzeroberfläche herunter und platzieren Sie es im Repository-Stamm. Ohne sie erkennt der Server Ihre Handler, registriert sie jedoch mit minimalen Metadaten.
+Die aktuelle Benutzeroberfläche bietet keinen `actions.json` Download. Sie können den lokalen Server ohne diese Datei ausführen. Er erkennt Handler unter `actions/` und registriert sie mit minimalen Metadaten.
 
-Sie können `actions.example.json` auch als Ausgangspunkt nach `actions.json` kopieren.
+Ohne `actions.json` werden lokale Aktionsargumente nicht anhand des Eingabeschemas der Benutzeroberfläche validiert. Modultests und Integrationstests verwenden `test/fixtures/actions.json` für repräsentative Metadaten.
 
 ### Testen mit cURL
 
@@ -81,11 +83,11 @@ curl -sX POST "http://localhost:9080" \
   -H 'accept: application/json;q=1.0, text/event-stream;q=0.5' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
 
-# Call the search-products action
+# Call the boilerplate echo action
 curl -sX POST "http://localhost:9080" \
   -H 'content-type: application/json' \
   -H 'accept: application/json;q=1.0, text/event-stream;q=0.5' \
-  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"search-products","arguments":{"category":"bagged-coffee"}}}'
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"echo","arguments":{"message":"hello"}}}'
 ```
 
 ### Testen mit MCP Inspector
@@ -101,30 +103,17 @@ Legen Sie **Transport Type** auf `streamable-http` und **URL** auf `http://local
 Handler-Komponententests werden live unter `test/actions/` durchgeführt und spiegeln das `actions/`-Layout:
 
 ```javascript
-// test/actions/search-products.test.js
-const handler = require('../../actions/search-products/index.js')
+// test/actions/echo.test.js
+const handler = require('../../actions/echo/index.js')
 
-test('returns all products when no filter is given', async () => {
+test('echoes the message', async () => {
+  const result = await handler({ message: 'hello' })
+  expect(result.content[0].text).toBe('Echo: hello')
+})
+
+test('always returns content parts', async () => {
   const result = await handler({})
-  expect(result.content[0].text).toContain('product')
-  expect(result.structuredContent.products.length).toBeGreaterThan(0)
-})
-
-test('filters by category', async () => {
-  const result = await handler({ category: 'bagged-coffee' })
-  expect(result.structuredContent.products.every(
-    (p) => p.category === 'bagged-coffee'
-  )).toBe(true)
-})
-
-test('filters by query', async () => {
-  const result = await handler({ query: 'dark-roast' })
-  expect(result.structuredContent.products.length).toBeGreaterThan(0)
-})
-
-test('returns empty result for unknown category', async () => {
-  const result = await handler({ category: 'nonexistent' })
-  expect(result.structuredContent.products).toHaveLength(0)
+  expect(Array.isArray(result.content)).toBe(true)
 })
 ```
 
@@ -132,20 +121,8 @@ Ausführen von Tests mit:
 
 ```bash
 npm test                                      # all tests
-npx jest test/actions/search-products        # one action only
+npx jest test/actions/echo                   # one action only
 ```
 
-## Bereitstellung
-
-Sie erstellen oder implementieren sie nicht manuell. Eine vollständige Anleitung zur Bereitstellungs-Pipeline finden Sie unter [Bereitstellen Ihrer App](/help/guides/deploy-your-app.md).
-
-Ihr täglicher Arbeitsablauf ist:
-
-| Schritt | Aktion |
-|------|--------|
-| &#x200B;1. Schreib- oder Bearbeitungshandler | `actions/<name>/index.js` |
-| &#x200B;2. Metadaten herunterladen | Seite „Aktionen→ **Aktionen.json herunterladen** |
-| &#x200B;3. Lokaler Test | `npm run dev:local` |
-| &#x200B;4. Push-Code | `git push` |
-| &#x200B;5. Bereitstellen | App-Detailseite → **[!UICONTROL Bereitstellen]** |
+Nachdem die lokalen Tests erfolgreich waren, übertragen Sie die Änderungen und folgen Sie [Änderungen bereitstellen](/help/guides/deploy-your-app.md).
 

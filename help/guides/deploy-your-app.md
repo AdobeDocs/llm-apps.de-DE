@@ -1,15 +1,15 @@
 ---
 title: Bereitstellen der App
 description: Erfahren Sie, wie Sie Ihre Adobe-LLM-App über die Benutzeroberfläche für LLM-Apps für die Staging- und Produktionsumgebung bereitstellen.
-source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
+source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
 workflow-type: tm+mt
-source-wordcount: '359'
+source-wordcount: '309'
 ht-degree: 0%
 
 ---
 
 
-# Bereitstellen der App
+# Bereitstellen der App {#deploy-your-app}
 
 >[!IMPORTANT]
 >
@@ -19,26 +19,24 @@ ht-degree: 0%
 
 Nachdem Sie Ihren Handler-Code geschrieben und an Ihr verknüpftes Repository gesendet haben, können Sie die App über die [!DNL LLM Apps]-Benutzeroberfläche bereitstellen.
 
+Dies ist ein freigegebener Schritt für jede Journey. Fahren Sie nach der Bereitstellung mit [Testen des ChatGPT-Plug-ins](/help/guides/test-in-chatgpt.md) fort.
+
 ## Starten der Bereitstellung
 
-Navigieren Sie zur App-Detailseite. Klicken Sie auf **[!UICONTROL Bereitstellen]** in der oberen rechten Ecke:
+Öffnen Sie die App-Detailseite und wählen Sie **[!UICONTROL Bereitstellen]** aus.
 
-![App-Details - bereit zur Bereitstellung](/help/assets/guide-deploy/app-detail-deploy-ready.png)
+Wählen Sie die Zielumgebung und dann **[!UICONTROL Bereitstellen]** aus.
 
-Dadurch wird das Bereitstellungsdialogfeld geöffnet. Wählen Sie die Zielumgebung aus dem Dropdown-Menü aus:
+![Bereitstellen - Wählen Sie die Zielumgebung aus](/help/assets/guide-onboarding-agent/deploy-stage.png)
 
-![Dialogfeld „Bereitstellen“ — Wählen Sie die Zielumgebung](/help/assets/guide-deploy/deploy-pipeline-dropdown.png)
+Die Bereitstellung erfolgt in vier Schritten:
 
-Klicken Sie **[!UICONTROL Bereitstellen]**, um die Pipeline zu starten. Die vier Schritte sind:
+1. **Vorbereiten** - ruft die Konfiguration ab, die zur Bereitstellung der App erforderlich ist.
+2. **Bereitstellung starten** - Startet den Bereitstellungsprozess im Hintergrund.
+3. **Programm erstellen** - Installiert Abhängigkeiten und erstellt den neuesten Repository-Code.
+4. **Veröffentlichen** - Veröffentlicht die App in [!DNL Adobe I/O Runtime].
 
-1. **Anmeldeinformationen sammeln** - liest App-Metadaten, generiert ein [!DNL GitHub]-Token und ruft Laufzeitanmeldeinformationen von der Konsolen-API ab.
-2. **Trigger-Build-Pipeline** - Sendet alle Parameter an die Build-Pipeline.
-3. **Klonen und erstellen** - Die Pipeline klont Ihr Repository, generiert `actions.json` aus den Metadaten der Benutzeroberfläche, führt `npm install` und webpack aus, um `dist/index.js` zu generieren.
-4. **Für die Laufzeit bereitstellen** - Stellt das Bundle im [!DNL Adobe I/O Runtime] Namespace Ihrer App bereit.
-
-Nach dem Start wird die Pipeline automatisch ausgeführt und zeigt den Echtzeitfortschritt an:
-
-![Pipeline-Ausführung bereitstellen](/help/assets/guide-deploy/deploy-pipeline-deploying.png)
+![Bereitstellen - Bereitstellungs-Pipeline wird ausgeführt](/help/assets/guide-onboarding-agent/deploy-running.png)
 
 >[!NOTE]
 >
@@ -46,20 +44,24 @@ Nach dem Start wird die Pipeline automatisch ausgeführt und zeigt den Echtzeitf
 
 ## Nach erfolgreicher Bereitstellung
 
-Wenn alle Schritte abgeschlossen sind, zeigt das Dialogfeld eine Bestätigung **Bereitstellung erfolgreich** mit den bereitgestellten URL- und Artefaktdetails an:
+Wenn alle Schritte abgeschlossen sind, wird im Dialogfeld **Bereitstellung erfolgreich** angezeigt.
 
-![Bereitstellung erfolgreich](/help/assets/guide-deploy/app-detail-deploy-finish.png)
+![Bereitstellen - erfolgreiche Bereitstellung](/help/assets/guide-onboarding-agent/deploy-successful.png)
 
 Klicken Sie **Schließen**, um das Dialogfeld zu schließen. Scrollen Sie auf der Seite mit den App **[!UICONTROL Details zum Abschnitt]** Testen der App“:
 
-![Testen der App - bereitgestellte URLs](/help/assets/guide-deploy/test-app-deployed.png)
+![Anwendungsdetails - Kopieren Sie die MCP-Server-URL](/help/assets/guide-onboarding-agent/app-mcp-url.png)
 
-Jede Umgebung (**Staging** und **Produktion** zeigt die MCP-Server-URL auf [!DNL Adobe I/O Runtime] an. Dies ist die URL, die Sie der LLM-Plattform bei der Registrierung Ihrer App bereitstellen. Klicken Sie **URL kopieren**, um sie in die Zwischenablage zu kopieren.
+Jede bereitgestellte Umgebung zeigt eine MCP Server URL an. Wählen Sie **[!UICONTROL URL kopieren]** und verwenden Sie diese, um ein Plug-in in der Ziel-LLM-Plattform zu erstellen.
 
-Der **Bereitstellungsverlauf** unten enthält ein vollständiges Protokoll jeder Bereitstellung in allen Umgebungen:
+Im Abschnitt **Bereitstellungsverlauf** werden die letzten 10 Bereitstellungen angezeigt:
 
 ![Bereitstellungsverlauf](/help/assets/guide-deploy/deployment-history.png)
 
-Jede Zeile zeigt die Zielumgebung **&#x200B;**&#x200B;(Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
+Jede Zeile zeigt die Zielumgebung **** (Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
 Die letzte Bereitstellung war erfolgreich.
+
+## Nächster Schritt
+
+[Testen Sie die bereitgestellte App als ChatGPT-Plug-in](/help/guides/test-in-chatgpt.md).
 

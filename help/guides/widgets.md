@@ -1,15 +1,15 @@
 ---
-title: Einrichten des Widgets (EDS)
-description: Erfahren Sie, wie Sie ein Edge Delivery Services-Widget-Projekt einrichten und den Blockvertrag für das Rendern visueller Antworten innerhalb von LLM-Plattformen implementieren.
-source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
+title: Anpassen eines generierten EDS-Widgets
+description: Machen Sie sich mit dem Edge Delivery Services-Widget vertraut, das vom Adobe LLM Apps Onboarding Agent erstellt wurde, und passen Sie es an.
+source-git-commit: 4c259a4587c0a84bb634a9a56c043dfe1cfc31fb
 workflow-type: tm+mt
-source-wordcount: '1226'
-ht-degree: 1%
+source-wordcount: '650'
+ht-degree: 0%
 
 ---
 
 
-# Einrichten des Widgets (EDS)
+# Anpassen eines generierten Widgets {#customize-generated-widget}
 
 >[!IMPORTANT]
 >
@@ -17,290 +17,183 @@ ht-degree: 1%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-In diesem Handbuch wird vollständig erklärt, wie Sie ein EDS-Widget erstellen: von der Konfiguration Ihrer Aktion in der [!DNL LLM Apps]-Benutzeroberfläche über die Einrichtung Ihres EDS-Projekts bis hin zum Schreiben des Block-Codes, der Ihre Daten in der LLM-Plattform rendert. Einen umfassenden Überblick finden Sie unter [Grundlegende Konzepte](/help/overview/overview.md#widgets-eds).
+>[!NOTE]
+>
+>In diesem Handbuch wird von einer grundlegenden Vertrautheit mit Adobe Edge Delivery Services (EDS) ausgegangen. Wenn Sie neu bei EDS sind, lesen Sie zunächst das [EDS-Entwickler-](https://www.aem.live/developer/tutorial) und [Erkunden von Blöcken](https://www.aem.live/docs/exploring-blocks) um die Grundlagen - Blöcke, die `decorate` und die EDS-Projektstruktur - zu lernen, bevor Sie ein Widget anpassen.
 
-## Die [!DNL LLM Apps] SDK
+Der Onboarding-Agent erstellt für jede generierte Aktion ein EDS-Widget. Das Widget empfängt bereits das Aktionsergebnis, rendert Beispieldaten, wendet Host-Stile an und ist mit der Aktion in [!DNL LLM Apps] verknüpft.
 
-Alles beginnt mit dem [`@adobe/llmapps-sdk`](https://www.npmjs.com/package/@adobe/llmapps-sdk) npm-Paket. SDK ist die JavaScript-Bibliothek, die den bidirektionalen Kommunikationskanal zwischen dem Widget und dem LLM-Host steuert.
+Testen Sie zunächst das generierte Widget. Passen Sie dann den Datenvertrag, die Interaktion und das visuelle Design an.
 
-Der SDK wird auch `aem-embed.js` ausgeliefert - der EDS-spezifische Einstiegspunkt, der den SDK an die standardmäßige EDS-Block-Pipeline anschließt. Beim `npm install @adobe/llmapps-sdk` kopiert ein Post-Install-Skript automatisch zwei Dateien in Ihr Projekt:
+**Journey:** Suchen Sie den generierten Block → richten Sie seinen Datenvertrag aus → passen Sie ihn sicher an → zeigen Sie eine lokale Vorschau → Bereitstellung und Tests an.
 
+## Erstelltes Widget suchen
+
+Öffnen Sie das beim Erstellen der App ausgewählte EDS-Repository. Jedes erzeugte Widget ist ein EDS-Block:
+
+```text
+blocks/
+└── <action-name>/
+    ├── <action-name>.js
+    └── <action-name>.css
 ```
+
+- Die JavaScript-Datei liest das Aktionsergebnis und erstellt die Schnittstelle.
+- Die CSS-Datei steuert das Layout, das responsive Verhalten und das visuelle Design.
+- Die generierte Pull-Anfrage zeigt die genauen Dateien an, die für die Aktion erstellt wurden.
+
+Der Onboarding-Agent konfiguriert auch die Widget-URLs und unterstützende SDK-Dateien. Sie müssen kein zweites EDS-Projekt erstellen oder diese Werte erneut eingeben, um ein generiertes Widget anzupassen.
+
+## Verbinden des LLM Apps SDK mit dem Widget
+
+Das `@adobe/llmapps-sdk`-Paket verbindet das EDS-Widget mit dem LLM-Host. Das generierte EDS-Repository umfasst:
+
+```text
 scripts/
-└── llm-apps/
-    ├── aem-embed.js     ← EDS widget entry point, ships with the SDK
-    └── llmapps-sdk.js   ← core SDK, loaded internally by aem-embed.js
+├── aem-embed.js
+└── llmapps-sdk.js
 ```
 
-In EDS-Projekten **Sie SDK nie direkt in Ihrem Blockcode verwenden.** `aem-embed.js` erstellt und verwaltet die SDK-Verbindung und übergibt eine vollständig verbundene `LLMApp`-Instanz als `bridge` in `decorate(block, bridge)` an Ihren Block. Die vollständige SDK-API ist auf `bridge` verfügbar - kein Import erforderlich.
-
-Wenn Sie ein Widget (**EDS) erstellen** ein Standard-Bundler- oder TypeScript-Projekt), können Sie die SDK direkt verwenden:
+`aem-embed.js` stellt die Host-Verbindung her, lädt die EDS-Seite und ruft Ihren -Block auf:
 
 ```javascript
-import { LLMApp } from '@adobe/llmapps-sdk';
-
-const app = new LLMApp({ appInfo: { name: 'MyWidget', version: '1.0.0' } });
-await app.connect();
-
-const { structuredContent } = await app.toolResult;
-```
-
-## Wie alles zusammenpasst
-
-Wenn die KI Ihre Aktion aufruft und der Handler `structuredContent` zurückgibt, rendert die LLM-Plattform ein interaktives Widget im Gespräch. Drei Dinge sorgen dafür, dass dies zusammenfunktioniert:
-
-**Die [!DNL LLM Apps]-Benutzeroberfläche** - Wenn Sie eine Aktion erstellen, geben Sie eine **[!UICONTROL Skript-]** und eine **[!UICONTROL Widget-URL]** in der Registerkarte Widget-Metadaten ein. Die Skript-URL verweist auf `aem-embed.js` - die Datei, die im Lieferumfang von SDK enthalten ist und sich in Ihrem EDS-Repository unter `scripts/llm-apps/aem-embed.js` befindet. Dadurch wird der LLM-Plattform mitgeteilt, welches Skript beim Aufrufen der Aktion geladen werden soll.
-
-**`aem-embed.js`** - Die LLM-Plattform lädt dieses Skript in eine Sandbox-Widget-Oberfläche. `aem-embed.js` ist ein benutzerdefiniertes HTML-Element (`<aem-embed>`), das als EDS-orientierter Einstiegspunkt für Ihr Widget dient. Er führt den Handshake mit dem LLM-Host mithilfe der SDK durch, unterdrückt die normale EDS-Seiten-Pipeline (keine Kopf-/Fußzeile), ruft den EDS-Seiteninhalt von der Widget-URL ab, führt die EDS-Block-Pipeline aus und stellt der `decorate()` jedes Blocks ein Live `bridge`-Objekt bereit.
-
-**Ihr Block-Code** - Sie schreiben einen standardmäßigen EDS-Block, der eine `decorate(block, bridge)` exportiert. Der `bridge` ist die verbundene SDK-Instanz. Sie erhalten das strukturierte Ergebnis der Aktion und können Nachrichten zurück an die Konversation senden.
-
-## Hinzufügen zu einem vorhandenen EDS-Projekt
-
-Wenn Sie bereits über ein EDS-Projekt verfügen, gibt es nur zwei Schritte, bevor Sie mit dem Schreiben von Blöcken beginnen können.
-
-1. Installieren Sie `@adobe/llmapps-sdk`. Das Post-Install-Skript kopiert `aem-embed.js` und `llmapps-sdk.js` in `scripts/llm-apps/`:
-
-   ```bash
-   npm install @adobe/llmapps-sdk
-   ```
-
-2. Konfigurieren Sie CORS-Header, damit die LLM-Plattform Ihre Widget-Seiten und -Skripte ursprungsübergreifend laden kann - siehe [Konfigurieren von CORS-Headern](#configure-cors-headers) unten.
-
-Erstellen Sie dann den Block entsprechend dem [`decorate(block, bridge)` Vertrag](#the-decorateblock-bridge-contract) erstellen Sie die Widget-Seite und geben Sie die URLs im Dialogfeld Aktion erstellen ein.
-
-## Einrichten eines neuen EDS-Projekts
-
-### Repository erstellen
-
-1. Erstellen Sie ein neues [!DNL GitHub]-Repository basierend auf der Vorlage [AEM Boilerplate](https://github.com/adobe/aem-boilerplate).
-2. Fügen Sie die [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) zum Repository hinzu.
-3. Installieren Sie die AEM-CLI für die lokale Entwicklung: `npm install -g @adobe/aem-cli`.
-4. Installieren Sie `@adobe/llmapps-sdk`. Das Post-Install-Skript kopiert `aem-embed.js` und `llmapps-sdk.js` in `scripts/llm-apps/`:
-
-   ```bash
-   npm install @adobe/llmapps-sdk
-   ```
-
-Eine vollständige Anleitung zu EDS-Projekten finden Sie im [AEM-Entwickler-Tutorial](https://www.aem.live/developer/tutorial) und [Projektanatomie](https://www.aem.live/developer/anatomy-of-a-project).
-
-Nach der Einrichtung ist Ihre EDS-Website verfügbar unter:
-
-- **Vorschau:** `https://main--<repo>--<owner>.aem.page/`
-- **Live:** `https://main--<repo>--<owner>.aem.live/`
-
-### Repository-Struktur
-
-```
-my-brand-eds/
-├── scripts/
-│   ├── llm-apps/
-│   │   ├── aem-embed.js           # Widget entry point — copied by post-install
-│   │   └── llmapps-sdk.js         # Core SDK — copied by post-install
-│   ├── aem.js                     # AEM core library
-│   └── scripts.js                 # Site-level decoration and loading
-├── blocks/
-│   └── search-products/           # One folder per widget block
-│       ├── search-products.js
-│       └── search-products.css
-├── styles/
-│   └── styles.css
-├── head.html
-└── package.json
-```
-
-### CORS-Header konfigurieren
-
-Ihre EDS-Widget-Seiten werden von der LLM-Plattform in eine Sandbox-Widget-Oberfläche geladen. Die EDS-Website muss korrekte `access-control-allow-origin`-Kopfzeilen zurückgeben, damit der Host Ihren Widget-Inhalt herkunftsübergreifend abrufen kann.
-
-Kopfzeilen werden über das AEM-Admin-Bedienfeld unter `admin.hlx.page` mithilfe des [Konfigurations-Service](https://aem.live/docs/config-service-setup) konfiguriert. Fügen Sie benutzerdefinierte Antwort-Header für die Pfade hinzu, in denen Ihre Widget-Seiten und SDK-Skripte vorhanden sind:
-
-```json
-{
-  "/<your-widget-pages-path>/**": [
-    { "key": "access-control-allow-origin", "value": "*" }
-  ],
-  "/scripts/**": [
-    { "key": "access-control-allow-origin", "value": "*" }
-  ]
+export default async function decorate(block, bridge) {
+  // Customize the widget here.
 }
 ```
 
->[!NOTE]
->
->Die Verwendung von `*` als Ursprungswert ist für öffentliche Widget-Inhalte auf der `.aem.live` Domain akzeptabel. Wenn Ihre Site geschützte Inhalte enthält, beschränken Sie die Herkunft auf bestimmte Domains.
+SDK wird nicht in den Baustein importiert. Die verbundene `bridge` wird automatisch bereitgestellt. Dadurch kann das Widget:
 
-### Erstellen der Widget-Seite
+- Lesen Sie das Handler-Ergebnis mit `bridge.toolResult`.
+- Anwenden von Host-Stilen mit `bridge.applyHostStyles()`.
+- Setzen Sie das Gespräch mit `bridge.sendMessage()` fort.
+- Rufen Sie eine weitere Aktion mit `bridge.callTool()` auf.
+- Lassen Sie die Größe mit der `bridge.autoResize()` synchronisiert.
 
-Erstellen Sie eine Seite in Ihrem EDS-Authoring-Tool und fügen Sie Ihren -Block hinzu. Die Seiten-URL wird zur **[!UICONTROL Widget-URL]** die Sie in der Aktion konfigurieren - das ist die einzige Verbindung zwischen der Aktion und dem Block. Es gibt keine Namensanforderung zwischen dem Block und dem Aktionsnamen.
+In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie ](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem [`@adobe/llmapps-sdk`-Paket .
 
-![EDS Authoring - Block zu Widget-Seite hinzugefügt](/help/assets/guide-widget/aem-author.png)
+## Grundlagen zum Datenvertrag
 
-### Geben Sie die URLs im Dialogfeld Aktion erstellen ein
-
-Navigieren Sie nach der Einrichtung des EDS-Repositorys zu **Widget-Metadaten → Vorlagen-URLs** wenn Sie Ihre Aktion erstellen:
-
-**[!UICONTROL Skript-URL]** - verweist auf `aem-embed.js` in Ihrem EDS-Repository. Dies ist für jede Aktion im selben EDS-Projekt der gleiche Wert:
-
-```
-https://main--<repo>--<owner>.aem.live/scripts/llm-apps/aem-embed.js
-```
-
-**[!UICONTROL Widget URL]** - die URL der EDS-Seite, die Sie für dieses Widget erstellt haben. Eindeutig pro Aktion:
-
-```
-https://main--<repo>--<owner>.aem.live/<path-to-your-widget-page>
-```
-
-Die LLM-Plattform lädt `aem-embed.js` von der Skript-URL. `aem-embed.js` ruft dann die `.plain.html` aus der Widget-URL ab, um den Blockinhalt abzurufen.
-
-## Datenfluss
-
-Der vollständige Pfad von Ihrem Handler zu einem gerenderten Widget:
-
-1. **Action Handler** gibt `structuredContent` zurück:
+Der Aktions-Handler gibt `structuredContent` zurück, und der Block liest es aus `bridge.toolResult`.
 
 ```javascript
-// actions/search-products/index.js
+// Handler result
 return {
-  structuredContent: {
-    products: [
-      { id: 'COF-001', name: 'Single Origin Ethiopian Coffee', price: '$18', rating: 4.7 },
-      { id: 'COF-002', name: 'Colombia Huila Natural', price: '$22', rating: 4.5 },
-    ],
-    total: 2,
-    category: 'coffee'
-  }
+  content: [{ type: 'text', text: `Found ${products.length} products.` }],
+  structuredContent: { products, total: products.length }
 };
 ```
 
-1. **LLM-Plattform** Öffnet eine Widget-Oberfläche und lädt `aem-embed.js` von der Skript-URL.
-
-1. **`aem-embed.js`** stellt eine Verbindung zum Host über die SDK her, ruft `.plain.html` von der Widget-URL ab, führt die EDS-Block-Pipeline aus und ruft `decorate(block, bridge)` auf Ihrem Block auf.
-
-1. **Ihr Block** liest die Daten aus `bridge.toolResult` und rendert die Benutzeroberfläche.
-
-1. **Benutzerinteraktion** Trigger `bridge.sendMessage(...)` oder `bridge.callTool(...)` und senden eine Folgenachricht an die Konversation.
-
-## Der `decorate(block, bridge)`
-
-Jeder EDS-Widget-Block sollte eine standardmäßige `decorate` exportieren. Dies ist die standardmäßige EDS-Blocksignatur, erweitert um ein zweites Argument - das verbundene `bridge`, bei dem es sich um eine [`LLMApp`](https://www.npmjs.com/package/@adobe/llmapps-sdk) SDK-Instanz mit der vollständigen API handelt:
-
 ```javascript
+// EDS block
 export default async function decorate(block, bridge) {
-  // ...
+  const result = bridge ? await bridge.toolResult : null;
+  const products = result?.structuredContent?.products ?? [];
+  // Render products.
 }
 ```
 
-`bridge` ist nur vorhanden, wenn es innerhalb der LLM-Plattform-Widget-Oberfläche ausgeführt wird. Schützen Sie Ihre Bridge-Aufrufe immer, damit Ihr Block auch gerendert wird, wenn Sie ihn direkt in einem Browser oder auf Ihrem lokalen Entwicklungs-Server in der Vorschau anzeigen.
+Wenn Sie `structuredContent` ändern, aktualisieren Sie den Handler und das Widget zusammen. Siehe [Anpassen eines generierten Handlers](/help/guides/customize-handler.md) für den vollständigen Rückgabevertrag.
 
-### Rendern von Daten aus dem Aktionsergebnis
+## Sicheres Rendern externer Daten
 
-`bridge.toolResult` ist ein Promise, das mit dem vollständigen Ergebnis aufgelöst wird, das Ihr Handler zurückgegeben hat, einschließlich `structuredContent`.
+Handler-Ausgabe als nicht vertrauenswürdige Daten behandeln. BEVORZUGEN Sie DOM-APIs wie `textContent`, anstatt Antwortwerte in `innerHTML` einzufügen.
 
 ```javascript
-const SAMPLE_PRODUCTS = [
-  { id: 'COF-001', name: 'Single Origin Ethiopian Coffee', price: '$18', rating: 4.7 },
-];
+function createProductCard(product, bridge) {
+  const card = document.createElement('article');
+  card.className = 'product-card';
 
-export default async function decorate(block, bridge) {
-  let products = SAMPLE_PRODUCTS;
+  const title = document.createElement('h3');
+  title.textContent = String(product.name ?? 'Product');
 
-  if (bridge) {
-    const result = await bridge.toolResult;
-    products = result?.structuredContent?.products ?? [];
-  }
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = 'Tell me more';
+  button.addEventListener('click', () => {
+    if (bridge && product.id) {
+      bridge.sendMessage(`Show me details for product ${String(product.id)}`);
+    }
+  });
 
-  block.innerHTML = products.map(p => `
-    <div class="product-card">
-      <h3>${p.name}</h3>
-      <p class="price">${p.price}</p>
-      <button data-id="${p.id}">Tell me more</button>
-    </div>
-  `).join('');
+  card.append(title, button);
+  return card;
 }
 ```
 
-### Anwenden des Host-Designs
+Validieren Sie URLs, bevor Sie sie `href` oder `src` zuweisen, und lassen Sie nur die für das Erlebnis erforderlichen Protokolle zu.
 
-Rufen Sie `bridge.applyHostStyles()` früh in `decorate` auf, um die CSS-Variablen und -Schriftarten (helles/dunkles Design, Typografie) des Hosts in das Widget einzufügen. Dadurch bleibt Ihr Widget visuell konsistent mit der umgebenden LLM-Plattform-Benutzeroberfläche.
+## Verwenden der Host-Brücke
 
-```javascript
-export default async function decorate(block, bridge) {
-  if (bridge) {
-    bridge.applyHostStyles();
-  }
-  // ...
-}
-```
+EDS übergibt eine verbundene Brücke an `decorate(block, bridge)`. Guard Bridge ruft auf, damit der Block auch während der direkten EDS-Vorschau gerendert wird.
 
-So reagieren Sie auf Designänderungen zur Laufzeit (z. B. wenn Benutzende zwischen dem hellen und dem dunklen Modus wechseln):
+### Anwenden von Host-Stilen
 
 ```javascript
 if (bridge) {
-  bridge.onContextChange(ctx => {
-    block.dataset.theme = ctx.theme; // 'light' | 'dark'
-  });
+  bridge.applyHostStyles();
 }
 ```
+
+Dies gilt für Host-Typografie und Design-Variablen. Ihr Widget-CSS sollte sowohl helle als auch dunkle Host-Designs unterstützen.
 
 ### Folgenachricht senden
 
-`bridge.sendMessage(text)` fügt eine Benutzermeldung in die Konversation ein. Dies ist die primäre Möglichkeit, wie ein Widget die KI-Interaktion weiter antreibt - z. B. wenn ein Trigger auf eine Produktkarte klickt, um nach Details zu fragen.
+```javascript
+await bridge.sendMessage('Show me similar products.');
+```
+
+Verwenden Sie `sendMessage`, wenn eine Interaktion die Konversation fortsetzen soll.
+
+### Andere Aktion aufrufen
 
 ```javascript
-block.querySelectorAll('button[data-id]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    bridge.sendMessage(`Show me details for product ${btn.dataset.id}`);
-  });
+const result = await bridge.callTool('get-product-details', {
+  id: product.id
 });
 ```
 
-### Direktes Aufrufen einer anderen Aktion
+Verwenden Sie `callTool` für eine explizite Interaktion, die ein anderes Aktionsergebnis erfordert. Übergeben Sie nur validierte Werte und behandeln Sie Fehler, ohne interne Details anzuzeigen.
 
-`bridge.callTool(name, args)` ruft eine weitere Aktion innerhalb des Widgets auf, ohne eine Benutzermeldung zu durchlaufen. Nützlich zum Laden verwandter Daten bei Bedarf.
-
-```javascript
-btn.addEventListener('click', async () => {
-  const result = await bridge.callTool('get-product-details', { id: product.id });
-  renderDetails(result.structuredContent);
-});
-```
-
-### Widget-Größe automatisch ändern
-
-Die LLM-Plattform skaliert das Widget basierend auf dem, was Sie melden. Verwenden Sie `bridge.autoResize(element)`, um die Widget-Höhe synchron zu halten, wenn sich Ihr Inhalt ändert - es verwendet intern eine `ResizeObserver`. Nach dem ersten Rendern aufrufen:
+### Widget-Größe synchronisieren
 
 ```javascript
-export default async function decorate(block, bridge) {
-  // ... render content ...
-
-  if (bridge) {
-    bridge.autoResize(block);
-  }
+if (bridge) {
+  bridge.autoResize(block);
 }
 ```
 
-Oder melden Sie eine feste Größe manuell:
+Rufen Sie `autoResize` nach dem ersten Rendern auf, damit der Host auf Inhaltsänderungen reagieren kann.
 
-```javascript
-bridge.reportSize(block.offsetWidth, block.offsetHeight);
-```
+## Vorschau der Änderungen
 
-### Vorschaumodus und lokale Entwicklung
+Generierte Blöcke sollten Beispieldaten für die direkte Vorschau enthalten, wenn `bridge` nicht verfügbar ist.
 
-Bei der Vorschau einer EDS-Seite direkt im Browser oder auf dem lokalen Dev-Server wird `bridge` `undefined`. Verwenden Sie das oben dargestellte Fallback-Muster für Beispieldaten, damit Ihr Block sofort ohne einen Live-Handler gerendert wird.
-
-So starten Sie einen lokalen Entwicklungsserver:
+So zeigen Sie eine lokale Vorschau des EDS-Projekts an:
 
 ```bash
 npm install -g @adobe/aem-cli
 aem up
 ```
 
-Dadurch wird `http://localhost:3000` geöffnet, wo Sie zu Ihren Widget-Seiten navigieren und Blöcke sehen können, die mit Beispieldaten gerendert werden. Änderungen an Block-JS und CSS werden sofort übernommen.
+Öffnen Sie die generierte Widget-Seite unter `http://localhost:3000`. Überprüfen Sie:
 
-## Nächste Schritte
+- Status „Leer“, „Laden“, „Erfolg“ und „Fehler“.
+- Langer Text und fehlende optionale Felder.
+- Tastaturnavigation und sichtbarer Fokus.
+- Helle und dunkle Themen.
+- Enge und breite Layouts.
 
-- [Anleitung: Schreiben des Aktions-Handlers](/help/guides/write-action-handler.md)
+Stellen Sie dann die App für das Staging bereit und testen Sie sie mit Live `structuredContent` in der LLM-Plattform.
 
+## Veröffentlichen der Anpassung
+
+1. Übergeben Sie die EDS-Änderungen und übertragen Sie sie.
+2. Wenn Sie die Datenform geändert haben, übertragen Sie die entsprechenden Handler-Änderungen und übertragen Sie sie.
+3. Stellen Sie die App für das Staging bereit.
+4. Testen Sie die Aktion und das Widget in [!DNL ChatGPT].
+5. Die verifizierte Version zur Produktion weiterleiten.
+
+## Andere EDS-Setups
+
+Wenn Sie den Onboarding-Agenten nicht verwendet haben oder eine vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).

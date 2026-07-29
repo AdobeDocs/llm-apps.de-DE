@@ -1,15 +1,15 @@
 ---
-title: Referenzdokumentation für Adobe LLM-Apps
-description: Referenz auf Feldebene für die Aktionskonfiguration in der Adobe LLM Apps-Benutzeroberfläche.
-source-git-commit: 1a99e2e80e50a3bcf9ce6fb910365202bf06e113
+title: Aktions- und Widget-Felder
+description: Felddefinitionen für Aktionsmetadaten, Parameter, Widgets, CSP und Berechtigungen in Adobe LLM-Apps.
+source-git-commit: eec74b87457bc852d7a8dd0e46c2a4385a93ae0a
 workflow-type: tm+mt
-source-wordcount: '500'
-ht-degree: 6%
+source-wordcount: '606'
+ht-degree: 5%
 
 ---
 
 
-# Referenzmaterial {#reference-material}
+# Aktionen- und Widget-Felder {#action-widget-configuration}
 
 >[!IMPORTANT]
 >
@@ -17,11 +17,11 @@ ht-degree: 6%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Dieser Abschnitt enthält Informationen auf Feldebene zur Konfiguration von Aktionen in der [!DNL Adobe LLM Apps]-Benutzeroberfläche.
+Auf dieser Seite können Sie Felder im Aktionseditor nachschlagen. Die vollständige Erstellungs-Journey finden Sie unter [Erstellen einer neuen Aktion](/help/guides/create-action.md).
 
 ## Aktionsparameter
 
-Eingabeparameter sind die Werte, die die LLM-Plattform ([!DNL ChatGPT], Claude) an Ihren Aktions-Handler sendet. Das Modell extrahiert sie aus der Nachricht des Benutzers und ordnet sie automatisch diesen Feldern zu.
+Eingabeparameter sind die Werte, die die LLM-Plattform an Ihren Aktions-Handler sendet. Das Modell extrahiert sie aus der Nachricht des Benutzers und ordnet sie diesen Feldern zu.
 
 | Eigenschaft | Beschreibung |
 |----------|-------------|
@@ -32,7 +32,7 @@ Eingabeparameter sind die Werte, die die LLM-Plattform ([!DNL ChatGPT], Claude) 
 
 ### Dateiparameter
 
-Dateiparameter enthalten Dateiobjekte mit `download_url`- und `file_id`. Definieren Sie Eingabefeldnamen, die Dateidaten erhalten sollen, wenn ein Benutzer eine Datei in die Konversation hochlädt.
+Dateiparameter sind im Aktionseditor konfigurierte Eingabefeldnamen. Wenn ein Benutzer eine Datei hochlädt, stellt der Host ein Dateiobjekt für diese Argumente bereit, normalerweise einschließlich `download_url` und `file_id`.
 
 ## Metadatenfelder
 
@@ -40,8 +40,10 @@ Dateiparameter enthalten Dateiobjekte mit `download_url`- und `file_id`. Definie
 
 | Feld | Erforderlich | Beschreibung |
 |-------|----------|-------------|
-| **Aktionsname** | Ja | Kennung für die Aktion (z. B *„Produkte suchen*) |
+| **Aktionsname** | Ja | Anzeigename für die Aktion (z. B. *Produkte suchen*) |
 | **Beschreibung** | Ja | Erläuterung der Aktion - Die LLM-Plattform entscheidet hierüber, wann sie aufgerufen wird |
+
+Nach der Erstellung zeigt der Editor auch eine unveränderliche **Code-Kennung** an. Dabei wird die Aktion dem `actions/<code-identifier>/index.js` im Handler-Repository zugeordnet.
 
 ### Anmerkungen
 
@@ -60,6 +62,9 @@ Optionale Hinweise, die das Verhalten der Aktion beschreiben:
 |-------|------------|-------------|
 | **Aufrufen des Statustextes** | 64 Zeichen | Meldung, die auf der LLM-Plattform während der Ausführung der Aktion angezeigt wird (z. B. *Produkte werden geladen …* ) |
 | **Aufgerufener Statustext** | 64 Zeichen | Meldung, die angezeigt wird, nachdem die Aktion abgeschlossen ist (z. B *„Produkte geladen …* ) |
+| **Widget-Beschreibung** | 512 Zeichen | Ordnet `_meta["openai/widgetDescription"]` zu. Fasst die gerenderte Komponente für das Modell zusammen und reduziert wiederholte Aussagen. |
+
+Die Aktionsbeschreibung steuert, wann das Modell die Aktion auswählt. In der Widget-Beschreibung wird erläutert, was die Komponente nach dem Rendern anzeigt.
 
 ### Sichtbarkeit
 
@@ -67,6 +72,14 @@ Optionale Hinweise, die das Verhalten der Aktion beschreiben:
 |--------|-------------|
 | **KI-Modell bereitstellen** | Die Aktion kann vom KI-Modell während Konversationen aufgerufen werden |
 | **Als Widget in Programmoberfläche anzeigen** | Die Aktion rendert ein visuelles Widget in der App |
+
+### Analytics
+
+| Feld | Beschreibung |
+|-------|-------------|
+| **Benutzerabsicht erfassen** | Erfasst eine Zusammenfassung der Konversation, die zur Aktion für Analytics geführt hat |
+
+## Widget-Felder
 
 ### Widget-Informationen
 
@@ -80,8 +93,8 @@ Optionale Hinweise, die das Verhalten der Aktion beschreiben:
 
 | Feld | Beschreibung |
 |-------|-------------|
-| **[!UICONTROL Skript-URL]** | Einstiegspunktskript - `https://main--<repo>--<owner>.aem.live/scripts/aem-embed.js`. Shared across all actions |
-| **Widget-Einbettungs-URL** | EDS-Seite für diese Aktion — `https://main--<repo>--<owner>.aem.live/eds-widgets/<action-name>`. Eindeutig pro Aktion |
+| **[!UICONTROL Skript-URL]** | HTTPS-URL für den EDS-`scripts/aem-embed.js`. Gemeinsam genutzt über Aktionen im selben EDS-Projekt |
+| **Widget-URL** | HTTPS-URL für die EDS-Seite, die durch diese Aktion gerendert wird. Erzeugte Aktionen konfigurieren dies automatisch |
 
 ## CSP-Konfiguration
 
