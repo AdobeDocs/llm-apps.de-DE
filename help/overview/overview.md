@@ -1,10 +1,10 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und was Sie benötigen, um loszulegen.
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: 1d677c4e21963d1b126abb6287fccedfc1933c1a
 workflow-type: tm+mt
-source-wordcount: '970'
-ht-degree: 1%
+source-wordcount: '938'
+ht-degree: 2%
 
 ---
 
@@ -99,7 +99,7 @@ Führen Sie alle folgenden Anforderungen aus, bevor Sie eine App erstellen.
 
 Ihre Adobe IMS-Organisation muss Zugriff auf [[!DNL App Builder]](https://developer.adobe.com/app-builder/docs/intro_and_overview/) haben. Sie benötigen die Rolle **Entwickler** oder **Systemadministrator**.
 
-Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu &#x200B;](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
+Öffnen Sie [Adobe Developer Console, um Ihren Zugriff zu ](https://developer.adobe.com/console). Der Schnellstartbildschirm bestätigt, dass Sie über den erforderlichen Zugriff verfügen.
 
 ![Adobe Developer Console - Schnellstartbildschirm, der den Entwicklerzugriff bestätigt](/help/assets/overview/dev-console-access-granted.png)
 
@@ -109,23 +109,20 @@ Wenn Sie **Eingeschränkter Zugriff** sehen, wenden Sie sich an den Administrato
 
 ### [!DNL GitHub]
 
-Sie benötigen ein [!DNL GitHub]-Konto mit folgenden Funktionen:
+Sie benötigen ein [!DNL GitHub] Konto, **Folgendes** kann. Dies ist eine Berechtigungsprüfung - installieren Sie noch nichts:
 
 - Erstellen Sie zwei Repositorys in dem Konto oder der Organisation, dem bzw. der die App gehören wird.
-- Installieren oder fordern Sie die Installation der Adobe LLM Apps [!DNL GitHub] App an.
-- Installieren oder fordern Sie die Installation von AEM Code Sync für das EDS-Repository an.
+- Installieren Sie [!DNL GitHub] Apps zu einem späteren Zeitpunkt im Einrichtungsprozess oder haben Sie einen Organisationsadministrator, der sie genehmigen kann.
 
 Um den Zugriff auf die Repository-Erstellung zu überprüfen, öffnen Sie [github.com/new](https://github.com/new) und vergewissern Sie sich, dass das gewünschte Konto oder die gewünschte Organisation unter &quot;**&quot;**.
 
 ![GitHub - Repository-Besitzer auswählen](/help/assets/overview/github-repo-owner-dropdown.png)
 
-Bei Repositorys im Besitz eines Unternehmens muss ein Organisationsadministrator möglicherweise die [!DNL GitHub] Apps genehmigen. Gewähren Sie jeder App nur Zugriff auf die von der LLM-App verwendeten Repositorys.
+Bei Repositorys im Besitz eines Unternehmens muss ein Organisationsadministrator möglicherweise die [!DNL GitHub] Apps genehmigen.
 
-### AEM Sites mit Edge Delivery Services
-
-Ihr Unternehmen benötigt eine Adobe Experience Manager Sites-Lizenz, die Edge Delivery Services (EDS) enthält. Sie benötigen außerdem Administratorzugriff auf die aus dem Widget-Repository erstellte EDS-Site.
-
-Um den Zugriff zu überprüfen, öffnen Sie das [EDS User Admin Tool](https://tools.aem.live/tools/user-admin/index.html), geben Sie den Organisationsnamen ein und rufen Sie die Benutzer ab. Vergewissern Sie sich, dass Ihr Konto über das Abzeichen **admin** verfügt.
+>[!NOTE]
+>
+>Dies ist eine Berechtigungsprüfung, kein Einrichtungsschritt. Installieren Sie noch keine [!DNL GitHub] Apps - [Erstellen Sie Ihre erste App automatisch](/help/guides/create-app.md) führt Sie durch die Installation der einzelnen Apps, die sich auf die exakten von Ihnen erstellten Repositorys beziehen, an der Stelle, an der sie benötigt werden.
 
 ### Website
 
