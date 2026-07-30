@@ -104,7 +104,7 @@ Wenn das ausgewählte EDS-Repository leer ist, wird es von [!DNL LLM Apps] mit d
 1. Wählen Sie in der Meldung unter dem EDS-Repository die Option **[!UICONTROL AEM Code Sync installieren]** aus.
 2. Installieren Sie auf [!DNL GitHub] AEM Code Sync und gewähren Sie ihm Zugriff auf das EDS-Repository.
 
-   Wählen Sie auf der **** AEM-Code-Synchronisierung registriert **[!UICONTROL unter „Site-]**&quot; die Option **[!UICONTROL + Benutzer hinzufügen]** und fügen Sie die E-Mail-Adresse hinzu, mit der Sie sich bei [!DNL LLM Apps] mit der Rolle **[!UICONTROL admin]** anmelden. Wählen Sie dann **[!UICONTROL Setup beenden]** unten auf der Seite aus.
+   Wählen Sie auf der **&#x200B;**&#x200B;AEM-Code-Synchronisierung registriert **[!UICONTROL unter „Site-]**&quot; die Option **[!UICONTROL + Benutzer hinzufügen]** und fügen Sie die E-Mail-Adresse hinzu, mit der Sie sich bei [!DNL LLM Apps] mit der Rolle **[!UICONTROL admin]** anmelden. Wählen Sie dann **[!UICONTROL Setup beenden]** unten auf der Seite aus.
 
    ![AEM Code Sync registriert — Fügen Sie sich als Site-Benutzer mit der Administratorrolle hinzu](/help/assets/guide-onboarding-agent/aem-code-sync-site-users-admin.png)
 
