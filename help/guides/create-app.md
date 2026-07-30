@@ -1,9 +1,9 @@
 ---
 title: Automatische Erstellung der ersten LLM-App
 description: Erstellen Sie auf Ihrer Website eine Adobe-LLM-App, überprüfen Sie die generierten Aktionen, stellen Sie sie bereit und testen Sie sie in einer unterstützten LLM-Plattform wie ChatGPT.
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: f91bb73a39cc5aacf44979ee55dd0ab5f69d4c81
 workflow-type: tm+mt
-source-wordcount: '1217'
+source-wordcount: '1272'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Die Plattform verwandelt Ihre Website in eine funktionierende App-Strukturvorlage. Es schlägt Aktionen vor, schreibt Handler-Code und Tests, erstellt EDS-Widgets und sendet die generierten Dateien an zwei [!DNL GitHub]-Repositorys, die Sie besitzen.
+Die Plattform macht Ihre Website zu einer voll funktionsfähigen App. Es schlägt Aktionen vor, schreibt Handler-Code und Tests, erstellt EDS-Widgets und sendet die generierten Dateien an zwei [!DNL GitHub]-Repositorys, die Sie besitzen.
 
 Die Generierung dauert ca. 15 Minuten. Am Ende dieses Tutorials verfügen Sie über eine bereitgestellte App, die Sie in einer unterstützten LLM-Plattform wie [!DNL ChatGPT] testen können.
 
@@ -103,6 +103,11 @@ Wenn das ausgewählte EDS-Repository leer ist, wird es von [!DNL LLM Apps] mit d
 
 1. Wählen Sie in der Meldung unter dem EDS-Repository die Option **[!UICONTROL AEM Code Sync installieren]** aus.
 2. Installieren Sie auf [!DNL GitHub] AEM Code Sync und gewähren Sie ihm Zugriff auf das EDS-Repository.
+
+   Wählen Sie auf der **&#x200B;**&#x200B;AEM-Code-Synchronisierung registriert **[!UICONTROL unter „Site-]**&quot; die Option **[!UICONTROL + Benutzer hinzufügen]** und fügen Sie die E-Mail-Adresse hinzu, mit der Sie sich bei [!DNL LLM Apps] mit der Rolle **[!UICONTROL admin]** anmelden. Wählen Sie dann **[!UICONTROL Setup beenden]** unten auf der Seite aus.
+
+   ![AEM Code Sync registriert — Fügen Sie sich als Site-Benutzer mit der Administratorrolle hinzu](/help/assets/guide-onboarding-agent/aem-code-sync-site-users-admin.png)
+
 3. Kehren Sie zum Dialogfeld LLM-App erstellen zurück.
 
 ![LLM-App erstellen — Leeres EDS-Repository initialisiert und AEM-Code-Synchronisierung erforderlich](/help/assets/guide-onboarding-agent/install-aem-code-sync.png)
@@ -191,7 +196,7 @@ Stellen Sie eine Frage, die einer der generierten Aktionen entspricht. Überprü
 
 ![ChatGPT — generierte Antwort des LLM-App-Plug-ins](/help/assets/guide-onboarding-agent/chatgpt-generated-app.png)
 
-Sie verfügen jetzt über eine funktionierende End-to-End-Strukturvorlage.
+Sie verfügen jetzt über eine voll funktionsfähige, funktionierende End-to-End-App.
 
 ## Produktionsbereit machen
 
