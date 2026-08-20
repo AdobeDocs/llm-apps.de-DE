@@ -20,7 +20,7 @@ ht-degree: 0%
 ## In einem Satz
 
 Eine **LLM-** ist eine Reihe von **Aktionen** (jeweils ein Tool, das über dem **verfügbar gemacht wird)
-Kontextprotokoll** oder **MCP**), das Sie an einem einzelnen Endpunkt veröffentlichen. Ein Chat-Host
+Kontextprotokoll **&#x200B; oder &#x200B;** MCP**), das Sie an einem einzelnen Endpunkt veröffentlichen. Ein Chat-Host
 Wie [!DNL ChatGPT] diese Tools entdeckt, sie während der Unterhaltung aufruft und rendert
 Ein **interaktives** mit dem Ergebnis - direkt im Chat.
 
