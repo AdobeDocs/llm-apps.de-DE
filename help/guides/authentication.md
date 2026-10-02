@@ -89,7 +89,7 @@ Die genauen Schritte unterscheiden sich je nach Anbieter, aber jeder Anbieter be
 ## Authentifizierung aktivieren
 
 1. Wählen Sie in der linken Navigation **[!UICONTROL Einstellungen]** aus und öffnen Sie dann die Registerkarte **[!UICONTROL Authentifizierung]**.
-2. Wählen Sie in **** die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]**.
+2. Wählen Sie in **&#x200B;**&#x200B;die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]**.
 3. Aktivieren Sie **[!UICONTROL Authentifizierung aktivieren]**.
 4. Geben **[!UICONTROL unter &quot;]**&quot; Folgendes ein:
    - **[!UICONTROL Aussteller]** - Die Aussteller-URL Ihres Identitätsanbieters, die auch der Wert ist, den sie in den `iss` jedes Tokens eingibt. Dies ist erforderlich, muss HTTPS sein und wird auch als Autorisierungs-Server Ihrer App veröffentlicht, damit LLM-Plattformen ermitteln können, wohin Benutzer gesendet werden sollen. Pro App wird nur ein Identitätsanbieter unterstützt.

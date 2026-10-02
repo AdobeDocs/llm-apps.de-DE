@@ -14,7 +14,7 @@ Die Dateinamen von Source müssen nicht mit den endgültigen Dateinamen überein
 
 Jedes nachstehende Handbuch deklariert ein eigenes Ausgabeverzeichnis. Verwenden Sie die Datei für den Abschnitt, zu dem die Aufnahme gehört.
 
-# Onboarding-Handbuch
+&#x200B;# Onboarding-Handbuch
 
 Ausgabeverzeichnis: `help/assets/guide-onboarding-agent/`
 
@@ -106,7 +106,7 @@ Ausgabeverzeichnis: `help/assets/guide-onboarding-agent/`
 ### `chatgpt-plugin-connect.png`
 
 - Status: Bestätigung nach der Erstellung des Plug-ins.
-- Einschließen: **Hinzufügen <plugin> zu ChatGPT **und** Connect **.
+- Einschließen: **Hinzufügen <plugin> zu ChatGPT &#x200B;** und **&#x200B; Connect &#x200B;**.
 - Maske: Browser-URL und Connector-IDs.
 - Alt-Text: `ChatGPT — connect the new plugin`
 
@@ -127,7 +127,7 @@ Fügen Sie nur dann eine Aufzeichnung hinzu, wenn die Entscheidung in der Prosa 
 
 Fügen Sie keine Screenshots für statische Feldlisten hinzu, die in der Prosa bereits klar sind.
 
-# Authentifizierungshandbuch
+&#x200B;# Authentifizierungshandbuch
 
 Ausgabeverzeichnis: `help/assets/guide-authentication/`
 
@@ -201,8 +201,8 @@ Optionen. Die drei nicht hervorgehobenen Zeilen wurden mit dem Ausfüllen des Be
 neu gerendert, wodurch es entfernt wird. Überprüfen Sie die Blutung durch eine Probenahme, nicht mit dem Auge: Die Blutung ist schwach genug, um
 verpassen und es ist die MCP Server URL.
 
-Beachten Sie, dass das Live-Steuerelement **vier** Werte bietet - **[!UICONTROL OAuth]**, **[!UICONTROL Access
-Token/API-]**, **[!UICONTROL Keine]** und **[!UICONTROL Gemischt]**. Die Zuordnung des Handbuchs
+Beachten Sie, dass das Live-Steuerelement **vier** Werte bietet - **[!UICONTROL OAuth]**, **Access
+Token/API-&rbrack;**, &#x200B;** [!UICONTROL Keine] **&#x200B; und &#x200B;** [!UICONTROL Gemischt]**. Die Zuordnung des Handbuchs
 Die -Tabelle behandelt nur die drei Authentifizierungsmodi einer App, die zugeordnet werden können, was richtig ist, aber nicht
 Beschreiben Sie das Dropdown-Menü mit drei Optionen.
 
