@@ -1,9 +1,8 @@
 ---
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: 03c918b1643d9c4e8ebee40fd67694acb6751a14
 workflow-type: tm+mt
-source-wordcount: '696'
+source-wordcount: '703'
 ht-degree: 0%
-
 ---
 # Screenshot-Verfahren für die Produktion
 
@@ -102,7 +101,7 @@ Wenn der/die Benutzende gebeten wird, die Dokumentation aus einem Erfassungsordn
    - vertrauliche Informationen;
    - Produktionsverhalten, das mit den Dokumenten kollidiert
 6. Quellaufnahmen nicht bearbeiten.
-7. Erstellen Sie für jedes akzeptierte Bild eine bereinigte Kopie mit dem stabilen Manifest-Dateinamen unter `help/assets/guide-onboarding-agent/`.
+7. Erstellen Sie für jedes akzeptierte Bild eine bereinigte Kopie mit dem stabilen Manifest-Dateinamen unter dem Ausgabeverzeichnis, das im Manifest-Abschnitt deklariert wird.
 8. Nur zuschneiden, wenn die umgebende Benutzeroberfläche keinen nützlichen Kontext hinzufügt.
 9. Maskieren sensibler Werte. Wenn eine sichere Maskierung nicht möglich ist, bitten Sie um eine erneute Aufnahme.
 10. Aktualisieren Sie den Artikel und den Alternativtext, um ihn an den erfassten Workflow anzupassen.
