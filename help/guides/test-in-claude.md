@@ -1,13 +1,11 @@
 ---
 title: Testen der LLM-App als Claude-Connector
 description: Erstellen Sie einen Claude-Connector aus Ihrer Adobe LLM Apps MCP-Server-URL und testen Sie ihn in einer Konversation.
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: fd41dbcabc4db0cae766de19cb042d7c85d8b7aa
 workflow-type: tm+mt
-source-wordcount: '399'
+source-wordcount: '448'
 ht-degree: 1%
-
 ---
-
 
 # Testen der LLM-App als [!DNL Claude] Connector {#test-in-claude}
 
@@ -20,6 +18,8 @@ ht-degree: 1%
 Nach der Bereitstellung stellt Ihre LLM-App eine MCP-Server-URL bereit. Fügen Sie diese URL zu [!DNL Claude] als benutzerdefinierten Connector hinzu und testen Sie dann die generierten Aktionen und Widgets.
 
 Dies ist der letzte Überprüfungsschritt nach dem Erstellen, Anpassen oder Erweitern einer App.
+
+In diesem Handbuch wird davon ausgegangen, dass die Aktionen der App öffentlich sind. Wenn für die App die Endbenutzerauthentifizierung aktiviert ist, werden [!DNL Claude] aufgefordert, sich beim Identitätsanbieter der App anzumelden, bevor Sie den Connector verwenden können. Bis dahin werden keine Tools aufgeführt. Siehe [Endbenutzer bei Ihrem eigenen Identitätsanbieter authentifizieren](/help/guides/authentication.md).
 
 ## Plananforderungen
 
