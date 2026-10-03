@@ -19,7 +19,7 @@ Von Ihnen wird erwartet, dass Sie diesen Kodex einhalten. Bitte melden Sie inakz
 
 ## Dokumentation zum Contributor Guide
 
-Siehe das [Handbuch für Mitwirkende](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html).
+Siehe das [Handbuch für Mitwirkende](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=de).
 
 ## Haben Sie eine Frage?
 
