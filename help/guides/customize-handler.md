@@ -1,13 +1,11 @@
 ---
 title: Anpassen eines generierten Aktionshandlers
 description: Machen Sie sich mit dem Adobe-LLM-Apps-Handler-Vertrag vertraut, ersetzen Sie generierte Beispieldaten und halten Sie die Handler-Ausgabe an sein Widget ausgerichtet.
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: 2d8f44f4f258bf217992131de9d9450a4023560d
 workflow-type: tm+mt
-source-wordcount: '541'
+source-wordcount: '537'
 ht-degree: 0%
-
 ---
-
 
 # Anpassen eines generierten Handlers {#customize-generated-handler}
 
@@ -15,7 +13,7 @@ ht-degree: 0%
 >
 >[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
 >
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an `llm-apps-beta@adobe.com`.
 
 Die Plattform erstellt für jede generierte Aktion einen funktionierenden Handler. Der Handler gibt zunächst Beispieldaten zurück, damit Sie das gesamte Erlebnis testen können.
 
