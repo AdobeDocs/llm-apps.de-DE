@@ -58,7 +58,7 @@ Im Abschnitt **Bereitstellungsverlauf** werden die letzten 10 Bereitstellungen a
 
 ![Bereitstellungsverlauf](/help/assets/guide-deploy/deployment-history.png)
 
-Jede Zeile zeigt die Zielumgebung **** (Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
+Jede Zeile zeigt die Zielumgebung **&#x200B;**&#x200B;(Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
 Die letzte Bereitstellung war erfolgreich.
 
 ## Nächster Schritt

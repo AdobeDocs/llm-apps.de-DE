@@ -59,7 +59,7 @@ In diesem Handbuch wird eine Variable mit dem Namen `GREETING_PREFIX` mit dem We
 
 
 
-3. Wählen Sie in **** die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]** aus.
+3. Wählen Sie in **&#x200B;**&#x200B;die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]** aus.
 4. Wählen Sie **[!UICONTROL Hinzufügen]** aus.
 
    ![Variablen und Geheimnisse - Leerer Staging-Arbeitsbereich mit der Schaltfläche „Hinzufügen“](/help/assets/guide-app-variables/variables-empty.png)
@@ -111,7 +111,7 @@ Wenn Ihre Handler-Änderungen bereit sind, übertragen Sie sie in das Handler-Re
 
 #### Schritt 3: Bereitstellen und Testen {#deploy-and-verify}
 
-1. [Stellen Sie Ihre App ](/help/guides/deploy-your-app.md) derselben Umgebung bereit, die Sie in **[!UICONTROL Workspace ausgewählt haben]**.
+1. [Stellen Sie Ihre App &#x200B;](/help/guides/deploy-your-app.md) derselben Umgebung bereit, die Sie in **[!UICONTROL Workspace ausgewählt haben]**.
 2. Rufen Sie die Aktion von einer unterstützten LLM-Plattform aus auf, wobei `name` auf `Ada` gesetzt ist. Siehe [Testen des ChatGPT-Plug](/help/guides/test-in-chatgpt.md) oder [Testen des Claude-Connectors](/help/guides/test-in-claude.md).
 3. Bestätigen Sie, dass die Antwort `Good day, Ada!` ist. Dadurch wird bestätigt, dass der Handler die konfigurierte Variable liest und ihre Standardbegrüßung überschreibt.
 
@@ -124,7 +124,7 @@ Um die andere Umgebung zu konfigurieren, wählen Sie sie in **[!UICONTROL Worksp
 
 >[!TIP]
 >
->Informationen zum lokalen Testen vor der Bereitstellung finden Sie unter [Lokale Handlerentwicklung und ](/help/reference/development.md)) und übergeben Sie die Variablen an den lokalen Server:
+>Informationen zum lokalen Testen vor der Bereitstellung finden Sie unter [Lokale Handlerentwicklung und &#x200B;](/help/reference/development.md)) und übergeben Sie die Variablen an den lokalen Server:
 >
 >`node server/local.js --param 'LLMA_VARIABLE_NAMES=["GREETING_PREFIX"]' --param GREETING_PREFIX=Howdy`
 
