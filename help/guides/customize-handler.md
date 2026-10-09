@@ -1,9 +1,9 @@
 ---
 title: Anpassen eines generierten Aktionshandlers
 description: Machen Sie sich mit dem Adobe-LLM-Apps-Handler-Vertrag vertraut, ersetzen Sie generierte Beispieldaten und halten Sie die Handler-Ausgabe an sein Widget ausgerichtet.
-source-git-commit: 2d8f44f4f258bf217992131de9d9450a4023560d
+source-git-commit: d9fb493c0b1708e4566e93a4f883e99bb4166e18
 workflow-type: tm+mt
-source-wordcount: '537'
+source-wordcount: '581'
 ht-degree: 0%
 ---
 
@@ -215,6 +215,8 @@ module.exports = async ({ query = '' } = {}) => {
 ```
 
 Schützen Sie den Netzwerkzugriff im Handler. API-Anmeldeinformationen niemals in Widget-JavaScript oder in die Quell-Code-Verwaltung einfügen.
+
+Informationen zu nicht sensiblen Einstellungen, die Ihr Handler benötigt, z. B. eine Service-URL, finden Sie unter [Konfigurieren von App-Variablen und -Geheimnissen](/help/guides/app-variables.md). Variablen werden pro Umgebung konfiguriert und werden bei der nächsten Bereitstellung wirksam. Unterstützung für geheime Daten ist noch nicht verfügbar. Verwenden Sie keine Variablen zum Speichern von API-Anmeldeinformationen.
 
 ## Erwartete Status verarbeiten
 
