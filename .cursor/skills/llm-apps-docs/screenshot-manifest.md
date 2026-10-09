@@ -1,7 +1,7 @@
 ---
-source-git-commit: 03c918b1643d9c4e8ebee40fd67694acb6751a14
+source-git-commit: 41bd4b6239171c7a3af7dc6349eaa3cbb880449c
 workflow-type: tm+mt
-source-wordcount: '1080'
+source-wordcount: '1279'
 ht-degree: 0%
 ---
 # Screenshot-Manifest
@@ -214,3 +214,51 @@ Nur hinzufügen, wenn die Prosa nicht ausreicht:
 - Bei der Eingabeaufforderung zur Anmeldung während der Konversation wird eine **[!UICONTROL optionale]** Aktion ausgelöst. Die plattformeigene Benutzeroberfläche, die sich häufig ändert, wird bereits prosa beschrieben.
 
 Erfassen Sie nicht die eigene Anmeldeseite des Identitätsanbieters. Er identifiziert den Anbieter, den diese Dokumentation nicht benennt.
+
+&#x200B;# Handbuch zu App-Variablen
+
+Ausgabeverzeichnis: `help/assets/guide-app-variables/`
+
+Referenziert von [app-variables.md](../../../help/guides/app-variables.md).
+
+Verwenden Sie im Arbeitsbereich **[!UICONTROL Staging]** die Variable &quot;`GREETING_PREFIX`&quot; mit dem Wert `Good day`. Variablenwerte sind in der Tabelle sichtbar, sodass nie eine echte Einstellung erfasst wird.
+
+## Erforderliche Aufnahmen
+
+### `variables-empty.png`
+
+- Status: **[!UICONTROL Einstellungen]** > **[!UICONTROL Variablen und]**) ohne Variablen in **[!UICONTROL Staging]**.
+- Einschließen: die Navigationseinstellungen, die Auswahl **&#x200B;**&#x200B;Workspace und **[!UICONTROL Hinzufügen]**.
+- Alt-Text: `Variables & Secrets — empty Stage workspace with the Add button`
+
+Aufgenommen 2026-10-05. Zugeschnitten, um die leere Arbeitsfläche abzulegen; nichts zum Maskieren.
+
+### `add-variable-dialog.png`
+
+- Status: **[!UICONTROL Variable oder Geheimnis hinzufügen]** Dialogfeld vor dem Speichern ausgefüllt.
+- Einschließen: *Geheimnisse werden noch nicht unterstützt* Hinweis, **[!UICONTROL Name]** `GREETING_PREFIX`, **&#x200B;**&#x200B;Typ **[!UICONTROL Variable]** und **[!UICONTROL Wert]** `Good day`.
+- Alt-Text: `Add Variable or Secret — GREETING_PREFIX set to Good day`
+
+Aufgenommen 2026-10-05. Unter dem Dialogfeld abgeschnitten; nichts zu maskieren.
+
+### `variable-added.png`
+
+- Status: die Variablentabelle nach dem Speichern mit einer `GREETING_PREFIX`.
+- Einschließen: **[!UICONTROL Name]**, **[!UICONTROL Type]**, **[!UICONTROL Value]**, **[!UICONTROL Last Updated]** sowie die Steuerelemente zum Kopieren, Bearbeiten und Löschen.
+- Alt-Text: `Variables & Secrets — GREETING_PREFIX saved in the Stage workspace`
+
+Aufgenommen 2026-10-05. Zugeschnitten, um die leere Arbeitsfläche abzulegen; nichts zum Maskieren.
+
+### `update-variable-dialog.png`
+
+- Status: **[!UICONTROL GREETING_PREFIX aktualisieren]** Dialogfeld mit **[!UICONTROL Aktueller Wert]** `Good day` und **[!UICONTROL Neuer Wert]** `Howdy`.
+- Alt-Text: `Update GREETING_PREFIX — change the value from Good day to Howdy`
+
+Aufgenommen 2026-10-05. Beschnittene Seitentitel und leere Überlagerung unter dem Dialogfeld zugeschnitten; das Texteinfügemarke nach dem `Howdy` wurde ausgemalt. Nichts zu maskieren.
+
+### `delete-variable-dialog.png`
+
+- Status: **[!UICONTROL GREETING_PREFIX?]** löschen Bestätigungsdialog.
+- Alt-Text: `Delete GREETING_PREFIX — confirm the permanent deletion`
+
+Aufgenommen 2026-10-05. Leere Überlagerung unter dem Dialogfeld zugeschnitten; nichts zu maskieren.
