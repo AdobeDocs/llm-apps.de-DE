@@ -1,15 +1,13 @@
 ---
 title: Erstellen einer neuen Aktion
 description: Definieren Sie Aktionsmetadaten, implementieren Sie den Handler, verbinden Sie ein EDS-Widget, testen Sie es und stellen Sie es mit Adobe LLM-Apps bereit.
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
 workflow-type: tm+mt
-source-wordcount: '1137'
-ht-degree: 1%
-
+source-wordcount: '1453'
+ht-degree: 0%
 ---
 
-
-# Erstellen einer Aktion von Grund auf {#create-action-from-scratch}
+# Erstellen einer neuen Aktion {#create-action-from-scratch}
 
 >[!IMPORTANT]
 >
@@ -21,34 +19,34 @@ ht-degree: 1%
 >
 >In diesem Handbuch wird von einer grundlegenden Vertrautheit mit Adobe Edge Delivery Services (EDS) ausgegangen. Wenn Sie neu bei EDS sind, lesen Sie zunächst das [EDS-Entwickler-Tutorial](https://www.aem.live/developer/tutorial) und [Erkunden von Blöcken](https://www.aem.live/docs/exploring-blocks) um die Grundlagen - Blöcke, die `decorate` und die EDS-Projektstruktur - zu lernen, bevor Sie ein Widget verbinden.
 
-Verwenden Sie dieses Handbuch, um eine Funktion hinzuzufügen, die von der Plattform nicht erstellt wurde. Sie definieren die Aktion in [!DNL LLM Apps], schreiben den Handler in das verknüpfte Repository, fügen bei Bedarf ein Widget hinzu, testen sie und stellen sie bereit.
+Fügen Sie eine Funktion hinzu, die von der Plattform nicht erstellt wurde. Definieren Sie die Aktion in [!DNL LLM Apps], schreiben Sie den Handler in das verknüpfte Repository und fügen Sie bei Bedarf ein Widget hinzu.
 
-**Journey:** Planen Sie die Aktion, → die Metadaten zu erstellen → den Handler zu schreiben → das Widget zu verbinden → lokal zu testen → das Plug-in bereitzustellen und zu testen.
+**In diesem Handbuch** Erfahren Sie, wie Sie eine Aktion definieren, ihren Handler implementieren und ein optionales Widget verbinden. Testen Sie die Aktion lokal, stellen Sie die App bereit und versuchen Sie die Aktion in einer unterstützten LLM-Plattform.
 
-Beginnen Sie Ihre erste App mit [Erste App automatisch erstellen](/help/guides/create-app.md).
+Beginnen Sie bei Ihrer ersten Mobile App mit [Einrichten der Infrastruktur](/help/guides/create-app.md) und [Erstellen von Aktionen](/help/guides/creating-actions.md). Im Handbuch Aktionen erstellen werden die automatische Erstellung auf einer Website und die manuelle Erstellung erläutert.
 
-## Bevor Sie beginnen
+## Voraussetzungen
 
 Sie benötigen:
 
 - Eine vorhandene LLM-App.
 - Ein verknüpftes Handler-Repository.
-- Das Repository wird lokal geklont, und die Abhängigkeiten werden installiert.
+- Ein lokaler Klon des Repositorys mit installierten Abhängigkeiten.
 - Ein EDS-Projekt, wenn die Aktion ein Widget anzeigt.
 - Eine klare API oder Datenquelle für Produktionsergebnisse.
 
 ## Planen der Aktion
 
-Eine Aktion sollte nur eine einzige klare Benutzeraufgabe ausführen. Bevor Sie die Benutzeroberfläche öffnen, definieren Sie Folgendes:
+Entwerfen Sie jede Aktion für eine klare Benutzeraufgabe. Bevor Sie die Benutzeroberfläche öffnen, definieren Sie Folgendes:
 
 - **Intent** - Was der Benutzer zu erreichen versucht.
-- **Beschreibung** - wann die LLM-Plattform diese Aktion auswählen soll.
+- **Beschreibung** - wann die Aktion ausgewählt werden soll.
 - **Eingaben** - die vom Benutzer mindestens benötigten Informationen.
 - **Result** - der Text und die strukturierten Daten, die vom Handler zurückgegeben werden.
 - **Verhalten** - ob die Aktion Daten liest, Daten ändert oder externe Systeme aufruft.
 - **Widget** — ob das Ergebnis eine visuelle Schnittstelle benötigt.
 
-Eine Aktion **Produkte suchen** könnte beispielsweise Folgendes verwenden:
+Verwenden Sie diesen Plan beispielsweise für eine Aktion **Produkte suchen**:
 
 ```text
 Intent: Find products matching a category or search phrase
@@ -62,13 +60,13 @@ Behavior: read-only, idempotent, open-world
 Widget: product cards
 ```
 
-Verwandte, aber unterschiedliche Aufgaben getrennt halten. Produktsuche und Produktkauf sollten nicht eine Aktion sein, da sie unterschiedliche Eingaben, Risiken und Bestätigungsanforderungen haben.
+Verwandte, aber unterschiedliche Aufgaben getrennt halten. Verwenden Sie separate Aktionen für die Produktsuche und den Produktkauf, da die Aufgaben unterschiedliche Eingaben, Risiken und Bestätigungsanforderungen aufweisen.
 
 ## Erstellen der Aktionsmetadaten
 
 Öffnen Sie die App und wählen Sie **[!UICONTROL Aktionen]** und dann **[!UICONTROL Aktion erstellen]** aus.
 
-Der Editor enthält die Registerkarten **[!UICONTROL Aktion]** und **[!UICONTROL Widget-]**).
+Das Erstellungsdialogfeld enthält die Registerkarten **[!UICONTROL Aktion]** und **[!UICONTROL Widget-]**). Erweitern Sie jeden Abschnitt, um seine Felder zu konfigurieren.
 
 ### Einfache Informationen eingeben
 
@@ -78,6 +76,8 @@ Geben Sie Folgendes ein:
 
 - **[!UICONTROL Aktionsname]** - Ein kurzer Aufgabenname, z. B *„Produkte*.
 - **[!UICONTROL Beschreibung]** — Erklären Sie, wann die Aktion verwendet wird und was sie zurückgibt.
+
+Das Dialogfeld leitet eine **[!UICONTROL Code-Kennung]** vom Namen ab, z. B. `search-products`. Die Kennung wird nach der Erstellung korrigiert und muss in der App eindeutig sein. Verwenden Sie die genaue Kennung für den Handler-Ordner.
 
 Eine nützliche Beschreibung ist spezifisch:
 
@@ -108,28 +108,28 @@ Invoking: Searching products...
 Invoked: Products found
 ```
 
-Für Aktionen mit Widgets fügen Sie **[!UICONTROL Widget-Beschreibung]** hinzu. Dies unterscheidet sich von der Aktionsbeschreibung:
+Für Aktionen mit Widgets fügen Sie **[!UICONTROL Widget-Beschreibung]** hinzu. Die Widget-Beschreibung unterscheidet sich von der Aktionsbeschreibung:
 
 - **Aktionsbeschreibung** hilft dem Modell bei der Entscheidung, wann die Aktion aufgerufen werden soll.
 - **Widget-Beschreibung** wird `_meta["openai/widgetDescription"]` zugeordnet und fasst zusammen, was die gerenderte Komponente anzeigt, wodurch der wiederholte Narrativ reduziert wird.
 
-[!DNL LLM Apps] gilt als Komponentenmetadaten. Geben Sie sie nicht vom Handler zurück.
+[!DNL LLM Apps] wendet die Widget-Beschreibung als Komponentenmetadaten an. Geben Sie die Beschreibung nicht vom Handler zurück.
 
 ### Sichtbarkeit konfigurieren
 
 - **[!UICONTROL KI-Modell bereitstellen]** ermöglicht dem Modell die Auswahl der Aktion.
 - **[!UICONTROL Als Widget in der Programmoberfläche anzeigen]** zeigt das konfigurierte Widget an.
 
-Widget-Sichtbarkeit deaktivieren, wenn die Aktion nur Text zurückgibt.
+Wählen Sie für eine Aktion, die nur Text enthält, auch **[!UICONTROL Kein Widget]** unter **[!UICONTROL Widget-Metadaten]** > **[!UICONTROL Typ]**. Bei der Steuerung der Sichtbarkeit wird nicht der Widget-Typ der Aktion ausgewählt.
 
 ### Eingabeparameter hinzufügen
 
 Fügen Sie für jeden Wert, den der Handler akzeptiert, einen Parameter hinzu. Jeder Parameter benötigt:
 
-- **Name** - der vom Handler empfangene Schlüssel.
+- **Name** - der Schlüssel, den der Handler erhält.
 - **type** - Zeichenfolge, Zahl, Ganzzahl oder Boolesch.
-- **Beschreibung** - wie das Modell den Wert extrahieren soll.
-- **Erforderlich** - ob die Aktion ohne sie ausgeführt werden kann.
+- **Beschreibung** - wie der Wert extrahiert wird.
+- **Erforderlich** - Angabe, ob für die Aktion der Wert erforderlich ist.
 
 Für **Produkte suchen**:
 
@@ -151,13 +151,15 @@ Verwenden Sie stabile Parameternamen. Zum Ändern eines Namens müssen auch der 
 
 Aktivieren Sie **[!UICONTROL Benutzerabsicht erfassen]** wenn Sie möchten, dass Analytics eine Zusammenfassung der Konversation enthält, die zu der Aktion geführt hat.
 
+Die Benutzerabsichtserfassung ist standardmäßig aktiviert. Lesen Sie **[!UICONTROL Beschreibung der Benutzerabsicht]**, die die Anweisungen zum Anfordern der Zusammenfassung enthält. Beschränken Sie die Anweisungen auf einen nicht vertraulichen, anonymisierten Zweck und beschreiben Sie Ihre Datenerfassung in Ihrer Datenschutzerklärung. Die Beschreibung akzeptiert bis zu 2.000 Zeichen.
+
 ![Aktion erstellen - Analyse der Benutzerabsicht](/help/assets/guide-create-action/action-analytics-user-intent.png)
 
 Vollständige Felddefinitionen finden Sie unter [Aktion und Widget-Felder](/help/reference/reference-docs.md).
 
 ## Konfigurieren des Widgets
 
-Überspringen Sie diesen Abschnitt für eine Aktion, die nur Text enthält.
+Für eine Aktion, die nur Text enthält, öffnen Sie **[!UICONTROL Widget-Metadaten]** und setzen Sie **[!UICONTROL Typ]** auf **[!UICONTROL Kein Widget]**. Überspringen Sie dann die verbleibenden Widget-Einstellungen.
 
 Öffnen Sie **[!UICONTROL Widget-Metadaten]**.
 
@@ -165,11 +167,16 @@ Vollständige Felddefinitionen finden Sie unter [Aktion und Widget-Felder](/help
 
 Konfigurieren:
 
-- **Typ** — EDS auswählen.
-- **Widget-Domain** - der EDS-Ursprung, der das Widget hostet.
+- **[!UICONTROL Typ]** - Wählen Sie **[!UICONTROL Edge Delivery Services-Block]** für ein interaktives Widget aus.
+- **[!UICONTROL Widget-Domain]** - der Sandbox-Ursprung des Widgets. Die Benutzeroberfläche identifiziert sie als erforderlich für die App-Übermittlung und eindeutig pro App. Sie ist nicht identisch mit der EDS-Seiten-URL.
 - **Bevorzugter Rahmen** - Fordert einen umrandeten Container im Host an.
-- **Script URL** - der Einstiegspunkt des EDS-Widgets.
-- **Widget URL** - die veröffentlichte EDS-Seite für diese Aktion.
+
+Erweitern Sie **[!UICONTROL Vorlagen-URLs]** und geben Sie Folgendes ein:
+
+- **[!UICONTROL Script URL]** - der Einstiegspunkt des EDS-Widgets.
+- **[!UICONTROL Widget URL]** - die veröffentlichte EDS-Seite für diese Aktion.
+
+![Neue Aktion erstellen - Skript- und Widget-URLs für ein EDS-Widget](/help/assets/guide-create-action/widget-template-urls.png)
 
 Typische URLs sind:
 
@@ -183,7 +190,13 @@ https://main--<repo>--<owner>.aem.live/<widget-page>
 
 Gewähren Sie nur erforderliche Browser-Berechtigungen und CSP-Domains.
 
-![Aktion erstellen - Berechtigungen und CSP](/help/assets/guide-create-action/widget-permissions-csp.png)
+Erweitern Sie **[!UICONTROL Berechtigungen (MCP-spezifisch)]** nur, wenn das Widget Browser-Funktionen wie Geolokalisierung benötigt. Lassen Sie nicht verwendete Berechtigungen deaktiviert.
+
+![Neue Aktion erstellen — Optionale Browser-Berechtigungen](/help/assets/guide-create-action/widget-permissions.png)
+
+Fügen **[!UICONTROL unter „CSP-]**&quot; die Ursprünge hinzu, die für Assets- und Netzwerkanfragen erforderlich sind. Ein Widget, das externe Ressourcen lädt, wird möglicherweise nicht gerendert, wenn sein CSP unvollständig ist.
+
+![Neue Aktion erstellen - Domain-Listen der Content Security-Richtlinien](/help/assets/guide-create-action/widget-csp.png)
 
 Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
 
@@ -191,7 +204,9 @@ Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen 
 
 Wählen Sie **[!UICONTROL Neue Aktion erstellen]** aus. Die Aktion wird auf der Seite Aktionen mit dem Badge **Nicht bereitgestellt** angezeigt.
 
-An dieser Stelle sind die Metadaten vorhanden, für die Aktion ist jedoch weiterhin ein Handler erforderlich.
+Beim Speichern werden die Metadaten erstellt, für die Aktion ist jedoch ein Handler erforderlich.
+
+Wenn Sie die gespeicherte Aktion erneut öffnen, verfügt der Editor über **[!UICONTROL LLM-Widget-]** Details **[!UICONTROL , Aktionsdetails]** und **[!UICONTROL Analytics]**. Um spätere Änderungen zu speichern, wählen Sie **[!UICONTROL Änderungen speichern]**. Das Erstellungsdialogfeld und der Editor für gespeicherte Aktionen haben unterschiedliche Layouts.
 
 ## Implementieren des Handlers
 
@@ -234,7 +249,7 @@ Der Handler empfängt die in der Benutzeroberfläche definierten Parameter.
 
 ### `content`
 
-`content` ist der von der LLM-Plattform gelesene Fallback-Text:
+Die LLM-Plattform liest `content` als Textfallback:
 
 ```javascript
 content: [
@@ -246,7 +261,7 @@ Geben Sie immer nützliche `content` zurück, auch wenn die Aktion über ein Wid
 
 ### `structuredContent`
 
-`structuredContent` ist ein einfaches Objekt, das vom Widget genutzt wird:
+Das Widget nutzt `structuredContent` als einfaches Objekt:
 
 ```javascript
 structuredContent: {
@@ -261,35 +276,43 @@ Die Form muss mit dem übereinstimmen, was der EDS-Block aus `bridge.toolResult`
 
 ### Verbinden einer API
 
-Schützen Sie den API-Zugriff im Server-seitigen Handler. Laden Sie die Konfiguration aus der Laufzeitumgebung und verwenden Sie eine feste HTTPS-Herkunft.
+API-Aufrufe im Server-seitigen Handler behalten. In diesem Beispiel wird eine öffentliche Produkt-API aufgerufen. Konfigurieren Sie den HTTPS-Ursprung der API in einer [App-Variablen](/help/guides/app-variables.md) namens `PRODUCT_API_ORIGIN`. Das Beispiel akzeptiert die oben definierten `query`- und `category`, erfordert mindestens einen Parameter und erfordert keine Anmeldeinformationen.
 
 ```javascript
-const API_ORIGIN = process.env.PRODUCT_API_ORIGIN;
-const API_TOKEN = process.env.PRODUCT_API_TOKEN;
+const { getVariable } = require('@adobe/llm-apps-runtime');
 
-module.exports = async ({ query = '' } = {}) => {
-  const normalizedQuery = String(query).trim();
-  if (!normalizedQuery || normalizedQuery.length > 200) {
+module.exports = async ({ query = '', category = '' } = {}, extra) => {
+  const normalizedQuery = typeof query === 'string' ? query.trim() : '';
+  const normalizedCategory = typeof category === 'string' ? category.trim() : '';
+  if (typeof query !== 'string' || typeof category !== 'string'
+      || (!normalizedQuery && !normalizedCategory)
+      || normalizedQuery.length > 200 || normalizedCategory.length > 100) {
     return {
+      isError: true,
       content: [{ type: 'text', text: 'Enter a valid product search.' }],
       structuredContent: { products: [], total: 0 }
     };
   }
 
-  if (!API_ORIGIN || !API_TOKEN) {
+  const apiOrigin = getVariable(extra, 'PRODUCT_API_ORIGIN');
+  if (!apiOrigin) {
     throw new Error('Product API configuration is unavailable.');
   }
 
-  const origin = new URL(API_ORIGIN);
+  const origin = new URL(apiOrigin);
   if (origin.protocol !== 'https:') {
     throw new Error('Product API configuration must use HTTPS.');
   }
 
   const url = new URL('/v1/products', origin);
-  url.searchParams.set('query', normalizedQuery);
+  if (normalizedQuery) {
+    url.searchParams.set('query', normalizedQuery);
+  }
+  if (normalizedCategory) {
+    url.searchParams.set('category', normalizedCategory);
+  }
 
   const response = await fetch(url, {
-    headers: { Authorization: `Bearer ${API_TOKEN}` },
     signal: AbortSignal.timeout(8000)
   });
 
@@ -325,7 +348,7 @@ module.exports = async ({ query = '' } = {}) => {
 };
 ```
 
-Geben Sie keine API-Anmeldeinformationen in Quell-Code, Aktionsmetadaten, Widget-JavaScript, Protokolle oder benutzerseitige Fehler ein.
+Geben Sie keine API-Anmeldeinformationen in Quell-Code, Aktionsmetadaten, Widget-JavaScript, Protokolle oder benutzerseitige Fehler ein. Die Benutzeroberfläche **[!UICONTROL Variablen und Geheimnisse]** unterstützt derzeit nur nicht vertrauliche Variablen und keine geheimen Daten. Speichern Sie kein API-Token in einer Variablen. Wenn Ihre Upstream-API Anmeldeinformationen erfordert, vereinbaren Sie einen Mechanismus für genehmigte Server-seitige Anmeldeinformationen, bevor Sie sie verbinden.
 
 Für Produktions-Code validieren Sie die vollständige Upstream-Antwort, bevor Sie genehmigte Felder `structuredContent` zuordnen.
 
@@ -389,9 +412,8 @@ Siehe [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
 
 1. Übertragen Sie die Änderungen an Handler und Widget und übertragen Sie sie.
 2. [Bereitstellen der App](/help/guides/deploy-your-app.md) für das Staging.
-3. [Testen Sie das ChatGPT-Plug-in](/help/guides/test-in-chatgpt.md).
-4. Überprüfen Sie die Eingabeaufforderungen, die die Aktion aufrufen sollen und nicht sollten.
+3. Testen Sie die App in [ChatGPT](/help/guides/test-in-chatgpt.md) oder [Claude](/help/guides/test-in-claude.md).
+4. Überprüfen Sie die Aktionsauswahl mit Eingabeaufforderungen, die mit der Aktion übereinstimmen, und mit nicht verwandten Eingabeaufforderungen, die nicht dazu aufrufen.
 5. Nachdem die Staging-Umgebung erfolgreich ausgeführt wurde, stellen Sie sie in der Produktionsumgebung bereit.
 
 Wenn Metadaten ohne übereinstimmenden Handler vorhanden sind, registriert die Bereitstellung die Aktion mit einem Standard-Stub. Fügen Sie den Handler hinzu, bevor Sie die Aktion den Benutzern zur Verfügung stellen.
-- [Anleitung: Einrichten des Widgets (EDS)](/help/guides/widgets.md)

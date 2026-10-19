@@ -1,10 +1,10 @@
 ---
 title: Testen der LLM-App als Claude-Connector
 description: Erstellen Sie einen Claude-Connector aus Ihrer Adobe LLM Apps MCP-Server-URL und testen Sie ihn in einer Konversation.
-source-git-commit: fd41dbcabc4db0cae766de19cb042d7c85d8b7aa
+source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
 workflow-type: tm+mt
-source-wordcount: '448'
-ht-degree: 1%
+source-wordcount: '676'
+ht-degree: 0%
 ---
 
 # Testen der LLM-App als [!DNL Claude] Connector {#test-in-claude}
@@ -17,13 +17,15 @@ ht-degree: 1%
 
 Nach der Bereitstellung stellt Ihre LLM-App eine MCP-Server-URL bereit. Fügen Sie diese URL zu [!DNL Claude] als benutzerdefinierten Connector hinzu und testen Sie dann die generierten Aktionen und Widgets.
 
-Dies ist der letzte Überprüfungsschritt nach dem Erstellen, Anpassen oder Erweitern einer App.
+**In diesem Handbuch** Erfahren Sie, wie Sie Ihre bereitgestellte App als [!DNL Claude]-Connector hinzufügen, ihr Anmeldeverhalten auswählen und ihre Aktionen und Widgets in einer Konversation testen.
 
-In diesem Handbuch wird davon ausgegangen, dass die Aktionen der App öffentlich sind. Wenn für die App die Endbenutzerauthentifizierung aktiviert ist, werden [!DNL Claude] aufgefordert, sich beim Identitätsanbieter der App anzumelden, bevor Sie den Connector verwenden können. Bis dahin werden keine Tools aufgeführt. Siehe [Endbenutzer bei Ihrem eigenen Identitätsanbieter authentifizieren](/help/guides/authentication.md).
+Bei einer App mit öffentlichen und geschützten Aktionen unterstützt [!DNL Claude] verzögerte Anmeldung, bis eine geschützte Aktion aufgerufen wird. Eine App, deren Aktionen alle Authentifizierung erfordern, muss vor der Verwendung angemeldet werden. Siehe [Endbenutzer bei Ihrem eigenen Identitätsanbieter authentifizieren](/help/guides/authentication.md).
 
 ## Plananforderungen
 
-Benutzerdefinierte Connectoren mit Remote-MCP sind auf [!DNL Claude]-, [!DNL Claude] Desktop- und Cowork-Plänen kostenlos, Pro-, Max-, Team- und Enterprise-Plänen verfügbar. Kostenlose Plankonten sind auf einen benutzerdefinierten Connector beschränkt. Für Team- und Enterprise-Organisationen muss ein Eigentümer oder ein Primärer Eigentümer Connectoren aktivieren, bevor andere Mitglieder sie verwenden können.
+Benutzerdefinierte Connectoren mit Remote-MCP sind kostenlos für die Pläne Pro, Max, Team und Enterprise verfügbar. Freie Konten unterstützen einen benutzerdefinierten Connector. In Team und Enterprise fügt ein autorisierter Eigentümer den Connector für die Organisationsmitglieder hinzu, bevor diese eine Verbindung herstellen. Benutzerdefinierte Unternehmensrollen können diese Berechtigung ebenfalls erteilen.
+
+Planungs[&#x200B; und Organisationssteuerelemente finden Sie in &#x200B;](https://claude.com/docs/connectors/custom/add-unlisted)Claude&#39;s aktuellen benutzerdefinierten Connector-Anweisungen . Der Remote-MCP-Endpunkt muss von der Claude-Infrastruktur aus erreichbar sein, nicht nur über Ihren lokalen Browser.
 
 ## MCP-Server-URL kopieren
 
@@ -31,37 +33,36 @@ In [!DNL LLM Apps]:
 
 1. Öffnen Sie die App-Detailseite.
 2. Suchen Sie **[!UICONTROL App testen]**.
-3. Wählen **[!UICONTROL unter „Staging]** die Option **[!UICONTROL URL kopieren]** aus.
+3. Wählen **[!UICONTROL unter „Staging]** die Option **[!UICONTROL URL kopieren]**.
 
 ## Hinzufügen des benutzerdefinierten Connectors
 
-1. Öffnen Sie [claude.ai/new?modal=add-custom-connector](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors). Dadurch wird das Dialogfeld **[!UICONTROL Benutzerdefinierten Connector hinzufügen]** direkt geöffnet.
-2. Geben Sie Folgendes ein:
-   - **[!UICONTROL Name]** - der Connector-Name.
-   - **[!UICONTROL Remote-MCP-Server-URL]** - Die kopierte MCP-Server-URL.
-3. Wählen Sie **[!UICONTROL Hinzufügen]** aus.
+1. Öffnen Sie [Anpassen > Connectoren](https://claude.ai/customize/connectors). Bei einem organisationsweiten Connector wird stattdessen ein autorisierter Eigentümer geöffnet [Organisationseinstellungen > Connectoren](https://claude.ai/admin-settings/connectors).
+2. Wählen Sie **[!UICONTROL Benutzerdefinierten Connector hinzufügen]** oder **[!UICONTROL Hinzufügen]** > **[!UICONTROL Benutzerdefiniert]** > **[!UICONTROL Web]** für den Organisationsfluss aus.
+3. Geben Sie den Connector-Namen ein, falls angefordert, und fügen Sie die vollständige HTTPS-MCP-Server-URL ein.
+4. Wenn das Dialogfeld mehrere Schritte umfasst, wählen Sie **[!UICONTROL Fortfahren]** und überprüfen Sie die erkannten Authentifizierungseinstellungen:
+   - **[!UICONTROL Keine Anmeldung]** für eine öffentliche App mit deaktivierter Authentifizierung.
+   - **[!UICONTROL Bei Bedarf anmelden]** für eine App mit öffentlichen und geschützten Aktionen.
+   - **[!UICONTROL Jetzt anmelden]** um die Anmeldung vor der Verwendung des Connectors anzufordern.
+5. Wählen Sie für OAuth eine Client-Identitätsmethode aus, die von Ihrem Identitätsanbieter unterstützt wird. Wenn Sie einen vorregistrierten Client verwenden, geben Sie dessen Details nur in den OAuth-Einstellungen des Connectors ein, nicht in den URL- oder Aktionsmetadaten.
+6. Wählen Sie **[!UICONTROL Hinzufügen]** aus. Für einen Organisations-Connector wählt dann jedes Mitglied **[!UICONTROL Verbinden]** aus seiner eigenen Connector-Liste aus.
 
-   ![Claude - Dialogfeld „Benutzerdefinierten Connector hinzufügen“](/help/assets/guide-test-claude/claude-add-custom-connector.png)
+Einige Konten zeigen ein Dialogfeld mit **[!UICONTROL erweiterten Einstellungen]** auf einem Bildschirm an, während andere einen mehrstufigen Fluss anzeigen. Verwenden Sie die [aktuellen Plattformanweisungen](https://claude.com/docs/connectors/custom/add-unlisted#choose-authentication-settings) wenn Ihr Layout unterschiedlich ist.
 
 >[!NOTE]
 >
->Verwenden Sie nur Connectoren von Entwicklern, denen Sie vertrauen. Anthropic kontrolliert nicht, welche Tools Entwickler zur Verfügung stellen und kann nicht überprüfen, ob sie wie beabsichtigt funktionieren oder ob sie sich nicht ändern.
+>Verwenden Sie nur Connectoren von vertrauenswürdigen Entwicklern. Anthropic kontrolliert nicht, welche Tools Entwickler zur Verfügung stellen oder garantiert, dass diese Tools wie vorgesehen funktionieren oder unverändert bleiben.
 
 ## Die generierten Tools zulassen
 
-Jede generierte Aktion wird unter **[!UICONTROL Tool-Berechtigungen]** auf der Connector-Seite aufgeführt. Standardmäßig sind neue Tools auf „Genehmigung erforderlich **[!UICONTROL festgelegt]** wodurch Sie während des Tests aufgefordert werden, jeden Aufruf zu genehmigen.
+[!DNL Claude] listet jede generierte Aktion unter **[!UICONTROL Tool-Berechtigungen]** auf der Connector-Seite auf. Für neue Tools ist standardmäßig **[!UICONTROL Genehmigung erforderlich]** festgelegt, bei der Sie aufgefordert werden, jeden Aufruf während des Tests zu genehmigen.
 
-Stellen Sie jedes Tool — oder die gesamte **[!UICONTROL Interaktive Tools]**-Gruppe — auf **[!UICONTROL Immer zulassen]** ein, damit das Testen nicht durch Genehmigungsaufforderungen unterbrochen wird.
-
-![Claude — Setzen Sie Tool-Berechtigungen auf Immer zulassen](/help/assets/guide-test-claude/claude-tool-permissions.png)
+Lassen Sie Genehmigungsaufforderungen für Aktionen aktiviert, die Daten ändern oder vertrauliche Vorgänge ausführen. Verwenden Sie **[!UICONTROL Immer zulassen]** nur für bestimmte vertrauenswürdige Aktionen mit geringem Risiko, wenn dies für Ihren Test geeignet ist.
 
 ## Testen des Connectors
 
 1. Neuen Chat starten.
 2. Wählen Sie **+** im Meldungsfeld aus (oder geben Sie `/` ein), bewegen Sie den Mauszeiger **[!UICONTROL Connectoren]** und aktivieren Sie den Connector, den Sie für diese Konversation hinzugefügt haben.
-
-   ![Claude - Aktivieren Sie den Connector für die Konversation](/help/assets/guide-test-claude/claude-enable-connector-chat.png)
-
 3. Stellen Sie eine Frage, die einer der generierten Aktionen entspricht. Beispiel: *Zeig mir Kaffee.*
 
 Überprüfen Sie, ob:
@@ -70,6 +71,10 @@ Stellen Sie jedes Tool — oder die gesamte **[!UICONTROL Interaktive Tools]**-G
 - Das Widget zeigt die erwarteten Beispieldaten an.
 - Die Textantwort entspricht dem Widget.
 - Widget-Steuerelemente funktionieren erwartungsgemäß.
+
+Für gemischte Authentifizierung rufen Sie zunächst eine öffentliche Aktion auf, ohne sich anzumelden. Rufen Sie dann eine geschützte Aktion auf, schließen Sie die Anmeldeaufforderung ab und bestätigen Sie, dass dieselbe Anfrage anschließend erfolgreich ist. Testen Sie auch fehlende Berechtigungen und ungültige Eingaben.
+
+Stellen Sie nach dem Ändern der App die betroffenen Tests erneut bereit und wiederholen Sie sie. Wenn Sie die gespeicherten Authentifizierungseinstellungen eines Connectors ändern müssen, müssen [!DNL Claude] möglicherweise den Connector entfernen und erneut hinzufügen.
 
 ## Wie geht es weiter
 

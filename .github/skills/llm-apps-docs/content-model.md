@@ -1,9 +1,8 @@
 ---
-source-git-commit: bb3d8a02f22a91ceeeba5999453aeb4221060f80
+source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
 workflow-type: tm+mt
-source-wordcount: '436'
+source-wordcount: '701'
 ht-degree: 0%
-
 ---
 # Inhaltsmodell und Terminologie
 
@@ -18,14 +17,17 @@ Bringt einem neuen Anwender eine komplette, erfolgreiche Journey bei.
 - Erklären Sie nur die bei jedem Schritt erforderlichen Konzepte.
 - Beenden Sie mit einem Arbeitsergebnis und löschen Sie die nächsten Schritte.
 
-Primäres Tutorial: `help/guides/create-app.md`.
+First-Run-Journey: `help/guides/create-app.md` (Infrastruktureinrichtung), dann `help/guides/creating-actions.md` (Aktionserstellung und -überprüfung).
 
 ### Konzept
 
 Erläutert die Beziehung von Teilen, ohne dass sie zu einem Vorgangs- oder Feldkatalog werden.
 
 - Konzentration auf mentale Modelle und Eigentumsgrenzen.
+- Erläutern Sie, was die einzelnen Teile bewirken, wie sie den Benutzenden angezeigt werden und wo Änderungen vorgenommen werden können.
+- Behalten Sie Build-Tools, Dateipfade, Protokollaufrufe und Code-Verträge in den verknüpften technischen Handbüchern oder Referenzen bei, nicht in der allgemeinen Übersicht.
 - Verwenden Sie ein kleines Diagramm, wenn es das Verständnis verbessert.
+- Beibehalten nützlicher vorhandener Diagramme beim Vereinfachen einer Seite; Vereinfachen der Beschriftungen, anstatt die visuelle Erläuterung zu entfernen.
 - Link zu Tutorials, Anleitungen und Referenzen.
 
 ### Anleitung
@@ -59,14 +61,19 @@ Beginnt mit einem beobachtbaren Symptom.
 
 - **Adobe LLM Apps** - Vollständiger Produktname bei der ersten Erwähnung.
 - **LLM App** - eine vom Produkt verwaltete App.
-- **Abschnitt „Meine App erstellen** - Benutzeroberfläche im Dialogfeld „App erstellen“.
-- **Meine App automatisch erstellen** - Genaue Checkbox-Bezeichnung.
+- **Adobe Managed Infrastructure** - Testinfrastruktur, die von Adobe erstellt und gehostet wird. Wählen Sie **Let us handle** im Create-App-Assistenten aus.
+- **Ich richte es selbst ein** - Assistentenoption zum Verbinden Ihrer eigenen Repositorys, keine Anforderung, Aktionen manuell zu schreiben. Der Standardpfad beginnt mit zwei leeren Repositorys, die von der Plattform initialisiert werden. Kompatible vorhandene Projekte sind optional.
+- **Aktionen automatisch erstellen** - Empfohlene Auswahl zur Aktionserstellung auf der App-Seite nach der Einrichtung der Infrastruktur.
+- **Build my actions** - Schaltfläche, die die Erstellung von Web-basierten Aktionen startet.
 - **Action** - Funktion, die der LLM-Plattform bereitgestellt wird.
 - **Aktionsmetadaten** - Name, Beschreibung, Schema, Anmerkungen, Sichtbarkeit und Widget-Konfiguration, die von LLM-Apps gespeichert werden.
+- **Sichtbarkeit** - der Ein-/Ausschalter für die Aktion der App-Seite. Sie steuert, ob die nächste Bereitstellung die Aktion enthält. Der Aktionseditor hat keinen separaten aktivierten Schalter. Seine Modell- und Widget-Belichtungseinstellungen dienen einem anderen Zweck.
 - **Action Handler** - Server-seitige Funktion im Handler-Repository.
-- **Handler-Repository** - Repository, das Handler und Tests enthält. Verwenden Sie die UI **Bezeichnung „Textbausteinrepository** nur bei der Beschreibung dieses Steuerelements.
+- **Code-Kennung** - Unveränderliche Aktionskennung, die in MCP-Aufrufen verwendet wird und sich vom Anzeigenamen unterscheidet. Die generierten Handler- und Blockordnernamen verwenden ein Formular mit Bindestrichen. Die Laufzeit löst auch Unterstriche in der Kennung in Bindestriche in Handlerpfaden auf.
+- **Handler-Repository** - Repository mit Handlern und Tests, die beim Einrichten der **-** beim Verbinden Ihrer eigenen Repositorys ausgewählt wurden.
 - **EDS-Repository** - Repository, das Widget-Blöcke und Inhalte enthält.
 - **Widget** — visuelle Antwort, die in der LLM-Plattform gerendert wird.
+- **`structuredContent`** - Vom Widget verwendete Daten zu strukturierten Aktionsergebnissen. Beschreiben Sie sie nicht als privat, nicht modell-sichtbar oder ohne Token. Sie ist Teil des MCP-Ergebnisses, das an den Host übermittelt wird.
 - **MCP Server URL** - Bereitgestellter Endpunkt, der bei einer LLM-Plattform registriert ist.
 - **ChatGPT-Plug** - die ChatGPT-Integration, die aus einer MCP-Server-URL erstellt wurde.
 - **Staging** und **Produktion** Bereitstellungsumgebungen.
@@ -75,13 +82,16 @@ Wechseln Sie nicht in einem Prosa mit Benutzerzugriff zwischen „tool“ und �
 
 Das Produkt ist plattformunabhängig: Der MCP-Server funktioniert mit jeder unterstützten LLM-Plattform, nicht nur mit ChatGPT. Verwenden Sie „eine unterstützte LLM-Plattform wie ChatGPT“ (oder Ähnliches) für allgemeine oder anschauliche Behauptungen. Benennen Sie ChatGPT nur in Inhalten, die heute wirklich ChatGPT-spezifisch sind - dem Test-in-ChatGPT-Handbuch, seinen direkten Querlinks und ChatGPT-spezifischen Referenz- oder Fehlerbehebungsinhalten.
 
-## Empfohlene Reader-Journey
+## Empfohlene Lesersequenz
 
-1. Übersicht und Voraussetzungen.
-2. Automatisches Erstellen einer App.
-3. Überprüfen Sie die generierten Aktionen.
-4. Bereitstellen in der Staging-Umgebung und Testen des ChatGPT-Plug-ins.
+1. Überblick.
+2. Erstellen Sie eine App mit der von Adobe verwalteten Infrastruktur oder Ihren eigenen Repositorys.
+3. Starten Sie die Erstellung einer Website-basierten Aktion über die App-Seite und überprüfen Sie die generierten Aktionen.
+4. Staging- und Testbereitstellung in einer unterstützten LLM-Plattform.
 5. Generierte Handler und Widgets anpassen.
 6. Stellen Sie die angepasste App für die Produktion bereit.
 
 Das Erstellen einer neuen Aktion und das Einbringen eines EDS-Projekts sind erweiterte Verzweigungen und nicht die standardmäßige Erstausführungs-Journey.
+
+Der BYO EDS Guide ist derzeit mit `hidefromtoc: true` im Inhaltsverzeichnis ausgeblendet.
+Behalten Sie diesen Status bei, es sei denn, der Benutzer fragt nach der Wiederherstellung des Navigationseintrags.
