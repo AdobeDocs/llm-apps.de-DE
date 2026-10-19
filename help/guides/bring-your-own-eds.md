@@ -16,7 +16,7 @@ ht-degree: 1%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Verwenden Sie dieses Handbuch, um ein kompatibles vorhandenes Edge Delivery Services-Projekt (EDS) zu verbinden oder ein Widget zu einer selbst erstellten Aktion hinzuzufügen. Ein vorhandenes Projekt ist optional. Wenn Sie Ihre eigene Infrastruktur einrichten, beginnt der Standardpfad mit zwei leeren Repositorys, die von der Plattform beim Einrichten der [ initialisiert ](/help/guides/create-app.md).
+Verwenden Sie dieses Handbuch, um ein kompatibles vorhandenes Edge Delivery Services-Projekt (EDS) zu verbinden oder ein Widget zu einer selbst erstellten Aktion hinzuzufügen. Ein vorhandenes Projekt ist optional. Wenn Sie Ihre eigene Infrastruktur einrichten, beginnt der Standardpfad mit zwei leeren Repositorys, die von der Plattform beim Einrichten der [&#x200B; initialisiert &#x200B;](/help/guides/create-app.md).
 
 Wenn die Plattform Ihr Widget automatisch erstellt hat, folgen Sie stattdessen [Generiertes Widget anpassen](/help/guides/widgets.md). Das generierte Projekt enthält bereits die hier beschriebenen SDK-Dateien, -Blöcke, -Inhalte und die Aktionskonfiguration.
 

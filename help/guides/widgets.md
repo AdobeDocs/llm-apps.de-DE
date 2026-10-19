@@ -27,7 +27,7 @@ Testen Sie zunächst das generierte Widget. Passen Sie dann den Datenvertrag, di
 
 ## Erstelltes Widget suchen
 
-Öffnen Sie das beim Einrichten der [ angeschlossene EDS-Repository](/help/guides/create-app.md). Wenn Sie Adobe Managed Infrastructure verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren. Jedes erzeugte Widget ist ein EDS-Block:
+Öffnen Sie das beim Einrichten der [&#x200B; angeschlossene EDS-Repository](/help/guides/create-app.md). Wenn Sie Adobe Managed Infrastructure verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren. Jedes erzeugte Widget ist ein EDS-Block:
 
 ```text
 blocks/
@@ -70,7 +70,7 @@ Die Einbettungskomponente ruft den `.plain.html` Inhalt der Widget-Seite ab und 
 - Rufen Sie eine weitere Aktion mit `bridge.callTool()` auf.
 - Lassen Sie die Größe mit der `bridge.autoResize()` synchronisiert.
 
-In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie ](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem [`@adobe/llmapps-sdk`-Paket .
+In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie [&#128279;](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem `@adobe/llmapps-sdk`-Paket .
 
 ## Grundlagen zum Datenvertrag
 
@@ -220,4 +220,4 @@ Die EDS-Veröffentlichung ist von der App-Bereitstellung getrennt. Wenn die Stag
 
 ## Andere EDS-Setups
 
-Wenn Sie Aktionen selbst erstellt haben oder eine kompatible vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
+Wenn Sie Aktionen selbst erstellt haben oder eine kompatible vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).

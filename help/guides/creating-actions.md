@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Aktionen sind die Funktionen, die Ihre App innerhalb einer LLM-Konversation bietet, z. B. Produkte finden, die Verfügbarkeit überprüfen oder einen Service buchen. Der Handler jeder Aktion führt die Aufgabe aus, und ein optionales Widget stellt das Ergebnis dar.
 
-Wählen [ nach &quot;](/help/guides/create-app.md)&quot; aus, wie Aktionen auf der App-Seite erstellt werden sollen. Die automatische Generierung ist sowohl mit der von Adobe verwalteten Infrastruktur als auch mit Ihren eigenen Repositorys verfügbar.
+Wählen [&#x200B; nach &quot;](/help/guides/create-app.md)&quot; aus, wie Aktionen auf der App-Seite erstellt werden sollen. Die automatische Generierung ist sowohl mit der von Adobe verwalteten Infrastruktur als auch mit Ihren eigenen Repositorys verfügbar.
 
 **In diesem Handbuch** Erfahren Sie, wie Sie Aktionen von Ihrer Website generieren oder selbst erstellen. Starten Sie für die automatische Generierung den -Prozess und überprüfen Sie die Ergebnisse, bevor Sie die App bereitstellen und testen.
 
@@ -114,4 +114,4 @@ Nach Überprüfung der erstellten Arbeit:
 2. Testen Sie sie in [ChatGPT](/help/guides/test-in-chatgpt.md) oder [Claude](/help/guides/test-in-claude.md) mithilfe der Staging-MCP-Server-URL.
 3. Testaufforderungen, die jeder Aktion entsprechen, und nicht verwandte Aufforderungen, die diese Aktion nicht aufrufen. Überprüfen Sie sowohl die Textantwort als auch die Widget-Interaktionen.
 
-Bevor Sie die App für Kundinnen und Kunden verfügbar machen, [ Sie „die Handler anpassen](/help/guides/customize-handler.md), um Ihre APIs zu verbinden und [die Widgets anzupassen](/help/guides/widgets.md). Testen Sie die App in „Staging“, um zu bestätigen, dass sie erwartungsgemäß funktioniert. Bereitstellung in der Produktion erst nach erfolgreichem Test.
+Bevor Sie die App für Kundinnen und Kunden verfügbar machen, [&#x200B; Sie „die Handler anpassen](/help/guides/customize-handler.md), um Ihre APIs zu verbinden und [die Widgets anzupassen](/help/guides/widgets.md). Testen Sie die App in „Staging“, um zu bestätigen, dass sie erwartungsgemäß funktioniert. Bereitstellung in der Produktion erst nach erfolgreichem Test.

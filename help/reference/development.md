@@ -117,7 +117,7 @@ node server/local.js \
   --param GREETING_PREFIX=Howdy
 ```
 
-Geben Sie sowohl das JSON-Manifest als auch den benannten Wert an. Schließen Sie beim Testen seines normalen `(args, extra)`-Vertrags den Handler in lokale `actions.json` mit einem Eingabeschema ein. Die Befehlszeilenflags laden keine App-Einstellungen von der Plattform. Siehe [Konfigurieren von App-Variablen und ](/help/guides/app-variables.md)&quot; für umgebungsspezifische Bereitstellungseinstellungen.
+Geben Sie sowohl das JSON-Manifest als auch den benannten Wert an. Schließen Sie beim Testen seines normalen `(args, extra)`-Vertrags den Handler in lokale `actions.json` mit einem Eingabeschema ein. Die Befehlszeilenflags laden keine App-Einstellungen von der Plattform. Siehe [Konfigurieren von App-Variablen und &#x200B;](/help/guides/app-variables.md)&quot; für umgebungsspezifische Bereitstellungseinstellungen.
 
 ### Testen mit cURL
 

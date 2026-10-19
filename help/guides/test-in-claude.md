@@ -25,7 +25,7 @@ Bei einer App mit öffentlichen und geschützten Aktionen unterstützt [!DNL Cla
 
 Benutzerdefinierte Connectoren mit Remote-MCP sind kostenlos für die Pläne Pro, Max, Team und Enterprise verfügbar. Freie Konten unterstützen einen benutzerdefinierten Connector. In Team und Enterprise fügt ein autorisierter Eigentümer den Connector für die Organisationsmitglieder hinzu, bevor diese eine Verbindung herstellen. Benutzerdefinierte Unternehmensrollen können diese Berechtigung ebenfalls erteilen.
 
-Planungs[ und Organisationssteuerelemente finden Sie in ](https://claude.com/docs/connectors/custom/add-unlisted)Claude&#39;s aktuellen benutzerdefinierten Connector-Anweisungen . Der Remote-MCP-Endpunkt muss von der Claude-Infrastruktur aus erreichbar sein, nicht nur über Ihren lokalen Browser.
+Planungs[&#x200B; und Organisationssteuerelemente finden Sie in &#x200B;](https://claude.com/docs/connectors/custom/add-unlisted)Claude&#39;s aktuellen benutzerdefinierten Connector-Anweisungen . Der Remote-MCP-Endpunkt muss von der Claude-Infrastruktur aus erreichbar sein, nicht nur über Ihren lokalen Browser.
 
 ## MCP-Server-URL kopieren
 
