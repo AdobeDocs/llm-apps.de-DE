@@ -1,9 +1,9 @@
 ---
 title: Bereitstellen der App
 description: Erfahren Sie, wie Sie Ihre Adobe-LLM-App über die Benutzeroberfläche für LLM-Apps für die Staging- und Produktionsumgebung bereitstellen.
-source-git-commit: 4e447562c5d38f68c209ded7370e9d384a7c9701
+source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
 workflow-type: tm+mt
-source-wordcount: '352'
+source-wordcount: '412'
 ht-degree: 0%
 ---
 
@@ -15,9 +15,9 @@ ht-degree: 0%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Nachdem Sie Ihren Handler-Code geschrieben und an Ihr verknüpftes Repository gesendet haben, können Sie die App über die [!DNL LLM Apps]-Benutzeroberfläche bereitstellen.
+Nachdem Sie generierte Aktionen überprüft oder Ihren eigenen Handler-Code an das verknüpfte Repository gepusht haben, stellen Sie die App über [!DNL LLM Apps] bereit. Überprüfen Sie für generierte Aktionen die generierte Arbeit und führen Sie sie vor der Bereitstellung zusammen.
 
-Dies ist ein freigegebener Schritt für jede Journey. Fahren Sie nach der Bereitstellung mit [Testen des ChatGPT](/help/guides/test-in-chatgpt.md)Plug-ins oder [Testen des Claude-Connectors](/help/guides/test-in-claude.md) fort.
+**In diesem Handbuch:** Erfahren Sie, wie Sie Ihre App für die Staging-Umgebung bereitstellen, das Bereitstellungsergebnis überprüfen und die MCP-Server-URL zum Testen kopieren. Nach erfolgreichem Testen in der Produktion bereitstellen.
 
 ## Starten der Bereitstellung
 
@@ -36,30 +36,31 @@ Die Bereitstellung erfolgt in vier Schritten:
 3. **Programm erstellen** - Installiert Abhängigkeiten und erstellt den neuesten Repository-Code.
 4. **Veröffentlichen** - Veröffentlicht die App in [!DNL Adobe I/O Runtime].
 
-![Bereitstellen - Bereitstellungs-Pipeline wird ausgeführt](/help/assets/guide-onboarding-agent/deploy-running.png)
-
 >[!NOTE]
 >
->Wenn eine Aktion Metadaten in der Benutzeroberfläche, aber keine übereinstimmende Handler-Datei im Repository hat, ist sie weiterhin registriert. Aufrufe verwenden einen Standard-Stub-Handler, bis Sie den echten Code hinzufügen.
+>Wenn eine Aktion Metadaten in der Benutzeroberfläche, aber keine übereinstimmende Handler-Datei im Repository hat, registriert die Bereitstellung die Aktion weiterhin. Aufrufe verwenden einen Standard-Stub-Handler, bis Sie den echten Code hinzufügen.
 
 ## Nach erfolgreicher Bereitstellung
 
 Wenn alle Schritte abgeschlossen sind, wird im Dialogfeld **Bereitstellung erfolgreich** angezeigt.
 
-![Bereitstellen - erfolgreiche Bereitstellung](/help/assets/guide-onboarding-agent/deploy-successful.png)
-
-Klicken Sie **Schließen**, um das Dialogfeld zu schließen. Scrollen Sie auf der Seite mit den App **[!UICONTROL Details zum Abschnitt]** Testen der App“:
+Um das Dialogfeld zu schließen, wählen Sie **Schließen** aus. Scrollen Sie auf der Seite mit den App-Details zu **[!UICONTROL App testen]**:
 
 ![Anwendungsdetails - Kopieren Sie die MCP-Server-URL](/help/assets/guide-onboarding-agent/app-mcp-url.png)
 
-Jede bereitgestellte Umgebung zeigt eine MCP Server URL an. Wählen Sie **[!UICONTROL URL kopieren]** und verwenden Sie diese, um ein Plug-in in der Ziel-LLM-Plattform zu erstellen.
+Jede bereitgestellte Umgebung zeigt eine MCP Server URL an. Wählen Sie **[!UICONTROL URL kopieren]** und verwenden Sie diese, um ein Plug-in oder einen Connector in der Ziel-LLM-Plattform zu erstellen.
 
 Im Abschnitt **Bereitstellungsverlauf** werden die letzten 10 Bereitstellungen angezeigt:
 
 ![Bereitstellungsverlauf](/help/assets/guide-deploy/deployment-history.png)
 
-Jede Zeile zeigt die Zielumgebung **&#x200B;**&#x200B;(Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und das Datum **bereitgestellt am** an. Sie können diese Tabelle verwenden, um zu verfolgen, wann Bereitstellungen stattgefunden haben, und sicherzustellen, dass die
-Die letzte Bereitstellung war erfolgreich.
+Jede Zeile zeigt die Zielumgebung **** (Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und **bereitgestellt**. Verwenden Sie die Tabelle, um die Bereitstellungsdaten zu verfolgen und sicherzustellen, dass die neueste Bereitstellung erfolgreich war.
+
+## Konfigurationsänderungen bereitstellen
+
+Änderungen an Aktionsmetadaten, den **[!UICONTROL Sichtbarkeit“, den]**, der Authentifizierung und den Anwendungsvariablen der App-Seite werden bei der nächsten Bereitstellung in dieser Umgebung wirksam. Beim Speichern einer Einstellung wird der bereitgestellte MCP-Server nicht automatisch aktualisiert.
+
+Überprüfen Sie die Zielumgebung jedes Mal. Bei der Bereitstellung im Staging werden nicht dieselben Änderungen in der Produktion bereitgestellt.
 
 ## Nächster Schritt
 

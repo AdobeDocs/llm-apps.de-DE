@@ -2,26 +2,25 @@
 user-guide-title: Handbuch zu LLM Apps
 breadcrumb-title: LLM-Apps
 user-guide-description: Erstellen, Anpassen, Bereitstellen und Testen interaktiver Erlebnisse in unterstützten LLM-Plattformen wie ChatGPT mit Adobe LLM-Apps.
-source-git-commit: 4e447562c5d38f68c209ded7370e9d384a7c9701
+source-git-commit: 651c64f0f179b4f2f7a942a39c04551a0f6a065b
 workflow-type: tm+mt
-source-wordcount: '124'
-ht-degree: 4%
+source-wordcount: '109'
+ht-degree: 7%
 ---
 
 # Handbuch zu [!DNL LLM Apps] {#using}
 
 + [Überblick](/help/overview/overview.md)
-+ Erstellen und Starten Ihrer ersten App {#build-first-app}
-  + [Erste App automatisch erstellen](/help/guides/create-app.md)
-  + [Wie eine App verkabelt ist](/help/guides/app-architecture.md)
++ Erste Schritte {#build-first-app}
+  + [Einrichten der Infrastruktur](/help/guides/create-app.md)
+  + [Erstellen von Aktionen](/help/guides/creating-actions.md)
+  + [Verkabeln einer App](/help/guides/app-architecture.md)
 + Anpassen der generierten App {#customize-generated-app}
   + [Anpassen eines generierten Handlers](/help/guides/customize-handler.md)
   + [Anpassen eines generierten Widgets](/help/guides/widgets.md)
   + [Konfigurieren von App-Variablen und -Geheimnissen](/help/guides/app-variables.md)
 + Neue Aktion hinzufügen {#add-new-action}
-  + [Erstellen einer Aktion von Grund auf](/help/guides/create-action.md)
-+ Verbinden eines vorhandenen EDS-Projekts {#connect-existing-eds}
-  + [Eigenes EDS-Projekt mitbringen](/help/guides/bring-your-own-eds.md)
+  + [Erstellen einer neuen Aktion](/help/guides/create-action.md)
 + Endbenutzer authentifizieren {#authenticate-end-users}
   + [Endbenutzer bei Ihrem eigenen Identitätsanbieter authentifizieren](/help/guides/authentication.md)
 + Bereitstellen und Testen {#deploy-and-test}
@@ -30,6 +29,6 @@ ht-degree: 4%
   + [Testen der LLM-App als Claude-Connector](/help/guides/test-in-claude.md)
 + Referenz {#reference}
   + [Lokale Handler-Entwicklung und -Tests](/help/reference/development.md)
-  + [Aktionen- und Widget-Felder](/help/reference/reference-docs.md)
+  + [Aktions- und Widget-Felder](/help/reference/reference-docs.md)
   + [Authentifizierungsreferenz](/help/reference/authentication-reference.md)
   + [Fehlerbehebung](/help/reference/troubleshooting.md)
