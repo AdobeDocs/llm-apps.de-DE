@@ -1,9 +1,9 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und wie Sie mit der Erstellung Ihrer App beginnen.
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
 workflow-type: tm+mt
-source-wordcount: '621'
+source-wordcount: '606'
 ht-degree: 1%
 ---
 
@@ -50,7 +50,7 @@ Die Server-seitige Funktion, die ausgeführt wird, wenn die LLM-Plattform eine A
 
 ### Widget {#widgets-eds}
 
-Die visuelle Antwort, die mit der Antwort des LLM angezeigt wird, z. B. eine Karte, ein Karussell oder eine Tabelle. Generierte Widgets sind Blöcke in einem [!DNL Edge Delivery Services]-Repository (EDS). Mit der von Adobe verwalteten Infrastruktur bereitet Adobe das Repository für eine Testversion vor und hostet es. Alternativ können Sie Ihr eigenes Repository verbinden.
+Die visuelle Antwort, die mit der Antwort des LLM angezeigt wird, z. B. eine Karte, ein Karussell oder eine Tabelle. Generierte Widgets sind Blöcke in einem [!DNL Edge Delivery Services]-Repository (EDS). Mit der von Adobe verwalteten Infrastruktur bereitet Adobe das Repository für Sie vor und hostet es. Alternativ können Sie Ihr eigenes Repository verbinden.
 
 ### MCP-Server
 
@@ -76,8 +76,8 @@ Technische Details dazu, was erstellt werden soll und wie die Komponenten zusamm
 
 Das Erstellen einer App und das Erstellen ihrer Aktionen sind separate Schritte:
 
-1. [Richten Sie die Infrastruktur &#x200B;](/help/guides/create-app.md). Verwenden Sie die in Adobe verwaltete Infrastruktur für eine Testversion oder stellen Sie über den Assistenten zum Erstellen von Apps zwei leere [!DNL GitHub]-Repositorys bereit. Die Plattform initialisiert einen für Aktions-Handler und den anderen für Widgets.
+1. [Richten Sie die Infrastruktur ](/help/guides/create-app.md). Verwenden Sie die von Adobe verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen [!DNL GitHub]-Repositorys.
 2. [Erstellen Sie Ihre Aktionen](/help/guides/creating-actions.md). Lassen Sie die Plattform Ihre Website analysieren und Aktionen generieren oder erstellen Sie sie selbst.
 3. [Bereitstellen und Testen der App](/help/guides/deploy-your-app.md). Überprüfen Sie die generierte Arbeit, stellen Sie sie in einer unterstützten LLM-Plattform bereit und testen Sie sie.
 
-Die automatische Generierung bietet einen Ausgangspunkt mit dem Beispielverhalten. Bevor Sie die App für Kunden verfügbar machen, [&#x200B; Sie Ihre Handler mit Ihren Systemen &#x200B;](/help/guides/customize-handler.md) und [&#x200B; Sie die Widgets &#x200B;](/help/guides/widgets.md).
+Die automatische Generierung bietet einen Ausgangspunkt mit dem Beispielverhalten. Bevor Sie die App für Kunden verfügbar machen, [ Sie Ihre Handler mit Ihren Systemen ](/help/guides/customize-handler.md) und [ Sie die Widgets ](/help/guides/widgets.md).

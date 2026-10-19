@@ -1,7 +1,7 @@
 ---
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '715'
 ht-degree: 0%
 ---
 # Inhaltsmodell und Terminologie
@@ -61,7 +61,7 @@ Beginnt mit einem beobachtbaren Symptom.
 
 - **Adobe LLM Apps** - Vollständiger Produktname bei der ersten Erwähnung.
 - **LLM App** - eine vom Produkt verwaltete App.
-- **Adobe Managed Infrastructure** - Testinfrastruktur, die von Adobe erstellt und gehostet wird. Wählen Sie **Let us handle** im Create-App-Assistenten aus.
+- **Adobe Managed Infrastructure** - Von Adobe erstellte und verwaltete Infrastruktur. Wählen Sie **Let us handle** im Create-App-Assistenten aus. Beschreiben Sie diese Option nicht als Nur-Testversion und stellen Sie keine unbestätigten Behauptungen über die Produktionseignung auf.
 - **Ich richte es selbst ein** - Assistentenoption zum Verbinden Ihrer eigenen Repositorys, keine Anforderung, Aktionen manuell zu schreiben. Der Standardpfad beginnt mit zwei leeren Repositorys, die von der Plattform initialisiert werden. Kompatible vorhandene Projekte sind optional.
 - **Aktionen automatisch erstellen** - Empfohlene Auswahl zur Aktionserstellung auf der App-Seite nach der Einrichtung der Infrastruktur.
 - **Build my actions** - Schaltfläche, die die Erstellung von Web-basierten Aktionen startet.

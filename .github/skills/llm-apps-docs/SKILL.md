@@ -1,9 +1,9 @@
 ---
 name: llm-apps-docs
 description: Erstellen, überprüfen und validieren Sie die Dokumentation zu Adobe LLM Apps, wenden Sie die redaktionellen Standards an und erfassen Sie aktuelle Screenshots der Benutzeroberfläche durch die Browser-Automatisierung. Verwenden Sie für lm-apps.en-Artikel, Navigation, Screenshots und Offline-Review-Bundles.
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
 workflow-type: tm+mt
-source-wordcount: '1346'
+source-wordcount: '1380'
 ht-degree: 0%
 ---
 
@@ -41,6 +41,7 @@ Nur das Verhalten, das von den verfügbaren Beweisen unterstützt wird.
 ## Authoring-Regeln
 
 - Führen Sie Erstbenutzende durch die Einrichtung **Infrastruktur** und dann **Aktionen erstellen**. Der Assistent zum Erstellen einer App richtet nur die Infrastruktur ein. **[!UICONTROL Aktionen automatisch erstellen]** und **[!UICONTROL Meine Aktionen erstellen]** Beginnen Sie anschließend auf der App-Seite mit der Erstellung einer Website-basierten Aktion. Verwenden Sie **Adobe Managed Infrastructure** für die Option mit der Bezeichnung **[!UICONTROL Let us handle]** in der Benutzeroberfläche.
+- Beschreiben Sie die von Adobe verwaltete Infrastruktur neutral, da sie von Adobe erstellt und verwaltet wird. Sie sollten sie nicht als Testversion, temporäre Einrichtung oder produktionsfremde Option kennzeichnen und keine unbestätigten Behauptungen zur Produktionseignung aufstellen.
 - Organisieren Sie die Navigation um Journey und Ergebnisse der Benutzenden, nicht um Implementierungsthemen.
 - Verwenden Sie am Anfang jedes Handbuchs **In diesem Handbuch:** gefolgt von einem oder zwei einfachen Sätzen, die die Aufgabe und den nächsten Schritt erläutern. „Learn how to…“ Über zukunftssichere Versprechen. Verwenden Sie keine **Journey:**-Beschriftungen oder durch Pfeile getrennte Schrittlisten.
 - Verwenden Sie keine internen Codenamen (z. B. „Onboarding-Agent„) in kundenorientierten Dokumenten. Diese Funktion wird nie in der Produkt-Benutzeroberfläche verfügbar gemacht. Beschreiben Sie sie allgemein (z. B. „die Plattform„) und verwenden Sie die aktuelle Kopie der Benutzeroberfläche, z. B **[!UICONTROL „Meine Aktionen erstellen]** für Steuerelemente.
@@ -52,7 +53,7 @@ Nur das Verhalten, das von den verfügbaren Beweisen unterstützt wird.
 - Unterscheiden Sie generierte Strukturvorlagen von produktionsfertigen Integrationen.
 - Vermeiden Sie interne Worker-Namen, Datenbankfelder, Implementierungstickets und instabile Pipeline-Details.
 - Feldtabellen nicht über Handbücher hinweg duplizieren; Link zu Referenz.
-- Bewahren Sie die Schriftarten und Anweisungen von Experience League auf: `[!DNL]`, &grave;&grave;, `[!IMPORTANT]`, `[!NOTE]` und `[!TIP]`.
+- Bewahren Sie die Schriftarten und Anweisungen von Experience League auf: `[!DNL]`, ``, `[!IMPORTANT]`, `[!NOTE]` und `[!TIP]`.
 - Verwenden Sie stammbezogene interne Links: `/help/...`.
 - Verwenden Sie das Satzbeispiel für Titel und Überschriften, sofern die Produktkennzeichnung nichts anderes erfordert.
 - Verwenden Sie einen beschreibenden Bild-Alternativtext, der den Bildschirm und den Status erklärt.
