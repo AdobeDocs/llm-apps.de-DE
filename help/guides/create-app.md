@@ -1,9 +1,9 @@
 ---
 title: Einrichten der Infrastruktur
 description: Erstellen Sie eine Adobe-LLM-App mit der von Adobe verwalteten Infrastruktur oder stellen Sie zwei leere GitHub-Repositorys für die Initialisierung der Plattform bereit.
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
 workflow-type: tm+mt
-source-wordcount: '1330'
+source-wordcount: '1337'
 ht-degree: 0%
 ---
 
@@ -44,14 +44,14 @@ Der **[!UICONTROL Create Your LLM App]**-Assistent beginnt mit **[!UICONTROL Ers
 
 | Infrastrukturoption | Im Assistenten auswählen | Was es bedeutet |
 |---|---|---|
-| **Verwaltete Adobe-Infrastruktur** | **[!UICONTROL Übernehmen wir das]** | Adobe erstellt und hostet die Repositorys für eine Testeinrichtung. Der Code-Zugriff ist auf Anfrage verfügbar und Sie können später zu Ihren eigenen Repositorys wechseln. |
+| **Verwaltete Adobe-Infrastruktur** | **[!UICONTROL Übernehmen wir das]** | Adobe erstellt und verwaltet die Repositorys und verbundenen Services für Ihre App. Code-Zugriff ist auf Anfrage verfügbar. |
 | **Ihre eigenen Repositorys** | **[!UICONTROL Ich werde es selbst einrichten]** | Sie stellen zwei leere GitHub-Repositorys bereit und gewähren über den Assistenten Zugriff. Die Plattform initialisiert einen für Aktions-Handler und den anderen für Widgets. |
 
 Beide Optionen unterstützen eine spätere automatische Aktionserstellung. Für keine dieser Optionen müssen Aktionen manuell geschrieben werden.
 
 ## Verwenden der von Adobe verwalteten Infrastruktur {#adobe-managed-infrastructure}
 
-Verwenden Sie diese Option, um die App auszuprobieren, ohne zunächst Repositorys zu erstellen oder [!DNL GitHub] Apps selbst zu installieren.
+Verwenden Sie diese Option, damit Adobe die Repositorys und Connected Services für Ihre App einrichten und verwalten kann. Sie müssen keine Repositorys erstellen oder [!DNL GitHub] Apps selbst installieren.
 
 1. Wählen Sie **[!UICONTROL Übernehmen wir]** aus.
 2. Wählen Sie **[!UICONTROL Nächster Schritt]** aus.
