@@ -1,9 +1,9 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und wie Sie mit der Erstellung Ihrer App beginnen.
-source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
+source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
 workflow-type: tm+mt
-source-wordcount: '606'
+source-wordcount: '624'
 ht-degree: 1%
 ---
 
@@ -76,8 +76,10 @@ Technische Details dazu, was erstellt werden soll und wie die Komponenten zusamm
 
 Das Erstellen einer App und das Erstellen ihrer Aktionen sind separate Schritte:
 
-1. [Richten Sie die Infrastruktur &#x200B;](/help/guides/create-app.md). Verwenden Sie die von Adobe verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen [!DNL GitHub]-Repositorys.
+1. [Richten Sie die Infrastruktur ](/help/guides/create-app.md). Verwenden Sie die von Adobe verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen [!DNL GitHub]-Repositorys.
 2. [Erstellen Sie Ihre Aktionen](/help/guides/creating-actions.md). Lassen Sie die Plattform Ihre Website analysieren und Aktionen generieren oder erstellen Sie sie selbst.
 3. [Bereitstellen und Testen der App](/help/guides/deploy-your-app.md). Überprüfen Sie die generierte Arbeit, stellen Sie sie in einer unterstützten LLM-Plattform bereit und testen Sie sie.
 
-Die automatische Generierung bietet einen Ausgangspunkt mit dem Beispielverhalten. Bevor Sie die App für Kunden verfügbar machen, [&#x200B; Sie Ihre Handler mit Ihren Systemen &#x200B;](/help/guides/customize-handler.md) und [&#x200B; Sie die Widgets &#x200B;](/help/guides/widgets.md).
+Die automatische Generierung bietet einen Ausgangspunkt mit dem Beispielverhalten. Bevor Sie die App für Kunden verfügbar machen, [ Sie Ihre Handler mit Ihren Systemen ](/help/guides/customize-handler.md) und [ Sie die Widgets ](/help/guides/widgets.md).
+
+Informationen zum Erstellen von Berichten über Ihre App in Ihrem eigenen [!DNL Adobe Analytics] oder [!DNL Customer Journey Analytics] finden Sie unter [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md).

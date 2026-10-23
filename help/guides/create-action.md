@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer neuen Aktion
 description: Definieren Sie Aktionsmetadaten, implementieren Sie den Handler, verbinden Sie ein EDS-Widget, testen Sie es und stellen Sie es mit Adobe LLM-Apps bereit.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
 workflow-type: tm+mt
-source-wordcount: '1453'
+source-wordcount: '1476'
 ht-degree: 0%
 ---
 
@@ -147,9 +147,11 @@ query
 
 Verwenden Sie stabile Parameternamen. Zum Ändern eines Namens müssen auch der Handler und seine Tests geändert werden.
 
-### Analytics konfigurieren
+### Analytics konfigurieren {#configure-analytics}
 
 Aktivieren Sie **[!UICONTROL Benutzerabsicht erfassen]** wenn Sie möchten, dass Analytics eine Zusammenfassung der Konversation enthält, die zu der Aktion geführt hat.
+
+Wenn Sie Ihre eigene [!DNL Adobe Analytics] oder [!DNL Customer Journey Analytics] einrichten, wird auch die Benutzerabsicht an diese gesendet. Siehe [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md).
 
 Die Benutzerabsichtserfassung ist standardmäßig aktiviert. Lesen Sie **[!UICONTROL Beschreibung der Benutzerabsicht]**, die die Anweisungen zum Anfordern der Zusammenfassung enthält. Beschränken Sie die Anweisungen auf einen nicht vertraulichen, anonymisierten Zweck und beschreiben Sie Ihre Datenerfassung in Ihrer Datenschutzerklärung. Die Beschreibung akzeptiert bis zu 2.000 Zeichen.
 
@@ -198,7 +200,7 @@ Fügen **[!UICONTROL unter „CSP-]**&quot; die Ursprünge hinzu, die für Asset
 
 ![Neue Aktion erstellen - Domain-Listen der Content Security-Richtlinien](/help/assets/guide-create-action/widget-csp.png)
 
-Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
+Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
 
 ## Speichern der Aktion
 
@@ -406,7 +408,7 @@ Wenn die Aktion über ein Widget verfügt:
 4. Zeigen Sie die EDS-Seite lokal in der Vorschau an.
 5. Überprüfen Sie CSP-, CORS- und Widget-URLs.
 
-Siehe [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
+Siehe [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
 
 ## Bereitstellen und Testen
 

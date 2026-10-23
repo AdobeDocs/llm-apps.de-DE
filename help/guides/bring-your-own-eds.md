@@ -2,7 +2,7 @@
 title: Eigenes Edge Delivery Services-Projekt einbringen
 description: Verbinden eines vorhandenen Adobe Edge Delivery Services-Projekts mit einer Adobe LLM Apps-Aktion.
 hidefromtoc: true
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
 workflow-type: tm+mt
 source-wordcount: '866'
 ht-degree: 1%
@@ -16,7 +16,7 @@ ht-degree: 1%
 >
 >Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
 
-Verwenden Sie dieses Handbuch, um ein kompatibles vorhandenes Edge Delivery Services-Projekt (EDS) zu verbinden oder ein Widget zu einer selbst erstellten Aktion hinzuzufügen. Ein vorhandenes Projekt ist optional. Wenn Sie Ihre eigene Infrastruktur einrichten, beginnt der Standardpfad mit zwei leeren Repositorys, die von der Plattform beim Einrichten der [&#x200B; initialisiert &#x200B;](/help/guides/create-app.md).
+Verwenden Sie dieses Handbuch, um ein kompatibles vorhandenes Edge Delivery Services-Projekt (EDS) zu verbinden oder ein Widget zu einer selbst erstellten Aktion hinzuzufügen. Ein vorhandenes Projekt ist optional. Wenn Sie Ihre eigene Infrastruktur einrichten, beginnt der Standardpfad mit zwei leeren Repositorys, die von der Plattform beim Einrichten der [ initialisiert ](/help/guides/create-app.md).
 
 Wenn die Plattform Ihr Widget automatisch erstellt hat, folgen Sie stattdessen [Generiertes Widget anpassen](/help/guides/widgets.md). Das generierte Projekt enthält bereits die hier beschriebenen SDK-Dateien, -Blöcke, -Inhalte und die Aktionskonfiguration.
 
@@ -33,7 +33,7 @@ Sie benötigen:
 
 Wenn Sie ein vorhandenes Repository verknüpfen, sucht die Plattform nach `scripts/aem.js`, `blocks/`, `styles/styles.css` und `head.html`. Die -Einbettungskomponente importiert auch `scripts/scripts.js` und ruft die exportierte `decorateMain`-Funktion auf, um -Blöcke vorzubereiten. Den EDS-Blockladevertrag intakt halten. Die erforderlichen Dateien allein bestätigen nicht, dass ein stark angepasstes Projekt korrekt gerendert wird.
 
-## Installieren des LLM Apps SDK
+## Installieren des LLM Apps SDK {#install-the-llm-apps-sdk}
 
 Aus dem EDS-Projektstamm:
 
