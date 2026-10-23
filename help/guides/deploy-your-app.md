@@ -1,9 +1,9 @@
 ---
 title: Bereitstellen der App
 description: Erfahren Sie, wie Sie Ihre Adobe-LLM-App über die Benutzeroberfläche für LLM-Apps für die Staging- und Produktionsumgebung bereitstellen.
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
 workflow-type: tm+mt
-source-wordcount: '412'
+source-wordcount: '444'
 ht-degree: 0%
 ---
 
@@ -58,11 +58,14 @@ Jede Zeile zeigt die Zielumgebung **&#x200B;**&#x200B;(Staging- oder Produktions
 
 ## Konfigurationsänderungen bereitstellen
 
-Änderungen an Aktionsmetadaten, den **[!UICONTROL Sichtbarkeit“, den]**, der Authentifizierung und den Anwendungsvariablen der App-Seite werden bei der nächsten Bereitstellung in dieser Umgebung wirksam. Beim Speichern einer Einstellung wird der bereitgestellte MCP-Server nicht automatisch aktualisiert.
+Änderungen an Aktionsmetadaten, den „Sichtbarkeit“-**[!UICONTROL der App]** Seite, der Authentifizierung, den App-Variablen und den Analytics-Einstellungen werden bei der nächsten Bereitstellung in dieser Umgebung wirksam. Beim Speichern einer Einstellung wird der bereitgestellte MCP-Server nicht automatisch aktualisiert.
 
 Überprüfen Sie die Zielumgebung jedes Mal. Bei der Bereitstellung im Staging werden nicht dieselben Änderungen in der Produktion bereitgestellt.
+
+Wenn Ihre App nicht die Analytics-Laufzeit- oder SDK-Anforderungen erfüllt, befolgen Sie die Anweisungen unter [Vorhandene App aktualisieren](/help/guides/upgrade-existing-app.md) bevor Sie sie erneut bereitstellen.
 
 ## Nächster Schritt
 
 - [Testen Sie die bereitgestellte App als ChatGPT-Plug-in](/help/guides/test-in-chatgpt.md).
 - [Testen Sie die bereitgestellte App als einen Claude-Connector](/help/guides/test-in-claude.md).
+- [Senden Sie Ereignisse Ihrer App an Adobe Analytics oder Customer Journey Analytics](/help/guides/analytics-setup.md).

@@ -1,7 +1,7 @@
 ---
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
 workflow-type: tm+mt
-source-wordcount: '1052'
+source-wordcount: '1418'
 ht-degree: 1%
 ---
 # Screenshot-Manifest
@@ -135,6 +135,28 @@ Antwort. Die aktuelle Setup-Benutzeroberfläche wird nicht überprüft. Neues Ch
 Screenshots erfordern aktuellen authentifizierten Zugriff; andernfalls verwenden sie einen offiziellen Anbieter
 Anweisungen und überspringen nicht verifizierte Bilder.
 
+## Analytics-Einrichtung
+
+Artikel: `/help/guides/analytics-setup.md`
+
+Ausgabeverzeichnis: `help/assets/guide-analytics/`
+
+| Dateiname | Status und nützlicher Kontext | Vorgeschlagener Alternativtext |
+|---|---|---|
+| `analytics-settings.png` | Anwendungseinstellungen, Registerkarte Analytics, Analytics aktivieren, Leere Datenstrom-ID, Anforderungen erweitert, Änderungen speichern deaktiviert | Anwendungseinstellungen, Registerkarte „Analytics“ : Aktivieren der Analyse, ein leeres Feld für die Datenstrom-ID und die erweiterte Liste mit den Anforderungen |
+| `datastream-analytics-service.png` | Datenerfassung, Service hinzufügen, Adobe Analytics aktiviert mit einer fiktiven Report Suite-ID | Service hinzufügen - Adobe Analytics mit einer Beispiel-Report Suite-ID aktiviert |
+| `datastream-platform-service.png` | Datenerfassung, Adobe Experience Platform-Service mit ausgewähltem Ereignis-Datensatz | Adobe Experience Platform-Service - der ausgewählte Ereignis-Datensatz und die anderen Optionen gelöscht |
+| `datastream-services.png` | Datenstromdetails mit beiden aktivierten Services, einer Platzhalter-Datenstrom-ID und dem Zuordnungsschema | Datenstromdetails - Beide Services sind aktiviert, mit der Beispiel-Datenstrom-ID und dem Zuordnungsschema |
+
+Erfasst nie eine echte Datenstrom-ID. Wählen Sie nicht **Änderungen speichern**: nach einem Speichern,
+Nur ein Administrator kann den Datenstrom ändern. Experience Platform, Adobe Analytics,
+und Customer Journey Analytics-Bildschirme nur dort angezeigt werden, wo sie eine Einstellung speziell für
+LLM Apps; Link zu Experience League für alles andere. Organisation ersetzen
+Namen, Report Suite-IDs, Datenstrom-IDs, Datensatz-IDs, E-Mails und persönliche Namen
+mit diesen Platzhalterwerten: `example-org`, `demo.<suffix>` Report Suites,
+`00000000-0000-0000-0000-000000000000`, `0000…0001`, `user@example.com` und
+`Example User`.
+
 ## Vorhandene Herkunft erfassen
 
 Der Erfassungsdurchgang 2026.10.2019 verwendete die von Benutzenden angeforderte lokale Benutzeroberfläche mit entsprechender Benutzeroberfläche/API
@@ -162,3 +184,25 @@ Schalter bleibt die Aktion Ein/Aus-Steuerung; Modell- und Widget-Belichtungseins
 Im Editor bleiben. Der Repository-Link wird maskiert und die Kontonavigation wird deaktiviert
 Ausgeschlossen. Während dieser Aktualisierung wurde keine Aktion gespeichert, genehmigt, umgeschaltet oder bereitgestellt.
 Rohaufnahme: `docs-captures/2026-10-19/remove-enabled/`.
+
+### Analytics-Einstellungen, 21.10.2026
+
+Aktualisierte `guide-analytics/analytics-settings.png` von der vom Benutzer bereitgestellten
+`Screenshot 2026-10-21 at 11.48.36.png`, kein agentengesteuerter Durchlauf. Quelle
+Umgebung: nicht aufgezeichnet und nicht auf dem Bild sichtbar; Produktionsparität nicht
+Verifiziert. Bestätigung der visuellen Überprüfung, dass „Analytics aktivieren“ aktiviert ist, im Feld Datenstrom-ID .
+ist leer, Anforderungen werden erweitert und Änderungen speichern ist deaktiviert. Das Bild war
+Ohne Änderungen kopiert; es sind keine Kennungen oder Kontodetails sichtbar.
+
+### Datastream-Screenshots, 19.10.2026
+
+`guide-analytics/datastream-analytics-service.png` hinzugefügt
+`datastream-platform-service.png` und `datastream-services.png` von vorhandenen
+Interne Datenerfassungen (29.07.2026 und 2026.10.19). Die Report Suite-ID
+und die Datenstrom-ID wurden durch Platzhalter-Textüberlagerungen (`demo.aem.llm` und
+`00000000-0000-0000-0000-000000000000`); die Überlagerungsschriftart ist San Francisco, also es
+unterscheidet sich geringfügig von der Produktschriftart. Das Platform-Service-Image ist jetzt erforderlich
+Änderungen. Das Bild des Analytics-Service zeigt weiterhin den Mauszeiger aus der
+Ursprüngliche Erfassung. Bei einem OCR-Überlauf wurden die endgültigen Bilder ohne Originalkennungen gefunden.
+Ersetzen Sie diese durch neue Erfassung, die Platzhalterwerte verwenden, die in die Benutzeroberfläche eingegeben wurden, wenn
+Der Artikel wird als Nächstes aktualisiert.
