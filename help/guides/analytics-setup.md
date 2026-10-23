@@ -31,7 +31,7 @@ Führen Sie alle Schritte aus, **für die** Dienste als „Erforderlich“ geken
 | Schritt | [!DNL Adobe Analytics] | [!DNL Customer Journey Analytics] |
 |---|---|---|
 | [1. Erstellen Sie den Identity-Namespace](#identity-namespace) | Erforderlich | Erforderlich |
-| [2. Erstellen Sie das Schema ](#schema) | Erforderlich | Erforderlich |
+| [2. Erstellen Sie das Schema &#x200B;](#schema) | Erforderlich | Erforderlich |
 | [3. Datensatz erstellen](#dataset) | Nicht erforderlich | Erforderlich |
 | [4. Vorbereiten der Report Suite](#report-suite) | Erforderlich | Nicht erforderlich |
 | [5. Erstellen Sie den Datenstrom](#datastream) | Erforderlich | Erforderlich |
@@ -234,7 +234,7 @@ Kopieren Sie dann **[!UICONTROL Datenstrom-ID]** aus den Datenstromdetails. Sie 
 1. Öffnen Sie Ihre App und wählen **[!UICONTROL Einstellungen]** im linken Navigationsbereich aus.
 2. Wählen Sie die Registerkarte **[!UICONTROL Analytics]** aus.
 3. Aktivieren Sie **[!UICONTROL Analytics aktivieren]**.
-4. Fügen **[!UICONTROL unter „Datenstrom-]**&quot; die ID aus ([ 5) ](#datastream).
+4. Fügen **[!UICONTROL unter „Datenstrom-]**&quot; die ID aus ([&#x200B; 5) &#x200B;](#datastream).
 5. Wählen Sie **[!UICONTROL Anforderungen]** die Option **[!UICONTROL Details anzeigen]** und bestätigen Sie, dass Ihre App die einzelnen Anforderungen erfüllt.
 
    ![App-Einstellungen, Registerkarte „Analytics“ - Analytics aktivieren, ein leeres Datenstrom-ID-Feld und die erweiterte Liste mit den Anforderungen](/help/assets/guide-analytics/analytics-settings.png)
@@ -311,13 +311,13 @@ Rufen Sie eine Aktion in Ihrer Staging-App von einer unterstützten LLM-Plattfor
 |---|---|---|
 | [!DNL Experience Platform] | **[!UICONTROL Datensatzaktivität]** für den Datensatz aus [Schritt 3](#dataset) | Neue aufgenommene und keine fehlgeschlagenen Batches |
 | [!DNL Adobe Analytics] | Ein Workspace-Projekt, das die Report Suite aus [Schritt 4](#report-suite) mit einer Freiformtabelle verwendet | **[!UICONTROL Seite]** Zeilen mit dem Namen `mcp:<code identifier>`, **[!UICONTROL Benutzerspezifischer Link]** Zeilen für Widget-Interaktionen und Intent-Text in der Dimension **User Intent** |
-| [!DNL Customer Journey Analytics] | Ein Workspace-Projekt, das die Datenansicht aus ([ 7) ](#cja) | **[!UICONTROL Ereignisse]** für Ihre Aktionsaufrufe und Widget-Interaktionen |
+| [!DNL Customer Journey Analytics] | Ein Workspace-Projekt, das die Datenansicht aus ([&#x200B; 7) &#x200B;](#cja) | **[!UICONTROL Ereignisse]** für Ihre Aktionsaufrufe und Widget-Interaktionen |
 
 Jeder Service verarbeitet Daten mit einer gewissen Verzögerung, sodass neue Ereignisse nicht sofort angezeigt werden.
 
 Informationen zum Erstellen der Berichte finden Sie [Erstellen von Projekten in Adobe Analytics](https://experienceleague.adobe.com/en/docs/analytics/analyze/analysis-workspace/build-workspace-project/create-projects), [Freiformtabellen-Übersicht](https://experienceleague.adobe.com/en/docs/analytics/analyze/analysis-workspace/visualizations/freeform-table/freeform-table) und [Erstellen von Projekten in Customer Journey Analytics](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-workspace/build-workspace-project/create-projects).
 
-Wenn die Daten korrekt aussehen, [ Sie Ihre App für ](/help/guides/deploy-your-app.md) Produktion bereitstellen.
+Wenn die Daten korrekt aussehen, [&#x200B; Sie Ihre App für &#x200B;](/help/guides/deploy-your-app.md) Produktion bereitstellen.
 
 ## Einschränkungen {#limitations}
 

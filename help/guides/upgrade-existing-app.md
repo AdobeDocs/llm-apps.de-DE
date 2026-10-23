@@ -23,7 +23,7 @@ Verwenden Sie dieses Handbuch nur, wenn Ihre App `@adobe/llm-apps-runtime` vor 1
 
 Sie benötigen Zugriff auf das Handler-Repository und - bei Apps mit EDS-Widgets - auf das mit Ihrer App verknüpfte EDS-Repository. Wenn Ihre App die von Adobe verwaltete Infrastruktur verwendet, fordern Sie Code-Zugriff an, bevor Sie Aktualisierungen vornehmen. Siehe [Verwenden von Adobe Managed Infrastructure](/help/guides/create-app.md#adobe-managed-infrastructure).
 
-Das Erstellen einer anderen App ist nicht erforderlich. Aktualisieren Sie nur die Komponenten, die sich unter den unterstützten Versionen befinden. Sie können eine bestehende Adobe-Konfiguration wiederverwenden, die den [Analytics-Setup-Anforderungen“ ](/help/guides/analytics-setup.md#setup-checklist).
+Das Erstellen einer anderen App ist nicht erforderlich. Aktualisieren Sie nur die Komponenten, die sich unter den unterstützten Versionen befinden. Sie können eine bestehende Adobe-Konfiguration wiederverwenden, die den [Analytics-Setup-Anforderungen“ &#x200B;](/help/guides/analytics-setup.md#setup-checklist).
 
 Für Apps mit EDS-Widgets veröffentlichen und überprüfen Sie zunächst das SDK-Update, führen Sie dann das Laufzeitupdate zusammen und stellen Sie die App erneut bereit. Die beiden Repository-Aktualisierungen können unabhängig voneinander vorbereitet werden, aber beide müssen verfügbar sein, bevor Sie die Analytics-fähige Bereitstellung testen.
 
@@ -92,6 +92,6 @@ Nach jeder Aktualisierungsmethode die Aktualisierung per Push übertragen und in
 
 Kehren Sie zu [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md) zurück. Alle Apps müssen Analytics aktivieren und bereitstellen, um Ereignisse zu erfassen. Beim Upgrade von Runtime oder SDK allein wird die Erfassung nicht aktiviert.
 
-Stellen Sie nach dem Speichern der Analytics-Einstellungen das Staging bereit und [ Sie (neue Aktionsaufruf- und Widget-Interaktionsereignisse), ](/help/guides/analytics-setup.md#verify) Sie es für die Produktion bereitstellen. Bestätigen Sie, dass die Aktion und das Widget weiterhin funktionieren und dass eine einzelne Link-Auswahl ein Widget-Interaction-Ereignis erzeugt.
+Stellen Sie nach dem Speichern der Analytics-Einstellungen das Staging bereit und [&#x200B; Sie (neue Aktionsaufruf- und Widget-Interaktionsereignisse), &#x200B;](/help/guides/analytics-setup.md#verify) Sie es für die Produktion bereitstellen. Bestätigen Sie, dass die Aktion und das Widget weiterhin funktionieren und dass eine einzelne Link-Auswahl ein Widget-Interaction-Ereignis erzeugt.
 
 Analytics beginnt mit der Erfassung neuer Interaktionen nach der Analytics-fähigen Bereitstellung. Beim Upgrade werden Interaktionen, die vor der Aktivierung der Sammlung aufgetreten sind, nicht rekonstruiert.
