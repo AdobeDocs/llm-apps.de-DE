@@ -46,7 +46,7 @@ Erstellen Sie den Namespace, das Schema, den Datensatz und den Datenstrom in der
 Sie benötigen:
 
 - **Unterstützte Laufzeit und SDK.** Ihr Handler-Repository muss `@adobe/llm-apps-runtime` 1.2.0 oder höher verwenden. Verwenden Sie für EDS-Widgets die LLM-Apps SDK 0.1.13 oder höher. Um eine ältere App auf die neueste Laufzeit und SDK zu aktualisieren, bevor Sie Analytics aktivieren, folgen Sie [Aktualisieren einer bestehenden App](/help/guides/upgrade-existing-app.md). Apps, die diese Anforderungen erfüllen, müssen nicht aktualisiert werden.
-- **Die agenten Feldergruppen.** Ihre Organisation muss für die Feldergruppen Agenteninformationen und Konversationsereignisse aktiviert sein. Wenn diese Feldergruppen beim Hinzufügen von Feldergruppen zu einem Schema nicht angezeigt werden, wenden Sie sich an Ihr Adobe-Accountteam. Siehe [Implementieren von Conversation Insights](https://experienceleague.adobe.com/en/docs/analytics-platform/using/conversation-insights/implement#schema-and-datasets). Aktionsaufrufe werden im `agenticExperience.tools` Bereich Agenteninformationen aufgezeichnet, der sich in Beta in [!DNL Experience Platform] befindet.
+- **Die agenten Feldergruppen.** Ihre Organisation muss für die Feldergruppen Agenteninformationen und Konversationsereignisse aktiviert sein. Wenn diese Feldergruppen beim Hinzufügen von Feldergruppen zu einem Schema nicht angezeigt werden, wenden Sie sich an Ihr Adobe-Accountteam. Siehe [Implementieren von Conversation Insights](https://experienceleague.adobe.com/de/docs/analytics-platform/using/conversation-insights/implement#schema-and-datasets). Aktionsaufrufe werden im `agenticExperience.tools` Bereich Agenteninformationen aufgezeichnet, der sich in Beta in [!DNL Experience Platform] befindet.
 - **[!DNL Experience Platform]Berechtigungen** um Identity-Namespaces, Schemata, Datensätze und Datenströme in Ihrer Sandbox zu erstellen.
 - **Für [!DNL Adobe Analytics]:** Berechtigung zum Verwalten von Report Suites und Verarbeitungsregeln. Produktadministratoren haben standardmäßig beide Möglichkeiten.
 - **Für [!DNL Customer Journey Analytics]:** Produktadministratorzugriff zum Erstellen von Verbindungen und Datenansichten.
@@ -60,7 +60,7 @@ Nachdem Sie Analytics aktiviert und bereitgestellt haben, sendet Ihre App zwei A
 | Aktionsaufruf | `mcp.tool_call` | Die LLM-Plattform ruft eine der Aktionen Ihrer App auf, einschließlich Aufrufen, die fehlschlagen oder eine Anmeldeaufforderung zurückgeben. | Die Code-Kennung der Aktion und ob der Aufruf fehlgeschlagen ist. Die Benutzerabsicht, wenn die Aktion sie erfasst und die Plattform eine bereitstellt. Wenn die Plattform sie bereitstellt: den Plattformnamen, die Konversations-ID, die Benutzer-ID, das Gebietsschema und die Organisation der Plattform und den ungefähren Standort des Benutzers. |
 | Widget-Interaktion | `web.webinteraction.linkClicks` | Jemand wählt einen Link oder eine Schaltfläche in einem Edge Delivery Services-Widget aus. | Die Link- oder Schaltflächenbeschriftung mit bis zu 100 Zeichen. Wenn vom Aktionsaufruf angegeben, die Konversations-ID und die Turn-ID. Adobe Web SDK fügt auch die Widget-Frame-URL, die Bildschirm- und Browser-Fenstergröße, die lokale Zeit und Zeitzone sowie eine eigene Version hinzu. |
 
-In [!DNL Adobe Analytics] zählt jeder Aktionsaufruf als Seitenansicht einer Seite mit dem Namen `mcp:<code identifier>`, und jede Widget-Interaktion zählt als Link-Klick. Siehe [Edge Network-Ereignistypen in Adobe Analytics](https://experienceleague.adobe.com/en/docs/analytics/implementation/aep-edge/hit-types).
+In [!DNL Adobe Analytics] zählt jeder Aktionsaufruf als Seitenansicht einer Seite mit dem Namen `mcp:<code identifier>`, und jede Widget-Interaktion zählt als Link-Klick. Siehe [Edge Network-Ereignistypen in Adobe Analytics](https://experienceleague.adobe.com/de/docs/analytics/implementation/aep-edge/hit-types).
 
 Jeder Aktionsaufruf und jede Widget-Interaktion ist ein [!DNL Adobe Analytics] Treffer und ein Ereignis in Ihrem [!DNL Experience Platform] Datensatz. Vergewissern Sie sich bei einer Mobile App mit hohem Traffic, dass Ihr Vertrag dieses Volumen abdeckt, bevor Sie Analytics aktivieren.
 
@@ -106,7 +106,7 @@ Aktionsaufrufe identifizieren Personen im `MCPHOSTUSER`-Namespace, sodass der Na
 | Identitätssymbol | `MCPHOSTUSER`, genau wie abgebildet |
 | Identitätstyp | **[!UICONTROL Individuelle geräteübergreifende ID]** |
 
-Eine Anleitung finden Sie unter [Erstellen benutzerdefinierter Namespaces](https://experienceleague.adobe.com/en/docs/experience-platform/identity/features/namespaces#create-namespaces).
+Eine Anleitung finden Sie unter [Erstellen benutzerdefinierter Namespaces](https://experienceleague.adobe.com/de/docs/experience-platform/identity/features/namespaces#create-namespaces).
 
 ## Schritt 2: Schema erstellen {#schema}
 
@@ -127,7 +127,7 @@ Der Datenstrom und der Datensatz verwenden beide dieses Schema. Erstellen Sie ei
 
 Die Adobe Analytics ExperienceEvent-Feldergruppe ist nicht erforderlich. Die Benutzerabsicht erreicht [!DNL Adobe Analytics] über eine Verarbeitungsregel. Siehe [Schritt 4](#report-suite).
 
-Eine Anleitung finden Sie unter [Erstellen eines neuen Schemas](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/ui/resources/schemas#create) und [Hinzufügen von Feldergruppen](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/ui/resources/schemas#add-field-groups).
+Eine Anleitung finden Sie unter [Erstellen eines neuen Schemas](https://experienceleague.adobe.com/de/docs/experience-platform/xdm/ui/resources/schemas#create) und [Hinzufügen von Feldergruppen](https://experienceleague.adobe.com/de/docs/experience-platform/xdm/ui/resources/schemas#add-field-groups).
 
 ## Schritt 3: Datensatz erstellen {#dataset}
 
@@ -141,7 +141,7 @@ Der Datensatz speichert die Ereignisse Ihrer App in [!DNL Experience Platform]. 
 | Schema | Das Schema aus [Schritt 2](#schema) |
 | Name | Beliebiger Name, z. B. `AEM LLM Apps` |
 
-Eine Anleitung finden Sie unter [Erstellen eines Datensatzes](https://experienceleague.adobe.com/en/docs/experience-platform/catalog/datasets/user-guide#create).
+Eine Anleitung finden Sie unter [Erstellen eines Datensatzes](https://experienceleague.adobe.com/de/docs/experience-platform/catalog/datasets/user-guide#create).
 
 ## Schritt 4: Report Suite vorbereiten {#report-suite}
 
@@ -170,11 +170,11 @@ Aktivieren Sie in den Konversionsvariablen der Report Suite eine eVar mit den fo
 
 Wenn die Report Suite bereits eVar3 verwendet, wählen Sie eine andere nicht verwendete eVar aus und verwenden Sie diese eVar in der Verarbeitungsregel.
 
-Eine Anleitung finden Sie unter [Hinzufügen oder Bearbeiten von Konversionsvariablen](https://experienceleague.adobe.com/en/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/conversion-variables/conversion-var-admin#add-or-edit-conversion-variables).
+Eine Anleitung finden Sie unter [Hinzufügen oder Bearbeiten von Konversionsvariablen](https://experienceleague.adobe.com/de/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/conversion-variables/conversion-var-admin#add-or-edit-conversion-variables).
 
 ### Erstellen der Verarbeitungsregel {#processing-rule}
 
-[!DNL Adobe Analytics] empfängt die Benutzerabsicht als Kontextdatenvariable, nicht als eVar. Weitere Informationen dazu finden Sie unter [Implizites Mapping](https://experienceleague.adobe.com/en/docs/analytics/implementation/aep-edge/xdm-var-mapping#implicit-mapping). Erstellen Sie eine Verarbeitungsregel, die die Benutzerabsicht in die eVar kopiert:
+[!DNL Adobe Analytics] empfängt die Benutzerabsicht als Kontextdatenvariable, nicht als eVar. Weitere Informationen dazu finden Sie unter [Implizites Mapping](https://experienceleague.adobe.com/de/docs/analytics/implementation/aep-edge/xdm-var-mapping#implicit-mapping). Erstellen Sie eine Verarbeitungsregel, die die Benutzerabsicht in die eVar kopiert:
 
 - **Bedingung:** die Kontextdatenvariable `a.x.conversation.prompt.raw.0.purpose` gleich `intents`.
 - **Action:** Überschreiben Sie den Wert von **User Intent (eVar3)** mit der Kontextdatenvariablen `a.x.conversation.prompt.raw.0.text`.
@@ -183,7 +183,7 @@ Ohne diese Regel bleibt die Dimension **Benutzerabsicht** leer. Die Regel gilt n
 
 Andere Felder, z. B. ob der Aufruf fehlgeschlagen ist oder der Plattformname, werden ebenfalls als Kontextdatenvariablen angezeigt. Um in [!DNL Adobe Analytics] Berichte dazu zu erstellen, erstellen Sie auf die gleiche Weise weitere Verarbeitungsregeln.
 
-Für die Prozedur siehe [Übersicht über Verarbeitungsregeln](https://experienceleague.adobe.com/en/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/processing-rules/pr-overview) und [Anwendungsfälle für Verarbeitungsregeln](https://experienceleague.adobe.com/en/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/processing-rules/pr-use-cases).
+Für die Prozedur siehe [Übersicht über Verarbeitungsregeln](https://experienceleague.adobe.com/de/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/processing-rules/pr-overview) und [Anwendungsfälle für Verarbeitungsregeln](https://experienceleague.adobe.com/de/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/processing-rules/pr-use-cases).
 
 ## Schritt 5: Erstellen des Datenstroms {#datastream}
 
@@ -202,7 +202,7 @@ Erstellen Sie einen Datenstrom mit den folgenden Einstellungen:
 
 Erstellen Sie den Datenstrom in derselben Sandbox wie das Schema. Sie können die Sandbox eines Datenstroms nach seiner Erstellung nicht ändern.
 
-Eine Anleitung finden Sie unter [Erstellen eines Datenstroms](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#create).
+Eine Anleitung finden Sie unter [Erstellen eines Datenstroms](https://experienceleague.adobe.com/de/docs/experience-platform/datastreams/configure#create).
 
 ### Hinzufügen der Services {#add-services}
 
@@ -217,7 +217,7 @@ Fügen Sie für jedes Ziel einen Service hinzu:
 
 ![Adobe Experience Platform-Service - Der ausgewählte Ereignis-Datensatz und die anderen Optionen wurden gelöscht](/help/assets/guide-analytics/datastream-platform-service.png)
 
-Eine Anleitung finden Sie unter [Hinzufügen von Services zu einem Datenstrom](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#add-services), [Adobe Analytics-](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#analytics) und [Adobe Experience Platform-Einstellungen](https://experienceleague.adobe.com/en/docs/experience-platform/datastreams/configure#aep).
+Eine Anleitung finden Sie unter [Hinzufügen von Services zu einem Datenstrom](https://experienceleague.adobe.com/de/docs/experience-platform/datastreams/configure#add-services), [Adobe Analytics-](https://experienceleague.adobe.com/de/docs/experience-platform/datastreams/configure#analytics) und [Adobe Experience Platform-Einstellungen](https://experienceleague.adobe.com/de/docs/experience-platform/datastreams/configure#aep).
 
 Kopieren Sie dann **[!UICONTROL Datenstrom-ID]** aus den Datenstromdetails. Sie benötigen ihn in [Schritt 6](#enable-analytics).
 
@@ -273,7 +273,7 @@ Erstellen Sie eine Verbindung und fügen Sie den Datensatz aus [Schritt 3](#data
 
 Mit dieser Personen-ID verwendet [!DNL Customer Journey Analytics] die primäre Identität jedes Ereignisses als Person und überspringt Ereignisse, die keine primäre Identität haben. Siehe [So identifizieren die Ereignisse Personen](#identities).
 
-Eine Anleitung finden Sie unter [Verbindung erstellen](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-connections/create-connection#create-connection), [Einstellungen für Ereignis-Datensätze](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-connections/create-connection#event-dataset-settings) und [Identitätszuordnung als Personen-ID verwenden](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-connections/create-connection#id-map).
+Eine Anleitung finden Sie unter [Verbindung erstellen](https://experienceleague.adobe.com/de/docs/analytics-platform/using/cja-connections/create-connection#create-connection), [Einstellungen für Ereignis-Datensätze](https://experienceleague.adobe.com/de/docs/analytics-platform/using/cja-connections/create-connection#event-dataset-settings) und [Identitätszuordnung als Personen-ID verwenden](https://experienceleague.adobe.com/de/docs/analytics-platform/using/cja-connections/create-connection#id-map).
 
 ### Datenansicht erstellen {#data-view}
 
@@ -299,7 +299,7 @@ Fügen Sie diese Schemafelder als Komponenten hinzu:
 
 Fügen Sie Textfelder wie Benutzerabsicht als Dimensionen hinzu. Ein als Metrik hinzugefügtes Textfeld kann nur gezählt werden. Wenn es nach seinen Werten aufgeschlüsselt wird, wird **Ungültig** angezeigt.
 
-Eine Anleitung finden Sie unter [Konfigurieren einer Datenansicht](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-dataviews/create-dataview#configure) und [Komponenten](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-dataviews/create-dataview#components).
+Eine Anleitung finden Sie unter [Konfigurieren einer Datenansicht](https://experienceleague.adobe.com/de/docs/analytics-platform/using/cja-dataviews/create-dataview#configure) und [Komponenten](https://experienceleague.adobe.com/de/docs/analytics-platform/using/cja-dataviews/create-dataview#components).
 
 ## Schritt 8: Überprüfen der Daten und Bereitstellen für die Produktion {#verify}
 
@@ -315,7 +315,7 @@ Rufen Sie eine Aktion in Ihrer Staging-App von einer unterstützten LLM-Plattfor
 
 Jeder Service verarbeitet Daten mit einer gewissen Verzögerung, sodass neue Ereignisse nicht sofort angezeigt werden.
 
-Informationen zum Erstellen der Berichte finden Sie [Erstellen von Projekten in Adobe Analytics](https://experienceleague.adobe.com/en/docs/analytics/analyze/analysis-workspace/build-workspace-project/create-projects), [Freiformtabellen-Übersicht](https://experienceleague.adobe.com/en/docs/analytics/analyze/analysis-workspace/visualizations/freeform-table/freeform-table) und [Erstellen von Projekten in Customer Journey Analytics](https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-workspace/build-workspace-project/create-projects).
+Informationen zum Erstellen der Berichte finden Sie [Erstellen von Projekten in Adobe Analytics](https://experienceleague.adobe.com/de/docs/analytics/analyze/analysis-workspace/build-workspace-project/create-projects), [Freiformtabellen-Übersicht](https://experienceleague.adobe.com/de/docs/analytics/analyze/analysis-workspace/visualizations/freeform-table/freeform-table) und [Erstellen von Projekten in Customer Journey Analytics](https://experienceleague.adobe.com/de/docs/analytics-platform/using/cja-workspace/build-workspace-project/create-projects).
 
 Wenn die Daten korrekt aussehen, [&#x200B; Sie Ihre App für &#x200B;](/help/guides/deploy-your-app.md) Produktion bereitstellen.
 
