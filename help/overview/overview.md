@@ -19,7 +19,7 @@ ht-degree: 1%
 
 [!DNL Adobe LLM Apps] ermöglicht es Ihrer Marke, innerhalb unterstützter KI-Assistenten wie [!DNL ChatGPT] und [!DNL Claude] nützliche Aktionen anzubieten, z. B. Produkterkennung, Verfügbarkeitsprüfungen oder Service-Buchungen.
 
->[!VIDEO](https://video.tv.adobe.com/v/3504875/?learn=on&enablevpops)
+>[!VIDEO](https://video.tv.adobe.com/v/3504882/?captions=ger&learn=on&enablevpops)
 
 [!DNL LLM Apps] ist verfügbar unter [experience.adobe.com/llm-apps](https://experience.adobe.com/llm-apps).
 
