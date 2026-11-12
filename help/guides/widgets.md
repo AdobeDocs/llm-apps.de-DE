@@ -1,9 +1,9 @@
 ---
 title: Anpassen eines generierten EDS-Widgets
 description: Das automatisch von Adobe LLM-Apps erstellte Edge Delivery Services-Widget verstehen und anpassen.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 74769d0b2eb2d9323a39ae645dc5359404450164
 workflow-type: tm+mt
-source-wordcount: '1065'
+source-wordcount: '1148'
 ht-degree: 0%
 ---
 
@@ -71,6 +71,8 @@ Die Einbettungskomponente ruft den `.plain.html` Inhalt der Widget-Seite ab und 
 - Lassen Sie die Größe mit der `bridge.autoResize()` synchronisiert.
 
 In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie [&#128279;](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem `@adobe/llmapps-sdk`-Paket .
+
+Informationen zum direkten Öffnen eines vorbereiteten Widgets neben einer Unterhaltung oder als Datei-Viewer auf unterstützten OpenAI-Clients finden Sie unter [Konfigurieren von ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md). In diesem Handbuch werden die Einrichtung und die Anforderungen der Benutzeroberfläche erläutert. Für die Dateiverarbeitung, den Auswahlkontext, Deep-Links und Rich-Message-Steuerelemente ist die Implementierung von Widgets erforderlich. Durch Aktivieren einer Erweiterung wird dieses Verhalten nicht automatisch hinzugefügt. Überprüfen Sie die Host-Funktionen, bevor Sie optionale APIs verwenden. Die separate `bridge.chatgpt`-API ist nur in ChatGPT verfügbar und wird an anderer Stelle `null`. Sie ist nicht mit der Standard-Bridge-API identisch.
 
 ## Grundlagen zum Datenvertrag
 

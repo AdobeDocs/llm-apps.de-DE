@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer neuen Aktion
 description: Definieren Sie Aktionsmetadaten, implementieren Sie den Handler, verbinden Sie ein EDS-Widget, testen Sie es und stellen Sie es mit Adobe LLM-Apps bereit.
-source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
+source-git-commit: 74769d0b2eb2d9323a39ae645dc5359404450164
 workflow-type: tm+mt
-source-wordcount: '1476'
+source-wordcount: '1518'
 ht-degree: 0%
 ---
 
@@ -66,7 +66,9 @@ Verwandte, aber unterschiedliche Aufgaben getrennt halten. Verwenden Sie separat
 
 Öffnen Sie die App und wählen Sie **[!UICONTROL Aktionen]** und dann **[!UICONTROL Aktion erstellen]** aus.
 
-Das Erstellungsdialogfeld enthält die Registerkarten **[!UICONTROL Aktion]** und **[!UICONTROL Widget-]**). Erweitern Sie jeden Abschnitt, um seine Felder zu konfigurieren.
+Das Erstellungsdialogfeld enthält die Registerkarten **[!UICONTROL Aktion]**, **[!UICONTROL Widget-]** und **[!UICONTROL ChatGPT-Erweiterungen]**. Erweitern Sie jeden Abschnitt, um seine Felder zu konfigurieren.
+
+Mit den optionalen **[!UICONTROL ChatGPT-Erweiterungen]** können Benutzer die App direkt öffnen, einen benutzerdefinierten Datei-Viewer verwenden oder Ressourcen im Composer auf unterstützten Clients suchen. Konfigurieren Sie diese, wenn die entsprechende Aktion und das entsprechende Widget-Verhalten bereit sind. Siehe [Konfigurieren von ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md).
 
 ### Einfache Informationen eingeben
 

@@ -1,7 +1,7 @@
 ---
-source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
+source-git-commit: fa80b7b68e1b905eb22d4789a74b2f0de886d70c
 workflow-type: tm+mt
-source-wordcount: '1418'
+source-wordcount: '1963'
 ht-degree: 1%
 ---
 # Screenshot-Manifest
@@ -69,8 +69,10 @@ Ausgabeverzeichnis: `help/assets/guide-create-action/`
 | `widget-permissions.png` | Optionale Browser-Berechtigungen, wobei nicht verwendete Berechtigungen deaktiviert sind | Neue Aktion erstellen - Browser-Berechtigungen |
 | `widget-csp.png` | Domänensteuerelemente für Ressourcen, Verbindungen, Rahmen, Umleitung und Basis-URI | Neue Aktion erstellen - Domains mit Content Security Policy |
 
-Das Erstellungsdialogfeld enthält die Registerkarten **Aktion** und **Widget-Metadaten**. Der gespeicherte Editor
-verfügt über **Registerkarten** LLM-Widget-Details **,** Aktionsdetails **und Analytics**. Erfassen Sie die
+Die vorhandenen Aufzeichnungen zeigen **Aktion** und **Widget-**) bei der Erstellung
+und **LLM-Widget-Details**, **Aktionsdetails** und **Analytics** in der
+Editor gespeichert. Die aktuelle Implementierung verfügt auch über **ChatGPT-** in beiden
+Flüsse; überprüfen Sie, ob diese Registerkarte in der laufenden Benutzeroberfläche beim Aktualisieren der Bilder angezeigt wird. Erfassen Sie die
 Der Layout-Vorgang verwendet tatsächlich . Füllen Sie die Beispielfelder aus, ohne zu speichern, dann
 Änderungen verwerfen.
 
@@ -113,6 +115,65 @@ Ersatzwert. Erfasst nie einen echten Konfigurationswert.
 Das Öffnen eines Dialogfelds erlaubt kein Speichern oder Löschen. Wiederverwenden eines sicheren vorhandenen
 Fixturvariable oder -frage vor der Erstellung einer Variablen. Älteres Bild nur beibehalten nach
 Es wird überprüft, ob die Felder und Steuerelemente der Benutzeroberfläche weiterhin mit der aktuellen übereinstimmen.
+
+## ChatGPT-Erweiterung
+
+Artikel: `/help/guides/chatgpt-extensions.md`
+
+Ausgabeverzeichnis: `help/assets/guide-chatgpt-extensions/`
+
+Screenshots, Anzeigeeinstellungen und Composer-Mention für globale und Thread-Einstiegspunkte
+Konfigurations-Screenshots wurden am 10.11.2026 bereitgestellt und werden als
+Aufgezeichnet unten. Andere Checkpoints bleiben geplant, keine vorhandenen Assets. Nicht
+Fügen Sie Links für Artikelbilder hinzu, bis die tatsächlichen Aufnahmen bereinigt und visuell dargestellt wurden
+Überprüft.
+
+| Dateiname | Status und nützlicher Kontext | Vorgeschlagener Alternativtext |
+|---|---|---|
+| `extensions-tab.png` | Gespeicherte, Widget-unterstützte Aktion mit ausgewählten ChatGPT-Erweiterungen | ChatGPT-Erweiterungen - Einstiegspunkte, Anzeigemodus und Composer-Erwähnungen |
+| `global-thread-entrypoints.png` | Globaler und Thread werden zusammen für das Startseiten-Widget ausgewählt, wobei die Option Datei deaktiviert ist. | ChatGPT-Erweiterungen - Global und Thread für die Startseiten-Aktion ausgewählt |
+| `global-entrypoint-menu.png` | Einstiegspunkt für die Startseite im Navigationsmenü des Kunden | ChatGPT-Navigationsmenü mit dem globalen Startpunkt |
+| `global-entrypoint-open.png` | Vollständiges Client-Fenster mit geöffnetem Startbildschirm und sichtbarer Navigationsleiste | Startseiten-Dashboard über den globalen Einstiegspunkt geöffnet |
+| `thread-entrypoint-menu.png` | Konversationsmenü mit erweiterten Plug-ins | Konversationsmenü - Wählen Sie den Einstiegspunkt für den Home-Thread aus. |
+| `thread-entrypoint-open.png` | Home-Dashboard neben einer Konversation | Startseiten-Dashboard neben einer ChatGPT-Konversation öffnen |
+| `file-entrypoint.png` | Ungespeicherter Dateieinstiegspunkt mit .csv | Dateieinstiegspunkt - bietet einen benutzerdefinierten Viewer für CSV-Dateien |
+| `entrypoint-icon.png` | Nicht gespeicherte optionale Symbol-URL, die von den ausgewählten Einstiegspunkten der Aktion freigegeben wird | Einstiegspunktsymbol - Festlegen eines optionalen Symbols für eine freigegebene Aktion |
+| `display-settings.png` | Modellstart-Voreinstellung, unterstützte Ressourcenmodi und erste Anzeige bei Host-Standardwerten | Anzeigemodus - Voreinstellungen für Ressourcen und Modellstart bei Standardeinstellungen |
+| `composer-mentions.png` | Die Aktion „Nur Text“ mit aktiviertem Umschalter für die Erwähnung wird in der Suche erwähnt | Erwähnungen suchen - Composer-Erwähnungen aktiviert |
+| `composer-mentions-query.png` | Details zur Aktion bei der Suche mit einer optionalen Eingabe für eine Zeichenfolgenabfrage | Suchbegriffe - optionale Zeichenfolgeneingabe mit dem Namen „query“ |
+| `composer-mentions-conflict.png` | Umschalter für Erwähnung und Warnung beim Benennen des vorhandenen Anbieters deaktiviert | Composer erwähnt nicht verfügbar, da Search Mentions bereits der Anbieter ist |
+
+Verwenden Sie eine zugelassene, nicht empfindliche Katalogbefestigung. Formulare nicht automatisch speichern
+Vor der Eingabe von Beispielwerten; nicht gespeicherte Änderungen später verwerfen. Nicht speichern,
+Genehmigen Sie generierte Aktionen oder stellen Sie sie nur bereit, um diese Checkliste abzuschließen.
+Drittanbieterergebnisse benötigen authentifizierten Zugriff auf einen kompatiblen Client. Datei
+Einstiegspunkte erfordern einen Desktop. Der Arbeitsbrowser ist kein klassisches ChatGPT.
+
+### Aktualisierung der Einstiegspunkt-Dokumentation, 2026-11-05
+
+- Source: aktuelle lokale `llm-apps-ui` und Eingabevalidierung, keine
+Anleitung zur Produktions-Benutzeroberfläche.
+- Schnellzugriff-Steuerelemente wurden entfernt. Globale, Thread- und Dateiverwendung
+Kontrollkästchen, die mehrere Auswahlen für ein Widget unterstützen. Symbol URL ist ein
+Optionale Einstellung auf Aktionsebene, die von Einstiegspunkten freigegeben wird.
+- Wenn Sie Datei auswählen, wird eine optionale Objekteingabe mit dem Namen `file` hinzugefügt, wenn sie nicht vorhanden ist.
+Das Kombinieren von Datei mit „Global“ oder „Thread“ erfordert, dass diese Eingabe optional bleibt.
+- Die Browser-Inspektion wurde blockiert, da beide Browser-Profile für die Automatisierung
+Wird bereits verwendet. Es wurden keine neuen Screenshots aufgenommen.
+
+### Text Herkunftsentwurf, 2026-11-03
+
+- Source-Umgebung: lokale Implementierung von UI/API/Runtime/SDK, keine abgeschlossen
+Anleitung für den Produktions-Aktionseditor.
+- APIs für veröffentlichte, durch die Paketüberprüfung bestätigte Erweiterungen in Runtime 1.3.0 und
+SDK 0.2.1. Dies sind die dokumentierten Baseline-Versionen, keine Behauptung, dass alle
+Diese Funktion wurde in genau diesen Versionen eingeführt.
+- Die öffentliche Erweiterungsspezifikation von OpenAI wurde auf Plattformbeschränkungen überprüft.
+- Die Produktionsanmeldung war in einem separaten agentengesteuerten Browser erfolgreich. Keine App
+Die Einstellungen wurden gespeichert, es wurde keine Vorrichtung ausgewählt und keine Bereitstellung gestartet.
+- Der Benutzer hat Screenshots zurückgestellt. Es wurden keine neuen Bilder erfasst oder ersetzt.
+Exakte Produktions-Control-Kennzeichnungen und das End-to-End-Host-Verhalten erfordern weiterhin eine
+Live-exemplarische Vorgehensweise vor der Veröffentlichung.
 
 ## Bereitstellung und Tests
 

@@ -1,9 +1,9 @@
 ---
 title: Fehlerbehebung bei Adobe LLM-Apps
 description: Beheben von Problemen mit der allgemeinen Infrastruktur, der Aktionserstellung, dem Handler, dem Widget, der Bereitstellung, der Authentifizierung und der LLM-Plattformverbindung.
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 2afae0696de15ec4d0a6596e413dd4851761439e
 workflow-type: tm+mt
-source-wordcount: '1350'
+source-wordcount: '1503'
 ht-degree: 0%
 ---
 
@@ -25,7 +25,9 @@ Beginnen Sie mit dem beobachtbaren Symptom. Geben Sie während der Fehlerbehebun
 | Kein AEM-Programm verfügbar | Bitten Sie Ihren Administrator um Programmzugriff. Wenn das Laden fehlgeschlagen ist, wählen Sie **Programme erneut laden** |
 | Neue Repositorys werden nicht angezeigt | Verwenden Sie **Mit einem anderen Repository verbinden**, um der GitHub-App von Adobe LLM Apps Zugriff zu gewähren, zum Assistenten zurückzukehren und die Option **Organisationen und Repositorys aktualisieren** auszuwählen |
 | Die Repository-Validierung der Aktion oder des Widgets schlägt fehl | Verwenden Sie ein kompatibles vorhandenes Projekt oder ein leeres Repository. Separate Repositorys für Aktionen und Widgets verwenden und dann erneut **Repository überprüfen** auswählen |
-| AEM-Codesynchronisierung wird nicht erkannt | Installieren Sie AEM Code Sync für das Widget-Repository, fügen Sie sich als Site-Administrator auf der Bestätigungsseite hinzu, kehren Sie zum Assistenten zurück und wählen Sie **Installation von AEM Code Sync validieren** |
+| AEM-Site-Setup oder Zugriffsvalidierung schlägt fehl | Folgen Sie [Einrichten des Site-Zugriffs für AEM](/help/guides/create-app.md#aem-site-access). Für eine neue Code-Sync-Installation schließen Sie den Bestätigungsseiten-Assistenten ab. Behalten Sie für eine bestehende Site die Installation bei und bitten Sie einen Site-Administrator, Ihrem Adobe-Konto über den AEM-Benutzeradministrator Zugriff `admin` gewähren. Vergewissern Sie sich, dass die Code-Synchronisierung das Widget-Repository abdeckt, und wählen Sie dann **AEM-Setup validieren** |
+| DAC-Schreibzugriff ist erforderlich | Bitten Sie einen DAM-Organisationsadministrator, dem in LLM-Apps verwendeten Adobe-Konto Schreibzugriff auf alle Inhalte der Site zu gewähren. Befolgen Sie [Schreibzugriff für DAM gewähren](/help/guides/create-app.md#da-write-access), melden Sie sich mit diesem Konto an und wählen Sie dann **AEM-Setup validieren** aus. AEM-Site-Rollen gewähren keine DAM-Berechtigungen |
+| Zugriff auf AEM oder DAM konnte nicht verifiziert werden | Versuchen Sie **AEM-Setup validieren** erneut, um einen temporären Überprüfungsfehler zu ermitteln. Wenn die Nachricht stattdessen eine Zugriffsverweigerung meldet, korrigieren Sie die AEM- oder DAM-Berechtigungen anhand der obigen Anweisungen, bevor Sie es erneut versuchen |
 | Beim Erstellen der App wurden keine Aktionen generiert | Bei der App-Erstellung wird nur die Infrastruktur eingerichtet. Wählen Sie auf der App-Seite **Aktionen automatisch erstellen**, geben Sie **Ihre Website** ein und wählen Sie **Meine Aktionen erstellen**. Siehe [Erstellen von Aktionen](/help/guides/creating-actions.md) |
 | Aktionen werden noch generiert | Die Benutzeroberfläche schätzt, dass bis zu 30 Minuten für die Generierung benötigt werden. Den Fortschritt auf der Seite Aktionen verfolgen oder die Seite verlassen und später zurückkehren |
 | Fehlgeschlagene Erzeugung von Aktionsberichten | Vergewissern Sie sich, dass die Website über HTTPS öffentlich ist und dass der Repository-Zugriff für Ihre eigenen Repositorys weiterhin gültig ist. Wenden Sie sich mit der angezeigten Fehlermeldung an das Beta-Team, wenn das Problem weiterhin besteht |
@@ -50,6 +52,10 @@ Beginnen Sie mit dem beobachtbaren Symptom. Geben Sie während der Fehlerbehebun
 | HTTP-Kopfzeilen-Editor kann die Konfiguration nicht speichern | Verwenden Sie den [AEM-Konfigurations](https://aem.live/docs/config-service-setup)Service oder bitten Sie den EDS-Administrator, die Site-Header-Konfiguration zu initialisieren |
 
 Protokollieren Sie keine vollständigen `bridge.toolResult`, wenn diese personenbezogene oder vertrauliche Daten enthalten können.
+
+## ChatGPT-Erweiterung
+
+Informationen zu fehlenden Einstiegspunkten, Problemen mit dem Datei-Viewer, ungültigen Symbol-URLs, Anzeigeeinstellungen oder Composer-Erwähnungsfehlern finden Sie unter [Fehlerbehebung bei ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md#troubleshooting). Überprüfen Sie den Client-Support, bevor Sie die App ändern: Eine funktionierende Verbindung bedeutet nicht, dass jede Erweiterung in diesem Client unterstützt wird.
 
 ## Bereitstellung
 
