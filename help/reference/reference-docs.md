@@ -1,10 +1,10 @@
 ---
 title: Aktions- und Widget-Felder
 description: Felddefinitionen für Aktionsmetadaten, Parameter, Widgets, CSP und Berechtigungen in Adobe LLM-Apps.
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: 2892acf4b3042c296203377a06bc3ff80fd375a5
 workflow-type: tm+mt
-source-wordcount: '890'
-ht-degree: 4%
+source-wordcount: '1257'
+ht-degree: 3%
 ---
 
 # Aktions- und Widget-Felder {#action-widget-configuration}
@@ -19,15 +19,16 @@ Auf dieser Seite können Sie Felder im Aktionseditor nachschlagen. Die Erstellun
 
 ## Suchen der Einstellungen
 
-Das **[!UICONTROL „Neue Aktion erstellen]** verfügt über die Registerkarten **[!UICONTROL Aktion]** und **[!UICONTROL Widget-Metadaten]**.
+Das **[!UICONTROL Neue Aktion erstellen]** enthält die Registerkarten **[!UICONTROL Aktion]**, **[!UICONTROL Widget-]** und **[!UICONTROL ChatGPT-Erweiterungen]**.
 
-Nach der Erstellung verwendet der Editor für gespeicherte Aktionen drei Registerkarten:
+Nach der Erstellung verwendet der Editor für gespeicherte Aktionen vier Registerkarten:
 
 | Registerkarte | Einstellungen |
 |---|---|
 | **[!UICONTROL LLM-Widget-Details]** | Widget-Typ, Sandbox-Domain, Widget-Beschreibung, Vorlagen-URLs und CSP |
 | **[!UICONTROL Aktionsdetails]** | Code-Kennung, Beschreibung, Eingabeparameter und **[!UICONTROL LLM-Einstellungen]** einschließlich Anmerkungen, Text zum Aufrufstatus und Sichtbarkeit |
 | **[!UICONTROL Analytics]** | Benutzerabsichtserfassung und Anweisungen |
+| **[!UICONTROL ChatGPT-Erweiterungen]** | Direkt öffnende Einstiegspunkte, Aktionssymbole, Anzeigevoreinstellungen und Erwähnungen von Composern |
 
 Um Ihre Änderungen zu speichern, klicken Sie auf **[!UICONTROL Änderungen speichern]**. Erzeugte Aktionen, die auf eine Überprüfung warten, zeigen stattdessen **[!UICONTROL Als geprüft markieren]** an, wodurch auch die generierten Pull-Anforderungen verarbeitet werden.
 
@@ -38,13 +39,15 @@ Eingabeparameter sind die Werte, die die LLM-Plattform an Ihren Aktions-Handler 
 | Eigenschaft | Beschreibung |
 |----------|-------------|
 | **Name** | Die Parameterkennung (z. B. `category`, `query`) |
-| **Typ** | `String`, `Number`, `Integer` oder `Boolean` |
+| **Typ** | `String`, `Number`, `Integer`, `Boolean` oder `Object`; der gespeicherte Editor bietet auch `File` für Parameter hochgeladener Dateien |
 | **Beschreibung** | Eine für Menschen lesbare Erklärung - Die LLM-Plattform verwendet die Erklärung, um den richtigen Wert zu extrahieren |
 | **Erforderlich** | Falls aktiviert, muss das Modell diesen Parameter bereitstellen, bevor die Aktion aufgerufen wird |
 
 ### Dateiparameter
 
 Dateiparameter sind im Aktionseditor konfigurierte Eingabefeldnamen. Wenn ein Benutzer eine Datei hochlädt, stellt der Host ein Dateiobjekt für diese Argumente bereit, normalerweise einschließlich `download_url` und `file_id`.
+
+Die Parameter für hochgeladene Dateien unterscheiden sich von [Datei-Einstiegspunkten](/help/guides/chatgpt-extensions.md#file-entrypoint). Ein Dateieinstiegspunkt verwendet einen Objektparameter mit dem Namen `file`, der die `name` und `resourceUri` der geöffneten Datei enthält.
 
 ## Metadatenfelder
 
@@ -126,6 +129,36 @@ Die Content Security Policy steuert, an welche externen Domains der Widget-IFram
 | **Frame-Domains** | Zulässige Ursprünge für verschachtelte iFrames; Trigger strengere App-Überprüfung |
 | **Umleitungs-Domains** | Vertrauenswürdige Ziele für `openExternal` Umleitungs-Links ([!DNL ChatGPT]) |
 | **Basis-URI-Domains** | Die `base-uri` CSP-Direktive (nur MCP Apps SDK, nicht [!DNL ChatGPT]) |
+
+## ChatGPT-Erweiterungsfelder {#chatgpt-extension-fields}
+
+Diese optionalen Einstellungen sind nur für ChatGPT; sie konfigurieren weder Claude noch andere LLM-Plattformen. Die Verfügbarkeit variiert je nach ChatGPT-Client. Anforderungen und Schritte finden Sie unter [Konfigurieren von ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md).
+
+### Einstiegspunkte und Aktionssymbole
+
+Einstiegspunkte erfordern ein Widget. Wählen Sie eine beliebige Kombination aus Global, Thread und Datei für dasselbe Widget aus oder lassen Sie „Alle“ deaktiviert. Global und Thread rufen die Aktion ohne Eingaben auf. Die Datei stellt nur das `file` Objekt bereit. Andere erforderliche Eingaben verhindern, dass der entsprechende Einstiegspunkt funktioniert. Wenn die Datei mit „Global“ oder „Thread“ kombiniert ist, muss `file` optional sein.
+
+| Feld | Beschreibung |
+|---|---|
+| **Wo Benutzer diese App öffnen können** | Kontrollkästchen für Global (Vollbild aus der Navigation), Thread (eine konversationsseitige Inhaltsregisterkarte) und Datei (ein benutzerdefinierter Viewer für übereinstimmende Dateierweiterungen). Es können mehrere Typen ausgewählt werden |
+| **Symbol URL** | Optionales Aktionssymbol, das von den jeweiligen Einstiegspunkten gemeinsam genutzt wird. Akzeptiert eine HTTP(S)-URL oder einen Daten-URI; bevorzugen Sie eine öffentliche HTTPS-Bild-URL. Das Ändern oder Löschen der URL ersetzt alle gespeicherten Symbolvarianten |
+| **Dateierweiterungen** | Mindestens eine Erweiterung, z. B. `.csv`, für einen Dateieinstiegspunkt. Der Editor fügt einen führenden Punkt hinzu, wenn er ausgelassen wird |
+
+Wenn Sie Datei auswählen, wird eine optionale Objekteingabe mit dem Namen `file` hinzugefügt, falls sie fehlt. Vorhandene Definitionen bleiben erhalten und müssen die `name` und `resourceUri` der geöffneten Datei akzeptieren.
+
+### Voreinstellungen anzeigen
+
+Diese Widget-Einstellungen sind von Einstiegspunkten getrennt. Der Gastgeber wählt die endgültige Präsentation aus.
+
+| Feld | Auswahlmöglichkeiten und Standardverhalten |
+|---|---|
+| **Beim Start durch das Modell anzeigen** | `inline`, `fullscreen` oder **Keine Präferenz** |
+| **Unterstützte Ressourcenanzeigemodi** | **Inline**, **Vollbild** oder beides. Keine der beiden Optionen lässt die Host-Standardeinstellungen in Kraft |
+| **Erste Ressourcenanzeige** | **Host default**, **inline** oder **fullscreen**. Wenn unterstützte Modi ausgewählt sind, muss der anfängliche Modus einbezogen werden |
+
+### Composer erwähnt
+
+**Composer-Erwähnungen aktivieren** legt die Aktion zur Ressourcensuche der App fest. Nur eine Aktion pro App kann die Erwähnung der Suche ermöglichen. Die Aktion muss schreibgeschützt und in der App sichtbar sein, mit einem Zeichenfolgenparameter namens `query`, der leeren Text akzeptiert und keine anderen erforderlichen Eingaben. Ein Anbieter kann nur Text enthalten. Um die App-Sichtbarkeit zu aktivieren, muss kein Widget für den Suchanbieter konfiguriert werden.
 
 ## Berechtigungen
 

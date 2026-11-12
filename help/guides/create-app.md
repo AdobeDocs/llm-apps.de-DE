@@ -1,9 +1,9 @@
 ---
 title: Einrichten der Infrastruktur
 description: Erstellen Sie eine Adobe-LLM-App mit der von Adobe verwalteten Infrastruktur oder stellen Sie zwei leere GitHub-Repositorys für die Initialisierung der Plattform bereit.
-source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
+source-git-commit: 079eb2403f15a97842c5c336c03ec5bfe10de622
 workflow-type: tm+mt
-source-wordcount: '1337'
+source-wordcount: '1595'
 ht-degree: 0%
 ---
 
@@ -106,22 +106,51 @@ Wenn eine Organisation oder ein Repository fehlt, verwenden Sie **[!UICONTROL An
 
 Widgets sind optionale visuelle Antworten, die an Aktionen angehängt werden, z. B. Produktkarten oder Buchungsformulare. Der Assistent verbindet ein [!DNL Edge Delivery Services]-Repository (EDS), um sie zu hosten.
 
+Verwenden Sie dasselbe Adobe-Konto für [!DNL LLM Apps]-, AEM-Site- und DA-Schreibzugriff.
+
+#### Verbinden des Widget-Repositorys {#connect-widget-repository}
+
 1. Wählen **[!UICONTROL unter]** Widget-Quelle **[!UICONTROL die Option Widget-Repository manuell]**.
 2. Wählen **[!UICONTROL unter &quot;]**&quot; **[!UICONTROL GitHub]** aus.
 3. Wählen Sie aus, ob Sie bereits über ein Repository verfügen. Andernfalls wählen Sie **[!UICONTROL Erstellen von Repositorys auf GitHub]**, erstellen Sie ein leeres Widget-Repository und kehren Sie zum Assistenten zurück.
 4. Installieren oder konfigurieren Sie die Adobe LLM Apps [!DNL GitHub] App für dieses Repository, wie Sie es auch für das Aktions-Repository getan haben.
 5. Wählen Sie die **[!UICONTROL Organisation]** und **[!UICONTROL Repository]** aus. Wählen Sie nicht das Aktions-Repository.
 6. Wählen Sie **[!UICONTROL Repository validieren]** aus. Bei der Validierung wird ein leeres Repository mit dem AEM-Textbaustein initialisiert. Ein vorhandenes Repository muss ein kompatibles EDS-Projekt sein.
-7. Wählen Sie **[!UICONTROL AEM Code Sync installieren]** und gewähren Sie AEM Code Sync Zugriff auf das Widget-Repository.
-8. Verwenden Sie auf der Seite zur Installationsbestätigung den Setup-Assistenten, um sich als Administrator der EDS-Site hinzuzufügen.
-9. Kehren Sie zu [!DNL LLM Apps] zurück und wählen **[!UICONTROL Installation von AEM Code-Synchronisierung validieren]**.
-10. Wenn **[!UICONTROL AEM Code Sync installed]** angezeigt wird, wählen Sie **[!UICONTROL Nächster Schritt]**.
+
+#### &#x200B;7. Einrichten des Zugriffs auf die AEM-Site {#aem-site-access}
+
+**Neuinstallation:** Wählen Sie **[!UICONTROL AEM Code Sync installieren]** und gewähren Sie ihr Zugriff auf das Widget-Repository. Führen Sie den Einrichtungsassistenten auf der Installationsbestätigungsseite aus, um sich selbst als Site-Administrator hinzuzufügen.
+
+**Bestehende EDS-Site:** Lassen Sie die AEM Code Sync -Installation bestehen und vergewissern Sie sich, dass sie das ausgewählte Widget-Repository abdeckt. Bitten Sie einen bestehenden Site-Administrator, AEM-Benutzeradmin unter `https://tools.aem.live/tools/user-admin/index.html/?org=<org>&site=<site>` zu öffnen und Ihr Adobe-Konto mit der Rolle `admin` hinzuzufügen. Sie müssen die Codesynchronisierung nicht neu installieren.
+
+Ersetzen Sie `<org>` und `<site>` durch Ihre Organisations- und Site-Namen in AEM. Ihr Site-Administrator kann diese Werte bestätigen.
+
+#### &#x200B;8. Schreibzugriff für DAM gewähren {#da-write-access}
+
+Bitten Sie sowohl für neue als auch vorhandene Sites einen Administrator der DAM-Organisation, Folgendes zu tun:
+
+1. Öffnen Sie die DAM-Konfiguration unter `https://da.live/config#/<org>/` und ersetzen Sie `<org>` durch die DAM-Organisation, in der die Inhalte Ihrer Site gespeichert sind.
+2. Öffnen Sie das **Berechtigungen**. Wenn es nicht vorhanden ist, wählen Sie **[!UICONTROL Tabelle hinzufügen]** benennen Sie es `permissions` und fügen Sie die Spaltenüberschriften **Pfad**, **Gruppen** und **Aktionen** hinzu. Sie können auch eine Spalte **Kommentare** hinzufügen, um jede Regel zu beschreiben.
+3. Fügen Sie eine Zeile hinzu, die Ihrem Adobe-Konto Schreibzugriff auf alle Inhalte der Website gewährt: Verwenden Sie den Inhaltspfad der Website in **path**, Ihre E-Mail-Adresse des Adobe-Kontos in **groups** und `write` Sie in **actions**. Speichern Sie die Konfiguration.
+
+   ![DA-Berechtigungsblatt mit Beispielkonten in der Spalte Gruppen und Schreibzugriff in der Spalte Aktionen](/help/assets/guide-infrastructure/da-write-permissions.png)
+
+   Der Screenshot verwendet fiktive Konten. Ersetzen Sie `widget-author@example.com` durch Ihre Adobe-Konto-E-Mail und verwenden Sie den Inhaltspfad Ihrer Site anstelle des organisationsweiten `/ + **`. Die `CONFIG` Zeile ist für Konfigurationsadministratoren. Sie müssen sie nicht ändern, um Inhaltszugriff zu gewähren.
+
+AEM-Site-Rollen gewähren keinen Schreibzugriff auf die geräteübergreifende Analyse. Sie benötigen keinen organisationsweiten Schreibzugriff.
+
+Weitere Informationen zum Konfigurieren von DA-Berechtigungen finden Sie unter [Berechtigungen und Sicherheit](https://www.aem.live/docs/ew/administering/permissions).
+
+#### &#x200B;9. Überprüfen des AEM-Setups {#validate-aem-setup}
+
+1. Kehren Sie zu [!DNL LLM Apps] zurück und wählen Sie **[!UICONTROL AEM-Setup validieren]**.
+2. Wenn **[!UICONTROL AEM-Setup überprüft]** angezeigt wird, wählen Sie **[!UICONTROL Nächster Schritt]**.
+
+Wenn die Validierung fehlschlägt, folgen Sie der Meldung, um den Zugriff auf die [AEM](#aem-site-access)Site oder den [DA-Schreibzugriff](#da-write-access) zu überprüfen, und wiederholen Sie die Validierung.
 
 >[!NOTE]
 >
 >Der Assistent markiert **[!UICONTROL Cloud Manager Edge Delivery Services verwenden]** als **[!UICONTROL In Kürze verfügbar]** und lässt keine Auswahl zu. Verwenden Sie die Option „Manual widget-repository“.
-
-Wenn bei der Validierung keine AEM-Codesynchronisierung erkannt wird, stellen Sie sicher, dass AEM-Codesynchronisierung Zugriff auf das ausgewählte Widget-Repository hat und dass Sie sich selbst als Site-Admin hinzugefügt haben. Validieren Sie dann erneut.
 
 ## Mobile-App-Details eingeben {#app-details}
 

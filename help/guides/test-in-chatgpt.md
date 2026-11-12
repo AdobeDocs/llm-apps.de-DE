@@ -1,9 +1,9 @@
 ---
 title: Testen der LLM-App als ChatGPT-Plug-in
 description: Erstellen Sie ein ChatGPT-Plug-in aus Ihrer Adobe LLM Apps MCP-Server-URL und testen Sie es in einer Konversation.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 2892acf4b3042c296203377a06bc3ff80fd375a5
 workflow-type: tm+mt
-source-wordcount: '546'
+source-wordcount: '627'
 ht-degree: 0%
 ---
 
@@ -71,6 +71,10 @@ OpenAI besitzt die Setup-Benutzeroberfläche. Ihr Layout kann je nach Konto vari
 - Widget-Steuerelemente funktionieren erwartungsgemäß.
 
 Testen Sie auch ungültige Eingaben, leere Ergebnisse, nicht verwandte Eingabeaufforderungen, die die App nicht aufrufen, und Aktionen, die Daten ändern. Überprüfen Sie jede Bestätigungs- und Authentifizierungs-Eingabeaufforderung, anstatt alle Anforderungen im Voraus zu genehmigen.
+
+### Optionale Erweiterungen testen
+
+Wenn Sie [ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md) konfiguriert haben, versuchen Sie jeden ausgewählten Einstiegspunkt, jede Anzeigeeinstellung und die Suche nach dem Composer und vergleichen Sie das Ergebnis mit dem erwarteten Verhalten in diesem Handbuch. Wenn mehrere Einstiegspunkte dasselbe Widget verwenden, testen Sie jede ausgewählte Möglichkeit, es zu öffnen, einschließlich ohne Datei für „Global“ oder „Thread“. Beim Verbinden der App oder Aufrufen einer Aktion in einer Konversation werden diese Funktionen nicht überprüft. Überprüfen Sie [Client-Anforderungen](/help/guides/chatgpt-extensions.md#before-you-begin) zuerst: Für Dateieinstiegspunkte ist ein Desktop erforderlich, und die Web-Unterstützung der OpenAI-Erweiterung schließt das klassische ChatGPT aus.
 
 ## Nach Programmänderungen aktualisieren
 

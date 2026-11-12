@@ -1,7 +1,7 @@
 ---
-source-git-commit: a48b4022979d9a13b4fc3aa870c4ee6375e8bc13
+source-git-commit: fa80b7b68e1b905eb22d4789a74b2f0de886d70c
 workflow-type: tm+mt
-source-wordcount: '1109'
+source-wordcount: '1179'
 ht-degree: 0%
 ---
 # Agent-gesteuertes Screenshot-Verfahren
@@ -106,6 +106,13 @@ docs-captures/<run-id>/
 Beschreibende Dateinamen wie `setup-choice.png`, `action-basic-info.png`,
 und `generated-action-review.png`. Quellaufzeichnungen werden unverändert beibehalten. Rohdaten beibehalten
 Erfasst und aktualisiert Browser-Profile aus Commits und überprüft Archive.
+
+Fragen Sie den Benutzer vor der Bearbeitung von Screenshots, welche nicht sensiblen Details ausgeblendet werden sollen
+und ob rote Konturbeschriftungen um relevante Felder oder Steuerelemente hinzugefügt werden sollen.
+Bereits angegebene Voreinstellungen wiederverwenden, anstatt erneut zu fragen. Bestätigen, ob
+Um das gesamte Fenster beizubehalten oder zuzuschneiden, wobei die für die Aufgabe benötigte Navigation beibehalten wird.
+Halten Sie Hinweise von Beschriftungen fern und erklären Sie, dass es sich um Anmerkungen und nicht um die Benutzeroberfläche handelt
+Fehler. Speichern Sie nicht die Bearbeitungsunterhaltung oder den Iterationsverlauf in der Kenntnis.
 
 Erstellen Sie endgültige Kopien unter den Ausgabeverzeichnissen im Manifest:
 
