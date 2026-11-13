@@ -1,9 +1,9 @@
 ---
 title: Erstellen von Aktionen
 description: Generieren von Adobe-LLM-App-Aktionen von einer öffentlichen Website, Verfolgen des Generierungsfortschritts, Überprüfen der generierten Arbeit oder Auswählen der manuellen Aktionserstellung.
-source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
+source-git-commit: 0276ae4e4627e49157911ad579a42c0e77045eee
 workflow-type: tm+mt
-source-wordcount: '1039'
+source-wordcount: '1047'
 ht-degree: 0%
 ---
 
@@ -15,7 +15,7 @@ ht-degree: 0%
 
 Aktionen sind die Funktionen, die Ihre App innerhalb einer LLM-Konversation bietet, z. B. Produkte finden, die Verfügbarkeit überprüfen oder einen Service buchen. Der Handler jeder Aktion führt die Aufgabe aus, und ein optionales Widget stellt das Ergebnis dar.
 
-Wählen [&#x200B; nach &quot;](/help/guides/create-app.md)&quot; aus, wie Aktionen auf der App-Seite erstellt werden sollen. Die automatische Generierung ist sowohl mit [!DNL LLM Apps] verwalteten Infrastruktur als auch mit Ihren eigenen Repositorys verfügbar.
+Wählen [ nach &quot;](/help/guides/create-app.md)&quot; aus, wie Aktionen auf der App-Seite erstellt werden sollen. Die automatische Generierung ist sowohl mit [!DNL LLM Apps] verwalteten Infrastruktur als auch mit Ihren eigenen Repositorys verfügbar.
 
 **In diesem Handbuch** Erfahren Sie, wie Sie Aktionen von Ihrer Website generieren oder selbst erstellen. Starten Sie für die automatische Generierung den -Prozess und überprüfen Sie die Ergebnisse, bevor Sie die App bereitstellen und testen.
 
@@ -81,9 +81,9 @@ Wenn die Generierung einen Fehler meldet, lesen Sie den sichtbaren Fehler durch 
 5. Wenn die Aktion fertig ist, wählen Sie **[!UICONTROL Als geprüft markieren]** aus.
 6. Kehren Sie zur Aktionsliste zurück und wiederholen Sie den Vorgang für die verbleibenden Aktionen.
 
-Der Editor für gespeicherte Aktionen trennt **[!UICONTROL LLM-Widget-Details]**, **[!UICONTROL Aktionsdetails]** und **[!UICONTROL Analytics]**. Überprüfen Sie die generierten Widget- und Handler-Änderungen auf den jeweiligen Registerkarten.
+Der Editor für gespeicherte Aktionen trennt **[!UICONTROL Aktionsdetails]**, **[!UICONTROL LLM-Widget-Details]**, **[!UICONTROL Programm-Insights]** und **[!UICONTROL ChatGPT-Erweiterungen]**. Überprüfen Sie die generierten Widget- und Handler-Änderungen auf den jeweiligen Registerkarten.
 
-![Erzeugte Aktion - aktuelle Editor-Registerkarten und als geprüft markieren, wobei der Repository-Link ausgeblendet ist](/help/assets/guide-creating-actions/generated-action-review.png)
+![Erzeugte Aktionsüberprüfung - Push-Verzweigung“ erklärt, wie die Verzweigung mit den Editor-Registerkarten zusammengeführt wird und als geprüft markiert wird](/help/assets/guide-creating-actions/generated-action-review.png)
 
 Wenn Sie **[!UICONTROL Als geprüft markieren]** markieren, werden die generierten Änderungen zusammengeführt, wenn keine Zusammenführungsblocker mehr vorhanden sind: Pull-Anforderungen mit [!DNL LLM Apps] verwalteten Infrastruktur, Verzweigungen mit Ihren eigenen Repositorys. Wenn eine offene Pull-Anfrage die Überprüfung blockiert, lösen Sie die Blockierung und versuchen Sie es erneut. Keine Implementierung mit nicht behobenen Code-Generierungs- oder Zusammenführungsfehlern genehmigen
 
@@ -114,4 +114,4 @@ Nach Überprüfung der erstellten Arbeit:
 2. Testen Sie sie in [ChatGPT](/help/guides/test-in-chatgpt.md) oder [Claude](/help/guides/test-in-claude.md) mithilfe der Staging-MCP-Server-URL.
 3. Testaufforderungen, die jeder Aktion entsprechen, und nicht verwandte Aufforderungen, die diese Aktion nicht aufrufen. Überprüfen Sie sowohl die Textantwort als auch die Widget-Interaktionen.
 
-Bevor Sie die App für Kundinnen und Kunden verfügbar machen, [&#x200B; Sie „die Handler anpassen](/help/guides/customize-handler.md), um Ihre APIs zu verbinden und [die Widgets anzupassen](/help/guides/widgets.md). Testen Sie die App in „Staging“, um zu bestätigen, dass sie erwartungsgemäß funktioniert. Bereitstellung in der Produktion erst nach erfolgreichem Test.
+Bevor Sie die App für Kundinnen und Kunden verfügbar machen, [ Sie „die Handler anpassen](/help/guides/customize-handler.md), um Ihre APIs zu verbinden und [die Widgets anzupassen](/help/guides/widgets.md). Testen Sie die App in „Staging“, um zu bestätigen, dass sie erwartungsgemäß funktioniert. Bereitstellung in der Produktion erst nach erfolgreichem Test.

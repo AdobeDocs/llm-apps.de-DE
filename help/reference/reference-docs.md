@@ -1,9 +1,9 @@
 ---
 title: Aktions- und Widget-Felder
 description: Felddefinitionen für Aktionsmetadaten, Parameter, Widgets, CSP und Berechtigungen in Adobe LLM-Apps.
-source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
+source-git-commit: 0276ae4e4627e49157911ad579a42c0e77045eee
 workflow-type: tm+mt
-source-wordcount: '1273'
+source-wordcount: '1173'
 ht-degree: 3%
 ---
 
@@ -17,15 +17,13 @@ Auf dieser Seite können Sie Felder im Aktionseditor nachschlagen. Die Erstellun
 
 ## Suchen der Einstellungen
 
-Das **[!UICONTROL Neue Aktion erstellen]** enthält die Registerkarten **[!UICONTROL Aktion]**, **[!UICONTROL Widget-]** und **[!UICONTROL ChatGPT-Erweiterungen]**.
-
-Nach der Erstellung verwendet der Editor für gespeicherte Aktionen vier Registerkarten:
+Das **[!UICONTROL Neue Aktion erstellen]** und der Editor für gespeicherte Aktionen verwenden dieselben vier Registerkarten:
 
 | Registerkarte | Einstellungen |
 |---|---|
+| **[!UICONTROL Aktionsdetails]** | Aktionsname, Code-Kennung, Beschreibung, Eingabeparameter und **[!UICONTROL LLM-Einstellungen]** einschließlich Anmerkungen, Text zum Aufrufstatus und Sichtbarkeit |
 | **[!UICONTROL LLM-Widget-Details]** | Widget-Typ, Sandbox-Domain, Widget-Beschreibung, Vorlagen-URLs und CSP |
-| **[!UICONTROL Aktionsdetails]** | Code-Kennung, Beschreibung, Eingabeparameter und **[!UICONTROL LLM-Einstellungen]** einschließlich Anmerkungen, Text zum Aufrufstatus und Sichtbarkeit |
-| **[!UICONTROL Analytics]** | Benutzerabsichtserfassung und Anweisungen |
+| **[!UICONTROL Anwendungseinblicke]** | Benutzerabsichtserfassung und Anweisungen |
 | **[!UICONTROL ChatGPT-Erweiterungen]** | Direkt öffnende Einstiegspunkte, Aktionssymbole, Anzeigevoreinstellungen und Erwähnungen von Composern |
 
 Um Ihre Änderungen zu speichern, klicken Sie auf **[!UICONTROL Änderungen speichern]**. Erzeugte Aktionen, die auf eine Überprüfung warten, zeigen stattdessen **[!UICONTROL Als geprüft markieren]** an, wodurch auch die generierten Pull-Anforderungen oder Verzweigungen zusammengeführt werden.
@@ -37,13 +35,13 @@ Eingabeparameter sind die Werte, die die LLM-Plattform an Ihren Aktions-Handler 
 | Eigenschaft | Beschreibung |
 |----------|-------------|
 | **Name** | Die Parameterkennung (z. B. `category`, `query`) |
-| **Typ** | `String`, `Number`, `Integer`, `Boolean` oder `Object`; der gespeicherte Editor bietet auch `File` für Parameter hochgeladener Dateien |
+| **Typ** | `String`, `Number`, `Integer`, `Boolean`, `Object` oder `File` für hochgeladene Dateiparameter |
 | **Beschreibung** | Eine für Menschen lesbare Erklärung - Die LLM-Plattform verwendet die Erklärung, um den richtigen Wert zu extrahieren |
 | **Erforderlich** | Falls aktiviert, muss das Modell diesen Parameter bereitstellen, bevor die Aktion aufgerufen wird |
 
 ### Dateiparameter
 
-Dateiparameter sind im Aktionseditor konfigurierte Eingabefeldnamen. Wenn ein Benutzer eine Datei hochlädt, stellt der Host ein Dateiobjekt für diese Argumente bereit, normalerweise einschließlich `download_url` und `file_id`.
+Dateiparameter sind Eingabeparameter vom Typ `File`. Wenn ein Benutzer eine Datei hochlädt, stellt der Host ein Dateiobjekt für diese Argumente bereit, normalerweise einschließlich `download_url` und `file_id`.
 
 Die Parameter für hochgeladene Dateien unterscheiden sich von [Datei-Einstiegspunkten](/help/guides/chatgpt-extensions.md#file-entrypoint). Ein Dateieinstiegspunkt verwendet einen Objektparameter mit dem Namen `file`, der die `name` und `resourceUri` der geöffneten Datei enthält.
 
@@ -75,9 +73,6 @@ Optionale Hinweise, die das Verhalten der Aktion beschreiben:
 |-------|------------|-------------|
 | **Aufrufen des Statustextes** | 64 Zeichen | Meldung, die auf der LLM-Plattform während der Ausführung der Aktion angezeigt wird (z. B *„Produkte werden geladen …*) |
 | **Aufgerufener Statustext** | 64 Zeichen | Meldung, die nach Abschluss der Aktion angezeigt wird (z. B *„Produkte geladen …*) |
-| **Widget-Beschreibung** | 512 Zeichen | Ordnet `_meta["openai/widgetDescription"]` zu. Fasst die gerenderte Komponente für das Modell zusammen und reduziert wiederholte Aussagen. |
-
-Die Aktionsbeschreibung steuert, wann das Modell die Aktion auswählt. In der Widget-Beschreibung wird erläutert, was die Komponente nach dem Rendern anzeigt.
 
 ### Sichtbarkeit
 
@@ -105,9 +100,9 @@ Die Einstellungen für die Modell- und Widget-Belichtung ersetzen nicht die Ausw
 
 | Feld | Beschreibung |
 |-------|-------------|
-| **Typ/Widget-Typ** | Wählen Sie im Erstellungsdialogfeld **[!UICONTROL Edge Delivery Services-Block]** oder **[!UICONTROL Kein Widget]** aus. Der gespeicherte Editor kennzeichnet die Auswahl „Nur Text“ **[!UICONTROL keine interaktive Benutzeroberfläche]** |
+| **Widget-Typ** | **[!UICONTROL Edge Delivery Services-Block]** für ein interaktives Widget oder **[!UICONTROL Keine interaktive Benutzeroberfläche]** für eine Aktion „Nur Text“ |
 | **Widget-Domain** | Vom Host verwendeter Sandbox-Ursprung. Die Benutzeroberfläche identifiziert sie als erforderlich für die Übermittlung der App und eindeutig pro App. Dies ist von der Widget-URL der EDS **Seite getrennt** |
-| **Bevorzugter Rahmen** | Fordert einen umrandeten Container an; die Darstellung hängt vom Host ab. Verfügbar im Erstellungsdialogfeld |
+| **Widget-Beschreibung** | Bis zu 512 Zeichen. Ordnet `_meta["openai/widgetDescription"]` zu. Fasst die gerenderte Komponente für das Modell zusammen und reduziert wiederholte Narrative. Die Aktionsbeschreibung steuert, wann das Modell die Aktion auswählt. In der Widget-Beschreibung wird erläutert, was die Komponente anzeigt, nachdem sie gerendert wird |
 
 ### Vorlagen-URLs
 
@@ -157,16 +152,3 @@ Diese Widget-Einstellungen sind von Einstiegspunkten getrennt. Der Gastgeber wä
 ### Composer erwähnt
 
 **Composer-Erwähnungen aktivieren** legt die Aktion zur Ressourcensuche der App fest. Nur eine Aktion pro App kann die Erwähnung der Suche ermöglichen. Die Aktion muss schreibgeschützt und in der App sichtbar sein, mit einem Zeichenfolgenparameter namens `query`, der leeren Text akzeptiert und keine anderen erforderlichen Eingaben. Ein Anbieter kann nur Text enthalten. Um die App-Sichtbarkeit zu aktivieren, muss kein Widget für den Suchanbieter konfiguriert werden.
-
-## Berechtigungen
-
-Widget-Berechtigungen steuern den Zugriff auf Hardware- und Browser-APIs. Die Berechtigungen sind der iframe-Berechtigungsrichtlinie zugeordnet.
-
-Berechtigungssteuerelemente werden unter **[!UICONTROL Berechtigungen (MCP-spezifisch)]** im Erstellungsdialogfeld angezeigt. Gewähren Sie nur Funktionen, die das Widget erfordert. Es gelten auch Hostunterstützung und Benutzerzustimmung.
-
-| Berechtigung | Beschreibung |
-|------------|-------------|
-| **Kamera** | Zugriff auf die Gerätekamera |
-| **Mikrofon** | Zugriff auf das Gerätemikrofon |
-| **Geolocation** | Zugriff auf den Standort des Benutzers |
-| **Zwischenablage** | Aus der Zwischenablage lesen oder in die Zwischenablage schreiben |

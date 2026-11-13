@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer neuen Aktion
 description: Definieren Sie Aktionsmetadaten, implementieren Sie den Handler, verbinden Sie ein EDS-Widget, testen Sie es und stellen Sie es mit Adobe LLM-Apps bereit.
-source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
+source-git-commit: 0276ae4e4627e49157911ad579a42c0e77045eee
 workflow-type: tm+mt
-source-wordcount: '1532'
+source-wordcount: '1582'
 ht-degree: 0%
 ---
 
@@ -64,15 +64,15 @@ Verwandte, aber unterschiedliche Aufgaben getrennt halten. Verwenden Sie separat
 
 Öffnen Sie die App und wählen Sie **[!UICONTROL Aktionen]** und dann **[!UICONTROL Aktion erstellen]** aus.
 
-Das Erstellungsdialogfeld enthält die Registerkarten **[!UICONTROL Aktion]**, **[!UICONTROL Widget-]** und **[!UICONTROL ChatGPT-Erweiterungen]**. Erweitern Sie jeden Abschnitt, um seine Felder zu konfigurieren.
+Das **[!UICONTROL Neue Aktion erstellen]** Dialogfeld enthält vier Registerkarten: **[!UICONTROL Aktionsdetails]**, **[!UICONTROL LLM-Widget-]**, **[!UICONTROL Anwendungseinblicke]** und **[!UICONTROL ChatGPT-Erweiterungen]**. Das Dialogfeld wird geöffnet unter **[!UICONTROL Aktionsdetails]**. Der Editor für gespeicherte Aktionen verwendet dieselben Registerkarten.
 
 Mit den optionalen **[!UICONTROL ChatGPT-Erweiterungen]** können Benutzer die App direkt öffnen, einen benutzerdefinierten Datei-Viewer verwenden oder Ressourcen im Composer auf unterstützten Clients suchen. Konfigurieren Sie diese, wenn die entsprechende Aktion und das entsprechende Widget-Verhalten bereit sind. Siehe [Konfigurieren von ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md).
 
-### Einfache Informationen eingeben
+### Geben Sie die Aktionsinformationen und Eingabeparameter ein
 
-![Aktion erstellen - Grundlegende Informationen](/help/assets/guide-create-action/action-basic-info.png)
+![Neue Aktion erstellen - Aktionsdetails mit dem Aktionsnamen, der Code-Kennung, der Beschreibung und zwei Eingabeparametern](/help/assets/guide-create-action/action-basic-info.png)
 
-Geben Sie Folgendes ein:
+Geben **[!UICONTROL unter &quot;]**&quot; Folgendes ein:
 
 - **[!UICONTROL Aktionsname]** - Ein kurzer Aufgabenname, z. B *„Produkte*.
 - **[!UICONTROL Beschreibung]** — Erklären Sie, wann die Aktion verwendet wird und was sie zurückgibt.
@@ -88,48 +88,12 @@ products with their names, prices, categories, and image URLs.
 
 Vermeiden Sie vage Beschreibungen wie *Abrufen von Produktinformationen*. Die LLM-Plattform verwendet die Beschreibung zur Auswahl zwischen Aktionen.
 
-### Auswählen von Anmerkungen
+Wählen **[!UICONTROL unter „Eingabeparameter]** die Option **[!UICONTROL Parameter hinzufügen]** einmal für jeden Wert aus, den der Handler akzeptiert. Geben Sie für jeden Parameter Folgendes ein:
 
-Anmerkungen beschreiben das Verhalten der Aktion:
-
-- **Destruktiver Hinweis** - Die Aktion kann Daten löschen oder dauerhaft ändern.
-- **Idempotent (gleiche Argumente = kein zusätzlicher Effekt)** - Die Wiederholung derselben Anfrage hat die gleiche Wirkung.
-- **Open World Hint** - Die Aktion kommuniziert mit externen Systemen.
-- **Schreibgeschützter Hinweis** - Die Aktion ändert die Daten nicht.
-
-Wählen Sie nur Anmerkungen aus, die wahr sind. Beispielsweise ist die Produktsuche normalerweise schreibgeschützt, idempotent und offen.
-
-### OpenAI-Metadaten hinzufügen
-
-Geben Sie kurze Nachrichten ein, die während und nach Abschluss der Aktion angezeigt werden:
-
-```text
-Invoking: Searching products...
-Invoked: Products found
-```
-
-Für Aktionen mit Widgets fügen Sie **[!UICONTROL Widget-Beschreibung]** hinzu. Die Widget-Beschreibung unterscheidet sich von der Aktionsbeschreibung:
-
-- **Aktionsbeschreibung** hilft dem Modell bei der Entscheidung, wann die Aktion aufgerufen werden soll.
-- **Widget-Beschreibung** wird `_meta["openai/widgetDescription"]` zugeordnet und fasst zusammen, was die gerenderte Komponente anzeigt, wodurch der wiederholte Narrativ reduziert wird.
-
-[!DNL LLM Apps] wendet die Widget-Beschreibung als Komponentenmetadaten an. Geben Sie die Beschreibung nicht vom Handler zurück.
-
-### Sichtbarkeit konfigurieren
-
-- **[!UICONTROL KI-Modell bereitstellen]** ermöglicht dem Modell die Auswahl der Aktion.
-- **[!UICONTROL Als Widget in der Programmoberfläche anzeigen]** zeigt das konfigurierte Widget an.
-
-Wählen Sie für eine Aktion, die nur Text enthält, auch **[!UICONTROL Kein Widget]** unter **[!UICONTROL Widget-Metadaten]** > **[!UICONTROL Typ]**. Bei der Steuerung der Sichtbarkeit wird nicht der Widget-Typ der Aktion ausgewählt.
-
-### Eingabeparameter hinzufügen
-
-Fügen Sie für jeden Wert, den der Handler akzeptiert, einen Parameter hinzu. Jeder Parameter benötigt:
-
-- **Name** - der Schlüssel, den der Handler erhält.
-- **type** - Zeichenfolge, Zahl, Ganzzahl oder Boolesch.
-- **Beschreibung** - wie der Wert extrahiert wird.
-- **Erforderlich** - Angabe, ob für die Aktion der Wert erforderlich ist.
+- **[!UICONTROL Parametername]** - der Schlüssel, den der Handler erhält.
+- **[!UICONTROL type]** - Zeichenfolge, Zahl, Ganzzahl, Boolesch, Objekt oder Datei.
+- **[!UICONTROL Erforderlich]** - Angabe, ob für die Aktion der Wert erforderlich ist.
+- **[!UICONTROL Beschreibung]** - wie der Wert extrahiert wird.
 
 Für **Produkte suchen**:
 
@@ -147,38 +111,70 @@ query
 
 Verwenden Sie stabile Parameternamen. Zum Ändern eines Namens müssen auch der Handler und seine Tests geändert werden.
 
-### Analytics konfigurieren {#configure-analytics}
+### Konfigurieren der LLM-Einstellungen
 
-Aktivieren Sie **[!UICONTROL Benutzerabsicht erfassen]** wenn Sie möchten, dass Analytics eine Zusammenfassung der Konversation enthält, die zu der Aktion geführt hat.
+Erweitern Sie **[!UICONTROL LLM-Einstellungen]**. Der Abschnitt ist standardmäßig reduziert.
+
+![Neue Aktion erstellen - LLM-Einstellungen mit Anmerkungen, OpenAI-Metadatenstatustexten und Sichtbarkeit](/help/assets/guide-create-action/action-llm-settings.png)
+
+Wählen **[!UICONTROL unter]** nur die Hinweise aus, die für die Aktion zutreffen:
+
+- **[!UICONTROL Destruktiver Hinweis]** - Die Aktion kann Daten löschen oder dauerhaft ändern.
+- **[!UICONTROL Idempotent (gleiche Argumente = kein zusätzlicher Effekt)]** - Die Wiederholung derselben Anfrage hat die gleiche Wirkung.
+- **[!UICONTROL Open World Hint]** - Die Aktion kommuniziert mit externen Systemen.
+- **[!UICONTROL Schreibgeschützter Hinweis]** - Die Aktion ändert die Daten nicht.
+
+Beispielsweise ist die Produktsuche normalerweise schreibgeschützt, idempotent und offen.
+
+Geben **[!UICONTROL unter „OpenAI]** Metadaten“ kurze Meldungen ein, die während und nach Abschluss der Aktion angezeigt werden und jeweils bis zu 64 Zeichen lang sein können:
+
+```text
+Invoking status text: Searching products...
+Invoked status text: Products found
+```
+
+Unter **[!UICONTROL Sichtbarkeit]**:
+
+- **[!UICONTROL KI-Modell bereitstellen]** ermöglicht dem Modell die Auswahl der Aktion.
+- **[!UICONTROL Als Widget in der Programmoberfläche anzeigen]** zeigt das konfigurierte Widget an.
+
+Bei der Sichtbarkeit wird nicht der Widget-Typ ausgewählt. Für eine Aktion, die nur Text enthält, wählen Sie **[!UICONTROL Keine interaktive Benutzeroberfläche]** unter **[!UICONTROL LLM Widget-Details]** > **[!UICONTROL Widget-Typ]** aus.
+
+### Konfigurieren von Anwendungseinblicken {#configure-analytics}
+
+Öffnen Sie **[!UICONTROL Application Insights]**. **[!UICONTROL Benutzerabsicht erfassen]** ist standardmäßig ausgewählt: Die LLM-Plattform erstellt eine kurze, anonymisierte Zusammenfassung dessen, was der Benutzer beim Ausführen der Aktion versucht hat zu erreichen.
 
 Wenn Sie Ihre eigene [!DNL Adobe Analytics] oder [!DNL Customer Journey Analytics] einrichten, wird auch die Benutzerabsicht an diese gesendet. Siehe [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md).
 
-Die Benutzerabsichtserfassung ist standardmäßig aktiviert. Lesen Sie **[!UICONTROL Beschreibung der Benutzerabsicht]**, die die Anweisungen zum Anfordern der Zusammenfassung enthält. Beschränken Sie die Anweisungen auf einen nicht vertraulichen, anonymisierten Zweck und beschreiben Sie Ihre Datenerfassung in Ihrer Datenschutzerklärung. Die Beschreibung akzeptiert bis zu 2.000 Zeichen.
+Lesen Sie die Anweisungen unter dem Kontrollkästchen, die die Zusammenfassung anleiten. Beschränken Sie sie auf einen nicht sensiblen, anonymisierten Zweck und beschreiben Sie Ihre Datenerfassung in Ihrer Datenschutzerklärung. Die Anweisungen können bis zu 2.000 Zeichen lang sein. Löschen Sie **[!UICONTROL Benutzerabsicht erfassen]**, um keine Zusammenfassung zu erfassen.
 
-![Aktion erstellen - Analyse der Benutzerabsicht](/help/assets/guide-create-action/action-analytics-user-intent.png)
+![Neue Aktion erstellen - Anwendungseinblicke mit Benutzerabsicht und Standardanweisungen erfassen](/help/assets/guide-create-action/action-analytics-user-intent.png)
 
 Vollständige Felddefinitionen finden Sie unter [Aktion und Widget-Felder](/help/reference/reference-docs.md).
 
 ## Konfigurieren des Widgets
 
-Für eine Aktion, die nur Text enthält, öffnen Sie **[!UICONTROL Widget-Metadaten]** und setzen Sie **[!UICONTROL Typ]** auf **[!UICONTROL Kein Widget]**. Überspringen Sie dann die verbleibenden Widget-Einstellungen.
+Öffnen Sie **[!UICONTROL LLM-Widget-Details]**. Bei einer Aktion, die nur Text enthält, wählen Sie **[!UICONTROL Keine interaktive Benutzeroberfläche]** unter **[!UICONTROL Widget-Typ]** aus und überspringen Sie die verbleibenden Widget-Einstellungen.
 
-Öffnen Sie **[!UICONTROL Widget-Metadaten]**.
+![Neue Aktion erstellen - LLM-Widget-Details mit ausgewähltem Edge Delivery Services-Block und Beispiel-Vorlagen-URLs](/help/assets/guide-create-action/widget-metadata.png)
 
-![Aktion erstellen — Widget-Metadaten](/help/assets/guide-create-action/widget-metadata.png)
+Konfigurieren **[!UICONTROL unter „Widget]** Informationen:
 
-Konfigurieren:
-
-- **[!UICONTROL Typ]** - Wählen Sie **[!UICONTROL Edge Delivery Services-Block]** für ein interaktives Widget aus.
+- **[!UICONTROL Widget-Typ]** - Wählen Sie **[!UICONTROL Edge Delivery Services-Block]** für ein interaktives Widget aus.
 - **[!UICONTROL Widget-Domain]** - der Sandbox-Ursprung des Widgets. Die Benutzeroberfläche identifiziert sie als erforderlich für die App-Übermittlung und eindeutig pro App. Sie ist nicht identisch mit der EDS-Seiten-URL.
-- **Bevorzugter Rahmen** - Fordert einen umrandeten Container im Host an.
+- **[!UICONTROL Widget-Beschreibung]** - Was das Modell nach dem Rendern des Widgets sagt, bis zu 512 Zeichen.
+
+Die Widget-Beschreibung unterscheidet sich von der Aktionsbeschreibung:
+
+- **Aktionsbeschreibung** hilft dem Modell bei der Entscheidung, wann die Aktion aufgerufen werden soll.
+- **Widget-Beschreibung** wird `_meta["openai/widgetDescription"]` zugeordnet und fasst zusammen, was die gerenderte Komponente anzeigt, wodurch der wiederholte Narrativ reduziert wird.
+
+[!DNL LLM Apps] wendet die Widget-Beschreibung als Komponentenmetadaten an. Geben Sie die Beschreibung nicht vom Handler zurück.
 
 Erweitern Sie **[!UICONTROL Vorlagen-URLs]** und geben Sie Folgendes ein:
 
 - **[!UICONTROL Script URL]** - der Einstiegspunkt des EDS-Widgets.
 - **[!UICONTROL Widget URL]** - die veröffentlichte EDS-Seite für diese Aktion.
-
-![Neue Aktion erstellen - Skript- und Widget-URLs für ein EDS-Widget](/help/assets/guide-create-action/widget-template-urls.png)
 
 Typische URLs sind:
 
@@ -190,17 +186,11 @@ Widget URL:
 https://main--<repo>--<owner>.aem.live/<widget-page>
 ```
 
-Gewähren Sie nur erforderliche Browser-Berechtigungen und CSP-Domains.
+Fügen **[!UICONTROL unter „CSP-]**&quot; nur die Ursprünge hinzu, die das Widget für Assets und Netzwerkanfragen benötigt. Ein Widget, das externe Ressourcen lädt, wird möglicherweise nicht gerendert, wenn sein CSP unvollständig ist.
 
-Erweitern Sie **[!UICONTROL Berechtigungen (MCP-spezifisch)]** nur, wenn das Widget Browser-Funktionen wie Geolokalisierung benötigt. Lassen Sie nicht verwendete Berechtigungen deaktiviert.
+![Neue Aktion erstellen - CSP-Konfiguration mit Ressourcen-, Verbindungs-, Frame-, Umleitungs- und Basis-URI-Domain-Listen](/help/assets/guide-create-action/widget-csp.png)
 
-![Neue Aktion erstellen — Optionale Browser-Berechtigungen](/help/assets/guide-create-action/widget-permissions.png)
-
-Fügen **[!UICONTROL unter „CSP-]**&quot; die Ursprünge hinzu, die für Assets- und Netzwerkanfragen erforderlich sind. Ein Widget, das externe Ressourcen lädt, wird möglicherweise nicht gerendert, wenn sein CSP unvollständig ist.
-
-![Neue Aktion erstellen - Domain-Listen der Content Security-Richtlinien](/help/assets/guide-create-action/widget-csp.png)
-
-Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
+Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
 
 ## Speichern der Aktion
 
@@ -208,7 +198,7 @@ Wählen Sie **[!UICONTROL Neue Aktion erstellen]** aus. Die Aktion wird auf der 
 
 Beim Speichern werden die Metadaten erstellt, für die Aktion ist jedoch ein Handler erforderlich.
 
-Wenn Sie die gespeicherte Aktion erneut öffnen, verfügt der Editor über **[!UICONTROL LLM-Widget-]** Details **[!UICONTROL , Aktionsdetails]** und **[!UICONTROL Analytics]**. Um spätere Änderungen zu speichern, wählen Sie **[!UICONTROL Änderungen speichern]**. Das Erstellungsdialogfeld und der Editor für gespeicherte Aktionen haben unterschiedliche Layouts.
+Beim erneuten Öffnen der gespeicherten Aktion zeigt der Editor dieselben Registerkarten an. Um spätere Änderungen zu speichern, wählen Sie **[!UICONTROL Änderungen speichern]**.
 
 ## Implementieren des Handlers
 
@@ -408,7 +398,7 @@ Wenn die Aktion über ein Widget verfügt:
 4. Zeigen Sie die EDS-Seite lokal in der Vorschau an.
 5. Überprüfen Sie CSP-, CORS- und Widget-URLs.
 
-Siehe [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
+Siehe [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
 
 ## Bereitstellen und Testen
 
