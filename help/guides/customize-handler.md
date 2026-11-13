@@ -19,7 +19,7 @@ Die Plattform erstellt für jede generierte Aktion einen funktionierenden Handle
 
 ## Ermittelten Handler suchen
 
-Öffnen Sie das Handler-Repository, das während der [Infrastruktureinrichtung“ verbunden ](/help/guides/create-app.md). Wenn Sie [!DNL LLM Apps] verwaltete Infrastruktur verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren.
+Öffnen Sie das Handler-Repository, das während der [Infrastruktureinrichtung“ verbunden &#x200B;](/help/guides/create-app.md). Wenn Sie [!DNL LLM Apps] verwaltete Infrastruktur verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren.
 
 ```text
 actions/

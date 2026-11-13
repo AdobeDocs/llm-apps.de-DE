@@ -178,7 +178,7 @@ Wenn die Validierung fehlschlägt, folgen Sie der Meldung, um den Zugriff auf di
 
 Beide Infrastrukturoptionen enden mit **[!UICONTROL App-Details]**.
 
-![App-Details - Eingegebener LLM-App-Name, der AEM-Programmsatz aus dem Cloud Manager-Repository und die Datenregion Application Insights ](/help/assets/guide-infrastructure/app-details.png)
+![App-Details - Eingegebener LLM-App-Name, der AEM-Programmsatz aus dem Cloud Manager-Repository und die Datenregion Application Insights &#x200B;](/help/assets/guide-infrastructure/app-details.png)
 
 1. Geben Sie den **[!UICONTROL LLM-App-Namen]** ein. Verwenden Sie einen Namen, der die Marke oder das Erlebnis identifiziert, z. B *„Frescopa Coffee*.
 2. Wählen Sie das **[!UICONTROL AEM]** Programm aus, zu dem die App gehört. Wenn Sie nur Zugriff auf ein Programm haben, wählt der Assistent dieses Programm automatisch aus. Bei Ihren eigenen Repositorys ist das Programm das Programm des Aktions-Repositorys und kann hier nicht geändert werden.

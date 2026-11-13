@@ -53,7 +53,7 @@ Nur das Verhalten, das von den verfügbaren Beweisen unterstützt wird.
 - Unterscheiden Sie generierte Strukturvorlagen von produktionsfertigen Integrationen.
 - Vermeiden Sie interne Worker-Namen, Datenbankfelder, Implementierungstickets und instabile Pipeline-Details.
 - Feldtabellen nicht über Handbücher hinweg duplizieren; Link zu Referenz.
-- Bewahren Sie die Schriftarten und Anweisungen von Experience League auf: `[!DNL]`, ``, `[!IMPORTANT]`, `[!NOTE]` und `[!TIP]`.
+- Bewahren Sie die Schriftarten und Anweisungen von Experience League auf: `[!DNL]`, &grave;&grave;, `[!IMPORTANT]`, `[!NOTE]` und `[!TIP]`.
 - Verwenden Sie stammbezogene interne Links: `/help/...`.
 - Verwenden Sie das Satzbeispiel für Titel und Überschriften, sofern die Produktkennzeichnung nichts anderes erfordert.
 - Verwenden Sie einen beschreibenden Bild-Alternativtext, der den Bildschirm und den Status erklärt.
