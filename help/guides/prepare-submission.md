@@ -115,7 +115,7 @@ So überprüfen Sie Ihre Domain:
 1. Kopieren Sie nach dem Hochladen des Pakets das Challenge-Token, das im OpenAI-Portal angezeigt wird.
 2. Öffnen Sie in [!DNL LLM Apps] die Seite **[!UICONTROL Einstellungen]** > **[!UICONTROL Übermittlung]**.
 3. Fügen Sie unter **[!UICONTROL Domain]** das Token in **[!UICONTROL OpenAI Challenge Token]** ein und wählen Sie **[!UICONTROL Speichern]**.
-4. [App erneut ](/help/guides/deploy-your-app.md) Produktion bereitstellen. Das Token wird erst nach der nächsten Bereitstellung veröffentlicht.
+4. [App erneut &#x200B;](/help/guides/deploy-your-app.md) Produktion bereitstellen. Das Token wird erst nach der nächsten Bereitstellung veröffentlicht.
 5. Kehren Sie zum OpenAI-Portal zurück und schließen Sie die Verifizierung ab.
 
 [!DNL LLM Apps] stellt das Token unter `/.well-known/openai-apps-challenge` in der Domain Ihrer App bereit, sodass Sie es nicht selbst hosten müssen.

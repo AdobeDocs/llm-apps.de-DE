@@ -190,7 +190,7 @@ Fügen **[!UICONTROL unter „CSP-]**&quot; nur die Ursprünge hinzu, die das Wi
 
 ![Neue Aktion erstellen - CSP-Konfiguration mit Ressourcen-, Verbindungs-, Frame-, Umleitungs- und Basis-URI-Domain-Listen](/help/assets/guide-create-action/widget-csp.png)
 
-Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
+Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
 
 ## Speichern der Aktion
 
@@ -398,7 +398,7 @@ Wenn die Aktion über ein Widget verfügt:
 4. Zeigen Sie die EDS-Seite lokal in der Vorschau an.
 5. Überprüfen Sie CSP-, CORS- und Widget-URLs.
 
-Siehe [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
+Siehe [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
 
 ## Bereitstellen und Testen
 
