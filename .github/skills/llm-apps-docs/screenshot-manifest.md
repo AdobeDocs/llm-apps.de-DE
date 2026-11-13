@@ -1,7 +1,7 @@
 ---
-source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
+source-git-commit: 0276ae4e4627e49157911ad579a42c0e77045eee
 workflow-type: tm+mt
-source-wordcount: '2090'
+source-wordcount: '2314'
 ht-degree: 1%
 ---
 # Screenshot-Manifest
@@ -53,7 +53,7 @@ Ausgabeverzeichnis: `help/assets/guide-creating-actions/`
 | `build-choice.png` | Buildaktionen werden automatisch ausgewählt, eine öffentliche Website wird eingegeben und eine stabile Startregelung wird hinzugefügt, falls vorhanden | Aktionen : Wählen Sie die automatische Generierung aus und geben Sie eine öffentliche Website ein. |
 | `generating.png` | Ausführung der Generierung, Zeitschätzung und Wechseln zu Aktionen | Aktionen - Generierung wird ausgeführt |
 | `actions-ready-for-review.png` | Namen von Vorrichtungsaktionen, Prüfabzeichen und Prüfsteuerelemente | Aktionen - generierte Aktionen sind zur Überprüfung bereit und werden nicht bereitgestellt. |
-| `generated-action-review.png` | Details zu LLM-Widgets, Aktionsdetails, Analytics, ein generierter Pull-Anfrage-Hinweis und „Als geprüft markieren“ | Erzeugte Aktion - Überprüfen des Widgets und des Handlers vor der Genehmigung |
+| `generated-action-review.png` | Aktionsdetails, LLM-Widget-Details, Programm-Insights, ChatGPT-Erweiterungen, die **Verzweigung gepusht**-Benachrichtigung (eigene Repositorys) und Als geprüft markieren. Zuletzt erfasst: 2026-11-13, Staging, GitLab-App; App-Name maskiert | Erzeugte Aktionsüberprüfung - Zweig gepusht und als geprüft markieren |
 
 Private Repository maskieren und Anfrage-Links abrufen. Zuschneiden generierter persönlicher oder
 Kontaktdetails, wenn der Artikel nur den Prüfungsstatus benötigt. Nicht auswählen
@@ -71,19 +71,16 @@ Ausgabeverzeichnis: `help/assets/guide-create-action/`
 
 | Dateiname | Status und nützlicher Kontext | Vorgeschlagener Alternativtext |
 |---|---|---|
-| `action-basic-info.png` | Suchen Sie nach Produkten, ihrer abgeleiteten Kennung, einer nützlichen Beschreibung und schreibgeschützten Anmerkungen | Neue Aktion erstellen - Grundlegende Informationen und Anmerkungen |
-| `action-analytics-user-intent.png` | Erfassen der Benutzerabsicht und der Standardanweisungen für die anonymisierte Zusammenfassung | Neue Aktion erstellen - Benutzerabsichtssammlung überprüfen |
-| `widget-metadata.png` | Edge Delivery Services-Blocktyp und sicherer Beispiel-Sandbox-Ursprung | Neue Aktion erstellen - Widget-Typ und Sandbox-Domain |
-| `widget-template-urls.png` | Beispielskript und Widget-URLs | Neue Aktion erstellen - Skript- und Widget-URLs |
-| `widget-permissions.png` | Optionale Browser-Berechtigungen, wobei nicht verwendete Berechtigungen deaktiviert sind | Neue Aktion erstellen - Browser-Berechtigungen |
-| `widget-csp.png` | Domänensteuerelemente für Ressourcen, Verbindungen, Rahmen, Umleitung und Basis-URI | Neue Aktion erstellen - Domains mit Content Security Policy |
+| `action-basic-info.png` | Aktionsdetails: Suchen nach Produkten, ihrer Code-Kennung, Beschreibung und den `category`- und `query` | Neue Aktion erstellen - Aktionsdetails mit Aktionsinformationen und Eingabeparametern |
+| `action-llm-settings.png` | LLM-Einstellungen erweitert: schreibgeschützt, idempotent, Open-World-Anmerkungen, Statustexte, Sichtbarkeit | Neue Aktion erstellen - LLM-Einstellungen |
+| `action-analytics-user-intent.png` | Anwendungseinblicke: Erfassen der Benutzerabsicht und der Standardanweisungen | Neue Aktion erstellen - Anwendungseinblicke |
+| `widget-metadata.png` | LLM-Widget-Details: Edge Delivery Services-Block, Beispiel-Widget-Domain, Widget-Beschreibung und Vorlagen-URLs | Neue Aktion erstellen - Details zum LLM-Widget |
+| `widget-csp.png` | Vorlagen-URLs und die Liste der CSP-Konfigurations-Domain | Neue Aktion erstellen - CSP-Konfiguration |
 
-Die vorhandenen Aufzeichnungen zeigen **Aktion** und **Widget-**) bei der Erstellung
-und **LLM-Widget-Details**, **Aktionsdetails** und **Analytics** in der
-Editor gespeichert. Die aktuelle Implementierung verfügt auch über **ChatGPT-** in beiden
-Flüsse; überprüfen Sie, ob diese Registerkarte in der laufenden Benutzeroberfläche beim Aktualisieren der Bilder angezeigt wird. Erfassen Sie die
-Der Layout-Vorgang verwendet tatsächlich . Füllen Sie die Beispielfelder aus, ohne zu speichern, dann
-Änderungen verwerfen.
+Zuletzt erfasst: 13.11.2026, Staging, nach der Dialogumgestaltung (dieselben Registerkarten wie der Aktionseditor:
+Aktionsdetails, LLM-Widget-Details, Programm-Insights, ChatGPT-Erweiterungen; Berechtigungen,
+bevorzugt Rahmen, und der Abschnitt Dateiparameter wurde entfernt). Nur Beispielwerte; das Dialogfeld
+wurde ohne Speichern abgebrochen. Rote Umrisse sind Hinweise.
 
 ## Authentifizierung
 
@@ -226,6 +223,28 @@ Namen, Report Suite-IDs, Datenstrom-IDs, Datensatz-IDs, E-Mails und persönliche
 mit diesen Platzhalterwerten: `example-org`, `demo.<suffix>` Report Suites,
 `00000000-0000-0000-0000-000000000000`, `0000…0001`, `user@example.com` und
 `Example User`.
+
+## Zur Übermittlung vorbereiten
+
+Artikel: `/help/guides/prepare-submission.md`
+
+Ausgabeverzeichnis: `help/assets/guide-submission/`
+
+| Dateiname | Status und nützlicher Kontext | Vorgeschlagener Alternativtext |
+|---|---|---|
+| `submission-card.png` | App-Seite Nach einer Produktionsbereitstellung, Kartenübermittlung vorbereiten mit Einrichten | Zur Übermittlung vorbereiten - Status und Einrichtung der Produktionsvorbereitung |
+| `submission-setup.png` | Dialogfeld „Vorbereiten der Übermittlung“, „Einrichten und Vorbereiten“, „Beispiel-Publisher-Details“ und beide Symbole gespeichert | Einrichten und Vorbereiten - Herausgeber- und Rechtsdetails, genehmigte Symbole und Änderungen speichern |
+| `submission-prepare.png` | Im selben Dialogfeld wird gescrollt, um das Paket vorzubereiten, Bereitschaft zeigt, Kontrollkästchen deaktiviert | Paket vorbereiten - Bereit zur Vorbereitung, Kontrollkästchen zur Bestätigung und Paket vorbereiten |
+| `submission-progress.png` | Derselbe Dialog während eines Durchgangs | Vorbereitung läuft - Fortschrittsleiste und Startzeit |
+| `submission-results.png` | Ergebnisse nach einem abgeschlossenen Durchlauf mit Platzhalter-Links: Vorbereitung muss beachtet werden, Paket herunterladen deaktiviert | Ergebnisse - Zusammenfassung der Vorbereitung, Bericht herunterladen, Paket herunterladen und Aufzeichnung herunterladen |
+| `submission-test-cases.png` | Ergebnisse, Testfälle, erster Fall umrissen | Testfälle - ein Überprüfungsfall mit seiner Anfrage, dem erwarteten Verhalten und dem aufgezeichneten Status |
+| `submission-before-submit.png` | Ergebnisse: Vor dem Senden der Liste und den Prüfungen „BESTANDEN“/„WARNUNG“/„FEHLGESCHLAGEN“; ID unterhalb des Zuschnitts ausführen | Vor dem Senden - verbleibende Details, Aktualisierungsdetails und Paketprüfungen |
+
+Auf der Bühne erfasst, 2026-11-13, von einer in der Produktion bereitgestellten App. Nur verwenden
+Beispiel für Publisher-Werte (`Frescopa Coffee (example)`, `https://www.example.com/...`)
+und Platzhaltersymbole. Bei jeder Vorbereitungsausführung wird die bereitgestellte App aufgerufen und benötigt etwa
+20 Minuten; nur starten, wenn die Ergebnisbildschirme aktualisiert werden müssen. Maskieren von MCP-URLs,
+IDs und App-Namen in Ergebniserfassungen ausführen.
 
 ## Vorhandene Herkunft erfassen
 
