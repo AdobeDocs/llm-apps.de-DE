@@ -1,7 +1,7 @@
 ---
-source-git-commit: 14d94a68dabddd2f2ef2cef65c51d31645d4a958
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '715'
+source-wordcount: '717'
 ht-degree: 0%
 ---
 # Inhaltsmodell und Terminologie
@@ -61,7 +61,7 @@ Beginnt mit einem beobachtbaren Symptom.
 
 - **Adobe LLM Apps** - Vollständiger Produktname bei der ersten Erwähnung.
 - **LLM App** - eine vom Produkt verwaltete App.
-- **Adobe Managed Infrastructure** - Von Adobe erstellte und verwaltete Infrastruktur. Wählen Sie **Let us handle** im Create-App-Assistenten aus. Beschreiben Sie diese Option nicht als Nur-Testversion und stellen Sie keine unbestätigten Behauptungen über die Produktionseignung auf.
+- **LLM Apps Managed Infrastructure** - Infrastruktur, die von Adobe erstellt und verwaltet wird. Wählen Sie **Let us handle** im Assistenten zum Erstellen einer App aus. Beschreiben Sie diese Option nicht als Nur-Testversion und stellen Sie keine unbestätigten Behauptungen über die Produktionseignung auf.
 - **Ich richte es selbst ein** - Assistentenoption zum Verbinden Ihrer eigenen Repositorys, keine Anforderung, Aktionen manuell zu schreiben. Der Standardpfad beginnt mit zwei leeren Repositorys, die von der Plattform initialisiert werden. Kompatible vorhandene Projekte sind optional.
 - **Aktionen automatisch erstellen** - Empfohlene Auswahl zur Aktionserstellung auf der App-Seite nach der Einrichtung der Infrastruktur.
 - **Build my actions** - Schaltfläche, die die Erstellung von Web-basierten Aktionen startet.
@@ -85,7 +85,7 @@ Das Produkt ist plattformunabhängig: Der MCP-Server funktioniert mit jeder unte
 ## Empfohlene Lesersequenz
 
 1. Überblick.
-2. Erstellen Sie eine App mit der von Adobe verwalteten Infrastruktur oder Ihren eigenen Repositorys.
+2. Erstellen Sie eine App mit einer von LLM Apps verwalteten Infrastruktur oder Ihren eigenen Repositorys.
 3. Starten Sie die Erstellung einer Website-basierten Aktion über die App-Seite und überprüfen Sie die generierten Aktionen.
 4. Staging- und Testbereitstellung in einer unterstützten LLM-Plattform.
 5. Generierte Handler und Widgets anpassen.

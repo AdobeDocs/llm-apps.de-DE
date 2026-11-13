@@ -1,9 +1,9 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und wie Sie mit der Erstellung Ihrer App beginnen.
-source-git-commit: d37cb1f4e199d77c94def7a034a55598bd3d8d83
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '624'
+source-wordcount: '642'
 ht-degree: 1%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 ## Was ist [!DNL Adobe LLM Apps]?
 
@@ -27,7 +25,7 @@ ht-degree: 1%
 ## Was man mit [!DNL LLM Apps] machen kann
 
 - **Erstellen von markeneigenen LLM-Aktionen** - Definieren Sie die spezifischen Geschäftsabläufe, die Sie in KI-Assistenten aktivieren möchten (z. B. *Planen einer Testfahrt*, *Produkte vergleichen*, *Service buchen*).
-- **Interaktive LLM-Widgets erstellen** - Erstellen Sie visuelle UI-Komponenten (Produktkarten, Buchungsformulare, Store-Locators), die als AEM-Komponenten in Ihrem [!DNL GitHub]-Repository verwaltet werden.
+- **Interaktive LLM-Widgets erstellen** - Erstellen Sie visuelle UI-Komponenten (Produktkarten, Buchungsformulare, Store-Locators), die als AEM-Komponenten in Ihrem Git-Repository auf einer beliebigen unterstützten Git-Plattform verwaltet werden.
 - **Zentrale Markenverwaltung** - Autoren und Entwickler behalten die volle Kontrolle über alle Inhalte, Kopien und Visualisierungen, die in der LLM-Plattform bereitgestellt werden. Genehmigungen werden über AEM verwaltet.
 - **In Staging- und Produktionsumgebung bereitstellen** - Eine gesteuerte Bereitstellungs-Pipeline ermöglicht es Ihnen, das Erlebnis in einer Staging-Umgebung zu testen, bevor Sie zur Produktion weiterleiten.
 - **Kontrollieren der Sichtbarkeit auf Aktionsebene** — Aktivieren oder deaktivieren Sie einzelne Aktionen und stellen Sie dann die App bereit, um die Änderung anzuwenden.
@@ -53,7 +51,7 @@ Die Server-seitige Funktion, die ausgeführt wird, wenn die LLM-Plattform eine A
 
 ### Widget {#widgets-eds}
 
-Die visuelle Antwort, die mit der Antwort des LLM angezeigt wird, z. B. eine Karte, ein Karussell oder eine Tabelle. Generierte Widgets sind Blöcke in einem [!DNL Edge Delivery Services]-Repository (EDS). Mit der von Adobe verwalteten Infrastruktur bereitet Adobe das Repository für Sie vor und hostet es. Alternativ können Sie Ihr eigenes Repository verbinden.
+Die visuelle Antwort, die mit der Antwort des LLM angezeigt wird, z. B. eine Karte, ein Karussell oder eine Tabelle. Generierte Widgets sind Blöcke in einem [!DNL Edge Delivery Services]-Repository (EDS). Mit [!DNL LLM Apps] verwalteten Infrastruktur bereitet Adobe das Repository für Sie vor und hostet es. Alternativ können Sie Ihr eigenes Repository verbinden.
 
 ### MCP-Server
 
@@ -79,7 +77,7 @@ Technische Details dazu, was erstellt werden soll und wie die Komponenten zusamm
 
 Das Erstellen einer App und das Erstellen ihrer Aktionen sind separate Schritte:
 
-1. [Richten Sie die Infrastruktur &#x200B;](/help/guides/create-app.md). Verwenden Sie die von Adobe verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen [!DNL GitHub]-Repositorys.
+1. [Richten Sie die Infrastruktur &#x200B;](/help/guides/create-app.md). Verwenden Sie [!DNL LLM Apps] verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen Repositorys, die zu [!DNL Cloud Manager] hinzugefügt wurden.
 2. [Erstellen Sie Ihre Aktionen](/help/guides/creating-actions.md). Lassen Sie die Plattform Ihre Website analysieren und Aktionen generieren oder erstellen Sie sie selbst.
 3. [Bereitstellen und Testen der App](/help/guides/deploy-your-app.md). Überprüfen Sie die generierte Arbeit, stellen Sie sie in einer unterstützten LLM-Plattform bereit und testen Sie sie.
 

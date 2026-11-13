@@ -1,9 +1,9 @@
 ---
 title: Konfigurieren von ChatGPT-Erweiterungen
 description: Konfigurieren Sie reine Chat-GPT-Einstiegspunkte, Aktionssymbole, Anzeigevoreinstellungen und Composer-Erwähnungen mit Anforderungen und Fehlerbehebung.
-source-git-commit: caf0a247e481e1b6e833ade63c5b243a5b7b22ec
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1710'
+source-wordcount: '1724'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 **Hierbei handelt es sich um reine ChatGPT-Erweiterungen.** Sie konfigurieren keine Funktionen in [!DNL Claude] oder anderen LLM-Plattformen. Ihre App kann über ihre Standardaktionen und Widgets weiterhin auf diesen Plattformen funktionieren.
 

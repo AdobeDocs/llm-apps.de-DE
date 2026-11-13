@@ -1,9 +1,9 @@
 ---
 title: Fehlerbehebung bei Adobe LLM-Apps
 description: Beheben von Problemen mit der allgemeinen Infrastruktur, der Aktionserstellung, dem Handler, dem Widget, der Bereitstellung, der Authentifizierung und der LLM-Plattformverbindung.
-source-git-commit: 2afae0696de15ec4d0a6596e413dd4851761439e
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1503'
+source-wordcount: '1602'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Beginnen Sie mit dem beobachtbaren Symptom. Geben Sie während der Fehlerbehebung keine Anmeldeinformationen, Token, privaten MCP-URLs oder vertraulichen Handler-Ergebnisse frei.
 
@@ -21,16 +19,17 @@ Beginnen Sie mit dem beobachtbaren Symptom. Geben Sie während der Fehlerbehebun
 
 | Symptom | Was Sie versuchen sollten |
 |---------|-------------|
-| Einrichtung der verwalteten Adobe-Infrastruktur schlägt fehl | Lesen Sie den Fehler unter **Setup fehlgeschlagen** und wählen Sie dann **Wiederholen** aus. Wenn die Seite den Fortschritt nicht überprüfen kann, wählen Sie **Erneut überprüfen**; die Einrichtung wird im Hintergrund fortgesetzt |
+| [!DNL LLM Apps] Einrichtung der verwalteten Infrastruktur schlägt fehl | Lesen Sie den Fehler unter **Setup fehlgeschlagen** und wählen Sie dann **Wiederholen** aus. Wenn die Seite den Fortschritt nicht überprüfen kann, wählen Sie **Erneut überprüfen**; die Einrichtung wird im Hintergrund fortgesetzt |
 | Kein AEM-Programm verfügbar | Bitten Sie Ihren Administrator um Programmzugriff. Wenn das Laden fehlgeschlagen ist, wählen Sie **Programme erneut laden** |
-| Neue Repositorys werden nicht angezeigt | Verwenden Sie **Mit einem anderen Repository verbinden**, um der GitHub-App von Adobe LLM Apps Zugriff zu gewähren, zum Assistenten zurückzukehren und die Option **Organisationen und Repositorys aktualisieren** auszuwählen |
+| Neue Repositorys werden nicht angezeigt | Fügen Sie das Repository dem Cloud Manager-Programm als privates Repository hinzu, warten Sie, bis der Status **Bereit** ist, und öffnen Sie dann die Repository-Liste erneut. Von Adobe in Cloud Manager gehostete Repositorys werden nicht unterstützt |
+| Keine Edge Delivery Services-Site verknüpft | Ein Widget-Repository, das sich nicht auf GitHub befindet, muss mit einer EDS-Site in Cloud Manager mit Bring Your Own Git verknüpft sein. Verknüpfen Sie es und wählen Sie dann erneut **Repository**. Siehe [Eigenes Git mitbringen](https://www.aem.live/developer/byo-git) |
 | Die Repository-Validierung der Aktion oder des Widgets schlägt fehl | Verwenden Sie ein kompatibles vorhandenes Projekt oder ein leeres Repository. Separate Repositorys für Aktionen und Widgets verwenden und dann erneut **Repository überprüfen** auswählen |
-| AEM-Site-Setup oder Zugriffsvalidierung schlägt fehl | Folgen Sie [Einrichten des Site-Zugriffs für AEM](/help/guides/create-app.md#aem-site-access). Für eine neue Code-Sync-Installation schließen Sie den Bestätigungsseiten-Assistenten ab. Behalten Sie für eine bestehende Site die Installation bei und bitten Sie einen Site-Administrator, Ihrem Adobe-Konto über den AEM-Benutzeradministrator Zugriff `admin` gewähren. Vergewissern Sie sich, dass die Code-Synchronisierung das Widget-Repository abdeckt, und wählen Sie dann **AEM-Setup validieren** |
+| AEM-Site-Setup oder Zugriffsvalidierung schlägt fehl (GitHub-Widget-Repository) | Folgen Sie [Einrichten des Site-Zugriffs für AEM](/help/guides/create-app.md#aem-site-access). Für eine neue Code-Sync-Installation schließen Sie den Bestätigungsseiten-Assistenten ab. Behalten Sie für eine bestehende Site die Installation bei und bitten Sie einen Site-Administrator, Ihrem Adobe-Konto über den AEM-Benutzeradministrator Zugriff `admin` gewähren. Vergewissern Sie sich, dass die Code-Synchronisierung das Widget-Repository abdeckt, und wählen Sie dann **AEM-Setup validieren** |
 | DAC-Schreibzugriff ist erforderlich | Bitten Sie einen DAM-Organisationsadministrator, dem in LLM-Apps verwendeten Adobe-Konto Schreibzugriff auf alle Inhalte der Site zu gewähren. Befolgen Sie [Schreibzugriff für DAM gewähren](/help/guides/create-app.md#da-write-access), melden Sie sich mit diesem Konto an und wählen Sie dann **AEM-Setup validieren** aus. AEM-Site-Rollen gewähren keine DAM-Berechtigungen |
 | Zugriff auf AEM oder DAM konnte nicht verifiziert werden | Versuchen Sie **AEM-Setup validieren** erneut, um einen temporären Überprüfungsfehler zu ermitteln. Wenn die Nachricht stattdessen eine Zugriffsverweigerung meldet, korrigieren Sie die AEM- oder DAM-Berechtigungen anhand der obigen Anweisungen, bevor Sie es erneut versuchen |
 | Beim Erstellen der App wurden keine Aktionen generiert | Bei der App-Erstellung wird nur die Infrastruktur eingerichtet. Wählen Sie auf der App-Seite **Aktionen automatisch erstellen**, geben Sie **Ihre Website** ein und wählen Sie **Meine Aktionen erstellen**. Siehe [Erstellen von Aktionen](/help/guides/creating-actions.md) |
 | Aktionen werden noch generiert | Die Benutzeroberfläche schätzt, dass bis zu 30 Minuten für die Generierung benötigt werden. Den Fortschritt auf der Seite Aktionen verfolgen oder die Seite verlassen und später zurückkehren |
-| Fehlgeschlagene Erzeugung von Aktionsberichten | Vergewissern Sie sich, dass die Website über HTTPS öffentlich ist und dass der Repository-Zugriff für Ihre eigenen Repositorys weiterhin gültig ist. Wenden Sie sich mit der angezeigten Fehlermeldung an das Beta-Team, wenn das Problem weiterhin besteht |
+| Fehlgeschlagene Erzeugung von Aktionsberichten | Vergewissern Sie sich, dass die Website über HTTPS öffentlich ist und dass der Repository-Zugriff für Ihre eigenen Repositorys weiterhin gültig ist. Wenden Sie sich mit der sichtbaren Fehlermeldung an das LLM Apps-Team, wenn das Problem weiterhin besteht |
 
 ## Aktionen und Handler
 
@@ -39,7 +38,7 @@ Beginnen Sie mit dem beobachtbaren Symptom. Geben Sie während der Fehlerbehebun
 | Aktion wird nicht aufgerufen | Aktivieren Sie das Plug-in oder den Connector der App in der Konversation. Bestätigen Sie **dass das KI** Modell verfügbar gemacht werden soll, wenn die Aktionseinstellungen und der **Sichtbarkeitsschalter** der Aktion auf der App-Seite aktiviert sind. Verbessern der Beschreibung und erneutes Bereitstellen von Metadatenänderungen |
 | Leere oder Fehlerantwort | Führen Sie `npm test` aus und rufen Sie dann den Handler mit MCP Inspector oder `curl` auf. Siehe [Lokale Handler-Entwicklung und -Tests](/help/reference/development.md) |
 | Handler funktioniert lokal, aber nicht nach der Bereitstellung | Überprüfen Sie den neuesten Push-Commit, bestätigen Sie die Laufzeitkonfiguration und überprüfen Sie, ob die Aktionscode-Kennung mit `actions/<code-identifier>/index.js` übereinstimmt |
-| Erzeugte Aktion kann nicht als geprüft markiert werden | Generierung von Handler- und Widget-Bestätigung erfolgreich. Überprüfen Sie die generierten Pull-Anfragen auf Zusammenführungskonflikte, laden Sie die Aktion neu und wählen Sie **Als geprüft markieren** erneut aus |
+| Erzeugte Aktion kann nicht als geprüft markiert werden | Generierung von Handler- und Widget-Bestätigung erfolgreich. Überprüfen Sie die generierten Pull-Anforderungen oder Verzweigungen auf Zusammenführungskonflikte, laden Sie die Aktion neu und wählen Sie **Als überprüft**. Wenn Sie bei der Überprüfung aufgefordert werden, eine Verzweigung selbst zusammenzuführen, führen Sie sie zuerst mit Ihrem üblichen Prozess zusammen |
 
 ## Widgets
 
@@ -100,4 +99,4 @@ Fügen Sie keine Zugriffstoken, Anspruchssätze oder Client-Geheimnisse des Iden
 | Das Plug-in verwendet die falsche Umgebung | Bearbeiten Sie das Plug-in oder erstellen Sie es mit der vorgesehenen Staging- oder Produktions-MCP-Server-URL neu. |
 | Plug-in zeigt weiterhin alte Aktionsmetadaten an | Stellen Sie die Änderungen bereit, wählen **Aktualisieren** für die ChatGPT-Verbindung aus und beginnen Sie dann eine neue Konversation |
 
-Wenn das Problem weiterhin besteht, notieren Sie sich den App-Namen, die Umgebung, den fehlgeschlagenen Schritt, die Zeit und die sichtbare Fehlermeldung, bevor Sie sich an das Beta-Team wenden. Geheime Daten oder vertrauliche Kundendaten nicht einschließen.
+Wenn das Problem weiterhin besteht, notieren Sie sich den App-Namen, die Umgebung, den fehlgeschlagenen Schritt, die Zeit und die sichtbare Fehlermeldung, bevor Sie sich an das LLM Apps-Team wenden. Geheime Daten oder vertrauliche Kundendaten nicht einschließen.
