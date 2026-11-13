@@ -1,9 +1,9 @@
 ---
 title: Lokale Handler-Entwicklung und -Tests
 description: Handler-Projektstruktur, lokale Serverbefehle, MCP-Tests und Komponententests für Adobe LLM-Apps.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '664'
+source-wordcount: '677'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Verwenden Sie diese Referenz, während Sie Handler lokal entwickeln. Den Handler-Ergebnisvertrag finden Sie unter [Anpassen eines generierten Handlers](/help/guides/customize-handler.md).
 
@@ -23,7 +21,7 @@ Verwenden Sie diese Referenz, während Sie Handler lokal entwickeln. Den Handler
 - npm.
 - Ein lokaler Klon des verknüpften Handler-Repositorys
 
-Fordern Sie bei einer von Adobe verwalteten Infrastruktur den Repository-Zugriff an, bevor Sie dieser Referenz folgen. Für die lokale Handler-Ausführung sind keine Adobe-Anmeldeinformationen erforderlich, für geschützte Upstream-Services ist jedoch weiterhin ein eigener autorisierter Zugriff erforderlich.
+Fordern Sie für [!DNL LLM Apps] verwaltete Infrastruktur den Repository-Zugriff an, bevor Sie dieser Referenz folgen. Für die lokale Handler-Ausführung sind keine Adobe-Anmeldeinformationen erforderlich, für geschützte Upstream-Services ist jedoch weiterhin ein eigener autorisierter Zugriff erforderlich.
 
 ## Projektstruktur
 
@@ -117,7 +115,7 @@ node server/local.js \
   --param GREETING_PREFIX=Howdy
 ```
 
-Geben Sie sowohl das JSON-Manifest als auch den benannten Wert an. Schließen Sie beim Testen seines normalen `(args, extra)`-Vertrags den Handler in lokale `actions.json` mit einem Eingabeschema ein. Die Befehlszeilenflags laden keine App-Einstellungen von der Plattform. Siehe [Konfigurieren von App-Variablen und &#x200B;](/help/guides/app-variables.md)&quot; für umgebungsspezifische Bereitstellungseinstellungen.
+Geben Sie sowohl das JSON-Manifest als auch den benannten Wert an. Schließen Sie beim Testen seines normalen `(args, extra)`-Vertrags den Handler in lokale `actions.json` mit einem Eingabeschema ein. Die Befehlszeilenflags laden keine App-Einstellungen von der Plattform. Siehe [Konfigurieren von App-Variablen und ](/help/guides/app-variables.md)&quot; für umgebungsspezifische Bereitstellungseinstellungen.
 
 ### Testen mit cURL
 

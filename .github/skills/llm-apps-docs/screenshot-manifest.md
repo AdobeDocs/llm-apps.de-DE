@@ -1,7 +1,7 @@
 ---
-source-git-commit: fa80b7b68e1b905eb22d4789a74b2f0de886d70c
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1963'
+source-wordcount: '2090'
 ht-degree: 1%
 ---
 # Screenshot-Manifest
@@ -23,10 +23,19 @@ Ausgabeverzeichnis: `help/assets/guide-infrastructure/`
 
 | Dateiname | Status und nützlicher Kontext | Vorgeschlagener Alternativtext |
 |---|---|---|
-| `setup-choice.png` | Erste Schritte mit beiden sichtbaren Infrastrukturoptionen | Erstellen Sie Ihre LLM-App - wählen Sie Adobe verwaltete Infrastruktur oder Ihre eigenen Repositorys |
-| `app-details.png` | App-Name, AEM-Programm, Analytics-Region und Warnung bei unveränderlichen Einstellungen | App-Details : Geben Sie einen Namen ein, wählen Sie ein AEM-Programm aus und wählen Sie eine Analytics-Region aus |
-| `action-repository.png` | Pfad zum eigenen Repository mit ausgewähltem GitHub und Anweisungen zur Repository-Verbindung | Einrichtung der Aktionsinfrastruktur - Verbindung zu einem leeren oder kompatiblen Aktions-Repository herstellen |
-| `provisioning.png` | Verwaltetes Setup für genehmigte Adobe wird ausgeführt | App-Einrichtung - Adobe bereitet die Infrastruktur vor |
+| `setup-choice.png` | Erste Schritte mit **Let us handle it** und **Use my Cloud Manager setup**, Callout auf der Option des eigenen Repositorys | Erstellen Ihrer LLM-App - Erste Schritte mit Lassen Sie uns die Aufgabe lösen und mein Cloud Manager-Setup verwenden |
+| `action-repository.png` | Cloud Manager-Programm und -Repository ausgewählt, **Repository validiert** | Einrichtung der Aktionsinfrastruktur - Cloud Manager-Programm und -Repository ausgewählt |
+| `widget-source.png` | Widget-Quelle mit **Widget-Repository manuell auswählen** (Cloud Manager EDS als „In Kürze verfügbar“ markiert) | Einrichtung der Widget-Infrastruktur - Widget-Quelle |
+| `widget-repository.png` | Nicht-GitHub-Widget-Repository validiert, **Edge Delivery Services-Site** Hinweis | Einrichtung der Widget-Infrastruktur - Widget-Repository validiert und mit seiner verknüpften EDS-Site verknüpft |
+| `app-details.png` | App-Name, aus dem Repository stammender AEM-Programmsatz, Datenregion „Application Insights“ | App-Details - Name, AEM-Programm und Datenregion „Application Insights“ |
+| `settings-repositories.png` | Einstellungen > Repository mit sowohl Cloud Manager-Repository-Karten als auch der verknüpften Site | Anwendungseinstellungen - Abschnitt „Repository“ |
+| `provisioning.png` | Verwaltetes Setup genehmigter LLM-Apps wird ausgeführt | App-Einrichtung - Adobe bereitet die Infrastruktur vor |
+
+Letzte Erfassung (alle außer `provisioning.png` und `da-write-permissions.png`): 13.11.2026, Staging
+(`experience-stage.adobe.com/llm-apps`), GitLab-Aktion und Widget-Repositorys mit Bring Your
+Eigenes Git. Die Werte für Programm, Repository, Site und Herkunft werden maskiert. Rote Konturen sind Hinweisen.
+Nicht erfasst: der GitHub-Widget-Pfad (AEM Code Sync installieren, AEM-Setup validieren). Noch nicht
+in der Produktion überprüft.
 
 Kontodetails, Organisations-IDs, echte Programmnamen, Repository ausschließen
 Kennungen und App-IDs. Leere Felder oder einen neutralen Namen für die Vorrichtung verwenden, wobei

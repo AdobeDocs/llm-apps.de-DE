@@ -1,9 +1,9 @@
 ---
 title: Anpassen eines generierten EDS-Widgets
 description: Das automatisch von Adobe LLM-Apps erstellte Edge Delivery Services-Widget verstehen und anpassen.
-source-git-commit: 74769d0b2eb2d9323a39ae645dc5359404450164
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1148'
+source-wordcount: '1163'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 >[!NOTE]
 >
@@ -27,7 +25,7 @@ Testen Sie zunächst das generierte Widget. Passen Sie dann den Datenvertrag, di
 
 ## Erstelltes Widget suchen
 
-Öffnen Sie das beim Einrichten der [&#x200B; angeschlossene EDS-Repository](/help/guides/create-app.md). Wenn Sie Adobe Managed Infrastructure verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren. Jedes erzeugte Widget ist ein EDS-Block:
+Öffnen Sie das beim Einrichten der [ angeschlossene EDS-Repository](/help/guides/create-app.md). Wenn Sie [!DNL LLM Apps] verwaltete Infrastruktur verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren. Jedes erzeugte Widget ist ein EDS-Block:
 
 ```text
 blocks/
@@ -38,7 +36,7 @@ blocks/
 
 - Die JavaScript-Datei liest das Aktionsergebnis und erstellt die Schnittstelle.
 - Die CSS-Datei steuert das Layout, das responsive Verhalten und das visuelle Design.
-- Die generierte Pull-Anfrage zeigt die genauen Dateien an, die für die Aktion erstellt wurden.
+- Die generierte Pull-Anfrage oder Verzweigung zeigt die genauen Dateien an, die für die Aktion erstellt wurden.
 
 Der Slug verwendet Bindestriche: eine Aktion mit Code-Kennung, `search_products` einen Block wie `blocks/search-products/` verwendet. Die generierte Widget-Seite ist in der Regel `/eds-widgets/search-products-demo`. Verwenden Sie die eigentliche **[!UICONTROL Widget-URL]** in den Aktionsmetadaten.
 
@@ -70,7 +68,7 @@ Die Einbettungskomponente ruft den `.plain.html` Inhalt der Widget-Seite ab und 
 - Rufen Sie eine weitere Aktion mit `bridge.callTool()` auf.
 - Lassen Sie die Größe mit der `bridge.autoResize()` synchronisiert.
 
-In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie [&#128279;](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem `@adobe/llmapps-sdk`-Paket .
+In diesem Handbuch werden die gängigen Bridge-Methoden behandelt. Die vollständige API finden Sie ](https://www.npmjs.com/package/@adobe/llmapps-sdk) dem [`@adobe/llmapps-sdk`-Paket .
 
 Informationen zum direkten Öffnen eines vorbereiteten Widgets neben einer Unterhaltung oder als Datei-Viewer auf unterstützten OpenAI-Clients finden Sie unter [Konfigurieren von ChatGPT-Erweiterungen](/help/guides/chatgpt-extensions.md). In diesem Handbuch werden die Einrichtung und die Anforderungen der Benutzeroberfläche erläutert. Für die Dateiverarbeitung, den Auswahlkontext, Deep-Links und Rich-Message-Steuerelemente ist die Implementierung von Widgets erforderlich. Durch Aktivieren einer Erweiterung wird dieses Verhalten nicht automatisch hinzugefügt. Überprüfen Sie die Host-Funktionen, bevor Sie optionale APIs verwenden. Die separate `bridge.chatgpt`-API ist nur in ChatGPT verfügbar und wird an anderer Stelle `null`. Sie ist nicht mit der Standard-Bridge-API identisch.
 
@@ -222,4 +220,4 @@ Die EDS-Veröffentlichung ist von der App-Bereitstellung getrennt. Wenn die Stag
 
 ## Andere EDS-Setups
 
-Wenn Sie Aktionen selbst erstellt haben oder eine kompatible vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
+Wenn Sie Aktionen selbst erstellt haben oder eine kompatible vorhandene EDS-Site integrieren möchten, lesen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).

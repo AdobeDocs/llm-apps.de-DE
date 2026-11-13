@@ -1,34 +1,33 @@
 ---
 title: Einrichten der Infrastruktur
-description: Erstellen Sie eine Adobe-LLM-App mit der von Adobe verwalteten Infrastruktur oder stellen Sie zwei leere GitHub-Repositorys für die Initialisierung der Plattform bereit.
-source-git-commit: 079eb2403f15a97842c5c336c03ec5bfe10de622
+description: Erstellen Sie eine Adobe-LLM-App mit der von LLM Apps verwalteten Infrastruktur oder Ihren eigenen Repositorys, die zu Cloud Manager hinzugefügt wurden.
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1595'
-ht-degree: 0%
+source-wordcount: '1947'
+ht-degree: 1%
 ---
 
 # Einrichten der Infrastruktur {#create-first-app}
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Infrastruktur ist die technische Grundlage für Ihre App: die Repositorys, die den Code speichern, und die Services, die die Aktionshandler ausführen und die Widgets für die Benutzer bereitstellen.
 
 Wie in der [Übersicht](/help/overview/overview.md#key-concepts) erläutert, führt ein **Aktionshandler** eine Aufgabe aus, z. B. das Suchen von Produkten, während ein **Widget** das Ergebnis als interaktives Erlebnis in der Konversation darstellt.
 
-[!DNL LLM Apps] speichert Handler- und Widget-Quell-Code in zwei separaten [!DNL GitHub]:
+[!DNL LLM Apps] speichert Handler- und Widget-Quell-Code in zwei separaten Repositorys:
 
 - **Aktions-Repository** - enthält die Server-seitigen Handler und ihre Tests.
 - **Widget-Repository** - Enthält den Code und die Stile für die interaktiven Widgets.
 
 Beispielsweise ruft ein Produkt-Such-Handler übereinstimmende Produkte ab und zeigt diese als Produktkarten an. Die Repositorys speichern diesen Code. Adobe I/O Runtime führt die bereitgestellten Handler aus, und Edge Delivery Services stellt die Widgets bereit.
 
-Der Setup-Assistent bereitet diese Repositorys vor und verbindet die Services, die Ihre App benötigt. Es wird empfohlen, mit **Adobe Managed Infrastructure** zu beginnen, was der schnellste Einstieg ist. Adobe erstellt und hostet die Repositorys für Ihre Aktionshandler und Widgets. Sie müssen Repositorys nicht selbst einrichten.
+Der Setup-Assistent bereitet diese Repositorys vor und verbindet die Services, die Ihre App benötigt. Eine von zwei Optionen auswählen:
 
-Geben Sie alternativ zwei leere [!DNL GitHub]-Repositorys in Ihrem eigenen Konto oder Ihrer Organisation an. Die Plattform initialisiert sie mit den erforderlichen Projektdateien. Es ist nicht erforderlich, Aktion oder Widget-Code im Voraus vorzubereiten.
+- **[!DNL LLM Apps]verwaltete Infrastruktur** der schnellste Einstieg. Adobe erstellt und hostet die Repositorys für Ihre Aktionshandler und Widgets, sodass Sie keine Repositorys selbst einrichten müssen.
+- **Ihre eigenen Repositorys** Bewahren Sie den Code Ihrer App in Repositorys auf, die Ihnen gehören und zu [!DNL Cloud Manager] hinzugefügt wurden. Sie können auf [!DNL GitHub], [!DNL GitHub Enterprise], [!DNL GitLab], [!DNL Bitbucket] oder [!DNL Azure DevOps] gehostet werden. Die Plattform initialisiert leere Repositorys mit den erforderlichen Projektdateien, sodass Sie keine Aktion oder Widget-Code vorbereiten müssen.
 
 **In diesem Handbuch:** Erfahren Sie, wie Sie mit dem Einrichtungsassistenten eine Infrastrukturoption auswählen und Ihre App erstellen. Fahren Sie nach dem Setup mit [Aktionen erstellen](/help/guides/creating-actions.md) fort.
 
@@ -40,16 +39,16 @@ Beim Erstellen der App wird **nicht** Aktionserstellung gestartet. Starten Sie d
 
 Der **[!UICONTROL Create Your LLM App]**-Assistent beginnt mit **[!UICONTROL Erste Schritte]**. Wählen Sie aus, wie die technische Umgebung eingerichtet werden soll.
 
-![Erstellen Sie Ihre LLM-App - wählen Sie zwischen einer von Adobe verwalteten Infrastruktur und der Verbindung Ihrer eigenen Repositorys](/help/assets/guide-infrastructure/setup-choice.png)
+![Erstellen Sie Ihre LLM-App - Erste Schritte mit Lassen Sie uns damit umgehen und mein Cloud Manager-Setup verwenden. Die rote Kontur markiert die Option für das eigene Repository](/help/assets/guide-infrastructure/setup-choice.png)
 
 | Infrastrukturoption | Im Assistenten auswählen | Was es bedeutet |
 |---|---|---|
-| **Verwaltete Adobe-Infrastruktur** | **[!UICONTROL Übernehmen wir das]** | Adobe erstellt und verwaltet die Repositorys und verbundenen Services für Ihre App. Code-Zugriff ist auf Anfrage verfügbar. |
-| **Ihre eigenen Repositorys** | **[!UICONTROL Ich werde es selbst einrichten]** | Sie stellen zwei leere GitHub-Repositorys bereit und gewähren über den Assistenten Zugriff. Die Plattform initialisiert einen für Aktions-Handler und den anderen für Widgets. |
+| **[!DNL LLM Apps]verwaltete Infrastruktur** | **[!UICONTROL Übernehmen wir das]** | Adobe erstellt und verwaltet die Repositorys und verbundenen Services für Ihre App. Code-Zugriff ist auf Anfrage verfügbar. |
+| **Ihre eigenen Repositorys** | **[!UICONTROL Mein Cloud Manager-Setup verwenden]** | Sie können zwei Repositorys auswählen, die [!DNL Cloud Manager] hinzugefügt werden sollen: eines für Aktions-Handler und eines für Widgets. Die Plattform initialisiert sie, wenn sie leer sind. |
 
 Beide Optionen unterstützen eine spätere automatische Aktionserstellung. Für keine dieser Optionen müssen Aktionen manuell geschrieben werden.
 
-## Verwenden der von Adobe verwalteten Infrastruktur {#adobe-managed-infrastructure}
+## Verwenden [!DNL LLM Apps] verwalteten Infrastruktur {#adobe-managed-infrastructure}
 
 Verwenden Sie diese Option, damit Adobe die Repositorys und Connected Services für Ihre App einrichten und verwalten kann. Sie müssen keine Repositorys erstellen oder [!DNL GitHub] Apps selbst installieren.
 
@@ -66,17 +65,34 @@ Wenn das Setup fehlschlägt, lesen Sie den Fehler und wählen Sie &quot;**[!UICO
 
 Fahren Sie nach Abschluss des Setups mit [Aktionen erstellen](/help/guides/creating-actions.md) fort.
 
-## Eigene Repositorys verbinden {#your-own-repositories}
+## Eigene Repositorys verwenden {#your-own-repositories}
 
-Wählen Sie **[!UICONTROL Ich richte es selbst ein]** und dann **[!UICONTROL Nächster Schritt]**. Dieser Pfad weist vier Assistentenschritte auf:
+Wählen **[!UICONTROL Mein Cloud Manager-Setup verwenden]** und dann **[!UICONTROL Nächster Schritt]**. Dieser Pfad weist vier Assistentenschritte auf:
 
 **Erste Schritte → Einrichten der Aktionsinfrastruktur → Einrichten der Widget-Infrastruktur → App-Details.**
 
-Sie benötigen Zugriff auf die ausgewählten Repositorys und die Berechtigung zum Installieren oder Konfigurieren der erforderlichen [!DNL GitHub] Apps. Bei Repositorys im Besitz eines Unternehmens muss ein Administrator möglicherweise den Zugriff genehmigen.
+[!DNL LLM Apps] gelangt über [!DNL Cloud Manager] mit Ihrem Adobe-Konto zu Ihren Repositorys. Sie installieren keine [!DNL GitHub] App.
 
-Erstellen Sie zwei leere Repositorys: eines für Aktions-Handler und eines für Widgets. Weder mit einer README, noch mit einer Lizenz oder `.gitignore` initialisieren. Die Plattform fügt die erforderliche Projektstruktur hinzu, wenn Sie jedes Repository im Assistenten überprüfen.
+### Voraussetzungen {#own-repositories-prerequisites}
 
-Wenn Sie bereits über kompatible Action- und EDS-Projekte verfügen, können Sie diese stattdessen verbinden, vorhandener Code ist jedoch nicht erforderlich.
+- Zugriff auf das [!DNL Cloud Manager] Programm, zu dem die App gehören wird.
+- Zwei Repositorys, eines für Aktionshandler und eines für Widgets. Leere Repositorys sind in Ordnung, einschließlich eines Repositorys, das nur die README enthält, die von seinem Git-Host erstellt wurde.
+- Beide Repositorys [zu Cloud Manager hinzugefügt](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-manager/content/managing-code/external-repositories) als private Repositorys, mit validiertem Besitz und dem Status **Bereit**. [!DNL Cloud Manager] müssen in der Lage sein, ihnen zu schreiben. Ein schreibgeschütztes Zugriffstoken reicht nicht aus.
+
+Es werden nur Repositorys aufgelistet, die Sie selbst hosten. Repositorys, die von Adobe in [!DNL Cloud Manager] gehostet werden, werden nicht unterstützt.
+
+#### Ihr Widget-Repository ist eine Edge Delivery Services-Site {#widget-repository-is-an-eds-site}
+
+Widgets werden von einer [!DNL Edge Delivery Services]-Site (EDS) bereitgestellt und Ihr Widget-Repository enthält den Code dieser Site. Stellen Sie sicher, dass das Widget-Repository zu einer EDS-Website gehört oder wird. Es gibt zwei Möglichkeiten, eine einzurichten:
+
+- **Jeder Git-Anbieter mit Bring Your Own Git.** Erstellen Sie die EDS-Site in [!DNL Cloud Manager] und verknüpfen Sie sie mit **Bring Your Own Git** mit Ihrem Repository. [!DNL Cloud Manager] synchronisiert dann den Code des Repositorys mit der Site. Führen Sie diese Schritte aus, bevor Sie den Assistenten starten. Siehe [Eigenes Git mitbringen](https://www.aem.live/developer/byo-git).
+- **Ein [!DNL GitHub]-Repository mit AEM Code Sync.** Richten Sie die EDS-Site selbst ein, wie im [Edge Delivery Services-Tutorial](https://www.aem.live/developer/tutorial). Der Assistent führt Sie durch die Installation von AEM Code Sync und die Überprüfung des Zugriffs, nachdem Sie das Repository validiert haben.
+
+Der Widget-Schritt erkennt, welcher Fall zutrifft. Siehe [Einrichten der Widget-](#set-up-the-widget-infrastructure).
+
+>[!TIP]
+>
+>Selbst wenn Ihr Unternehmen bereits über eine EDS-Website verfügt, erstellen Sie eine separate EDS-Website für Ihre [!DNL LLM Apps] Widgets.
 
 >[!NOTE]
 >
@@ -86,38 +102,44 @@ Wenn Sie bereits über kompatible Action- und EDS-Projekte verfügen, können Si
 
 Das Aktions-Repository enthält die Server-seitigen Handler und Tests, die ausgeführt werden, wenn eine LLM-Plattform eine Aktion aufruft.
 
-1. Wählen **[!UICONTROL unter „Aktionsquelle]** die Option **[!UICONTROL GitHub]**. Die anderen Code-Quellen sind derzeit nicht verfügbar.
-2. Antwort **[!UICONTROL Haben Sie bereits ein GitHub-Repository erstellt?]**:
-   - Wählen Sie **[!UICONTROL Ja, ich werde ein bereits erstelltes Repository verwenden]** um ein kompatibles vorhandenes Projekt oder ein leeres Repository zu verbinden.
-   - Wählen Sie **[!UICONTROL Ich habe noch kein Repository]** und dann **[!UICONTROL Erstellen von Repositorys auf GitHub]** aus, um ein leeres Aktions-Repository zu erstellen. Kehren Sie anschließend zum Assistenten zurück.
-3. Verbinden des Repositorys mit der Adobe LLM Apps [!DNL GitHub] App:
-   - Wenn keine Organisation verbunden ist, wählen Sie **[!UICONTROL Auf GitHub installieren]** aus.
-   - Wenn eine Organisation bereits verbunden ist, wählen Sie **[!UICONTROL Repository verbinden]** und fügen Sie das Repository zu dieser Installation hinzu.
-4. Wählen Sie [!DNL GitHub] **[!UICONTROL Nur Repositorys auswählen]** und gewähren Sie nur Zugriff auf die Repositorys, die von dieser App verwendet werden.
-5. Zurück zum Assistenten. Wählen **[!UICONTROL unter &quot;]** auswählen“ die Optionen **[!UICONTROL Organisation]** und **[!UICONTROL Repository]**.
-6. Wählen Sie **[!UICONTROL Repository validieren]** aus. Bei der Validierung wird ein leeres Repository mit dem Adobe LLM Apps-Textbaustein initialisiert. Ein vorhandenes Repository muss ein kompatibles Aktionsprojekt enthalten.
-7. Klicken Sie nach erfolgreicher Validierung auf **[!UICONTROL Nächster Schritt]**.
+1. Wählen Sie unter **[!UICONTROL Cloud Manager]** Programm das Programm aus, das Ihr Aktions-Repository enthält.
+2. Wählen Sie unter **[!UICONTROL Cloud Manager-]** das Aktions-Repository aus. Wenn er fehlt, fügen Sie ihn [!DNL Cloud Manager] mit **[!UICONTROL Zu Cloud Manager wechseln]** hinzu und aktualisieren Sie dann die Liste.
+3. Wählen Sie **[!UICONTROL Repository validieren]** aus. Bei der Validierung wird ein leeres Repository mit dem Adobe LLM Apps-Textbaustein initialisiert. Ein vorhandenes Repository muss ein kompatibles Aktionsprojekt enthalten.
+4. Wenn **[!UICONTROL Repository validiert]** angezeigt wird, wählen Sie **[!UICONTROL Nächster Schritt]** aus.
 
-![Einrichtung der Aktionsinfrastruktur - Wählen Sie GitHub und verbinden Sie ein Aktions-Repository](/help/assets/guide-infrastructure/action-repository.png)
+![Einrichtung der Aktionsinfrastruktur - Cloud Manager-Programm und -Repository ausgewählt, Repository validiert](/help/assets/guide-infrastructure/action-repository.png)
 
-Wenn eine Organisation oder ein Repository fehlt, verwenden Sie **[!UICONTROL Andere Organisation verbinden]** oder **[!UICONTROL Anderes Repository verbinden]** in der Auswahl. Nachdem Sie den Zugriff auf [!DNL GitHub] geändert haben, wählen Sie **[!UICONTROL Organisationen und Repositorys aktualisieren]** aus.
+Die Plattform sendet den generierten Aktionscode an eine Verzweigung dieses Repositorys. Wenn Sie **[!UICONTROL Als geprüft markieren]** wird die Verzweigung zusammengeführt. Siehe [Erstellen von Aktionen](/help/guides/creating-actions.md).
 
-### Einrichten der Widget-Infrastruktur
+### Einrichten der Widget-Infrastruktur {#set-up-the-widget-infrastructure}
 
-Widgets sind optionale visuelle Antworten, die an Aktionen angehängt werden, z. B. Produktkarten oder Buchungsformulare. Der Assistent verbindet ein [!DNL Edge Delivery Services]-Repository (EDS), um sie zu hosten.
-
-Verwenden Sie dasselbe Adobe-Konto für [!DNL LLM Apps]-, AEM-Site- und DA-Schreibzugriff.
-
-#### Verbinden des Widget-Repositorys {#connect-widget-repository}
+Widgets sind optionale visuelle Antworten, die an Aktionen angehängt werden, z. B. Produktkarten oder Buchungsformulare. Edge Delivery Services (EDS) stellt sie von einer Site bereit, die Ihr Widget-Repository verwendet.
 
 1. Wählen **[!UICONTROL unter]** Widget-Quelle **[!UICONTROL die Option Widget-Repository manuell]**.
-2. Wählen **[!UICONTROL unter &quot;]**&quot; **[!UICONTROL GitHub]** aus.
-3. Wählen Sie aus, ob Sie bereits über ein Repository verfügen. Andernfalls wählen Sie **[!UICONTROL Erstellen von Repositorys auf GitHub]**, erstellen Sie ein leeres Widget-Repository und kehren Sie zum Assistenten zurück.
-4. Installieren oder konfigurieren Sie die Adobe LLM Apps [!DNL GitHub] App für dieses Repository, wie Sie es auch für das Aktions-Repository getan haben.
-5. Wählen Sie die **[!UICONTROL Organisation]** und **[!UICONTROL Repository]** aus. Wählen Sie nicht das Aktions-Repository.
-6. Wählen Sie **[!UICONTROL Repository validieren]** aus. Bei der Validierung wird ein leeres Repository mit dem AEM-Textbaustein initialisiert. Ein vorhandenes Repository muss ein kompatibles EDS-Projekt sein.
 
-#### &#x200B;7. Einrichten des Zugriffs auf die AEM-Site {#aem-site-access}
+   ![Widget-Infrastruktur-Setup - Widget-Quelle mit Widget-Repository manuell auswählen](/help/assets/guide-infrastructure/widget-source.png)
+
+2. Wählen Sie unter **[!UICONTROL Cloud Manager]** Programm das Programm aus, das das Widget-Repository enthält. Sie kann sich vom Programm des Aktions-Repositorys unterscheiden.
+3. Wählen Sie unter **[!UICONTROL Edge Delivery Services-]** das Widget-Repository aus. Wählen Sie nicht das Aktions-Repository.
+4. Wählen Sie **[!UICONTROL Repository validieren]** aus. Bei der Validierung wird ein leeres Repository mit dem AEM-Textbaustein initialisiert. Ein vorhandenes Repository muss ein kompatibles EDS-Projekt sein.
+
+Was als Nächstes geschieht, hängt davon ab, wo das Widget-Repository gehostet wird.
+
+#### Widget-Repository bei einem anderen Anbieter (eigenes Git mitbringen) {#widget-repository-byog}
+
+Bei einem Repository auf [!DNL GitLab], [!DNL Bitbucket], [!DNL Azure DevOps] oder [!DNL GitHub Enterprise] findet die Validierung die EDS-Site, die Links zum Repository [!DNL Cloud Manager]. Der Assistent zeigt die Site unter **[!UICONTROL Edge Delivery Services-Site]** an.
+
+![Einrichtung der Widget-Infrastruktur — Das Widget-Repository wurde validiert und die Edge Delivery Services-Site, mit der Cloud Manager es synchronisiert](/help/assets/guide-infrastructure/widget-repository.png)
+
+[!DNL Cloud Manager] synchronisiert den Code des Repositorys mit dieser Site, sodass Sie keine AEM-Code-Synchronisierung benötigen. Wählen Sie **[!UICONTROL Nächster Schritt]** aus.
+
+Wenn bei der Validierung gemeldet wird, dass keine Site verknüpft ist, verknüpfen Sie das Repository mit einer EDS-Site in [!DNL Cloud Manager] mit **Eigenes Git einbringen** und überprüfen Sie dann erneut. Siehe [Eigenes Git mitbringen](https://www.aem.live/developer/byo-git).
+
+#### Widget-Repository auf GitHub {#widget-repository-github}
+
+Ein [!DNL GitHub] Repository verwendet AEM Code Sync , um seinen Code zu veröffentlichen. Nach der Validierung zeigt der Assistent **[!UICONTROL Installieren von AEM Code Sync]** an. Verwenden Sie dasselbe Adobe-Konto für [!DNL LLM Apps]-, AEM-Site- und DA-Schreibzugriff.
+
+##### Einrichten des Zugriffs auf die AEM-Site {#aem-site-access}
 
 **Neuinstallation:** Wählen Sie **[!UICONTROL AEM Code Sync installieren]** und gewähren Sie ihr Zugriff auf das Widget-Repository. Führen Sie den Einrichtungsassistenten auf der Installationsbestätigungsseite aus, um sich selbst als Site-Administrator hinzuzufügen.
 
@@ -125,7 +147,7 @@ Verwenden Sie dasselbe Adobe-Konto für [!DNL LLM Apps]-, AEM-Site- und DA-Schre
 
 Ersetzen Sie `<org>` und `<site>` durch Ihre Organisations- und Site-Namen in AEM. Ihr Site-Administrator kann diese Werte bestätigen.
 
-#### &#x200B;8. Schreibzugriff für DAM gewähren {#da-write-access}
+##### Schreibzugriff für DAM gewähren {#da-write-access}
 
 Bitten Sie sowohl für neue als auch vorhandene Sites einen Administrator der DAM-Organisation, Folgendes zu tun:
 
@@ -141,7 +163,7 @@ AEM-Site-Rollen gewähren keinen Schreibzugriff auf die geräteübergreifende An
 
 Weitere Informationen zum Konfigurieren von DA-Berechtigungen finden Sie unter [Berechtigungen und Sicherheit](https://www.aem.live/docs/ew/administering/permissions).
 
-#### &#x200B;9. Überprüfen des AEM-Setups {#validate-aem-setup}
+##### Überprüfen des AEM-Setups {#validate-aem-setup}
 
 1. Kehren Sie zu [!DNL LLM Apps] zurück und wählen Sie **[!UICONTROL AEM-Setup validieren]**.
 2. Wenn **[!UICONTROL AEM-Setup überprüft]** angezeigt wird, wählen Sie **[!UICONTROL Nächster Schritt]**.
@@ -156,20 +178,26 @@ Wenn die Validierung fehlschlägt, folgen Sie der Meldung, um den Zugriff auf di
 
 Beide Infrastrukturoptionen enden mit **[!UICONTROL App-Details]**.
 
-![App-Details - Geben Sie einen App-Namen ein, wählen Sie ein AEM-Programm aus und wählen Sie die Region der Analytics-Daten aus](/help/assets/guide-infrastructure/app-details.png)
+![App-Details - Eingegebener LLM-App-Name, der AEM-Programmsatz aus dem Cloud Manager-Repository und die Datenregion Application Insights ](/help/assets/guide-infrastructure/app-details.png)
 
 1. Geben Sie den **[!UICONTROL LLM-App-Namen]** ein. Verwenden Sie einen Namen, der die Marke oder das Erlebnis identifiziert, z. B *„Frescopa Coffee*.
-2. Wählen Sie das **[!UICONTROL AEM]** Programm aus, zu dem die App gehört. Wenn Sie nur Zugriff auf ein Programm haben, wählt der Assistent dieses Programm automatisch aus.
-3. Wählen **[!UICONTROL unter „Analytics]** Datenregion“ die Option **[!UICONTROL Vereinigte Staaten (USA)]** oder **[!UICONTROL Europa (EU)]**.
+2. Wählen Sie das **[!UICONTROL AEM]** Programm aus, zu dem die App gehört. Wenn Sie nur Zugriff auf ein Programm haben, wählt der Assistent dieses Programm automatisch aus. Bei Ihren eigenen Repositorys ist das Programm das Programm des Aktions-Repositorys und kann hier nicht geändert werden.
+3. Wählen **[!UICONTROL unter „Application Insights-]**&quot; **[!UICONTROL USA (USA)]** oder **[!UICONTROL Europa (EU)]**.
 4. Wählen Sie **[!UICONTROL App erstellen]** aus.
 
 >[!IMPORTANT]
 >
->Das AEM-Programm und die Analytics-Datenregion können nach der Erstellung der App nicht mehr geändert werden. Die Analyseregion bestimmt, wo die Analysedaten der App gespeichert werden.
+>Die Datenregion AEM-Programm und Programm-Insights kann nach der Erstellung der App nicht mehr geändert werden. Die Region bestimmt, wo die Daten zu Application Insights der App gespeichert werden.
 
 Wenn kein AEM-Programm verfügbar ist, bitten Sie Ihren Administrator um Zugriff. Wenn das Laden der Programme fehlschlägt, wählen Sie **[!UICONTROL Programme erneut laden]** aus.
 
-Der Assistent öffnet die App-Seite nach der Erstellung. Warten Sie bei Adobe Managed Infrastructure, bis die Einrichtung der Infrastruktur abgeschlossen ist, bevor Sie fortfahren.
+Der Assistent öffnet die App-Seite nach der Erstellung. Warten Sie bei [!DNL LLM Apps] verwalteten Infrastruktur, bis die Einrichtung der Infrastruktur abgeschlossen ist, bevor Sie fortfahren.
+
+Um die Repositorys später zu überprüfen, öffnen Sie die **[!UICONTROL Einstellungen]**. Im Abschnitt **[!UICONTROL Repository]** werden das Programm und der Name jedes Repositorys sowie für ein Widget-Repository, das Bring Your Own Git verwendet, dessen EDS-Site und Herkunft angezeigt. Repositorys können nach der Erstellung der App nicht mehr geändert werden.
+
+![App-Einstellungen - Abschnitt „Repository“ mit den Textbaustein- und Edge Delivery Services-Repositorys, einschließlich verknüpfter Site und Herkunft](/help/assets/guide-infrastructure/settings-repositories.png)
+
+Apps, die zuvor mit der Adobe LLM Apps [!DNL GitHub] App erstellt wurden, funktionieren weiterhin mit ihren vorhandenen Repositorys.
 
 ## Weiter: Erstellen der Aktionen
 

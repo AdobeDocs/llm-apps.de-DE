@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer neuen Aktion
 description: Definieren Sie Aktionsmetadaten, implementieren Sie den Handler, verbinden Sie ein EDS-Widget, testen Sie es und stellen Sie es mit Adobe LLM-Apps bereit.
-source-git-commit: 74769d0b2eb2d9323a39ae645dc5359404450164
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1518'
+source-wordcount: '1532'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 >[!NOTE]
 >
@@ -202,7 +200,7 @@ Fügen **[!UICONTROL unter „CSP-]**&quot; die Ursprünge hinzu, die für Asset
 
 ![Neue Aktion erstellen - Domain-Listen der Content Security-Richtlinien](/help/assets/guide-create-action/widget-csp.png)
 
-Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
+Wenn das EDS-Projekt oder die Widget-Seite noch nicht vorhanden ist, schließen Sie [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md)) ab und kehren Sie dann zur Aktion zurück.
 
 ## Speichern der Aktion
 
@@ -410,7 +408,7 @@ Wenn die Aktion über ein Widget verfügt:
 4. Zeigen Sie die EDS-Seite lokal in der Vorschau an.
 5. Überprüfen Sie CSP-, CORS- und Widget-URLs.
 
-Siehe [Eigenes EDS-Projekt &#x200B;](/help/guides/bring-your-own-eds.md).
+Siehe [Eigenes EDS-Projekt ](/help/guides/bring-your-own-eds.md).
 
 ## Bereitstellen und Testen
 

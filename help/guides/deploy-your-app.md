@@ -1,9 +1,9 @@
 ---
 title: Bereitstellen der App
 description: Erfahren Sie, wie Sie Ihre Adobe-LLM-App über die Benutzeroberfläche für LLM-Apps für die Staging- und Produktionsumgebung bereitstellen.
-source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '444'
+source-wordcount: '458'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Nachdem Sie generierte Aktionen überprüft oder Ihren eigenen Handler-Code an das verknüpfte Repository gepusht haben, stellen Sie die App über [!DNL LLM Apps] bereit. Überprüfen Sie für generierte Aktionen die generierte Arbeit und führen Sie sie vor der Bereitstellung zusammen.
 
@@ -54,7 +52,7 @@ Im Abschnitt **Bereitstellungsverlauf** werden die letzten 10 Bereitstellungen a
 
 ![Bereitstellungsverlauf](/help/assets/guide-deploy/deployment-history.png)
 
-Jede Zeile zeigt die Zielumgebung **&#x200B;**&#x200B;(Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und **bereitgestellt**. Verwenden Sie die Tabelle, um die Bereitstellungsdaten zu verfolgen und sicherzustellen, dass die neueste Bereitstellung erfolgreich war.
+Jede Zeile zeigt die Zielumgebung **** (Staging- oder Produktionsumgebung), **Status** (Erfolg oder Fehlgeschlagen) und **bereitgestellt**. Verwenden Sie die Tabelle, um die Bereitstellungsdaten zu verfolgen und sicherzustellen, dass die neueste Bereitstellung erfolgreich war.
 
 ## Konfigurationsänderungen bereitstellen
 

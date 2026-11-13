@@ -1,9 +1,9 @@
 ---
 title: Testen der LLM-App als Claude-Connector
 description: Erstellen Sie einen Claude-Connector aus Ihrer Adobe LLM Apps MCP-Server-URL und testen Sie ihn in einer Konversation.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '676'
+source-wordcount: '690'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Nach der Bereitstellung stellt Ihre LLM-App eine MCP-Server-URL bereit. Fügen Sie diese URL zu [!DNL Claude] als benutzerdefinierten Connector hinzu und testen Sie dann die generierten Aktionen und Widgets.
 
@@ -25,7 +23,7 @@ Bei einer App mit öffentlichen und geschützten Aktionen unterstützt [!DNL Cla
 
 Benutzerdefinierte Connectoren mit Remote-MCP sind kostenlos für die Pläne Pro, Max, Team und Enterprise verfügbar. Freie Konten unterstützen einen benutzerdefinierten Connector. In Team und Enterprise fügt ein autorisierter Eigentümer den Connector für die Organisationsmitglieder hinzu, bevor diese eine Verbindung herstellen. Benutzerdefinierte Unternehmensrollen können diese Berechtigung ebenfalls erteilen.
 
-Planungs[&#x200B; und Organisationssteuerelemente finden Sie in &#x200B;](https://claude.com/docs/connectors/custom/add-unlisted)Claude&#39;s aktuellen benutzerdefinierten Connector-Anweisungen . Der Remote-MCP-Endpunkt muss von der Claude-Infrastruktur aus erreichbar sein, nicht nur über Ihren lokalen Browser.
+Planungs[ und Organisationssteuerelemente finden Sie in ](https://claude.com/docs/connectors/custom/add-unlisted)Claude&#39;s aktuellen benutzerdefinierten Connector-Anweisungen . Der Remote-MCP-Endpunkt muss von der Claude-Infrastruktur aus erreichbar sein, nicht nur über Ihren lokalen Browser.
 
 ## MCP-Server-URL kopieren
 

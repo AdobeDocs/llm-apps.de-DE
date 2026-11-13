@@ -1,9 +1,9 @@
 ---
 title: Konfigurieren von App-Variablen und -Geheimnissen
 description: Fügen Sie Ihrer Adobe-LLM-App umgebungsspezifische Variablen hinzu, lesen Sie sie in einem Aktions-Handler, stellen Sie sie bereit und beheben Sie gängige Probleme.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1170'
+source-wordcount: '1184'
 ht-degree: 1%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Verwenden Sie Variablen und Geheimnisse, um Ihre App ohne Hartkodierung in den Aktions-Handlern zu konfigurieren. Konfigurieren Sie beispielsweise die Produktkatalog-API-URL für die Verwendung eines Test-Services in der Staging-Umgebung und des Live-Services in der Produktion, ohne den Handler-Code zu ändern.
 
@@ -56,7 +54,7 @@ In diesem Beispiel wird die Variable „non-sensitive“ `GREETING_PREFIX` mit d
 
 1. Öffnen Sie Ihre App und wählen **[!UICONTROL Einstellungen]** im linken Navigationsbereich aus.
 2. Öffnen Sie die **[!UICONTROL „Variablen und]**&quot;.
-3. Wählen Sie in **&#x200B;**&#x200B;die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]** aus.
+3. Wählen Sie in **** die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]** aus.
 4. Wählen Sie **[!UICONTROL Hinzufügen]** aus.
 
    ![Variablen und Geheimnisse - Leerer Staging-Arbeitsbereich mit der Schaltfläche „Hinzufügen“](/help/assets/guide-app-variables/variables-empty.png)
@@ -106,7 +104,7 @@ Wenn Ihre Handler-Änderungen bereit sind, übertragen Sie sie in das Handler-Re
 
 #### Schritt 3: Bereitstellen und Testen {#deploy-and-verify}
 
-1. [Stellen Sie Ihre App &#x200B;](/help/guides/deploy-your-app.md) derselben Umgebung bereit, die Sie in **[!UICONTROL Workspace ausgewählt haben]**.
+1. [Stellen Sie Ihre App ](/help/guides/deploy-your-app.md) derselben Umgebung bereit, die Sie in **[!UICONTROL Workspace ausgewählt haben]**.
 2. Rufen Sie die Aktion von einer unterstützten LLM-Plattform aus auf, wobei `name` auf `Ada` gesetzt ist. Siehe [Testen des ChatGPT-Plug](/help/guides/test-in-chatgpt.md) oder [Testen des Claude-Connectors](/help/guides/test-in-claude.md).
 3. Bestätigen Sie, dass die Antwort `Good day, Ada!` ist. Die Antwort überprüft, ob der Handler die konfigurierte Variable liest, und überschreibt die Standardbegrüßung.
 
@@ -118,7 +116,7 @@ Um die andere Umgebung zu konfigurieren, wählen Sie diese Umgebung in **[!UICON
 
 >[!TIP]
 >
->Informationen zum lokalen Testen vor der Bereitstellung finden Sie unter [Lokale Handlerentwicklung und &#x200B;](/help/reference/development.md)) und übergeben Sie die Variablen an den lokalen Server:
+>Informationen zum lokalen Testen vor der Bereitstellung finden Sie unter [Lokale Handlerentwicklung und ](/help/reference/development.md)) und übergeben Sie die Variablen an den lokalen Server:
 >
 >`node server/local.js --param 'LLMA_VARIABLE_NAMES=["GREETING_PREFIX"]' --param GREETING_PREFIX=Howdy`
 

@@ -1,9 +1,9 @@
 ---
 title: Anpassen eines generierten Aktionshandlers
 description: Machen Sie sich mit dem Adobe-LLM-Apps-Handler-Vertrag vertraut, ersetzen Sie generierte Beispieldaten und halten Sie die Handler-Ausgabe an sein Widget ausgerichtet.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '880'
+source-wordcount: '895'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Die Plattform erstellt für jede generierte Aktion einen funktionierenden Handler. Der Handler gibt zunächst Beispieldaten zum Testen des gesamten Erlebnisses zurück.
 
@@ -21,7 +19,7 @@ Die Plattform erstellt für jede generierte Aktion einen funktionierenden Handle
 
 ## Ermittelten Handler suchen
 
-Öffnen Sie das Handler-Repository, das während der [Infrastruktureinrichtung“ verbunden &#x200B;](/help/guides/create-app.md). Wenn Sie Adobe Managed Infrastructure verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren.
+Öffnen Sie das Handler-Repository, das während der [Infrastruktureinrichtung“ verbunden ](/help/guides/create-app.md). Wenn Sie [!DNL LLM Apps] verwaltete Infrastruktur verwenden, fordern Sie den Code-Zugriff an, bevor Sie fortfahren.
 
 ```text
 actions/
@@ -38,7 +36,7 @@ test/
     └── <action-slug>.test.js
 ```
 
-Verwenden Sie die generierte Pull-Anfrage , um die genauen Dateien zu finden. Der Ordner-Slug verwendet Bindestriche: Die Plattform generiert eine Aktion mit der Code-Kennung `search_products` unter `actions/search-products/`. Die Laufzeit erkennt das Formular mit Bindestrich sowie einen Ordner, der genau mit der Kennung übereinstimmt.
+Verwenden Sie die generierte Pull-Anfrage oder Verzweigung, um die genauen Dateien zu finden. Der Ordner-Slug verwendet Bindestriche: Die Plattform generiert eine Aktion mit der Code-Kennung `search_products` unter `actions/search-products/`. Die Laufzeit erkennt das Formular mit Bindestrich sowie einen Ordner, der genau mit der Kennung übereinstimmt.
 
 Bearbeiten Sie die generierte `index.js` und alle zugehörigen Beispieldaten. Ändern Sie keine Laufzeitdateien wie `entry.js`.
 

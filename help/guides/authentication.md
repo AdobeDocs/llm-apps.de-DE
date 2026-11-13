@@ -1,9 +1,9 @@
 ---
 title: Endbenutzer bei Ihrem eigenen Identitätsanbieter authentifizieren
 description: Aktivieren Sie die Endbenutzerauthentifizierung für Ihre Adobe-LLM-App, damit eine unterstützte LLM-Plattform den Benutzer bei Ihrem Identitätsanbieter anmeldet, bevor geschützte Aktionen aufgerufen werden.
-source-git-commit: 0f9dd0a5b1008e183eb8ab5a4c2eae34a78923bb
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '2136'
+source-wordcount: '2150'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Standardmäßig ist jede Aktion in Ihrer App öffentlich. Jede LLM-Plattform mit Ihrer MCP-Server-URL kann diese Aktionen aufrufen, und Ihr Handler kann den Endbenutzer nicht identifizieren.
 
@@ -89,7 +87,7 @@ Die Schritte variieren je nach Anbieter. Konfigurieren Sie die folgenden vier El
 ## Authentifizierung aktivieren
 
 1. Wählen Sie in der linken Navigation **[!UICONTROL Einstellungen]** aus und öffnen Sie dann die Registerkarte **[!UICONTROL Authentifizierung]**.
-2. Wählen Sie in **&#x200B;**&#x200B;die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]**.
+2. Wählen Sie in **** die Option **[!UICONTROL Staging]** oder **[!UICONTROL Produktion]**.
 3. Aktivieren Sie **[!UICONTROL Authentifizierung aktivieren]**.
 4. Geben **[!UICONTROL unter &quot;]**&quot; Folgendes ein:
    - **[!UICONTROL Aussteller]** - Die HTTPS-Aussteller-URL Ihres Identitätsanbieters, die auch der Wert ist, den sie in den `iss` jedes Tokens eingibt. Die Plattform benötigt diese URL und veröffentlicht den Herausgeber als Autorisierungs-Server der App für die LLM-Client-Erkennung. Jede App unterstützt einen Identitätsanbieter.

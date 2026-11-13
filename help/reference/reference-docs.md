@@ -1,9 +1,9 @@
 ---
 title: Aktions- und Widget-Felder
 description: Felddefinitionen für Aktionsmetadaten, Parameter, Widgets, CSP und Berechtigungen in Adobe LLM-Apps.
-source-git-commit: 2892acf4b3042c296203377a06bc3ff80fd375a5
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '1257'
+source-wordcount: '1273'
 ht-degree: 3%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 3%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Auf dieser Seite können Sie Felder im Aktionseditor nachschlagen. Die Erstellungsschritte finden Sie unter [Erstellen einer neuen Aktion](/help/guides/create-action.md).
 
@@ -30,7 +28,7 @@ Nach der Erstellung verwendet der Editor für gespeicherte Aktionen vier Registe
 | **[!UICONTROL Analytics]** | Benutzerabsichtserfassung und Anweisungen |
 | **[!UICONTROL ChatGPT-Erweiterungen]** | Direkt öffnende Einstiegspunkte, Aktionssymbole, Anzeigevoreinstellungen und Erwähnungen von Composern |
 
-Um Ihre Änderungen zu speichern, klicken Sie auf **[!UICONTROL Änderungen speichern]**. Erzeugte Aktionen, die auf eine Überprüfung warten, zeigen stattdessen **[!UICONTROL Als geprüft markieren]** an, wodurch auch die generierten Pull-Anforderungen verarbeitet werden.
+Um Ihre Änderungen zu speichern, klicken Sie auf **[!UICONTROL Änderungen speichern]**. Erzeugte Aktionen, die auf eine Überprüfung warten, zeigen stattdessen **[!UICONTROL Als geprüft markieren]** an, wodurch auch die generierten Pull-Anforderungen oder Verzweigungen zusammengeführt werden.
 
 ## Aktionsparameter
 

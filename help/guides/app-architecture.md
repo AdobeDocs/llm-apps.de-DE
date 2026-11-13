@@ -1,9 +1,9 @@
 ---
 title: Verkabeln einer App
 description: Machen Sie sich mit den drei Teilen einer LLM-App vertraut, wie sie in einer Konversation funktionieren und wo Änderungen vorgenommen werden können.
-source-git-commit: af83670aebde1e6f73585c89a891bc7f5e92fb3a
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '573'
+source-wordcount: '587'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Eine **LLM** App bringt die Services Ihrer Marke in ein KI-Gespräch. Ein Kunde fragt beispielsweise nach Kaffeeempfehlungen, Ihre App findet passende Produkte und der Assistent zeigt die Ergebnisse an.
 
@@ -23,7 +21,7 @@ Eine **LLM** App bringt die Services Ihrer Marke in ein KI-Gespräch. Ein Kunde 
 
 Eine App kann mehrere verwandte Aktionen gruppieren, z. B *„Produkte durchsuchen*, *Produkte vergleichen* und *Store suchen*. Jede Aktion verfügt über eigene Einstellungen, einen eigenen Handler und ein optionales Widget. Das Hinzufügen einer Aktion erfordert kein weiteres Paar von Repositorys.
 
-Eine App mit interaktiven Widgets besteht aus drei Teilen: Aktionseinstellungen, Handler-Code und Widget-Code. Die Einstellungen werden in [!DNL LLM Apps] verwaltet. Der Handler- und Widget-Code ist in zwei separaten [!DNL GitHub]-Repositorys verfügbar.
+Eine App mit interaktiven Widgets besteht aus drei Teilen: Aktionseinstellungen, Handler-Code und Widget-Code. Die Einstellungen werden in [!DNL LLM Apps] verwaltet. Der Handler- und Widget-Code ist in zwei separaten Repositorys verfügbar.
 
 ```text
 ┌───────────────────────┐   ┌───────────────────────┐   ┌───────────────────────┐

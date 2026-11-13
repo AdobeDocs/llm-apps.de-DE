@@ -1,9 +1,9 @@
 ---
 title: Vorhandene App aktualisieren
 description: Aktualisieren Sie die Laufzeitumgebung und EDS-SDK einer älteren Adobe LLM-App, bevor Sie Adobe Analytics oder Customer Journey Analytics aktivieren.
-source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '793'
+source-wordcount: '803'
 ht-degree: 0%
 ---
 
@@ -11,9 +11,7 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
 Verwenden Sie dieses Handbuch nur, wenn Ihre App `@adobe/llm-apps-runtime` vor 1.2.0 verwendet oder ihre EDS-Widgets die LLM Apps SDK vor 0.1.13 verwenden. Apps, die beide Anforderungen bereits erfüllen, können direkt mit [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md) fortfahren.
 
@@ -21,9 +19,9 @@ Verwenden Sie dieses Handbuch nur, wenn Ihre App `@adobe/llm-apps-runtime` vor 1
 
 ## Voraussetzungen {#before-you-begin}
 
-Sie benötigen Zugriff auf das Handler-Repository und - bei Apps mit EDS-Widgets - auf das mit Ihrer App verknüpfte EDS-Repository. Wenn Ihre App die von Adobe verwaltete Infrastruktur verwendet, fordern Sie Code-Zugriff an, bevor Sie Aktualisierungen vornehmen. Siehe [Verwenden von Adobe Managed Infrastructure](/help/guides/create-app.md#adobe-managed-infrastructure).
+Sie benötigen Zugriff auf das Handler-Repository und - bei Apps mit EDS-Widgets - auf das mit Ihrer App verknüpfte EDS-Repository. Wenn Ihre App [!DNL LLM Apps] verwaltete Infrastruktur verwendet, fordern Sie Code-Zugriff an, bevor Sie Aktualisierungen vornehmen. Siehe [Verwenden  [!DNL LLM Apps]  verwalteten Infrastruktur](/help/guides/create-app.md#adobe-managed-infrastructure).
 
-Das Erstellen einer anderen App ist nicht erforderlich. Aktualisieren Sie nur die Komponenten, die sich unter den unterstützten Versionen befinden. Sie können eine bestehende Adobe-Konfiguration wiederverwenden, die den [Analytics-Setup-Anforderungen“ &#x200B;](/help/guides/analytics-setup.md#setup-checklist).
+Das Erstellen einer anderen App ist nicht erforderlich. Aktualisieren Sie nur die Komponenten, die sich unter den unterstützten Versionen befinden. Sie können eine bestehende Adobe-Konfiguration wiederverwenden, die den [Analytics-Setup-Anforderungen“ ](/help/guides/analytics-setup.md#setup-checklist).
 
 Für Apps mit EDS-Widgets veröffentlichen und überprüfen Sie zunächst das SDK-Update, führen Sie dann das Laufzeitupdate zusammen und stellen Sie die App erneut bereit. Die beiden Repository-Aktualisierungen können unabhängig voneinander vorbereitet werden, aber beide müssen verfügbar sein, bevor Sie die Analytics-fähige Bereitstellung testen.
 
@@ -63,7 +61,7 @@ Für Apps mit EDS-Widgets veröffentlichen und überprüfen Sie zunächst das SD
 
 1. Bestätigen Sie die Abhängigkeitsaktualisierung und die Sperrdatei und übertragen Sie dann die Aktualisierung per Push und führen Sie sie in der Regel `main` in der Standardverzweigung des Handler-Repositorys zusammen. Bereitstellungs-Klone, die eine Verzweigung aufweisen Ein Update, das nur lokal oder in einer nicht zusammengeführten Funktionsverzweigung vorhanden ist, ist nicht in der Bereitstellung enthalten.
 
-   Wenn eine Sperrdatei vorhanden ist, installiert die Bereitstellung Abhängigkeiten mit `npm ci`, das die aufgezeichneten Versionen verwendet. Beim erneuten Bereitstellen wird die Laufzeit nicht automatisch aktualisiert. Bestätigen Sie vor der erneuten Bereitstellung die upgegradete Abhängigkeit und aufgelöste Version auf der Standardverzweigung in GitHub.
+   Wenn eine Sperrdatei vorhanden ist, installiert die Bereitstellung Abhängigkeiten mit `npm ci`, das die aufgezeichneten Versionen verwendet. Beim erneuten Bereitstellen wird die Laufzeit nicht automatisch aktualisiert. Bestätigen Sie vor der erneuten Bereitstellung die upgegradete Abhängigkeit und die aufgelöste Version auf der Standardverzweigung des Repositorys.
 
 ## Überprüfen und Aktualisieren des LLM Apps Widget-Repositorys {#upgrade-sdk}
 
@@ -92,6 +90,6 @@ Nach jeder Aktualisierungsmethode die Aktualisierung per Push übertragen und in
 
 Kehren Sie zu [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md) zurück. Alle Apps müssen Analytics aktivieren und bereitstellen, um Ereignisse zu erfassen. Beim Upgrade von Runtime oder SDK allein wird die Erfassung nicht aktiviert.
 
-Stellen Sie nach dem Speichern der Analytics-Einstellungen das Staging bereit und [&#x200B; Sie (neue Aktionsaufruf- und Widget-Interaktionsereignisse), &#x200B;](/help/guides/analytics-setup.md#verify) Sie es für die Produktion bereitstellen. Bestätigen Sie, dass die Aktion und das Widget weiterhin funktionieren und dass eine einzelne Link-Auswahl ein Widget-Interaction-Ereignis erzeugt.
+Stellen Sie nach dem Speichern der Analytics-Einstellungen das Staging bereit und [ Sie (neue Aktionsaufruf- und Widget-Interaktionsereignisse), ](/help/guides/analytics-setup.md#verify) Sie es für die Produktion bereitstellen. Bestätigen Sie, dass die Aktion und das Widget weiterhin funktionieren und dass eine einzelne Link-Auswahl ein Widget-Interaction-Ereignis erzeugt.
 
 Analytics beginnt mit der Erfassung neuer Interaktionen nach der Analytics-fähigen Bereitstellung. Beim Upgrade werden Interaktionen, die vor der Aktivierung der Sammlung aufgetreten sind, nicht rekonstruiert.

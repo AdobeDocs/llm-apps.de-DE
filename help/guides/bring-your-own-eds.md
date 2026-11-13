@@ -2,21 +2,19 @@
 title: Eigenes Edge Delivery Services-Projekt einbringen
 description: Verbinden eines vorhandenen Adobe Edge Delivery Services-Projekts mit einer Adobe LLM Apps-Aktion.
 hidefromtoc: true
-source-git-commit: 557173e8d95325b980efac4d72c06bb3d90dcd72
+source-git-commit: 9b2ec369baba5d533088d2dd4adefcb80f5c9727
 workflow-type: tm+mt
-source-wordcount: '866'
-ht-degree: 1%
+source-wordcount: '900'
+ht-degree: 2%
 ---
 
 # Eigenes EDS-Projekt mitbringen {#bring-your-own-eds}
 
 >[!IMPORTANT]
 >
->[!DNL Adobe LLM Apps] befindet sich derzeit in Beta.
->
->Die hier gezeigten Funktionen, Workflows und Benutzeroberflächen stellen nicht unbedingt den endgültigen Status des Produkts dar. Um Beta beizutreten, senden Sie eine E-Mail an llm-apps-beta@adobe.com.
+>LLM-Apps stehen allen AEM Sites Cloud Service-Kunden zur Entwicklung und Verwaltung eigener Apps zur Verfügung. Sobald die Erfassung beginnt, wird jeder App-Aufruf für die AEM Sites-Inhaltsanfragen des Kunden angerechnet. Adobe gibt die Pipettierungsrate und das Startdatum vor dem Inkrafttreten der Pipettierung an.
 
-Verwenden Sie dieses Handbuch, um ein kompatibles vorhandenes Edge Delivery Services-Projekt (EDS) zu verbinden oder ein Widget zu einer selbst erstellten Aktion hinzuzufügen. Ein vorhandenes Projekt ist optional. Wenn Sie Ihre eigene Infrastruktur einrichten, beginnt der Standardpfad mit zwei leeren Repositorys, die von der Plattform beim Einrichten der [&#x200B; initialisiert &#x200B;](/help/guides/create-app.md).
+Verwenden Sie dieses Handbuch, um ein kompatibles vorhandenes Edge Delivery Services-Projekt (EDS) zu verbinden oder ein Widget zu einer selbst erstellten Aktion hinzuzufügen. Ein vorhandenes Projekt ist optional. Wenn Sie Ihre eigene Infrastruktur einrichten, beginnt der Standardpfad mit zwei leeren Repositorys, die von der Plattform beim Einrichten der [ initialisiert ](/help/guides/create-app.md).
 
 Wenn die Plattform Ihr Widget automatisch erstellt hat, folgen Sie stattdessen [Generiertes Widget anpassen](/help/guides/widgets.md). Das generierte Projekt enthält bereits die hier beschriebenen SDK-Dateien, -Blöcke, -Inhalte und die Aktionskonfiguration.
 
@@ -26,7 +24,7 @@ Wenn die Plattform Ihr Widget automatisch erstellt hat, folgen Sie stattdessen [
 
 Sie benötigen:
 
-- Ein mit AEM-Textbausteinen kompatibles EDS-Repository mit [installierter AEM](https://github.com/apps/aem-code-sync)Code-Synchronisierung und einer konfigurierten Inhaltsquelle.
+- Ein mit AEM-Textbausteinen kompatibles EDS-Repository mit einer konfigurierten Inhaltsquelle, dessen Code die Website über [AEM Code Sync](https://github.com/apps/aem-code-sync) (GitHub) oder über [!DNL Cloud Manager] mit [Bring your own Git](https://www.aem.live/developer/byo-git) (other Git-Anbieter) erreicht.
 - Berechtigung zum Hinzufügen von Abhängigkeiten und Erstellen von Blöcken in diesem Repository.
 - Berechtigung zum Konfigurieren von Antwort-Headern für die EDS-Site.
 - Eine Aktion in [!DNL LLM Apps] mit einem Handler, der `structuredContent` zurückgibt.
