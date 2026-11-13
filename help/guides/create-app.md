@@ -77,7 +77,7 @@ Wählen **[!UICONTROL Mein Cloud Manager-Setup verwenden]** und dann **[!UICONTR
 
 - Zugriff auf das [!DNL Cloud Manager] Programm, zu dem die App gehören wird.
 - Zwei Repositorys, eines für Aktionshandler und eines für Widgets. Leere Repositorys sind in Ordnung, einschließlich eines Repositorys, das nur die README enthält, die von seinem Git-Host erstellt wurde.
-- Beide Repositorys [zu Cloud Manager hinzugefügt](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-manager/content/managing-code/external-repositories) als private Repositorys, mit validiertem Besitz und dem Status **Bereit**. [!DNL Cloud Manager] müssen in der Lage sein, ihnen zu schreiben. Ein schreibgeschütztes Zugriffstoken reicht nicht aus.
+- Beide Repositorys [zu Cloud Manager hinzugefügt](https://experienceleague.adobe.com/de/docs/experience-manager-cloud-manager/content/managing-code/external-repositories) als private Repositorys, mit validiertem Besitz und dem Status **Bereit**. [!DNL Cloud Manager] müssen in der Lage sein, ihnen zu schreiben. Ein schreibgeschütztes Zugriffstoken reicht nicht aus.
 
 Es werden nur Repositorys aufgelistet, die Sie selbst hosten. Repositorys, die von Adobe in [!DNL Cloud Manager] gehostet werden, werden nicht unterstützt.
 
