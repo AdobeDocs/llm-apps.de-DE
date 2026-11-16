@@ -1,9 +1,9 @@
 ---
 title: Übersicht über Adobe LLM-Apps
 description: Erfahren Sie, was Adobe LLM-Apps sind, wie sie funktionieren und wie Sie mit der Erstellung Ihrer App beginnen.
-source-git-commit: 07bcd58b3aab70b03f62523b5b25f30f4b6d7004
+source-git-commit: 5a0959012e11cc46850cb5efd6e48e5258e54b0f
 workflow-type: tm+mt
-source-wordcount: '596'
+source-wordcount: '604'
 ht-degree: 1%
 ---
 
@@ -13,9 +13,9 @@ ht-degree: 1%
 
 [!DNL Adobe LLM Apps] ermöglicht es Ihrer Marke, innerhalb unterstützter KI-Assistenten wie [!DNL ChatGPT] und [!DNL Claude] nützliche Aktionen anzubieten, z. B. Produkterkennung, Verfügbarkeitsprüfungen oder Service-Buchungen.
 
->[!VIDEO](https://video.tv.adobe.com/v/3504882/?captions=ger&learn=on&enablevpops)
+>[!VIDEO](https://video.tv.adobe.com/v/3504875/?learn=on&enablevpops)
 
-[!DNL LLM Apps] ist verfügbar unter [experience.adobe.com/llm-apps](https://experience.adobe.com/llm-apps).
+Sie können [!DNL LLM Apps] über [[!DNL AEM Experience Hub]](https://experience.adobe.com/de/experiencemanager/) öffnen oder direkt zu [experience.adobe.com/llm-apps](https://experience.adobe.com/llm-apps) gehen.
 
 
 ## Was man mit [!DNL LLM Apps] machen kann
@@ -73,10 +73,10 @@ Technische Details dazu, was erstellt werden soll und wie die Komponenten zusamm
 
 Das Erstellen einer App und das Erstellen ihrer Aktionen sind separate Schritte:
 
-1. [Richten Sie die Infrastruktur &#x200B;](/help/guides/create-app.md). Verwenden Sie [!DNL LLM Apps] verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen Repositorys, die zu [!DNL Cloud Manager] hinzugefügt wurden.
+1. [Richten Sie die Infrastruktur ](/help/guides/create-app.md). Verwenden Sie [!DNL LLM Apps] verwaltete Infrastruktur für eine schnelle Einrichtung oder verwenden Sie Ihre eigenen Repositorys, die zu [!DNL Cloud Manager] hinzugefügt wurden.
 2. [Erstellen Sie Ihre Aktionen](/help/guides/creating-actions.md). Lassen Sie die Plattform Ihre Website analysieren und Aktionen generieren oder erstellen Sie sie selbst.
 3. [Bereitstellen und Testen der App](/help/guides/deploy-your-app.md). Überprüfen Sie die generierte Arbeit, stellen Sie sie in einer unterstützten LLM-Plattform bereit und testen Sie sie.
 
-Die automatische Generierung bietet einen Ausgangspunkt mit dem Beispielverhalten. Bevor Sie die App für Kunden verfügbar machen, [&#x200B; Sie Ihre Handler mit Ihren Systemen &#x200B;](/help/guides/customize-handler.md) und [&#x200B; Sie die Widgets &#x200B;](/help/guides/widgets.md).
+Die automatische Generierung bietet einen Ausgangspunkt mit dem Beispielverhalten. Bevor Sie die App für Kunden verfügbar machen, [ Sie Ihre Handler mit Ihren Systemen ](/help/guides/customize-handler.md) und [ Sie die Widgets ](/help/guides/widgets.md).
 
 Informationen zum Erstellen von Berichten über Ihre App in Ihrem eigenen [!DNL Adobe Analytics] oder [!DNL Customer Journey Analytics] finden Sie unter [Einrichten von Adobe Analytics und Customer Journey Analytics](/help/guides/analytics-setup.md).
